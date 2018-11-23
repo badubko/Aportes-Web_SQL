@@ -8,6 +8,7 @@
 if (isset($_POST['submit'])) {
     require "../config_ap_V1.0.php";
     require "../common_ap_V1.0.php";
+
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
         
@@ -21,7 +22,7 @@ if (isset($_POST['submit'])) {
         );
         $sql = sprintf(
                 "INSERT INTO %s (%s) values (%s)",
-                "users1",
+                "t_users1",
                 implode(", ", array_keys($new_user)),
                 ":" . implode(", :", array_keys($new_user))
         );
@@ -35,6 +36,9 @@ if (isset($_POST['submit'])) {
 ?>
 
 <?php require "templates/header.php"; ?>
+
+
+ <blockquote> Paso por 1 </blockquote>
 
 <?php if (isset($_POST['submit']) && $statement) { ?>
     <blockquote><?php echo $_POST['apellido']; ?> successfully added.</blockquote>
