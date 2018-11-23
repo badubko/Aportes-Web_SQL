@@ -5,7 +5,7 @@
  * users table.
  *
  */
-if (isset($_POST['Submit'])) {
+if (isset($_POST['submit'])) {
     require "../config_ap_V1.0.php";
     require "../common_ap_V1.0.php";
     try  {
