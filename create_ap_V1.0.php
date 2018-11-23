@@ -6,8 +6,8 @@
  *
  */
 if (isset($_POST['submit'])) {
-    require "./config_ap_V1.0.php";
-    require "./common_ap_V1.0.php";
+    require "../config_ap_V1.0.php";
+    require "../common_ap_V1.0.php";
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
         
@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
 		<input type="text" name="email_1" id="email_1">
 	<label for="email_2">Email Alternativo</label>
 		<input type="text" name="email_2" id="email_2">	
-	<input type="submit" name="submit" value="Submit">
+	<input type="submit" name="submit" value="submit">
 </form>
 
 <a href="index_ap_V1.0.php">Back to home</a>
