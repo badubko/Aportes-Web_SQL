@@ -13,14 +13,14 @@ if (isset($_POST['submit'])) {
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
-		$sql = "SELECT * 
-						FROM users
-						WHERE location = :location";
+		$sql = "SELECT dni , apellido  
+						FROM t_users1
+						WHERE dni = :dni";
 
-		$location = $_POST['location'];
+		$dni = $_POST['dni'];
 
 		$statement = $connection->prepare($sql);
-		$statement->bindParam(':location', $location, PDO::PARAM_STR);
+		$statement->bindParam(':dni', $dni, PDO::PARAM_STR);
 		$statement->execute();
 
 		$result = $statement->fetchAll();
@@ -40,38 +40,29 @@ if (isset($_POST['submit'])) {
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email Address</th>
-					<th>Age</th>
-					<th>Location</th>
-					<th>Date</th>
+					<th>dni</th>
+					<th>apellido</th>
 				</tr>
 			</thead>
 			<tbody>
 	<?php foreach ($result as $row) { ?>
 			<tr>
-				<td><?php echo escape($row["id"]); ?></td>
-				<td><?php echo escape($row["firstname"]); ?></td>
-				<td><?php echo escape($row["lastname"]); ?></td>
-				<td><?php echo escape($row["email"]); ?></td>
-				<td><?php echo escape($row["age"]); ?></td>
-				<td><?php echo escape($row["location"]); ?></td>
-				<td><?php echo escape($row["date"]); ?> </td>
+				<td><?php echo escape($row["dni"]); ?></td>
+				<td><?php echo escape($row["apellido"]); ?></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
 	</table>
 	<?php } else { ?>
-		<blockquote>No results found for <?php echo escape($_POST['location']); ?>.</blockquote>
+		<blockquote>No results found for <?php echo escape($_POST['dni']); ?>.</blockquote>
 	<?php } 
 } ?> 
 
 <h2>Find user based on location</h2>
 
 <form method="post">
-	<label for="location">Location</label>
-	<input type="text" id="location" name="location">
+	<label for="dni">DNI</label>
+	<input type="text" id="dni" name="dni">
 	<input type="submit" name="submit" value="View Results">
 </form>
 
