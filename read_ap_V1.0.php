@@ -15,12 +15,12 @@ if (isset($_POST['submit'])) {
 
 		$sql = "SELECT dni , apellido  
 						FROM t_users1
-						WHERE dni = :dni";
+						WHERE apellido = :apellido";
 
-		$dni = $_POST['dni'];
+		$apellido = $_POST['apellido'];
 
 		$statement = $connection->prepare($sql);
-		$statement->bindParam(':dni', $dni, PDO::PARAM_STR);
+		$statement->bindParam(':apellido', $apellido, PDO::PARAM_STR);
 		$statement->execute();
 
 		$result = $statement->fetchAll();
@@ -54,15 +54,15 @@ if (isset($_POST['submit'])) {
 			</tbody>
 	</table>
 	<?php } else { ?>
-		<blockquote>No results found for <?php echo escape($_POST['dni']); ?>.</blockquote>
+		<blockquote>No results found for <?php echo escape($_POST['apellido']); ?>.</blockquote>
 	<?php } 
 } ?> 
 
-<h2>Find user based on location</h2>
+<h2>Find user based on apellido</h2>
 
 <form method="post">
-	<label for="dni">DNI</label>
-	<input type="text" id="dni" name="dni">
+	<label for="apellido">Apellido</label>
+	<input type="text" id="apellido" name="apellido">
 	<input type="submit" name="submit" value="View Results">
 </form>
 
