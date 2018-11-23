@@ -5,8 +5,8 @@
  * users table.
  *
  */
-if (isset($_POST['submit'])) {
-    require "../config1_ap_V1.0.php";
+if (isset($_POST['Submit'])) {
+    require "../config_ap_V1.0.php";
     require "../common_ap_V1.0.php";
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         );
         $sql = sprintf(
                 "INSERT INTO %s (%s) values (%s)",
-                "t_users1",
+                "users1",
                 implode(", ", array_keys($new_user)),
                 ":" . implode(", :", array_keys($new_user))
         );
