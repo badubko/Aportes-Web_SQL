@@ -1,16 +1,18 @@
-<?php include "templates/header.php"; ?><h2>Agregar Voluntario</h2>
+<?php include "templates/header.php"; ?><h2>Agregar Voluntario V1.0</h2>
 
 <form method="post">
 	<label for="nombres">Nombres</label>
-	<input type="text" name="nombres" id="nombres">
+		<input type="text" name="nombres" id="nombres">
 	<label for="apellido">Apellidos</label>
-	<input type="text" name="apellido" id="apellido">
-	<label for="email_1">Email Principal</label>
-	<input type="text" name="email_1" id="email_1">
+		<input type="text" name="apellido" id="apellido">
 	<label for="dni">DNI</label>
-	<input type="text" name="dni" id="dni">
+		<input type="text" name="dni" id="dni">
 	<label for="profesion">Profesion</label>
-	<input type="text" name="profesion" id="profesion">
+		<input type="text" name="profesion" id="profesion">
+	<label for="email_1">Email Principal</label>
+		<input type="text" name="email_1" id="email_1">
+	<label for="email_2">Email Alternativo</label>
+		<input type="text" name="email_2" id="email_2">	
 	<input type="submit" name="submit" value="Submit">
 </form>
 
