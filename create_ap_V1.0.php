@@ -6,7 +6,7 @@
  *
  */
 if (isset($_POST['submit'])) {
-    require "../config_ap_V1.0.php";
+    require "../config1_ap_V1.0.php";
     require "../common_ap_V1.0.php";
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
     <blockquote><?php echo $_POST['apellido']; ?> successfully added.</blockquote>
 <?php } ?>
 
-<h2>Agregar Voluntario V1.0</h2>
+<h2>Agregar Voluntario V1.1</h2>
 
 <form method="post">
 	<label for="nombres">Nombres</label>
@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
 		<input type="text" name="email_1" id="email_1">
 	<label for="email_2">Email Alternativo</label>
 		<input type="text" name="email_2" id="email_2">	
-	<input type="submit" name="submit" value="submit">
+	<input type="submit" name="submit" value="Submit">
 </form>
 
 <a href="index_ap_V1.0.php">Back to home</a>
