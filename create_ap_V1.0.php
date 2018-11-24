@@ -38,7 +38,9 @@ if (isset($_POST['submit'])) {
 <?php require "templates/header.php"; ?>
 
 
-// <blockquote> Paso por 1 </blockquote>
+<!--
+<blockquote> Paso por 1 </blockquote> 
+-->
 
 <?php if (isset($_POST['submit']) && $statement) { ?>
     <blockquote><?php echo $_POST['apellido']; ?> successfully added.</blockquote>
