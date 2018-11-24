@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
-		$sql = "SELECT dni , apellido  
+		$sql = "SELECT dni , apellido  , nombres
 						FROM t_users1
 						WHERE apellido = :apellido";
 
@@ -39,9 +39,9 @@ if (isset($_POST['submit'])) {
 		<table>
 			<thead>
 				<tr>
-					<th>#</th>
 					<th>dni</th>
 					<th>apellido</th>
+					<th>nombre</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -49,6 +49,7 @@ if (isset($_POST['submit'])) {
 			<tr>
 				<td><?php echo escape($row["dni"]); ?></td>
 				<td><?php echo escape($row["apellido"]); ?></td>
+				<td><?php echo escape($row["nombres"]); ?></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
