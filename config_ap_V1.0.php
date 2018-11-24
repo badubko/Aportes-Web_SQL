@@ -5,7 +5,8 @@
  *
  */
 
-$host       = "192.168.1.29";
+//$host       = "192.168.1.29";
+$host       = "localhost";
 $username   = "root";
 $password   = "combet_0975?";
 $dbname     = "aportesV1"; // will use later

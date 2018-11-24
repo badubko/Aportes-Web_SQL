@@ -8,8 +8,8 @@
 
 if (isset($_POST['submit'])) {
 	try {	
-		require "../config.php";
-		require "../common.php";
+		require "./config_ap_V1.0.php";
+		require "./common.php";
 
 		$connection = new PDO($dsn, $username, $password, $options);
 

@@ -6,14 +6,14 @@
  *
  */
 if (isset($_POST['submit'])) {
-    require "../config_ap_V1.0.php";
-    require "../common_ap_V1.0.php";
+    require "./config_ap_V1.0.php";
+    require "./common_ap_V1.0.php";
 
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
         
         $new_user = array(
-            "nombre" => $_POST['nombres'],
+            "nombres" => $_POST['nombres'],
             "apellido"  => $_POST['apellido'],
             "dni"     => $_POST['dni'],
             "profesion"       => $_POST['profesion'],
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 <?php require "templates/header.php"; ?>
 
 
- <blockquote> Paso por 1 </blockquote>
+// <blockquote> Paso por 1 </blockquote>
 
 <?php if (isset($_POST['submit']) && $statement) { ?>
     <blockquote><?php echo $_POST['apellido']; ?> successfully added.</blockquote>
