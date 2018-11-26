@@ -41,6 +41,7 @@ if (isset($_POST['submit'])) {
  
 if (isset($_GET['dni'])) {
   try {
+	  echo $_GET['dni']; // for testing purposes
     $connection = new PDO($dsn, $username, $password, $options);
     $dni = $_GET['dni'];
     $sql = "SELECT * FROM t_users1 WHERE dni = :dni";
