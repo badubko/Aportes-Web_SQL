@@ -13,9 +13,9 @@ if (isset($_POST['submit'])) {
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
-		$sql = "SELECT dni , apellido  , nombres , profesion , email_1
+		$sql = "SELECT dni , apellido  , nombres , profesion , email_1 , email_2 
 						FROM t_users1
-						WHERE apellido = :apellido";
+						WHERE apellido LIKE :apellido";
 
 		$apellido = $_POST['apellido'];
 
