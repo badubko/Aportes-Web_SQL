@@ -2,7 +2,7 @@
 
 /**
  * Function to query information based on 
- * a parameter: in this case, location.
+ * a parameter: in this case, apellido.
  *
  */
 
@@ -56,6 +56,7 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["profesion"]); ?></td>
 				<td><?php echo escape($row["email_1"]); ?></td>
 				<td><?php echo escape($row["email_2"]); ?></td>
+				<td><a href="update-single_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>">Edit</a></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
