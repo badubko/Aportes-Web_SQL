@@ -4,47 +4,45 @@
  * users table.
  *
  */
-require "./config_ap_V1.0.php";
+require "./config.php";
 require "./common.php";
-echo "paso x aqui0";
 if (isset($_POST['submit'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
     $user =[
-      "dni"      	=> $_POST['dni'],
-      "apellido" 	=> $_POST['apellido'],
-      "nombres"  	=> $_POST['nombres'],
-      "profesion"	=> $_POST['profesion'],
-      "email_1"     => $_POST['email_1'],
-      "email_2"  	=> $_POST['email_2']
-
+      "id"        => $_POST['id'],
+      "firstname" => $_POST['firstname'],
+      "lastname"  => $_POST['lastname'],
+      "email"     => $_POST['email'],
+      "age"       => $_POST['age'],
+      "location"  => $_POST['location'],
+      "date"      => $_POST['date']
     ];
 
-    $sql = "UPDATE t_users1 
-            SET dni = :dni, 
-              apellido = :apellido, 
-              nombres = :nombres, 
-              profesion = :profesion,
-              email_1 = :email_1,
-              email_2 = :email_2  
-             WHERE dni = :dni";
-  echo "paso x aqui 0.1";
+    $sql = "UPDATE users 
+            SET id = :id, 
+              firstname = :firstname, 
+              lastname = :lastname, 
+              email = :email, 
+              age = :age, 
+              location = :location, 
+              date = :date 
+            WHERE id = :id";
+  
   $statement = $connection->prepare($sql);
   $statement->execute($user);
-  
   } catch(PDOException $error) {
       echo $sql . "<br>" . $error->getMessage();
   }
 }
-  echo "paso x aqui1";
- 
-if (isset($_GET['dni'])) {
+  
+if (isset($_GET['id'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
-    $dni = $_GET['dni'];
-    $sql = "SELECT * FROM t_users1 WHERE dni = :dni";
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM users WHERE id = :id";
     $statement = $connection->prepare($sql);
-    $statement->bindValue(':dni', $dni);
+    $statement->bindValue(':id', $id);
     $statement->execute();
     
     $user = $statement->fetch(PDO::FETCH_ASSOC);
@@ -52,7 +50,7 @@ if (isset($_GET['dni'])) {
       echo $sql . "<br>" . $error->getMessage();
   }
 } else {
-    echo "Something went wrong AQUI!" ;
+    echo "Something went wrong!";
     exit;
 }
 ?>
@@ -60,7 +58,7 @@ if (isset($_GET['dni'])) {
 <?php require "templates/header.php"; ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
-	<blockquote><?php echo escape($_POST['apellido']); ?> successfully updated.</blockquote>
+	<blockquote><?php echo escape($_POST['firstname']); ?> successfully updated.</blockquote>
 <?php endif; ?>
 
 <h2>Edit a user</h2>
@@ -68,11 +66,11 @@ if (isset($_GET['dni'])) {
 <form method="post">
     <?php foreach ($user as $key => $value) : ?>
       <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-	    <input type="text" name="<?php echo $key; ?>" dni="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
+	    <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
     <?php endforeach; ?> 
     <input type="submit" name="submit" value="Submit">
 </form>
 
-<a href="index_ap_V1.0.php">Back to home</a>
+<a href="index.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
