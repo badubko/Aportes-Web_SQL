@@ -46,7 +46,7 @@ try {
         <td><?php echo escape($row["email_1"]); ?></td>
         <td><?php echo escape($row["email_2"]); ?></td>
         <td><?php echo escape($row["last_update"]); ?> </td>
-        <td><a href="update-single_pru_V1.2.php?dni=<?php echo escape($row["dni"]); ?>">Edit</a></td>
+        <td><a href="update-single_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>">Edit</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
