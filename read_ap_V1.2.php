@@ -44,6 +44,7 @@ if (isset($_POST['submit'])) {
 					<th>nombre</th>
 					<th>profesion</th>
 					<th>email_1</th>
+					<th>email_2</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -54,6 +55,7 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["nombres"]); ?></td>
 				<td><?php echo escape($row["profesion"]); ?></td>
 				<td><?php echo escape($row["email_1"]); ?></td>
+				<td><?php echo escape($row["email_2"]); ?></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
