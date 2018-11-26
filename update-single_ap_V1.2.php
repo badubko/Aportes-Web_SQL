@@ -16,8 +16,8 @@ if (isset($_POST['submit'])) {
       "nombres"  	=> $_POST['nombres'],
       "profesion"	=> $_POST['profesion'],
       "email_1"     => $_POST['email_1'],
-      "email_2"  	=> $_POST['email_2'],
-      "last_update" => $_POST['last_update']
+      "email_2"  	=> $_POST['email_2']
+    
     ];
 
     $sql = "UPDATE t_users1 
@@ -26,8 +26,8 @@ if (isset($_POST['submit'])) {
               nombres = :nombres, 
               profesion = :profesion,
               email_1 = :email_1,
-              email_2 = :email_2,
-              last_update = :last_update  
+              email_2 = :email_2
+             
              WHERE dni = :dni";
  
   $statement = $connection->prepare($sql);
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
  
 if (isset($_GET['dni'])) {
   try {
-	  echo $_GET['dni']; // for testing purposes
+
     $connection = new PDO($dsn, $username, $password, $options);
     $dni = $_GET['dni'];
     $sql = "SELECT * FROM t_users1 WHERE dni = :dni";
