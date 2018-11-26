@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
 <h2>Find user based on apellido</h2>
 
 <form method="post">
-	<label for="apellido">Apellido</label>
+	<label for="apellido">Apellido (A%  %A%  %)</label>
 	<input type="text" id="apellido" name="apellido">
 	<input type="submit" name="submit" value="View Results">
 </form>
