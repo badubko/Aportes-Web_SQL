@@ -16,8 +16,8 @@ if (isset($_POST['submit'])) {
       "nombres"  	=> $_POST['nombres'],
       "profesion"	=> $_POST['profesion'],
       "email_1"     => $_POST['email_1'],
-      "email_2"  	=> $_POST['email_2']
-
+      "email_2"  	=> $_POST['email_2'],
+      "last_update" => $_POST['last_update']
     ];
 
     $sql = "UPDATE t_users1 
@@ -26,7 +26,8 @@ if (isset($_POST['submit'])) {
               nombres = :nombres, 
               profesion = :profesion,
               email_1 = :email_1,
-              email_2 = :email_2  
+              email_2 = :email_2,
+              last_update = :last_update  
              WHERE dni = :dni";
   echo "paso x aqui 0.1";
   $statement = $connection->prepare($sql);
