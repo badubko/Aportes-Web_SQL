@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
-		$sql = "SELECT dni , apellido  , nombres , profesion , email_1 , email_2 
+		$sql = "SELECT dni , apellido  , nombres , profesion , email_1 , email_2 , last_update
 						FROM t_users1
 						WHERE apellido LIKE :apellido";
 
@@ -45,6 +45,7 @@ if (isset($_POST['submit'])) {
 					<th>profesion</th>
 					<th>email_1</th>
 					<th>email_2</th>
+					<th>last_update</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -56,6 +57,7 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["profesion"]); ?></td>
 				<td><?php echo escape($row["email_1"]); ?></td>
 				<td><?php echo escape($row["email_2"]); ?></td>
+				<td><?php echo escape($row["last_update"]); ?></td>
 				<td><a href="update-single_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>">Edit</a></td>
 			</tr>
 		<?php } ?> 
