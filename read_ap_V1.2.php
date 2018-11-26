@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['submit'])) {
 	if ($result && $statement->rowCount() > 0) { ?>
 		<h2>Results</h2>
-
+		<a href="index_ap_V1.2.php">Back to home</a>
 		<table>
 			<thead>
 				<tr>
