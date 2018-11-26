@@ -4,9 +4,9 @@
  * users table.
  *
  */
-require "./config_ap_V1.0.php";
-require "./common.php";
-echo "paso x aqui0";
+require "./config_ap_V1.2.php";
+require "./common_ap_V1.2.php";
+
 if (isset($_POST['submit'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
               email_2 = :email_2,
               last_update = :last_update  
              WHERE dni = :dni";
-  echo "paso x aqui 0.1";
+ 
   $statement = $connection->prepare($sql);
   $statement->execute($user);
   
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
       echo $sql . "<br>" . $error->getMessage();
   }
 }
-  echo "paso x aqui1";
+ 
  
 if (isset($_GET['dni'])) {
   try {
