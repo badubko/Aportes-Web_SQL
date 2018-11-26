@@ -54,7 +54,7 @@ if (isset($_GET['dni'])) {
       echo $sql . "<br>" . $error->getMessage();
   }
 } else {
-	echo $_GET['id']; // for testing purposes
+	echo $_GET['dni'] , " EN ELSE "; // for testing purposes
     echo "Something went wrong AQUI!" ;
     exit;
 }

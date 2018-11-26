@@ -6,11 +6,11 @@
  *
  */
 
-require "./config.php";
+require "./config_ap_V1.0.php";
 require "./common.php";
 
-if (isset($_GET['id'])) {
-  echo $_GET['id']; // for testing purposes
+if (isset($_GET['dni'])) {
+  echo $_GET['dni']; // for testing purposes
 } else {
     echo "Something went wrong!";
     exit;
