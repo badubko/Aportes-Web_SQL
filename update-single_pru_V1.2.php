@@ -13,6 +13,7 @@ if (isset($_GET['dni'])) {
   echo $_GET['dni']; // for testing purposes
 } else {
     echo "Something went wrong!";
+    echo $_GET['dni']; // for testing purposes
     exit;
 }
 ?>
