@@ -54,7 +54,6 @@ if (isset($_GET['dni'])) {
       echo $sql . "<br>" . $error->getMessage();
   }
 } else {
-	echo $_GET['dni'] , " EN ELSE "; // for testing purposes
     echo "Something went wrong AQUI!" ;
     exit;
 }
@@ -73,9 +72,10 @@ if (isset($_GET['dni'])) {
       <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
 	    <input type="text" name="<?php echo $key; ?>" dni="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
     <?php endforeach; ?> 
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" name="submit" value="Guardar">
 </form>
 
+<a href="read_ap_V1.2.php">Modif Otro Voluntario</a>
 <a href="index_ap_V1.2.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
