@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     
     ];
 
-    $sql = "UPDATE t_users1 
+    $sql1 = "UPDATE t_users1 
             SET dni = :dni, 
               apellido = :apellido, 
               nombres = :nombres, 
@@ -30,11 +30,11 @@ if (isset($_POST['submit'])) {
              
              WHERE dni = :dni";
  
-  $statement = $connection->prepare($sql);
+  $statement = $connection->prepare($sql1);
   $statement->execute($user);
   
   } catch(PDOException $error) {
-      echo $sql . "<br>" . $error->getMessage();
+      echo $sql1 . "<br>" . $error->getMessage();
   }
 }
  
@@ -44,14 +44,14 @@ if (isset($_GET['dni'])) {
 
     $connection = new PDO($dsn, $username, $password, $options);
     $dni = $_GET['dni'];
-    $sql = "SELECT * FROM t_users1 WHERE dni = :dni";
-    $statement = $connection->prepare($sql);
+    $sql1 = "SELECT * FROM t_users1 WHERE dni = :dni";
+    $statement = $connection->prepare($sql1);
     $statement->bindValue(':dni', $dni);
     $statement->execute();
     
     $user = $statement->fetch(PDO::FETCH_ASSOC);
   } catch(PDOException $error) {
-      echo $sql . "<br>" . $error->getMessage();
+      echo $sql1 . "<br>" . $error->getMessage();
   }
 } else {
     echo "Something went wrong AQUI!" ;
