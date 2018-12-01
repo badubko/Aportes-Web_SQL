@@ -59,6 +59,7 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["email_2"]); ?></td>
 				<td><?php echo escape($row["last_update"]); ?></td>
 				<td><a href="update-single_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>">Edit</a></td>
+				<td><a href="update-espec_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>">Edit</a></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
