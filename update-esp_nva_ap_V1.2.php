@@ -26,7 +26,7 @@ try {
 <?php require "templates/header.php"; ?>
         
 <h2>Actualizar Especialidad de un Vol</h2>
-<h3><?php echo escape($apellido) , "  " , escape($nombres); ?></h3>
+<h3><?php echo escape($apellido) , ", " , escape($nombres); ?></h3>
 
 <table>
 
