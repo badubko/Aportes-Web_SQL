@@ -60,7 +60,7 @@ try {
     <tr>
       <td><?php echo escape($row["dni"]); ?></td>
       <td><?php echo escape($row["especialidad"]); ?></td>
-      <td><a href="delete-espec_ap_V1.2.php?id=<?php echo escape($row["id"]); ?>">Delete</a></td>
+      <td><a href="delete-espec_ap_V1.2.php?id=<?php echo escape($row["dni"]); ?>">Delete</a></td>
     </tr>
   <?php endforeach; ?>
   </tbody>
