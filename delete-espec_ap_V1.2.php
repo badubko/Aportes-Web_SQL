@@ -4,22 +4,24 @@
  * Delete a user
  */
 
-require "../config.php";
-require "../common.php";
+  require "./config_ap_V1.2.php";
+  require "./common_ap_V1.2.php";
 
-if (isset($_GET["id"])) {
+if (isset($_GET["dni"])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
   
-    $id = $_GET["id"];
+    $dni = $_GET["dni"];
+    $especialidad = $_GET["especialidad"];
 
-    $sql = "DELETE FROM users WHERE id = :id";
+    $sql = "DELETE FROM t_especialidad_user WHERE dni = :dni" AND especialidad = :especialidad ;
 
     $statement = $connection->prepare($sql);
-    $statement->bindValue(':id', $id);
+    $statement->bindValue(':dni', $dni);
+    $statement->bindValue(':especialidad', $especialidad);
     $statement->execute();
 
-    $success = "User successfully deleted";
+    $success = "Especialidad successfully deleted";
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
   }
@@ -28,7 +30,7 @@ if (isset($_GET["id"])) {
 try {
   $connection = new PDO($dsn, $username, $password, $options);
 
-  $sql = "SELECT * FROM users";
+  $sql = "SELECT dni , especialidad FROM t_especialidad_user";
 
   $statement = $connection->prepare($sql);
   $statement->execute();
@@ -40,7 +42,7 @@ try {
 ?>
 <?php require "templates/header.php"; ?>
         
-<h2>Delete users</h2>
+<h2>Delete especialidad</h2>
 
 <?php if ($success) echo $success; ?>
 
@@ -48,31 +50,22 @@ try {
   <thead>
     <tr>
       <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email Address</th>
-      <th>Age</th>
-      <th>Location</th>
-      <th>Date</th>
+      <th>DNI</th>
+      <th>Especialidad</th>
       <th>Delete</th>
     </tr>
   </thead>
   <tbody>
   <?php foreach ($result as $row) : ?>
     <tr>
-      <td><?php echo escape($row["id"]); ?></td>
-      <td><?php echo escape($row["firstname"]); ?></td>
-      <td><?php echo escape($row["lastname"]); ?></td>
-      <td><?php echo escape($row["email"]); ?></td>
-      <td><?php echo escape($row["age"]); ?></td>
-      <td><?php echo escape($row["location"]); ?></td>
-      <td><?php echo escape($row["date"]); ?> </td>
-      <td><a href="delete.php?id=<?php echo escape($row["id"]); ?>">Delete</a></td>
+      <td><?php echo escape($row["dni"]); ?></td>
+      <td><?php echo escape($row["especialidad"]); ?></td>
+      <td><a href="delete-espec_ap_V1.2.php?id=<?php echo escape($row["id"]); ?>">Delete</a></td>
     </tr>
   <?php endforeach; ?>
   </tbody>
 </table>
 
-<a href="index.php">Back to home</a>
+<a href="read_ap_V1.2.php">Back to Act Vol</a>
 
 <?php require "templates/footer.php"; ?>
