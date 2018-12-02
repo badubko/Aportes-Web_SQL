@@ -14,7 +14,7 @@ if (isset($_GET["dni"])) {
     $dni = $_GET["dni"];
     $especialidad = $_GET["especialidad"];
 
-    $sql = "DELETE FROM t_especialidad_user WHERE dni = :dni" AND especialidad = :especialidad ;
+    $sql = "DELETE FROM t_especialidad_user WHERE dni = :dni AND especialidad = :especialidad ";
 
     $statement = $connection->prepare($sql);
     $statement->bindValue(':dni', $dni);
