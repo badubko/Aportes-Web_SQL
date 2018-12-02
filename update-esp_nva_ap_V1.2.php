@@ -43,7 +43,9 @@ try {
         <td><?php echo escape($row["dni"]); ?></td>
         <td><?php echo escape($row["especialidad"]); ?></td>
         <td><?php echo escape($row["last_update"]); ?></td>
-        <td><a href="update-espec_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>">Delete</a></td>
+        <td><a href="delete-espec_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>
+        &especialidad=<?php echo escape($row["especialidad"]); ?>
+        ">Delete</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
