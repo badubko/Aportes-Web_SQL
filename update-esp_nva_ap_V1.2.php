@@ -9,10 +9,11 @@ try {
   require "./common_ap_V1.2.php";
 
   $connection = new PDO($dsn, $username, $password, $options);
-
-  $sql = "SELECT especialidad FROM t_especialidad_user";
+  $dni = $_GET['dni'];
+  $sql = "SELECT dni, especialidad FROM t_especialidad_user WHERE dni = :dni" ;
 
   $statement = $connection->prepare($sql);
+  $statement->bindParam(':dni', $dni, PDO::PARAM_STR);
   $statement->execute();
 
   $result = $statement->fetchAll();
