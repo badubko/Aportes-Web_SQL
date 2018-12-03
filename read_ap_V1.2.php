@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 
 		$sql = "SELECT dni , apellido  , nombres , profesion , email_1 , email_2 , last_update
 						FROM t_users1
-						WHERE apellido LIKE :apellido";
+						WHERE apellido LIKE :apellido ORDER BY apellido" ;
 
 		$apellido = $_POST['apellido'];
 
