@@ -49,7 +49,11 @@ try {
     <?php endforeach; ?>
     </tbody>
 </table>
-
+<p>
+    <label for="espec">Especialidad</label>
+	<input id="espec" type="text">
+</p>
+<a href="kaka_ap_V1.2.php">Agregar Nueva Especialidad</a>
 <a href="index_ap_V1.2.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
