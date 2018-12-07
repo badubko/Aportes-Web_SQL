@@ -35,7 +35,7 @@ if (isset($_GET["dni"])) {
 <h2>Delete especialidad</h2>
 
 <?php if ($success) echo $success , "\n"; ?>
-<a href="update-esp_nva_ap_V1.2.php?dni=<?php echo escape($dni); ?>
+<a href="listar-esp_ap_V1.2.php?dni=<?php echo escape($dni); ?>
 				&apellido=<?php echo escape($apellido); ?>
 				&nombres=<?php echo escape($nombres); ?>
 				">Edit Esp</a>

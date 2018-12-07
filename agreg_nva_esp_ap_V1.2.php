@@ -42,7 +42,7 @@ try {
 		<input type="submit" name="submit" value="Submit">
 </form>
 
-<a href="update-esp_nva_ap_V1.2.php?dni=<?php echo escape($dni); ?>
+<a href="listar-esp_ap_V1.2.php?dni=<?php echo escape($dni); ?>
         &especialidad=<?php echo escape($apellido); ?>
         &apellido=<?php echo escape($nombres); ?>
         ">Lista especialdades VOL</a>
