@@ -13,8 +13,8 @@ if (isset($_GET["dni"])) {
   
     $dni = $_GET["dni"];
     $especialidad = $_GET["especialidad"];
-  $apellido = $_GET['apellido'];
-  $nombres = $_GET['nombres'];
+  $apellido = $_GET["apellido"];
+  $nombres = $_GET["nombres"];
     $sql = "DELETE FROM t_especialidad_user WHERE dni = :dni AND especialidad = :especialidad LIMIT 1";
 
     $statement = $connection->prepare($sql);

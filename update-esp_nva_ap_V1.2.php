@@ -54,9 +54,12 @@ try {
 </table>
 <p>
     <label for="espec">Nueva Especialidad</label>
-	<input id="espec" type="text">
+    <input id="espec" type="text">
 </p>
-<a href="agreg_nva_esp_ap_V1.2.php">Agregar Nueva Especialidad</a>
+
+        <a href="agreg_nva_esp_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>
+        &especialidad=<?php echo escape($row["especialidad"]); ?>
+         ">Agregar Nva Esp</a>
 <a href="<?php $_PHP_SELF ?>">Editar Otra Especialidad</a>
 <a href="index_ap_V1.2.php">Back to home</a>
 
