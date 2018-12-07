@@ -22,7 +22,7 @@ if (isset($_GET["dni"])) {
     $statement->bindValue(':especialidad', $especialidad);
     $statement->execute();
 
-    $success = "Especialidad successfully deleted";
+    $success = "Especialidad successfully deleted $especialidad";
     		
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
