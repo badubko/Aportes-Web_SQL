@@ -43,17 +43,21 @@ try {
         <td><?php echo escape($row["dni"]); ?></td>
         <td><?php echo escape($row["especialidad"]); ?></td>
         <td><?php echo escape($row["last_update"]); ?></td>
-        <td><a href="delete-espec_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>&especialidad=<?php echo escape($row["especialidad"]); ?>
+        <td><a href="delete-espec_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>
+        &especialidad=<?php echo escape($row["especialidad"]); ?>
+        &apellido=<?php echo escape($apellido); ?>
+        &nombres=<?php echo escape($nombres); ?>
         ">Delete</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
 <p>
-    <label for="espec">Especialidad</label>
+    <label for="espec">Nueva Especialidad</label>
 	<input id="espec" type="text">
 </p>
-<a href="kaka_ap_V1.2.php">Agregar Nueva Especialidad</a>
+<a href="agreg_nva_esp_ap_V1.2.php">Agregar Nueva Especialidad</a>
+<a href="<?php $_PHP_SELF ?>">Editar Otra Especialidad</a>
 <a href="index_ap_V1.2.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>

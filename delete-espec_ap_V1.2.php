@@ -13,8 +13,9 @@ if (isset($_GET["dni"])) {
   
     $dni = $_GET["dni"];
     $especialidad = $_GET["especialidad"];
-
-    $sql = "DELETE FROM t_especialidad_user WHERE dni = :dni AND especialidad = :especialidad ";
+  $apellido = $_GET['apellido'];
+  $nombres = $_GET['nombres'];
+    $sql = "DELETE FROM t_especialidad_user WHERE dni = :dni AND especialidad = :especialidad LIMIT 1";
 
     $statement = $connection->prepare($sql);
     $statement->bindValue(':dni', $dni);
@@ -22,6 +23,7 @@ if (isset($_GET["dni"])) {
     $statement->execute();
 
     $success = "Especialidad successfully deleted";
+    		
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
   }
@@ -33,7 +35,10 @@ if (isset($_GET["dni"])) {
 <h2>Delete especialidad</h2>
 
 <?php if ($success) echo $success , "\n"; ?>
-
+<a href="update-esp_nva_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>
+				&apellido=<?php echo escape($row["apellido"]); ?>
+				&nombres=<?php echo escape($row["nombres"]); ?>
+				">Edit Esp</a>
 <a href="read_ap_V1.2.php">Back to Act Vol</a>
 
 <?php require "templates/footer.php"; ?>
