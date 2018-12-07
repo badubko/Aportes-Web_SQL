@@ -7,6 +7,8 @@ try {
 	
 	$connection = new PDO($dsn, $username, $password, $options);
 	$dni = $_GET['dni'];
+	$apellido = $_GET['apellido'];
+	$nombres = $_GET['nombres'];
     $especialidad = $_POST['especialidad'];
     
     // set the PDO error mode to exception
@@ -40,6 +42,10 @@ try {
 		<input type="submit" name="submit" value="Submit">
 </form>
 
+<a href="update-esp_nva_ap_V1.2.php?dni=<?php echo escape($dni); ?>
+        &especialidad=<?php echo escape($apellido); ?>
+        &apellido=<?php echo escape($nombres); ?>
+        ">Lista especialdades VOL</a>
 <a href="index_ap_V1.2.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>

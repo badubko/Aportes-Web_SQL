@@ -59,9 +59,11 @@ try {
     <input id="espec" type="text">
 </p>
 -->
-
         <a href="agreg_nva_esp_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>
+        &apellido=<?php echo escape($apellido); ?>
+        &nombres=<?php echo escape($nombres); ?>
         ">Agregar Nva Esp</a>
+        
 <a href="<?php $_PHP_SELF ?>">Editar Otra Especialidad</a>
 <a href="index_ap_V1.2.php">Back to home</a>
 
