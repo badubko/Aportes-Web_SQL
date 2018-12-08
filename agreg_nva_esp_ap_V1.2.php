@@ -1,7 +1,9 @@
 <?php
+ require "./config_ap_V1.2.php";
+ require "./common_ap_V1.2.php";
+
 if (isset($_POST['submit'])) {
-    require "./config_ap_V1.2.php";
-    require "./common_ap_V1.2.php";
+   
 
 try {
 	
@@ -41,11 +43,15 @@ try {
 		<input type="text" name="especialidad" id="especialidad">
 		<input type="submit" name="submit" value="Submit">
 </form>
-
+<?php
+	$dni = $_GET['dni'];
+	$apellido = $_GET['apellido'];
+	$nombres = $_GET['nombres'];
+?>
 <a href="listar-esp_ap_V1.2.php?dni=<?php echo escape($dni); ?>
-        &especialidad=<?php echo escape($apellido); ?>
-        &apellido=<?php echo escape($nombres); ?>
-        ">Lista especialdades VOL</a>
+        &apellido=<?php echo escape($apellido); ?>
+        &nombres=<?php echo escape($nombres); ?>
+        ">Listar Esp VOL</a>
 <a href="index_ap_V1.2.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>

@@ -64,7 +64,7 @@ try {
         &nombres=<?php echo escape($nombres); ?>
         ">Agregar Nva Esp</a>
         
-<a href="<?php $_PHP_SELF ?>">Editar Otra Especialidad</a>
+<a href="<?php $_PHP_SELF ?>">Listar Espec</a>
 <a href="index_ap_V1.2.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>

@@ -38,7 +38,7 @@ if (isset($_GET["dni"])) {
 <a href="listar-esp_ap_V1.2.php?dni=<?php echo escape($dni); ?>
 				&apellido=<?php echo escape($apellido); ?>
 				&nombres=<?php echo escape($nombres); ?>
-				">Edit Esp</a>
+				">Listar Esp VOL</a>
 <a href="read_ap_V1.2.php">Back to Act Vol</a>
 
 <?php require "templates/footer.php"; ?>
