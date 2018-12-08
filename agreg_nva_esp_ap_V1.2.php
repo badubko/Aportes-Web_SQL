@@ -33,7 +33,7 @@ try {
 }
 ?>
 
-<?php if (isset($_POST['submit']) && $stmt) { ?>
+<?php if (isset($_POST['submit']) && $stmt && !$e) { ?>
     <blockquote><?php echo $_POST['especialidad']; ?> successfully added.</blockquote>
 <?php } ?>
 
