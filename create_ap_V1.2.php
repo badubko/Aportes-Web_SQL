@@ -31,6 +31,7 @@ if (isset($_POST['submit'])) {
         $statement->execute($new_user);
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
+        echo "Hubo un error en el insert" ;
     }
 }
 ?>
@@ -38,11 +39,7 @@ if (isset($_POST['submit'])) {
 <?php require "templates/header.php"; ?>
 
 
-<!--
-<blockquote> Paso por 1 </blockquote> 
--->
-
-<?php if (isset($_POST['submit']) && $statement) { ?>
+<?php if (isset($_POST['submit']) && $statement && !$error){ ?>
     <blockquote><?php echo $_POST['apellido']; ?> successfully added.</blockquote>
 <?php } ?>
 

@@ -24,10 +24,11 @@ try {
     // insertar nueva especialidad
 
     $stmt->execute();
-
-    echo "Nueva especialidad $especialidad insertada";
+     $result = $stmt->fetchAll();
+     
+    // echo "Nueva especialidad $especialidad insertada";
     } catch(PDOException $e)
-		{  echo "Error: " . $e->getMessage();    }
+		{  echo "Error: " . "<br>" . $e->getMessage();    }
 
 }
 ?>
