@@ -38,17 +38,29 @@ try {
 <?php } ?>
 
 <h2>Agregar Especialidad V1.2</h2>
-
-<form method="post">
-	<label for="especialdad">Especialdad</label>
-	<select>
-  <option>Comercial</option>
-  <option>Diagnostico</option>
-  <input type="submit" name="submit" value="Submit">
-  </select>
-<!--		<input type="text" name="especialidad" id="especialidad"> -->
-		
+<!--
+<form method="post" action="">
+	<select name=especialidad[] multiple>
+        <option value="Sistemas"> Sistemas </option>
+        <option value="Comercial">  Comercial </option>
+    </select>
+	<label for="especialdad">Especialdad</label> 
+	<input type="text" name="especialidad" id="especialidad"> 
+	<input type="submit" name="submit" value="Submit">
 </form>
+-->
+<form method="post" action="">
+<p>
+<select name="especialidad">
+  <option value="">Select...</option>
+  <option value="Contable">Contable</option>
+  <option value="Sistemas">Sistemas</option>
+</select>
+	
+	<input type="submit" name="submit" value="Submit">
+</p>
+</form>
+
 <?php
 	$dni = $_GET['dni'];
 	$apellido = $_GET['apellido'];

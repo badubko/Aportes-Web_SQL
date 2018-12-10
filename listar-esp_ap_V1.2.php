@@ -59,7 +59,7 @@ try {
     <input id="espec" type="text">
 </p>
 -->
-        <a href="agreg_nva_esp_ap_V1.2.php?dni=<?php echo escape($dni); ?>
+        <a href="agreg_nva_esp_ap_V1.21.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
         ">Agregar Nva Esp</a>
