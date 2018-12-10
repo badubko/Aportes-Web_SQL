@@ -17,14 +17,14 @@ try {
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // prepare sql and bind parameters
-    $stmt = $connection->prepare("INSERT INTO t_especialidad_user (dni, especialidad) VALUES (:dni, :especialidad)");
+    $stmt = $connection->prepare(" INSERT INTO t_especialidad_user (dni, especialidad) VALUES (:dni, :especialidad)");
     $stmt->bindParam(':dni', $dni);
     $stmt->bindParam(':especialidad', $especialidad);
    
     // insertar nueva especialidad
 
     $stmt->execute();
-     $result = $stmt->fetchAll();
+    $result = $stmt->fetchAll();
      
     // echo "Nueva especialidad $especialidad insertada";
     } catch(PDOException $e)
