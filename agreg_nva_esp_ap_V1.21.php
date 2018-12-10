@@ -41,8 +41,13 @@ try {
 
 <form method="post">
 	<label for="especialdad">Especialdad</label>
-	<input type="text" name="especialidad" id="especialidad"> 
-	<input type="submit" name="submit" value="Submit">
+	<select>
+  <option>Comercial</option>
+  <option>Diagnostico</option>
+  <input type="submit" name="submit" value="Submit">
+  </select>
+<!--		<input type="text" name="especialidad" id="especialidad"> -->
+		
 </form>
 <?php
 	$dni = $_GET['dni'];
