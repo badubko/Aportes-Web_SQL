@@ -12,7 +12,7 @@ try {
   $dni = $_GET['dni'];
   $apellido = $_GET['apellido'];
   $nombres = $_GET['nombres'];
-  $sql = "SELECT dni, especialidad , last_update FROM t_especialidad_user WHERE dni = :dni" ;
+  $sql = "SELECT dni, especialidad , last_update FROM t_especialidad_user WHERE dni = :dni ORDER BY last_update";
 
   $statement = $connection->prepare($sql);
   $statement->bindParam(':dni', $dni, PDO::PARAM_STR);

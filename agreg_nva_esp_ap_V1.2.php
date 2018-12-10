@@ -25,7 +25,7 @@ try {
 
     $stmt->execute();
     // $result = $stmt->fetchAll();
-    $e = "" ;
+    $e = "";
     // echo "Nueva especialidad $especialidad insertada";
     } catch(PDOException $e)
 		{  echo "Error: " . "<br>" . $e->getMessage() . "<br>" . "No se pudo agregar especialidad: $especialidad" ;    }
@@ -34,7 +34,7 @@ try {
 ?>
 
 <?php if (isset($_POST['submit']) && $stmt && !$e ) { ?>
-    <blockquote><?php echo $_POST['especialidad']; ?> successfully added.</blockquote>
+    <blockquote>Agregada especialidad: <?php echo $_POST['especialidad']; ?> </blockquote>
 <?php } ?>
 
 <h2>Agregar Especialidad V1.2</h2>
