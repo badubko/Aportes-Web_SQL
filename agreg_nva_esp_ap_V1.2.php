@@ -24,16 +24,16 @@ try {
     // insertar nueva especialidad
 
     $stmt->execute();
-    $result = $stmt->fetchAll();
-     
+    // $result = $stmt->fetchAll();
+    $e = "" ;
     // echo "Nueva especialidad $especialidad insertada";
     } catch(PDOException $e)
-		{  echo "Error: " . "<br>" . $e->getMessage();    }
-
+		{  echo "Error: " . "<br>" . $e->getMessage() . "<br>" . "No se pudo agregar especialidad: $especialidad" ;    }
+// !$e
 }
 ?>
 
-<?php if (isset($_POST['submit']) && $stmt && !$e) { ?>
+<?php if (isset($_POST['submit']) && $stmt && !$e ) { ?>
     <blockquote><?php echo $_POST['especialidad']; ?> successfully added.</blockquote>
 <?php } ?>
 
