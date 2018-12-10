@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 
 
 <?php if (isset($_POST['submit']) && $statement && !$error){ ?>
-    <blockquote><?php echo $_POST['apellido']; ?> successfully added.</blockquote>
+    <blockquote><?php echo $_POST['apellido'] , ", " , $_POST['nombres']; ?> agregada/o a la base de Aportes.</blockquote>
 <?php } ?>
 
 <h2>Agregar Voluntario V1.1</h2>

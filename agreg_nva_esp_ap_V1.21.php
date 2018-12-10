@@ -51,10 +51,17 @@ try {
 -->
 
 <?php
-$esp1 = "Contable";
-$esp2 = "Diagnostico";
-$esp3 = "Procesos";
-$esp4 = "Sistemas";
+$a_espec = array( "Contable" , "Diagnostico" , 
+				    "Procesos" , "RRHH" , "Sistemas");
+         
+
+// 
+//$esp1 = "Contable";
+//$esp2 = "Diagnostico";
+//$esp3 = "Procesos";
+//$esp4 = "Sistemas";
+//
+
 ?>
 
 <form method="post" action="">
@@ -62,12 +69,18 @@ $esp4 = "Sistemas";
 	<label for="especialdad">Especialdad</label> 
 	<select name="especialidad">
 	<option value="">Seleccione...</option>
+	<?php foreach ($a_espec as $espe) { ?>
+		<option value="<?php echo escape($espe); ?>"><?php echo escape($espe); ?></option>
+	<?php } ?>
+<!--
 	<option value="<?php echo escape($esp1); ?>"><?php echo escape($esp1); ?></option>
 	<option value="<?php echo escape($esp2); ?>"><?php echo escape($esp2); ?></option>
 	<option value="<?php echo escape($esp3); ?>"><?php echo escape($esp3); ?></option>
 	<option value="<?php echo escape($esp4); ?>"><?php echo escape($esp4); ?></option>
+-->
+	
 	</select>
-		<input type="submit" name="submit" value="Submit">
+		<input type="submit" name="submit" value="Guardar">
 </p>
 </form>
 
