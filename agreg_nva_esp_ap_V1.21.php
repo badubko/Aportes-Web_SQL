@@ -49,15 +49,25 @@ try {
 	<input type="submit" name="submit" value="Submit">
 </form>
 -->
+
+<?php
+$esp1 = "Contable";
+$esp2 = "Diagnostico";
+$esp3 = "Procesos";
+$esp4 = "Sistemas";
+?>
+
 <form method="post" action="">
 <p>
-<select name="especialidad">
-  <option value="">Select...</option>
-  <option value="Contable">Contable</option>
-  <option value="Sistemas">Sistemas</option>
-</select>
-	
-	<input type="submit" name="submit" value="Submit">
+	<label for="especialdad">Especialdad</label> 
+	<select name="especialidad">
+	<option value="">Seleccione...</option>
+	<option value="<?php echo escape($esp1); ?>"><?php echo escape($esp1); ?></option>
+	<option value="<?php echo escape($esp2); ?>"><?php echo escape($esp2); ?></option>
+	<option value="<?php echo escape($esp3); ?>"><?php echo escape($esp3); ?></option>
+	<option value="<?php echo escape($esp4); ?>"><?php echo escape($esp4); ?></option>
+	</select>
+		<input type="submit" name="submit" value="Submit">
 </p>
 </form>
 
@@ -66,6 +76,7 @@ try {
 	$apellido = $_GET['apellido'];
 	$nombres = $_GET['nombres'];
 ?>
+
 <a href="listar-esp_ap_V1.2.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
