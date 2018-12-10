@@ -26,12 +26,13 @@ if (isset($_POST['submit'])) {
                 implode(", ", array_keys($new_user)),
                 ":" . implode(", :", array_keys($new_user))
         );
-        
+        $error = "";
         $statement = $connection->prepare($sql);
         $statement->execute($new_user);
+        
     } catch(PDOException $error) {
-        echo $sql . "<br>" . $error->getMessage();
-        echo "Hubo un error en el insert" ;
+       // echo $sql . "<br>" . $error->getMessage();
+        echo "Hubo un error en el insert de: " , $_POST['apellido'] . "<br>" . $error->getMessage();
     }
 }
 ?>

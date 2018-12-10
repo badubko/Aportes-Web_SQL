@@ -26,10 +26,10 @@ try {
     $stmt->execute();
     // $result = $stmt->fetchAll();
     $e = "";
-    // echo "Nueva especialidad $especialidad insertada";
+    
     } catch(PDOException $e)
 		{  echo "Error: " . "<br>" . $e->getMessage() . "<br>" . "No se pudo agregar especialidad: $especialidad" ;    }
-// !$e
+
 }
 ?>
 

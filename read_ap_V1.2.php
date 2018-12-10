@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
 	<?php } 
 } ?> 
 
-<h2>Find user based on apellido</h2>
+<h2>Buscar Voluntario por apellido</h2>
 
 <form method="post">
 	<label for="apellido">Apellido (A%  %A%  %)</label>

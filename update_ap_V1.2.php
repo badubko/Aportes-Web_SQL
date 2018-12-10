@@ -10,7 +10,7 @@ try {
 
   $connection = new PDO($dsn, $username, $password, $options);
 
-  $sql = "SELECT * FROM t_users1";
+  $sql = "SELECT * FROM t_users1 ORDER BY apellido";
 
   $statement = $connection->prepare($sql);
   $statement->execute();
