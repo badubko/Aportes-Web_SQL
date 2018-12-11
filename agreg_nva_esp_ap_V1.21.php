@@ -51,9 +51,24 @@ try {
 -->
 
 <?php
-$a_espec = array( "Contable" , "Diagnostico" , 
-				    "Procesos" , "RRHH" , "Sistemas");
-         
+// $a_espec = array( "Contable" , "Diagnostico" , 
+//				    "Procesos" , "RRHH" , "Sistemas");
+try {
+  require "./config_ap_V1.2.php";
+  // require "./common_ap_V1.2.php";
+
+  $conn_esp = new PDO($dsn, $username, $password, $options);
+  
+  $sql_esp = "SELECT especialidad  FROM t_especialidades ORDER BY especialidad";
+
+  $stat_esp = $conn_esp->prepare($sql_esp);
+  
+  $stat_esp->execute();
+
+  $a_espec = $stat_esp->fetchAll();
+} catch(PDOException $error) {
+  echo $sql_esp . "<br>" . $error->getMessage();
+}         
 
 // 
 //$esp1 = "Contable";
