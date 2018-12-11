@@ -85,7 +85,7 @@ try {
 	<select name="especialidad">
 	<option value="">Seleccione...</option>
 	<?php foreach ($a_espec as $espe) { ?>
-		<option value="<?php echo escape($espe); ?>"><?php echo escape($espe); ?></option>
+		<option value="<?php echo $espe["especialidad"]; ?>"><?php echo $espe["especialidad"]; ?></option>
 	<?php } ?>
 <!--
 	<option value="<?php echo escape($esp1); ?>"><?php echo escape($esp1); ?></option>
