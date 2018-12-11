@@ -6,7 +6,6 @@ DROP SCHEMA IF EXISTS aportes_V3_2;
 CREATE SCHEMA aportes_V3_2;
 USE aportes_V3_2;
 
-
 --
 -- Table structure for table `users1`
 --
@@ -31,8 +30,8 @@ CREATE TABLE t_users2 (
   rol VARCHAR (6) DEFAULT "Vol",
   cuil VARCHAR(14) DEFAULT "N/D",
   a_socio YEAR DEFAULT "0000",
-  f_ingreso DATE DEFAULT "2004-01-01"
-  comentarios VARCHAR (256) DEFAULT "N/C",
+  f_ingreso DATE DEFAULT "2004-01-01",
+  `comentarios` varchar(256) NULL DEFAULT 'No hay',
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   KEY idx_fk_dni (dni),
   CONSTRAINT fk_users2_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
@@ -108,12 +107,12 @@ INSERT INTO `t_profesiones` (`profesion`) VALUES
 ('N/D'),
 ('Chanta'),
 ('Chantologa'),
-('Chantologo'),
-;
+('Chantologo');
+
 
 
 INSERT INTO `t_especialidades` (`especialidad`) VALUES
-('Administración'),
+('Administracion'),
 ('Coaching'),
 ('Comercial'),
 ('Comunicacion'),
@@ -128,8 +127,7 @@ INSERT INTO `t_especialidades` (`especialidad`) VALUES
 ('Sistemas'),
 ('Chantologia'),
 ('Pajas Mentales'),
-('Pura Paja'),
-;
+('Pura Paja');
 
 INSERT INTO `t_roles` (`rol`) VALUES
 ('DP'),
@@ -139,8 +137,7 @@ INSERT INTO `t_roles` (`rol`) VALUES
 ('Asist'),
 ('Vol'),
 ('VC'),
-('Col'),
-;
+('Col');
 
 INSERT INTO `t_estados` (`estado`) VALUES
 ('Asignado'),
@@ -150,8 +147,7 @@ INSERT INTO `t_estados` (`estado`) VALUES
 ('Con_Restricc'),
 ('Interno'),
 ('Puntual'),
-('Desconoc'),
-;
+('Desconoc');
 
 
 
