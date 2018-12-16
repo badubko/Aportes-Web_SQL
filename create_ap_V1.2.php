@@ -2,7 +2,7 @@
 <?php
 /**
  * Use an HTML form to create a new entry in the
- * users table.
+ * users1 table.
  *
  */
 if (isset($_POST['submit'])) {
