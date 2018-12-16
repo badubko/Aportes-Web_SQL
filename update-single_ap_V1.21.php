@@ -96,7 +96,15 @@ try {
       <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
       <?php if ( $key != 'profesion') { ?>
 	    <input type="text" name="<?php echo $key; ?>" dni="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
-		<?php } ?>
+		<?php } else { ?>
+			<select name="profesion">
+			<option value="">Seleccione...</option>
+			<?php foreach ($a_prof as $profe) { ?>
+				<option value="<?php echo $profe["profesion"]; ?>"><?php echo $profe["profesion"]; ?></option>
+			<?php } ?>
+		<?php }  ?>	
+			
+			
     <?php endforeach; ?> 
     <input type="submit" name="submit" value="Guardar">
 </form>
