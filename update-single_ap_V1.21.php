@@ -67,6 +67,28 @@ if (isset($_GET['dni'])) {
 	<blockquote><?php echo escape($_POST['apellido']); ?> successfully updated.</blockquote>
 <?php endif; ?>
 
+<?php
+
+try {
+  require "./config_ap_V1.2.php";
+
+  $conn_prof = new PDO($dsn, $username, $password, $options);
+  
+  $sql_prof = "SELECT profesion  FROM t_profesiones ORDER BY profesion";
+
+  $stat_prof = $conn_prof->prepare($sql_prof);
+  
+  $stat_prof->execute();
+
+  $a_prof = $stat_prof->fetchAll();
+} catch(PDOException $error) {
+  echo $sql_prof . "<br>" . $error->getMessage();
+}         
+
+?>
+
+
+
 <h2>Edit a user</h2>
 
 <form method="post">
