@@ -93,10 +93,12 @@ try {
 
 <form method="post">
     <?php foreach ($user as $key => $value) : ?>
+	  <?php if ( $key != 'profesion') { ?>
       <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-      <?php if ( $key != 'profesion') { ?>
+      
 	    <input type="text" name="<?php echo $key; ?>" dni="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
 		<?php } else { ?>
+			<label for="profesion">Profesion</label>
 			<select name="profesion">
 			<option value="">Seleccione...</option>
 			<?php foreach ($a_prof as $profe) { ?>
