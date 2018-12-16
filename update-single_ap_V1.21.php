@@ -96,7 +96,7 @@ try {
 	  <?php if ( $key != 'profesion') { ?>
       <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
       
-	    <input type="text" name="<?php echo $key; ?>" dni="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
+	    <input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
 		<?php } else { ?>
 			<label for="profesion">Profesion</label>
 			<select name="profesion">
