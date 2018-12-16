@@ -98,13 +98,15 @@ try {
       
 	    <input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
 		<?php } else { ?>
+			<p>
 			<label for="profesion">Profesion</label> 
 			<select name="profesion">
 			<option value="">Seleccione...</option>
 			<?php foreach ($a_prof as $profe) { ?>
 				<option value="<?php echo $profe["profesion"]; ?>"><?php echo $profe["profesion"]; ?></option>
 			<?php } ?>
-			<br>
+			</select>
+			</p>
 		<?php }  ?>	
 			
 			
