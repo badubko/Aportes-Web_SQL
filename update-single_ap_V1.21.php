@@ -94,7 +94,9 @@ try {
 <form method="post">
     <?php foreach ($user as $key => $value) : ?>
       <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
+      <?php if ( $key != 'profesion') { ?>
 	    <input type="text" name="<?php echo $key; ?>" dni="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
+		<?php } ?>
     <?php endforeach; ?> 
     <input type="submit" name="submit" value="Guardar">
 </form>
