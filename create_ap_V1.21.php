@@ -90,7 +90,7 @@ try {
 	<input type="submit" name="submit" value="Submit">
 </form>
 
-<a href="index_ap_V1.2.php">Back to home</a>
+<a href="index_ap_V1.21.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
 

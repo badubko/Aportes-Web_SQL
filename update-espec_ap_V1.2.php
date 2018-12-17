@@ -68,6 +68,6 @@ if (isset($_GET['dni'])) {
 <h2> </h2>
 <a href="read_ap_V1.2.php">Modif Otro Voluntario</a>
 <h2> </h2>
-<a href="index_ap_V1.2.php">Back to home</a>
+<a href="index_ap_V1.21.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
