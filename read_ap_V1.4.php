@@ -58,8 +58,8 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["email_1"]); ?></td>
 				<td><?php echo escape($row["email_2"]); ?></td>
 				<td><?php echo escape($row["last_update"]); ?></td>
-				<td><a href="update-single_ap_V1.21.php?dni=<?php echo escape($row["dni"]); ?>">Edit VOL</a></td>
-				<td><a href="listar-esp_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>
+				<td><a href="update-single_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>">Edit VOL</a></td>
+				<td><a href="listar-esp_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
 				">Edit Esp</a></td>
