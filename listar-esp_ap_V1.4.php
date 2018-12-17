@@ -5,8 +5,8 @@
  */
 
 try {
-  require "./config_ap_V1.2.php";
-  require "./common_ap_V1.2.php";
+  require "./config_ap_V1.4.php";
+  require "./common_ap_V1.4.php";
 
   $connection = new PDO($dsn, $username, $password, $options);
   $dni = $_GET['dni'];
@@ -59,12 +59,12 @@ try {
     <input id="espec" type="text">
 </p>
 -->
-        <a href="agreg_nva_esp_ap_V1.21.php?dni=<?php echo escape($dni); ?>
+        <a href="agreg_nva_esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
         ">Agregar Nva Esp</a>
         
 <a href="<?php $_PHP_SELF ?>">Listar Espec</a>
-<a href="index_ap_V1.2.php">Back to home</a>
+<a href="index_ap_V1.4.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>

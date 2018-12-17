@@ -6,8 +6,8 @@
  *
  */
 if (isset($_POST['submit'])) {
-    require "./config_ap_V1.2.php";
-    require "./common_ap_V1.2.php";
+    require "./config_ap_V1.4.php";
+    require "./common_ap_V1.4.php";
 
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
@@ -44,7 +44,28 @@ if (isset($_POST['submit'])) {
     <blockquote><?php echo $_POST['apellido'] , ", " , $_POST['nombres']; ?> agregada/o a la base de Aportes.</blockquote>
 <?php } ?>
 
-<h2>Agregar Voluntario V1.1</h2>
+<?php
+
+try {
+  require "./config_ap_V1.4.php";
+
+  $conn_prof = new PDO($dsn, $username, $password, $options);
+  
+  $sql_prof = "SELECT profesion  FROM t_profesiones ORDER BY profesion";
+
+  $stat_prof = $conn_prof->prepare($sql_prof);
+  
+  $stat_prof->execute();
+
+  $a_prof = $stat_prof->fetchAll();
+} catch(PDOException $error) {
+  echo $sql_prof . "<br>" . $error->getMessage();
+}         
+
+?>
+
+
+<h2>Agregar Voluntario V1.4</h2>
 
 <form method="post">
 	<label for="nombres">Nombres</label>
@@ -53,8 +74,15 @@ if (isset($_POST['submit'])) {
 		<input type="text" name="apellido" id="apellido">
 	<label for="dni">DNI</label>
 		<input type="text" name="dni" id="dni">
-	<label for="profesion">Profesion</label>
-		<input type="text" name="profesion" id="profesion">
+			<p>
+			<label for="profesion">Profesion</label> 
+			<select name="profesion">
+			<option value="">Seleccione...</option> 
+			<?php foreach ($a_prof as $profe) { ?>
+				<option value="<?php echo $profe["profesion"]; ?>"><?php echo $profe["profesion"]; ?></option>
+			<?php } ?>
+			</select>
+			</p>
 	<label for="email_1">Email Principal</label>
 		<input type="text" name="email_1" id="email_1">
 	<label for="email_2">Email Alternativo</label>
@@ -62,7 +90,7 @@ if (isset($_POST['submit'])) {
 	<input type="submit" name="submit" value="Submit">
 </form>
 
-<a href="index_ap_V1.2.php">Back to home</a>
+<a href="index_ap_V1.4.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
 

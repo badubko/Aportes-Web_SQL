@@ -4,8 +4,8 @@
  * Delete a user
  */
 
-  require "./config_ap_V1.2.php";
-  require "./common_ap_V1.2.php";
+  require "./config_ap_V1.4.php";
+  require "./common_ap_V1.4.php";
 
 if (isset($_GET["dni"])) {
   try {
@@ -35,10 +35,10 @@ if (isset($_GET["dni"])) {
 <h2>Delete especialidad</h2>
 
 <?php if ($success) echo $success , "\n"; ?>
-<a href="listar-esp_ap_V1.2.php?dni=<?php echo escape($dni); ?>
+<a href="listar-esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
 				&apellido=<?php echo escape($apellido); ?>
 				&nombres=<?php echo escape($nombres); ?>
 				">Listar Esp VOL</a>
-<a href="read_ap_V1.2.php">Back to Act Vol</a>
+<a href="read_ap_V1.4.php">Back to Act Vol</a>
 
 <?php require "templates/footer.php"; ?>

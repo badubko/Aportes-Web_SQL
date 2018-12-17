@@ -4,30 +4,20 @@
  * users table.
  *
  */
-require "./config_ap_V1.2.php";
-require "./common_ap_V1.2.php";
+require "./config_ap_V1.4.php";
+require "./common_ap_V1.4.php";
 
 if (isset($_POST['submit'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
     $user =[
       "dni"      	=> $_POST['dni'],
-      "apellido" 	=> $_POST['apellido'],
-      "nombres"  	=> $_POST['nombres'],
-      "profesion"	=> $_POST['profesion'],
-      "email_1"     => $_POST['email_1'],
-      "email_2"  	=> $_POST['email_2']
-    
+      "especialidad" 	=> $_POST['especialidad']
     ];
 
-    $sql1 = "UPDATE t_users1 
+    $sql1 = "UPDATE t_especialidad_user
             SET dni = :dni, 
-              apellido = :apellido, 
-              nombres = :nombres, 
-              profesion = :profesion,
-              email_1 = :email_1,
-              email_2 = :email_2
-             
+              especialidad = :especialidad
              WHERE dni = :dni";
  
   $statement = $connection->prepare($sql1);
@@ -44,7 +34,7 @@ if (isset($_GET['dni'])) {
 
     $connection = new PDO($dsn, $username, $password, $options);
     $dni = $_GET['dni'];
-    $sql1 = "SELECT * FROM t_users1 WHERE dni = :dni";
+    $sql1 = "SELECT * FROM t_especialidad_user WHERE dni = :dni";
     $statement = $connection->prepare($sql1);
     $statement->bindValue(':dni', $dni);
     $statement->execute();
@@ -62,7 +52,7 @@ if (isset($_GET['dni'])) {
 <?php require "templates/header.php"; ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
-	<blockquote><?php echo escape($_POST['apellido']); ?> successfully updated.</blockquote>
+	<blockquote><?php echo escape($_POST['dni']); ?> successfully updated.</blockquote>
 <?php endif; ?>
 
 <h2>Edit a user</h2>
@@ -76,8 +66,8 @@ if (isset($_GET['dni'])) {
 </form>
 
 <h2> </h2>
-<a href="read_ap_V1.2.php">Modif Otro Voluntario</a>
+<a href="read_ap_V1.4.php">Modif Otro Voluntario</a>
 <h2> </h2>
-<a href="index_ap_V1.2.php">Back to home</a>
+<a href="index_ap_V1.4.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>

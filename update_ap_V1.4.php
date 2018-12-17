@@ -5,8 +5,8 @@
  */
 
 try {
-  require "./config_ap_V1.2.php";
-  require "./common_ap_V1.2.php";
+  require "./config_ap_V1.4.php";
+  require "./common_ap_V1.4.php";
 
   $connection = new PDO($dsn, $username, $password, $options);
 
@@ -46,12 +46,12 @@ try {
         <td><?php echo escape($row["email_1"]); ?></td>
         <td><?php echo escape($row["email_2"]); ?></td>
         <td><?php echo escape($row["last_update"]); ?> </td>
-        <td><a href="update-single_ap_V1.21.php?dni=<?php echo escape($row["dni"]); ?>">Edit</a></td>
+        <td><a href="update-single_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>">Edit</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
 
-<a href="index_ap_V1.21.php">Back to home</a>
+<a href="index_ap_V1.4.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
