@@ -6,7 +6,7 @@
  * Version con drop-down de profesion
  *
  */
-require "./config_ap_V1.21.php";
+require "./config_ap_V1.2.php";
 require "./common_ap_V1.2.php";
 
 if (isset($_POST['submit'])) {

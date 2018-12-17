@@ -6,7 +6,7 @@
  *
  */
 if (isset($_POST['submit'])) {
-    require "./config_ap_V1.21.php";
+    require "./config_ap_V1.2.php";
     require "./common_ap_V1.2.php";
 
     try  {
@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 <?php
 
 try {
-  require "./config_ap_V1.21.php";
+  require "./config_ap_V1.2.php";
 
   $conn_prof = new PDO($dsn, $username, $password, $options);
   
