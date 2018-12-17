@@ -65,7 +65,7 @@ if (isset($_GET['dni'])) {
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
 	<blockquote>
-	<?php echo escape($_POST['apellido']) , ", " , escape($_POST['nombres']); ?> Fue actualizada OK. 
+	<?php echo escape($_POST['apellido']) , ", " , escape($_POST['nombres']); ?> Fue actualizada/o OK. 
 	</blockquote>
 	
 <?php endif; ?>
