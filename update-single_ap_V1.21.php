@@ -92,7 +92,7 @@ try {
 
 
 
-<h2>Edit a user</h2>
+<h2>Editar datos publicos de un Voluntario</h2>
 
 <form method="post">
     <?php foreach ($user as $key => $value) : ?>
@@ -104,7 +104,8 @@ try {
 			<p>
 			<label for="profesion">Profesion</label> 
 			<select name="profesion">
-			<option value="">Seleccione...</option>
+<!--			<option value="">Seleccione...</option> -->
+			<option value=""><?php echo escape($value); ?></option>
 			<?php foreach ($a_prof as $profe) { ?>
 				<option value="<?php echo $profe["profesion"]; ?>"><?php echo $profe["profesion"]; ?></option>
 			<?php } ?>
