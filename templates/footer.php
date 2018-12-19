@@ -1,4 +1,7 @@
 </body>
+<?php 
+require "./config_ap_V1.4.php";
 
-<h4>Aplicacion de Aportes V1.2</h4>
+
+<h4>Aplicacion de Aportes  <?php echo($vers) ; ?>  Base: <?php echo($dbname) ; ?></h4>
 </html>

@@ -6,6 +6,7 @@
  */
 
 //$host       = "192.168.1.29";
+$vers        = "V1.4";
 $host       = "localhost";
 $username   = "root";
 $password   = "combet_0975?";

@@ -13,5 +13,5 @@
 
 
 <body>
-	<h1>Administrar Voluntarios V1.2 </h1>
+	<h2>Aportes: Administrar Voluntarios </h2>
 
