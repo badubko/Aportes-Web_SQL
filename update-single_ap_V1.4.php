@@ -105,7 +105,7 @@ try {
 			<label for="profesion">Profesion</label> 
 			<select name="profesion">
 <!--			<option value="">Seleccione...</option> -->
-			<option value=""><?php echo escape($value); ?></option>
+			<option value="<?php echo escape($value); ?>"><?php echo escape($value); ?></option>
 			<?php foreach ($a_prof as $profe) { ?>
 				<option value="<?php echo $profe["profesion"]; ?>"><?php echo $profe["profesion"]; ?></option>
 			<?php } ?>
