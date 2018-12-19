@@ -43,7 +43,7 @@ try {
         <td><?php echo escape($row["dni"]); ?></td>
         <td><?php echo escape($row["especialidad"]); ?></td>
         <td><?php echo escape($row["last_update"]); ?></td>
-        <td><a href="delete-espec_ap_V1.2.php?dni=<?php echo escape($row["dni"]); ?>
+        <td><a href="delete-espec_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
         &especialidad=<?php echo escape($row["especialidad"]); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
