@@ -65,7 +65,7 @@ try {
 ?>
 
 
-<h2>Agregar Voluntario V1.4</h2>
+<h2>Agregar Voluntario</h2>
 
 <form method="post">
 	<label for="nombres">Nombres</label>
