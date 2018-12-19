@@ -15,8 +15,8 @@ CREATE TABLE t_users1 (
   apellido VARCHAR(45) NOT NULL,
   nombres VARCHAR(45) NOT NULL,
   profesion VARCHAR(25)  NOT NULL DEFAULT "N/D",
-  email_1 VARCHAR(50) DEFAULT "N/D",
-  email_2 VARCHAR(50) DEFAULT "N/D",
+  email_1 VARCHAR(50) NOT NULL DEFAULT "N/D",
+  email_2 VARCHAR(50) NOT NULL DEFAULT "N/D",
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY  (dni)
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -27,10 +27,10 @@ CREATE TABLE t_users1 (
 
 CREATE TABLE t_users2 (
   dni INT UNSIGNED NOT NULL UNIQUE,
-  rol VARCHAR (6) DEFAULT "Vol",
-  cuil VARCHAR(14) DEFAULT "N/D",
-  a_socio YEAR DEFAULT "0000",
-  f_ingreso DATE DEFAULT "2004-01-01",
+  rol VARCHAR (6) NOT NULL DEFAULT "Vol",
+  cuil VARCHAR(14) NOT NULL DEFAULT "N/D",
+  a_socio YEAR NOT NULL DEFAULT "0000",
+  f_ingreso DATE NOT NULL DEFAULT "2004-01-01",
   `comentarios` varchar(256) NULL DEFAULT 'No hay',
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   KEY idx_fk_dni (dni),
@@ -73,7 +73,7 @@ CREATE TABLE t_especialidad_user (
   
 CREATE TABLE t_logs_estado_user (
   dni INT UNSIGNED NOT NULL,
-  estado VARCHAR (14) DEFAULT 'Desconoc',
+  estado VARCHAR (14) NOT NULL DEFAULT 'Disponible',
   consideraciones VARCHAR (256) DEFAULT "No Comments", 
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  
   KEY idx_fk_dni (dni),
@@ -147,6 +147,7 @@ INSERT INTO `t_estados` (`estado`) VALUES
 ('Con_Restricc'),
 ('Interno'),
 ('Puntual'),
+('A Confirmar'),
 ('Desconoc');
 
 
