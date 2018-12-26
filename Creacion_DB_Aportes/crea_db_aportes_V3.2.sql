@@ -147,7 +147,7 @@ INSERT INTO `t_estados` (`estado`) VALUES
 ('Con_Restricc'),
 ('Interno'),
 ('Puntual'),
-('A Confirmar'),
+('A_Confirmar'),
 ('Desconoc');
 
 
