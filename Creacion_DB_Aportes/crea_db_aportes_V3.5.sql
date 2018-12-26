@@ -86,7 +86,7 @@ CREATE TABLE t_hist_user_proy (
   dni INT UNSIGNED NOT NULL,
   num_corr_proy INT UNSIGNED,
   f_asignac DATE NOT NULL DEFAULT "2004-01-01",
-  f_desasign DATE NOT NULL DEFAULT NULL,
+  f_desasign DATE NOT NULL DEFAULT "2100-01-01",
   coment_desemp VARCHAR (256) DEFAULT "No Comments", 
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  
   KEY idx_fk_dni (dni),
