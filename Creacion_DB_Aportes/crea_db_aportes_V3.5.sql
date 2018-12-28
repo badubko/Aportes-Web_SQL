@@ -18,7 +18,9 @@ CREATE TABLE t_users1 (
   email_1 VARCHAR(50) NOT NULL DEFAULT "N/D",
   email_2 VARCHAR(50) NOT NULL DEFAULT "N/D",
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (dni)
+  PRIMARY KEY  (dni),
+  KEY idx_fk_prof (profesion),
+  CONSTRAINT fk_profesiones_profesion FOREIGN KEY (profesion) REFERENCES t_profesiones (profesion) ON DELETE RESTRICT ON UPDATE CASCADE  
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -31,7 +33,7 @@ CREATE TABLE t_users2 (
   cuil VARCHAR(14) NOT NULL DEFAULT "N/D",
   a_socio YEAR NOT NULL DEFAULT "0000",
   f_ingreso DATE NOT NULL DEFAULT "2004-01-01",
-  `comentarios` varchar(256) NULL DEFAULT 'No hay',
+  `comentarios` varchar(256) NULL DEFAULT 'No Comments',
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   KEY idx_fk_dni (dni),
   CONSTRAINT fk_users2_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
@@ -101,26 +103,31 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Valores de las tablas "Fijas"
 
 INSERT INTO `t_profesiones` (`profesion`) VALUES
-('Ingeniera'),
-('Ingeniero'),
 ('Abogada'),
 ('Abogado'),
-('Medica'),
-('Medico'),
-('Contadora'),
-('Contador'),
+('Antropologa'),
+('Antropologo'),
 ('Arquitecta'),
 ('Arquitecto'),
+('Contador'),
+('Contadora'),
+('Ingeniera'),
+('Ingeniero'),
+('Lic RRHH'),
+('Lic RRPP'),
+('Medica'),
+('Medico'),
+('N/D'),
 ('Sicologa'),
 ('Sicologo'),
 ('Sociologa'),
 ('Sociologo'),
-('Lic RRHH'),
-('Lic RRPP'),
-('N/D'),
+('Otra')
 ('Chanta'),
 ('Chantologa'),
-('Chantologo');
+('Chantologo'),
+('Mentirosa'),
+('Mentiroso');
 
 
 

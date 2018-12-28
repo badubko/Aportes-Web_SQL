@@ -35,7 +35,7 @@ Insert into t_especialidad_user
 Values
 ('11077171','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11077171','Asignado')
@@ -71,7 +71,7 @@ Insert into t_especialidad_user
 Values
 ('11023715','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11023715','Asignado')
@@ -97,7 +97,7 @@ Insert into t_especialidad_user
 Values
 ('07660708','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('07660708','Asignado')
@@ -133,7 +133,7 @@ Insert into t_especialidad_user
 Values
 ('93345440','Indicadores')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('93345440','Asignado')
@@ -159,7 +159,7 @@ Insert into t_especialidad_user
 Values
 ('04383620','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('04383620','Asignado')
@@ -195,7 +195,7 @@ Insert into t_especialidad_user
 Values
 ('11788722','Indicadores')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11788722','ND_Temp')
@@ -211,7 +211,7 @@ Insert into t_users2
 Values
 ('5315515','N/D')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('5315515','Interno')
@@ -252,7 +252,7 @@ Insert into t_especialidad_user
 Values
 ('07837645','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('07837645','Asignado')
@@ -283,7 +283,7 @@ Insert into t_especialidad_user
 Values
 ('04437727','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('04437727','ND_Temp')
@@ -314,7 +314,7 @@ Insert into t_especialidad_user
 Values
 ('14026826','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('14026826','Asignado')
@@ -345,7 +345,7 @@ Insert into t_especialidad_user
 Values
 ('8591589','Comunicacion')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('8591589','ND_Temp')
@@ -366,7 +366,7 @@ Insert into t_especialidad_user
 Values
 ('4514672','RRHH')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4514672','Interno')
@@ -375,27 +375,27 @@ Values
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`email_1`,`email_2`)
 Values
-('00000001','Croxatto','Horacio Luis','hcroxatto@yahoo.com','N/D')
+('999999','Croxatto','Horacio Luis','hcroxatto@yahoo.com','N/D')
 ;
 Insert into t_users2 
 (`dni`,`cuil`)
 Values
-('00000001','N/D')
+('999999','N/D')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('00000001','Estrategia')
+('999999','Estrategia')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('00000001','Comercial')
+('999999','Comercial')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('00000001','Negocios')
+('999999','Negocios')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -407,10 +407,10 @@ Insert into t_especialidad_user
 Values
 ('00000001','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
-('00000001','ND_Temp')
+('999999','ND_Temp')
 ;
 -- --------------------------------------------------------------
 Insert into t_users1 
@@ -433,7 +433,7 @@ Insert into t_especialidad_user
 Values
 ('4373628','Indicadores')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4373628','Asignado')
@@ -464,7 +464,7 @@ Insert into t_especialidad_user
 Values
 ('06153590','Coaching')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('06153590','Asignado')
@@ -485,7 +485,7 @@ Insert into t_especialidad_user
 Values
 ('16412832','Negocios')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('16412832','ND_Temp')
@@ -511,7 +511,7 @@ Insert into t_especialidad_user
 Values
 ('4543686','RRHH')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4543686','ND_Temp')
@@ -542,7 +542,7 @@ Insert into t_especialidad_user
 Values
 ('10125826','Comunicacion')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('10125826','ND_Temp')
@@ -573,7 +573,7 @@ Insert into t_especialidad_user
 Values
 ('10128986','Indicadores')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('10128986','Asignado')
@@ -599,7 +599,7 @@ Insert into t_especialidad_user
 Values
 ('11285447','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11285447','Interno')
@@ -625,7 +625,7 @@ Insert into t_especialidad_user
 Values
 ('4403493','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4403493','Disponible')
@@ -656,7 +656,7 @@ Insert into t_especialidad_user
 Values
 ('12062579','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('12062579','Asignado')
@@ -692,7 +692,7 @@ Insert into t_especialidad_user
 Values
 ('10161593','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('10161593','Disponible')
@@ -718,7 +718,7 @@ Insert into t_especialidad_user
 Values
 ('4368430','RRHH')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4368430','Disponible')
@@ -749,7 +749,7 @@ Insert into t_especialidad_user
 Values
 ('13980034','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('13980034','ND_Temp')
@@ -780,7 +780,7 @@ Insert into t_especialidad_user
 Values
 ('12865409','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('12865409','Disponible')
@@ -821,7 +821,7 @@ Insert into t_especialidad_user
 Values
 ('21764250','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('21764250','Asignado')
@@ -852,7 +852,7 @@ Insert into t_especialidad_user
 Values
 ('17812861','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('17812861','Interno')
@@ -893,7 +893,7 @@ Insert into t_especialidad_user
 Values
 ('8261239','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('8261239','Asignado')
@@ -929,7 +929,7 @@ Insert into t_especialidad_user
 Values
 ('11815205','Coaching')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11815205','Asignado')
@@ -960,7 +960,7 @@ Insert into t_especialidad_user
 Values
 ('10661746','Negocios')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('10661746','Disponible')
@@ -1001,7 +1001,7 @@ Insert into t_especialidad_user
 Values
 ('4381690','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4381690','ND_Temp')
@@ -1047,7 +1047,7 @@ Insert into t_especialidad_user
 Values
 ('26115457','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('26115457','Asignado')
@@ -1078,7 +1078,7 @@ Insert into t_especialidad_user
 Values
 ('12861175','Indicadores')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('12861175','Disponible')
@@ -1104,7 +1104,7 @@ Insert into t_especialidad_user
 Values
 ('11467178','RRHH')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11467178','Disponible')
@@ -1140,7 +1140,7 @@ Insert into t_especialidad_user
 Values
 ('10123767','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('10123767','Asignado')
@@ -1156,7 +1156,7 @@ Insert into t_users2
 Values
 ('04311689','20-04311689-5')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('04311689','Disponible')
@@ -1187,7 +1187,7 @@ Insert into t_especialidad_user
 Values
 ('4747813','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4747813','ND_Temp')
@@ -1233,7 +1233,7 @@ Insert into t_especialidad_user
 Values
 ('18475365','Coaching')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('18475365','Asignado')
@@ -1259,7 +1259,7 @@ Insert into t_especialidad_user
 Values
 ('92334192','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('92334192','Disponible')
@@ -1295,7 +1295,7 @@ Insert into t_especialidad_user
 Values
 ('7375447','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('7375447','Asignado')
@@ -1321,7 +1321,7 @@ Insert into t_especialidad_user
 Values
 ('29217019','Comunicacion')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('29217019','Asignado')
@@ -1347,7 +1347,7 @@ Insert into t_especialidad_user
 Values
 ('7638418','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('7638418','Asignado')
@@ -1373,7 +1373,7 @@ Insert into t_especialidad_user
 Values
 ('8406769','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('8406769','Asignado')
@@ -1409,7 +1409,7 @@ Insert into t_especialidad_user
 Values
 ('06082141','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('06082141','Asignado')
@@ -1425,7 +1425,7 @@ Insert into t_users2
 Values
 ('14809026','20-14809026-3')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('14809026','Asignado')
@@ -1446,7 +1446,7 @@ Insert into t_especialidad_user
 Values
 ('17481570','Administración')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('17481570','ND_Temp')
@@ -1477,7 +1477,7 @@ Insert into t_especialidad_user
 Values
 ('11368729','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11368729','Con_Restricc')
@@ -1503,7 +1503,7 @@ Insert into t_especialidad_user
 Values
 ('12107641','Coaching')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('12107641','Asignado')
@@ -1524,7 +1524,7 @@ Insert into t_especialidad_user
 Values
 ('11524703','Estrategia')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11524703','Disponible')
@@ -1560,7 +1560,7 @@ Insert into t_especialidad_user
 Values
 ('11802203','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11802203','Asignado')
@@ -1586,7 +1586,7 @@ Insert into t_especialidad_user
 Values
 ('4412265','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4412265','Disponible')
@@ -1622,7 +1622,7 @@ Insert into t_especialidad_user
 Values
 ('10558702','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('10558702','Asignado')
@@ -1653,7 +1653,7 @@ Insert into t_especialidad_user
 Values
 ('6714305','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('6714305','ND_Temp')
@@ -1679,7 +1679,7 @@ Insert into t_especialidad_user
 Values
 ('11997550','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11997550','Disponible')
@@ -1693,7 +1693,7 @@ Values
 Insert into t_users2 
 (`dni`,`cuil`)
 Values
-('04556079','20-04556079-02      DNI 4556079')
+('04556079','20-04556079-02')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -1705,7 +1705,7 @@ Insert into t_especialidad_user
 Values
 ('04556079','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('04556079','ND_Temp')
@@ -1741,7 +1741,7 @@ Insert into t_especialidad_user
 Values
 ('10110647','Logistica')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('10110647','Asignado')
@@ -1782,7 +1782,7 @@ Insert into t_especialidad_user
 Values
 ('7685597','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('7685597','Asignado')
@@ -1818,7 +1818,7 @@ Insert into t_especialidad_user
 Values
 ('4553179','Negocios')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4553179','Disponible')
@@ -1854,7 +1854,7 @@ Insert into t_especialidad_user
 Values
 ('7704808','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('7704808','Disponible')
@@ -1880,7 +1880,7 @@ Insert into t_especialidad_user
 Values
 ('4444524','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4444524','Disponible')
@@ -1901,7 +1901,7 @@ Insert into t_especialidad_user
 Values
 ('93445268','RRHH')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('93445268','Asignado')
@@ -1917,7 +1917,7 @@ Insert into t_users2
 Values
 ('94602041','N/D')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('94602041','Asignado')
@@ -1953,7 +1953,7 @@ Insert into t_especialidad_user
 Values
 ('11362109','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11362109','Asignado')
@@ -1979,7 +1979,7 @@ Insert into t_especialidad_user
 Values
 ('12601664','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('12601664','ND_Temp')
@@ -2015,7 +2015,7 @@ Insert into t_especialidad_user
 Values
 ('14927381','Coaching')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('14927381','Asignado')
@@ -2051,7 +2051,7 @@ Insert into t_especialidad_user
 Values
 ('22759102','Diagnostico')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('22759102','Asignado')
@@ -2082,7 +2082,7 @@ Insert into t_especialidad_user
 Values
 ('4548676','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4548676','Disponible')
@@ -2118,7 +2118,7 @@ Insert into t_especialidad_user
 Values
 ('12463662','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('12463662','ND_Temp')
@@ -2139,7 +2139,7 @@ Insert into t_especialidad_user
 Values
 ('24569384','RRHH')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('24569384','ND_Temp')
@@ -2175,7 +2175,7 @@ Insert into t_especialidad_user
 Values
 ('17233641','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('17233641','Disponible')
@@ -2191,7 +2191,7 @@ Insert into t_users2
 Values
 ('12600203','20-12600203-4')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('12600203','Asignado')
@@ -2217,7 +2217,7 @@ Insert into t_especialidad_user
 Values
 ('12865523','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('12865523','ND_Temp')
@@ -2243,7 +2243,7 @@ Insert into t_especialidad_user
 Values
 ('04536924','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('04536924','Disponible')
@@ -2259,7 +2259,7 @@ Insert into t_users2
 Values
 ('13237942','N/D')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('13237942','Disponible')
@@ -2268,17 +2268,17 @@ Values
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`email_1`,`email_2`)
 Values
-('11997550','Spielmann','Susana Ines','susyspielmann@gmail.com','N/D')
+('10260310','Spielmann','Susana Ines','susyspielmann@gmail.com','N/D')
 ;
 Insert into t_users2 
 (`dni`,`cuil`)
 Values
-('11997550','N/D')
+('10260310','27-10260310-4')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
-('11997550','Interno')
+('10260310','Interno')
 ;
 -- --------------------------------------------------------------
 Insert into t_users1 
@@ -2296,7 +2296,7 @@ Insert into t_especialidad_user
 Values
 ('12001693','Negocios')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('12001693','Asignado')
@@ -2327,7 +2327,7 @@ Insert into t_especialidad_user
 Values
 ('13211906','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('13211906','ND_Temp')
@@ -2353,7 +2353,7 @@ Insert into t_especialidad_user
 Values
 ('11710217','Negocios')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11710217','Disponible')
@@ -2394,7 +2394,7 @@ Insert into t_especialidad_user
 Values
 ('8627432','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('8627432','Asignado')
@@ -2430,7 +2430,7 @@ Insert into t_especialidad_user
 Values
 ('04520142','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('04520142','Asignado')
@@ -2456,7 +2456,7 @@ Insert into t_especialidad_user
 Values
 ('4357215','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4357215','Disponible')
@@ -2487,7 +2487,7 @@ Insert into t_especialidad_user
 Values
 ('11478659','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('11478659','Asignado')
@@ -2513,7 +2513,7 @@ Insert into t_especialidad_user
 Values
 ('4981277','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('4981277','Disponible')
@@ -2549,7 +2549,7 @@ Insert into t_especialidad_user
 Values
 ('17446349','Procesos')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('17446349','Asignado')
@@ -2590,7 +2590,7 @@ Insert into t_especialidad_user
 Values
 ('07604925','Contable')
 ;
-Insert into t_estado_user 
+Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
 ('07604925','ND_Temp')
