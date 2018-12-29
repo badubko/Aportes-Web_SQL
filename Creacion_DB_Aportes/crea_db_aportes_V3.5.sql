@@ -122,7 +122,7 @@ INSERT INTO `t_profesiones` (`profesion`) VALUES
 ('Sicologo'),
 ('Sociologa'),
 ('Sociologo'),
-('Otra')
+('Otra'),
 ('Chanta'),
 ('Chantologa'),
 ('Chantologo'),
