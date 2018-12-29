@@ -599,6 +599,11 @@ Insert into t_especialidad_user
 Values
 ('11285447','Procesos')
 ;
+Insert into t_especialidad_user 
+(`dni`,`especialidad`)
+Values
+('11285447','Pajas Mentales')
+;
 Insert into t_logs_estado_user 
 (`dni`,`estado`)
 Values
