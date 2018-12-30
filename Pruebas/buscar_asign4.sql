@@ -9,10 +9,10 @@ WHERE
 				(SELECT dni
 					FROM
 						t_especialidad_user
-					WHERE especialidad = "Sistemas"  AND dni IN 
+					WHERE especialidad = "Comercial"  AND dni IN 
 						(SELECT  dni
 						FROM    t_especialidad_user
-						WHERE   especialidad = "Procesos"  ) 
+						WHERE   especialidad = "Negocios"  ) 
 				) 
             ) ORDER by apellido;
 	
