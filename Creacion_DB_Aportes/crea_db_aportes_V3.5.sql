@@ -25,16 +25,19 @@ CREATE TABLE t_users1 (
 
 --
 -- Table structure for table `users2`
+-- Agregados telefonos y modificado orden
 --
 
 CREATE TABLE t_users2 (
   dni INT UNSIGNED NOT NULL UNIQUE,
-  rol VARCHAR (6) NOT NULL DEFAULT "Vol",
   cuil VARCHAR(14) NOT NULL DEFAULT "N/D",
+  rol VARCHAR (6) NOT NULL DEFAULT "Vol",
+  estado VARCHAR (14) NOT NULL DEFAULT 'Desconoc',
+  comentarios varchar(256) NULL DEFAULT 'No Comments',
+  tel_1 VARCHAR (20) NULL DEFAULT "N/D",
+  tel_2 VARCHAR (20) NULL DEFAULT "N/D",
   a_socio YEAR NOT NULL DEFAULT "0000",
   f_ingreso DATE NOT NULL DEFAULT "2004-01-01",
-  estado VARCHAR (14) NOT NULL DEFAULT 'Desconoc',
-  `comentarios` varchar(256) NULL DEFAULT 'No Comments',
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   KEY idx_fk_dni (dni),
   CONSTRAINT fk_users2_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
