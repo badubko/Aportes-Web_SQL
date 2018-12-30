@@ -271,7 +271,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('04437727','Administración')
+('04437727','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -400,12 +400,12 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('00000001','Sistemas')
+('999999','Sistemas')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('00000001','Procesos')
+('999999','Procesos')
 ;
 Insert into t_logs_estado_user 
 (`dni`,`estado`)
@@ -845,7 +845,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('17812861','Administración')
+('17812861','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -989,7 +989,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('4381690','Administración')
+('4381690','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -1133,7 +1133,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('10123767','Administración')
+('10123767','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -1221,7 +1221,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('18475365','Administración')
+('18475365','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -1288,7 +1288,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('7375447','Administración')
+('7375447','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -1402,7 +1402,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('06082141','Administración')
+('06082141','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -1449,7 +1449,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('17481570','Administración')
+('17481570','Administracion')
 ;
 Insert into t_logs_estado_user 
 (`dni`,`estado`)
@@ -1610,7 +1610,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('10558702','Administración')
+('10558702','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -1770,7 +1770,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('7685597','Administración')
+('7685597','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -1811,7 +1811,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('4553179','Administración')
+('4553179','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -2111,7 +2111,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('12463662','Administración')
+('12463662','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -2163,7 +2163,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('17233641','Administración')
+('17233641','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -2382,7 +2382,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('8627432','Administración')
+('8627432','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -2480,7 +2480,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('11478659','Administración')
+('11478659','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -2511,7 +2511,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('4981277','Administración')
+('4981277','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -2578,7 +2578,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('07604925','Administración')
+('07604925','Administracion')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)

@@ -33,6 +33,7 @@ CREATE TABLE t_users2 (
   cuil VARCHAR(14) NOT NULL DEFAULT "N/D",
   a_socio YEAR NOT NULL DEFAULT "0000",
   f_ingreso DATE NOT NULL DEFAULT "2004-01-01",
+  estado VARCHAR (14) NOT NULL DEFAULT 'Desconoc',
   `comentarios` varchar(256) NULL DEFAULT 'No Comments',
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   KEY idx_fk_dni (dni),
@@ -83,6 +84,33 @@ CREATE TABLE t_logs_estado_user (
   KEY idx_fk_estado (estado),
   CONSTRAINT fk_estados_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE  
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  
+DELIMITER $$
+CREATE TRIGGER after_t_logs_estado_user_update 
+    AFTER UPDATE ON t_logs_estado_user
+FOR EACH ROW
+BEGIN
+    UPDATE t_users2
+    SET 
+    dni = OLD.dni,
+     estado = NEW.estado,
+     last_update = NOW()
+     WHERE OLD.dni=NEW.dni ;  
+END$$
+
+CREATE TRIGGER after_t_logs_estado_user_insert 
+    AFTER INSERT ON t_logs_estado_user
+FOR EACH ROW
+BEGIN
+    UPDATE  t_users2
+    SET 
+     dni = NEW.dni,
+     estado = NEW.estado,
+     last_update = NOW()
+     WHERE dni=NEW.dni ; 
+END$$
+
+DELIMITER ;  
 
 CREATE TABLE t_hist_user_proy (
   dni INT UNSIGNED NOT NULL,
