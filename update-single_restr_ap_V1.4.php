@@ -60,6 +60,8 @@ if (isset($_GET['dni'])) {
     $statement->execute();
     
     $user = $statement->fetch(PDO::FETCH_ASSOC);
+    $count = $statement->rowCount();
+     
   } catch(PDOException $error) {
       echo $sql1 . "<br>" . $error->getMessage();
   }
