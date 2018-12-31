@@ -107,25 +107,28 @@ try {
 <!-- <h3><?php echo escape($apellido) , ", " , escape($nombres); ?></h3> -->
 <?php if ( $count != 0 ) { ?>
 <form method="post">
+	
     <?php foreach ($user as $key => $value) : ?>
-	  <?php if ( $key != 'rol') { ?>
-      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-      
-	    <input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
-		<?php } else { ?>
-<!--			<p> -->
+    <?php switch ($key) { ?>
+	<?php case 'rol': 		?>
 			<label for="Rol">Rol</label> 
 			<select name="rol">
-<!--			<option value="">Seleccione...</option> -->
 			<option value="<?php echo escape($value); ?>"><?php echo escape($value); ?></option>
 			<?php foreach ($a_rol as $role) { ?>
 				<option value="<?php echo $role["rol"]; ?>"><?php echo $role["rol"]; ?></option>
-			<?php } ?>
-			</select>
-<!--			</p>  -->
-		<?php }  ?>	
-			
-			
+			<?php } ?>			
+	<?php	break;	?>	
+	<?php case 'estado': 	?>
+		<label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>    
+	    <input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'estado' ? 'readonly' : null); ?>>
+	<?php	break;
+		default:		?>
+		<label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>    
+	    <input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
+	<?php	break;
+						}	?>
+    
+	
     <?php endforeach; ?> 
     <input type="submit" name="submit" value="Guardar">
 </form>
