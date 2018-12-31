@@ -73,12 +73,6 @@ if (isset($_GET['dni'])) {
 
 
 
-//<?php
-  //  $apellido = $_GET['apellido'];
-  //  $nombres = $_GET['nombres'];
-// ?>
-
-
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
 	<blockquote>
