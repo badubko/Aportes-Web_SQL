@@ -105,7 +105,7 @@ try {
 </h3>Editar datos RESTRINGIDOS del Voluntario/a: <?php echo escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?> </h3>
 <!-- <h3>Editar datos RESTRINGIDOS del Voluntario/a:  <?php echo escape($apellido) , ", " , escape($nombres); ?></h3> -->
 <!-- <h3><?php echo escape($apellido) , ", " , escape($nombres); ?></h3> -->
-
+<?php if ( $count != 0 ) { ?>
 <form method="post">
     <?php foreach ($user as $key => $value) : ?>
 	  <?php if ( $key != 'rol') { ?>
@@ -129,6 +129,7 @@ try {
     <?php endforeach; ?> 
     <input type="submit" name="submit" value="Guardar">
 </form>
+<?php }  ?>	
 
 <h2> </h2>
 <a href="read_ap_V1.4.php">Modif Otro Voluntario</a>
