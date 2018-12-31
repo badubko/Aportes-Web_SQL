@@ -24,7 +24,10 @@ if (isset($_POST['submit'])) {
       "f_ingreso"     	=> $_POST['f_ingreso']
   
     ];
-
+    
+   //$apellido = $_POST['apellido'];
+   //$nombres = $_POST['nombres'];
+    
     $sql1 = "UPDATE t_users2 
             SET dni = :dni,
 				cuil = :cuil,
@@ -68,9 +71,18 @@ if (isset($_GET['dni'])) {
 
 <?php require "templates/header.php"; ?>
 
+
+
+//<?php
+  //  $apellido = $_GET['apellido'];
+  //  $nombres = $_GET['nombres'];
+// ?>
+
+
+
 <?php if (isset($_POST['submit']) && $statement) : ?>
 	<blockquote>
-	<?php echo escape($_POST['apellido']) , ", " , escape($_POST['nombres']); ?> Fue actualizada/o OK. 
+	<?php echo escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?> Fue actualizada/o OK. 
 	</blockquote>
 	
 <?php endif; ?>
@@ -94,10 +106,9 @@ try {
 }         
 
 ?>
-
-
-
-<h4>Editar datos RESTRINGIDOS de un Voluntario</h4>
+</h3>Editar datos RESTRINGIDOS del Voluntario/a: <?php echo escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?> </h3>
+<!-- <h3>Editar datos RESTRINGIDOS del Voluntario/a:  <?php echo escape($apellido) , ", " , escape($nombres); ?></h3> -->
+<!-- <h3><?php echo escape($apellido) , ", " , escape($nombres); ?></h3> -->
 
 <form method="post">
     <?php foreach ($user as $key => $value) : ?>
@@ -106,7 +117,7 @@ try {
       
 	    <input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
 		<?php } else { ?>
-			<p>
+<!--			<p> -->
 			<label for="Rol">Rol</label> 
 			<select name="rol">
 <!--			<option value="">Seleccione...</option> -->
@@ -115,7 +126,7 @@ try {
 				<option value="<?php echo $role["rol"]; ?>"><?php echo $role["rol"]; ?></option>
 			<?php } ?>
 			</select>
-			</p>
+<!--			</p>  -->
 		<?php }  ?>	
 			
 			
