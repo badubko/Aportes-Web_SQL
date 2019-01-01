@@ -128,8 +128,6 @@ try {
 	    <input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
 	<?php	break;
 						}	?>
-    
-	
     <?php endforeach; ?> 
     <input type="submit" name="submit" value="Guardar">
 </form>
