@@ -109,14 +109,15 @@ try {
 <form method="post">
 	
     <?php foreach ($user as $key => $value) : ?>
-    <?php switch ($key) { ?>
-	<?php case 'rol': 		?>
+    <?php switch ($key) {
+	     case 'rol':?>
 			<label for="Rol">Rol</label> 
 			<select name="rol">
 			<option value="<?php echo escape($value); ?>"><?php echo escape($value); ?></option>
 			<?php foreach ($a_rol as $role) { ?>
-				<option value="<?php echo $role["rol"]; ?>"><?php echo $role["rol"]; ?></option>
-			<?php } ?>			
+				<option value="<?php echo $role["rol"]; ?>"><?php echo $role["rol"]; ?></option>			
+			<?php } ?>	
+			</select>		
 	<?php	break;	?>	
 	<?php case 'estado': 	?>
 		<label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>    
