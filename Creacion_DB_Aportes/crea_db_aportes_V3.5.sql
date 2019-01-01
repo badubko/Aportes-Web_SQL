@@ -41,6 +41,8 @@ CREATE TABLE t_users2 (
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   KEY idx_fk_dni (dni),
   CONSTRAINT fk_users2_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
+  KEY idx_fk_estado (estado),
+  CONSTRAINT fk_users2_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Tablas de valores "Fijos"
