@@ -88,7 +88,8 @@ try {
 	     case 'rol':?>
 			<label for="Rol">Rol</label> 
 			<select name="rol">
-			<option value="<?php echo escape($value); ?>"><?php echo escape($value); ?></option>
+<!--			<option value="<?php echo escape($value); ?>"><?php echo escape($value); ?></option> -->
+                <option value="">Vol</option> 
 			<?php foreach ($a_rol as $role) { ?>
 				<option value="<?php echo $role["rol"]; ?>"><?php echo $role["rol"]; ?></option>			
 			<?php } ?>	
