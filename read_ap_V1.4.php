@@ -59,10 +59,14 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["email_2"]); ?></td>
 				<td><?php echo escape($row["last_update"]); ?></td>
 				<td><a href="update-single_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>">Datos PUB VOL</a></td>
+				<td><a href="create_restr_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
+				&apellido=<?php echo escape($row["apellido"]); ?>
+				&nombres=<?php echo escape($row["nombres"]); ?>
+				">Agreg Datos RESTR VOL</a></td>
 				<td><a href="update-single_restr_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
-				">Datos RESTR VOL</a></td>
+				">Modif Datos RESTR VOL</a></td>
 				<td><a href="listar-esp_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>

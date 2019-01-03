@@ -5,10 +5,9 @@
  * users2 table.
  *
  */
+require "./config_ap_V1.4.php";
+require "./common_ap_V1.4.php";
 if (isset($_POST['submit'])) {
-    require "./config_ap_V1.4.php";
-    require "./common_ap_V1.4.php";
-
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
         
@@ -16,13 +15,14 @@ if (isset($_POST['submit'])) {
             "dni"     		=> $_POST['dni'],
             "cuil"       	=> $_POST['cuil'],
             "rol"  			=> $_POST['rol'],
-            "estado"  		=> $_POST['estado'],
+//            "estado"  		=> $_POST['estado'],
             "comentarios"  	=> $_POST['comentarios'],
             "tel_1"  		=> $_POST['tel_1'],
             "tel_2"  		=> $_POST['tel_2'],
             "a_socio"  		=> $_POST['a_socio'],
             "f_ingreso"  	=> $_POST['f_ingreso']
              );
+             
         $sql2 = sprintf(
                 "INSERT INTO %s (%s) values (%s)",
                 "t_users2",
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 
 
 <?php if (isset($_POST['submit']) && $statement && !$error){ ?>
-    <blockquote><?php echo $_POST['apellido'] , ", " , $_POST['nombres']; ?> agregada/o a la base de Aportes.</blockquote>
+    <blockquote><?php echo $_GET['apellido'] , ", " , $_GET['nombres']; ?> agregada/o a la base de Aportes.</blockquote>
 <?php } ?>
 
 <?php
@@ -67,10 +67,13 @@ try {
 
 ?>
 
-</h3>Editar datos RESTRINGIDOS del Voluntario/a: <?php echo escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?> </h3>
+
+</h3>Agregar datos RESTRINGIDOS del Voluntario/a: <?php echo escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?> </h3>
 <form method="post">
-	
-    <?php foreach ($new_user2 as $key => $value) : ?>
+	 <?php
+
+	 
+    foreach ($new_user2 as $key => $value) : ?>
     <?php switch ($key) {
 	     case 'rol':?>
 			<label for="Rol">Rol</label> 
