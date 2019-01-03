@@ -71,7 +71,17 @@ try {
 </h3>Agregar datos RESTRINGIDOS del Voluntario/a: <?php echo escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?> </h3>
 <form method="post">
 	 <?php
+        $new_user2 = array(
+            "dni"     		=>'dni',
+            "cuil"       	=> 'cuil',
+            "rol"  			=> 'rol',
 
+            "comentarios"  	=> 'comentarios',
+            "tel_1"  		=> 'tel_1',
+            "tel_2"  		=> 'tel_2',
+            "a_socio"  		=> 'a_socio',
+            "f_ingreso"  	=> 'f_ingreso'
+             );
 	 
     foreach ($new_user2 as $key => $value) : ?>
     <?php switch ($key) {
