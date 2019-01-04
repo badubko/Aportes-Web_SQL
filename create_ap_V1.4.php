@@ -42,6 +42,7 @@ if (isset($_POST['submit'])) {
 
 <?php if (isset($_POST['submit']) && $statement && !$error){ ?>
     <blockquote><?php echo $_POST['apellido'] , ", " , $_POST['nombres']; ?> agregada/o a la base de Aportes.</blockquote>
+
 <?php } ?>
 
 <?php
@@ -64,6 +65,9 @@ try {
 
 ?>
 
+<!--
+<?php require "./common_ap_V1.4.php";?>
+-->
 
 <h2>Agregar Voluntario</h2>
 
@@ -90,11 +94,18 @@ try {
 	<input type="submit" name="submit" value="Guardar">
 </form>
 
-				<td><a href="create_restr_ap_V1.4.php?dni=<?php echo escape($new_user["dni"]); ?>
-				&apellido=<?php echo escape($new_user["apellido"]); ?>
-				&nombres=<?php echo escape($new_user["nombres"]); ?>
+<!--
+				<td><a href="create_restr_ap_V1.4.php?dni=<?php echo escape($dni); ?>
+				&apellido=<?php echo escape($apellido); ?>
+				&nombres=<?php echo escape($nombres); ?>
 				">Agreg Datos RESTR VOL</a></td>
-
+-->
+<!--
+    			<td><a href="create_restr_ap_V1.4.php?dni=<?php echo $_POST['dni']; ?>
+				&apellido=<?php echo $_POST['apellido']; ?>
+				&nombres=<?php echo $_POST['nombres']; ?>
+				">Agreg Datos RESTR VOL</a></td>
+-->
 
 <a href="index_ap_V1.4.php">Back to home</a>
 
