@@ -110,10 +110,6 @@ try {
     <input type="submit" name="submit" value="Guardar">
 </form>
 
-				<td><a href="create_restr_ap_V1.4.php?dni=<?php echo escape($new_user2["dni"]); ?>
-				&apellido=<?php echo escape($new_user2["apellido"]); ?>
-				&nombres=<?php echo escape($new_user2["nombres"]); ?>
-				">Agreg Datos RESTR VOL</a></td>
 
 <a href="index_ap_V1.4.php">Back to home</a>
 
