@@ -94,18 +94,7 @@ try {
 	<input type="submit" name="submit" value="Guardar">
 </form>
 
-<!--
-				<td><a href="create_restr_ap_V1.4.php?dni=<?php echo escape($dni); ?>
-				&apellido=<?php echo escape($apellido); ?>
-				&nombres=<?php echo escape($nombres); ?>
-				">Agreg Datos RESTR VOL</a></td>
--->
-<!--
-    			<td><a href="create_restr_ap_V1.4.php?dni=<?php echo $_POST['dni']; ?>
-				&apellido=<?php echo $_POST['apellido']; ?>
-				&nombres=<?php echo $_POST['nombres']; ?>
-				">Agreg Datos RESTR VOL</a></td>
--->
+
 
 <a href="index_ap_V1.4.php">Back to home</a>
 
