@@ -65,9 +65,7 @@ try {
 
 ?>
 
-<!--
-<?php require "./common_ap_V1.4.php";?>
--->
+
 
 <h2>Agregar Voluntario</h2>
 
