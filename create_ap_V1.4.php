@@ -87,8 +87,10 @@ try {
 		<input type="text" name="email_1" id="email_1">
 	<label for="email_2">Email Alternativo</label>
 		<input type="text" name="email_2" id="email_2">	
-	<input type="submit" name="submit" value="Submit">
+	<input type="submit" name="submit" value="Guardar">
 </form>
+
+
 
 <a href="index_ap_V1.4.php">Back to home</a>
 

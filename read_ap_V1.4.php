@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
 <form method="post">
 	<label for="apellido">Apellido (A%  %A%  %)</label>
 	<input type="text" id="apellido" name="apellido">
-	<input type="submit" name="submit" value="View Results">
+	<input type="submit" name="submit" value="Buscar">
 </form>
 
 <a href="index_ap_V1.4.php">Back to home</a>
