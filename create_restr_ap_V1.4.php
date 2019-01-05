@@ -44,8 +44,11 @@ if (isset($_POST['submit'])) {
 
 
 <?php if (isset($_POST['submit']) && $statement && !$error){ ?>
-    <blockquote><?php echo $_GET['apellido'] , ", " , $_GET['nombres']; ?> agregada/o a la base de Aportes.</blockquote>
-<?php } ?>
+    <blockquote><?php echo $_GET['apellido'] , ", " , $_GET['nombres']; ?> Datos restringidos agregados.</blockquote>
+    <a href="index_ap_V1.4.php">Back to home</a>
+<?php 
+exit;
+} ?>
 
 <?php
 

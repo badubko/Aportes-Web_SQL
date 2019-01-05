@@ -42,10 +42,7 @@ if (isset($_POST['submit'])) {
 
 <?php if (isset($_POST['submit']) && $statement && !$error){ ?>
     <blockquote><?php echo $_POST['apellido'] , ", " , $_POST['nombres']; ?> agregada/o a la base de Aportes.</blockquote>
-				<td><a href="create_restr_ap_V1.4.php?dni=<?php echo $_POST['dni']; ?>
-				&apellido=<?php echo $_POST['apellido']; ?>
-				&nombres=<?php echo $_POST['nombres']; ?>
-				">Agreg Datos RESTR VOL</a></td>
+
 <?php } ?>
 
 <?php
@@ -95,6 +92,13 @@ try {
 	<input type="submit" name="submit" value="Guardar">
 </form>
 
+<?php if (isset($_POST['submit']) && $statement && !$error){ ?>
+   
+				<td><a href="create_restr_ap_V1.4.php?dni=<?php echo $_POST['dni']; ?>
+				&apellido=<?php echo $_POST['apellido']; ?>
+				&nombres=<?php echo $_POST['nombres']; ?>
+				">Agreg Datos RESTR VOL</a></td>
+<?php } ?>
 
 
 <a href="index_ap_V1.4.php">Back to home</a>
