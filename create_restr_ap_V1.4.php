@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         
     } catch(PDOException $error) {
        // echo $sql . "<br>" . $error->getMessage();
-        echo "Hubo un error en el insert de: " , $_POST['apellido'] . "<br>" . $error->getMessage();
+        echo "Hubo un error en el insert de: " , $_GET['apellido'] , ", " , $_GET['nombres'] . "<br>" . $error->getMessage();
     }
 }
 ?>
