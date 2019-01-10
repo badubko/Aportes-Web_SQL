@@ -140,62 +140,69 @@ CREATE TABLE t_hist_user_proy (
 
 CREATE TABLE t_osc (
 --  osc_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  osc_nombre VARCHAR (128) NOT NULL,
+  osc_nombre 	VARCHAR (128) NOT NULL,
 -- Direccion 1
-  osc_calle_1 VARCHAR (64),
-  osc_num_1 VARCHAR (6),
-  osc_ciudad_1 VARCHAR (32),
-  osc_cp_1 VARCHAR (8),
-  osc_prov_1 VARCHAR (12),
+  osc_calle_1 	VARCHAR (64),
+  osc_num_1 	VARCHAR (6),
+  osc_ciudad_1 	VARCHAR (32),
+  osc_cp_1		VARCHAR (8),
+  osc_prov_1 	VARCHAR (12),
 -- Direccion 2
-  osc_calle_2 VARCHAR (64),
-  osc_num_2VARCHAR (6),
-  osc_ciudad_2 VARCHAR (32),
-  osc_cp_2 VARCHAR (8),
-  osc_prov_2 VARCHAR (12),
+  osc_calle_2 	VARCHAR (64),
+  osc_num_2 	VARCHAR (6),
+  osc_ciudad_2 	VARCHAR (32),
+  osc_cp_2		VARCHAR (8),
+  osc_prov_2 	VARCHAR (12),
 --
-  osc_pag_web VARCHAR (128),
+  osc_pag_web 	VARCHAR (128),
 --
-  osc_estado VARCHAR (16) NOT NULL DEFAULT "Desconocido",
+  osc_estado 	VARCHAR (16) NOT NULL DEFAULT "Desconocido",
 --
-  osc_obj_1 VARCHAR (32) NOT NULL DEFAULT "No Especificado",
-  osc_obj_2 VARCHAR (32) NOT NULL DEFAULT "No Especificado",
-  osc_obj_3 VARCHAR (32) NOT NULL DEFAULT "No Especificado",
+  osc_obj_1 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
+  osc_obj_2 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
+  osc_obj_3 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
 --
-  osc_dni_dc1 INT UNSIGNED NOT NULL,
-  osc_dni_dc2 INT UNSIGNED NOT NULL,
+  osc_dni_dc1 	INT UNSIGNED NOT NULL,
+  osc_dni_dc2 	INT UNSIGNED NOT NULL,
 --
-  osc_notas VARCHAR (256) DEFAULT "No hay notas",
+  osc_notas 	VARCHAR (256) DEFAULT "No hay notas",
 --
-  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  last_update 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
   PRIMARY KEY  (osc_nombre),
+--
   KEY idx_fk_osc_estado (osc_estado),
-  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE
---  
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8;  
+  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE,
+--
+  KEY idx_fk_osc_dni_dc1 (osc_dni_dc1),
+  CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE, 
+--
+  KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
+  CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
+   
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;  
   
 CREATE TABLE t_osc_contactos (
-	osc_nombre VARCHAR (128) NOT NULL,
-	osc_contacto_apellido VARCHAR(45) NOT NULL,
-	osc_contacto_nombres VARCHAR(45) NOT NULL,
-	osc_contacto_cel  VARCHAR (20) NOT NULL DEFAULT "N/D",
-	osc_contacto_tel_fijo  VARCHAR (20) NOT NULL DEFAULT "N/D",
-	osc_contacto_email VARCHAR(50) NOT NULL DEFAULT "N/D",
-	osc_contacto_posicion VARCHAR(64) NOT NULL DEFAULT "N/D",
-	osc_contacto_horario VARCHAR (256) NOT NULL DEFAULT "No hay detalle",
-	last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	osc_nombre 				VARCHAR (128) NOT NULL,
+	osc_contacto_apellido 	VARCHAR(45) NOT NULL,
+	osc_contacto_nombres 	VARCHAR(45) NOT NULL,
+	osc_contacto_cel  		VARCHAR (20) NOT NULL DEFAULT "N/D",
+	osc_contacto_tel_fijo  	VARCHAR (20) NOT NULL DEFAULT "N/D",
+	osc_contacto_email 		VARCHAR(50) NOT NULL DEFAULT "N/D",
+	osc_contacto_posicion 	VARCHAR(64) NOT NULL DEFAULT "N/D",
+	osc_contacto_horario 	VARCHAR (256) NOT NULL DEFAULT "No hay detalle",
+	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	KEY idx_fk_osc_nombre (osc_nombre),
 	CONSTRAINT fk_osc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE t_osc_estados (
-	osc_estado VARCHAR (16) NOT NULL DEFAULT "Desconocido",
+	osc_estado 				VARCHAR (16) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_estado)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE t_osc_objetivos (
-	osc_objetivo VARCHAR (16) NOT NULL DEFAULT "Desconocido",
+	osc_objetivo 			VARCHAR (16) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_objetivo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -231,9 +238,8 @@ INSERT INTO `t_profesiones` (`profesion`) VALUES
 ('Chantologo'),
 ('Mentirosa'),
 ('Mentiroso');
-
-
-
+--
+--
 INSERT INTO `t_especialidades` (`especialidad`) VALUES
 ('Administracion'),
 ('Coaching'),
@@ -254,7 +260,7 @@ INSERT INTO `t_especialidades` (`especialidad`) VALUES
 ('Enroscar la vibora'),
 ('Versotica'),
 ('Pura Fantasia');
-
+--
 INSERT INTO `t_roles` (`rol`) VALUES
 ('DP'),
 ('DC'),
@@ -264,7 +270,7 @@ INSERT INTO `t_roles` (`rol`) VALUES
 ('Vol'),
 ('VC'),
 ('Col');
-
+--
 INSERT INTO `t_estados` (`estado`) VALUES
 ('Asignado'),
 ('Disponible'),
@@ -275,7 +281,7 @@ INSERT INTO `t_estados` (`estado`) VALUES
 ('Puntual'),
 ('A_Confirmar'),
 ('Desconoc');
-
+--
 INSERT INTO `t_osc_estados` (`osc_estado`) VALUES
 ('Identificada'),
 ('Contactada'),
@@ -284,7 +290,7 @@ INSERT INTO `t_osc_estados` (`osc_estado`) VALUES
 ('Descartada'),
 ('En_Conversacion'),
 ('Desconocido');
-
+--
 INSERT INTO `t_osc_objetivos` (`osc_objetivo`) VALUES
 ('Salud'),
 ('Educacion'),
@@ -293,6 +299,3 @@ INSERT INTO `t_osc_objetivos` (`osc_objetivo`) VALUES
 ('Beneficencia'),
 ('No Especificado'),
 ('Otro');
-
-
-
