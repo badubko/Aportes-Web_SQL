@@ -194,6 +194,10 @@ CREATE TABLE t_osc_estados (
 	PRIMARY KEY (osc_estado)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE t_osc_objetivos (
+	osc_objetivo VARCHAR (16) NOT NULL DEFAULT "Desconocido",
+	PRIMARY KEY (osc_objetivo)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -244,9 +248,12 @@ INSERT INTO `t_especialidades` (`especialidad`) VALUES
 ('Procesos'),
 ('RRHH'),
 ('Sistemas'),
+--
 ('Chantologia'),
-('Pajas Mentales'),
-('Pura Paja');
+('Procastinacion'),
+('Enroscar la vibora'),
+('Versotica'),
+('Pura Fantasia');
 
 INSERT INTO `t_roles` (`rol`) VALUES
 ('DP'),
@@ -276,11 +283,16 @@ INSERT INTO `t_osc_estados` (`osc_estado`) VALUES
 ('Inactiva'),
 ('Descartada'),
 ('En_Conversacion'),
-('Desconocido')
+('Desconocido');
 
--- \. SQL_Ins_T_fijas/2018-10-31_0018_ESPEC.sql
--- estado ENUM ('Asignado','Disponible','ND_Temp','De_Baja','Con_Restricc','Interno','Puntual','Desconoc')
--- No hace falta insertar esto para esta version de la BD
--- Ya que esta en t_estado_user
--- \. SQL_Ins_T_fijas/2018-10-31_1029_ESTADO.sql
+INSERT INTO `t_osc_objetivos` (`osc_objetivo`) VALUES
+('Salud'),
+('Educacion'),
+('Alimentos'),
+('Caridad'),
+('Beneficencia'),
+('No Especificado'),
+('Otro');
+
+
 
