@@ -172,13 +172,13 @@ CREATE TABLE t_osc (
   PRIMARY KEY  (osc_nombre),
 --
   KEY idx_fk_osc_estado (osc_estado),
-  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE
 --
-  KEY idx_fk_osc_dni_dc1 (osc_dni_dc1),
-  CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE, 
+  -- KEY idx_fk_osc_dni_dc1 (osc_dni_dc1),
+  -- CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE, 
 --
-  KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
-  CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
+  -- KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
+  -- CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
    
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;  
   
@@ -291,11 +291,11 @@ INSERT INTO `t_osc_estados` (`osc_estado`) VALUES
 ('En_Conversacion'),
 ('Desconocido');
 --
-INSERT INTO `t_osc_objetivos` (`osc_objetivo`) VALUES
-('Salud'),
-('Educacion'),
-('Alimentos'),
-('Caridad'),
+INSERT INTO `t_osc_objetivos` (`osc_objetivo`) VALUES 
+("Educacion"),
+("Alimentos"),
+("Caridad"),
+("Otro"),
 ('Beneficencia'),
 ('No Especificado'),
-('Otro');
+("Salud");
