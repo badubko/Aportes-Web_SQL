@@ -136,8 +136,9 @@ CREATE TABLE t_hist_user_proy (
   CONSTRAINT fk_hist_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
+-- ------------------------------------------------------------
+-- Tabla de OSCs
+-- ------------------------------------------------------------
 CREATE TABLE t_osc (
 --  osc_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   osc_nombre 	VARCHAR (128) NOT NULL,
@@ -169,10 +170,10 @@ CREATE TABLE t_osc (
 --
   last_update 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
-  PRIMARY KEY  (osc_nombre),
+PRIMARY KEY  (osc_nombre),
 --
-  KEY idx_fk_osc_estado (osc_estado),
-  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE,
+KEY idx_fk_osc_estado (osc_estado),
+CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
 KEY idx_fk_osc_dni_dc1 (osc_dni_dc1),
 CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (osc_dni_dc1) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -180,7 +181,9 @@ CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (osc_dni_dc1) REFERENCES t_users1 (dni) ON
 KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
 CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (osc_dni_dc2) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;  
-  
+-- ------------------------------------------------------------
+-- Tabla de los contactos de cada OSC
+-- ------------------------------------------------------------  
 CREATE TABLE t_osc_contactos (
 	osc_nombre 				VARCHAR (128) NOT NULL,
 	osc_contacto_apellido 	VARCHAR(45) NOT NULL,
@@ -194,12 +197,16 @@ CREATE TABLE t_osc_contactos (
 	KEY idx_fk_osc_nombre (osc_nombre),
 	CONSTRAINT fk_osc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- ------------------------------------------------------------
+-- Tabla de estados posibles de una OSC
+-- ------------------------------------------------------------
 CREATE TABLE t_osc_estados (
 	osc_estado 				VARCHAR (16) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_estado)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- ------------------------------------------------------------
+-- Tabla de los objetivos posibles de una OSC
+-- ------------------------------------------------------------
 CREATE TABLE t_osc_objetivos (
 	osc_objetivo 			VARCHAR (16) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_objetivo)
@@ -208,9 +215,9 @@ CREATE TABLE t_osc_objetivos (
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
+-- ------------------------------------------------------------
 -- Valores de las tablas "Fijas"
-
+-- ------------------------------------------------------------
 INSERT INTO `t_profesiones` (`profesion`) VALUES
 ('Abogada'),
 ('Abogado'),
