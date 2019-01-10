@@ -162,8 +162,8 @@ CREATE TABLE t_osc (
   osc_obj_2 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
   osc_obj_3 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
 --
-  osc_dni_dc1 	INT UNSIGNED NOT NULL,
-  osc_dni_dc2 	INT UNSIGNED NOT NULL,
+--  osc_dni_dc1 	INT UNSIGNED NOT NULL,
+--  osc_dni_dc2 	INT UNSIGNED NOT NULL,
 --
   osc_notas 	VARCHAR (256) DEFAULT "No hay notas",
 --
@@ -172,13 +172,13 @@ CREATE TABLE t_osc (
   PRIMARY KEY  (osc_nombre),
 --
   KEY idx_fk_osc_estado (osc_estado),
-  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE
 --
-KEY idx_fk_osc_dni_dc1 (osc_dni_dc1),
-CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (osc_dni_dc1) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+-- KEY idx_fk_osc_dni_dc1 (osc_dni_dc1),
+-- CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (osc_dni_dc1) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
-KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
-CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (osc_dni_dc2) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
+-- KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
+-- CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (osc_dni_dc2) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;  
   
 CREATE TABLE t_osc_contactos (
@@ -193,6 +193,29 @@ CREATE TABLE t_osc_contactos (
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	KEY idx_fk_osc_nombre (osc_nombre),
 	CONSTRAINT fk_osc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE t_osc_logs_dc (
+    dni 					INT UNSIGNED NOT NULL,
+    osc_nombre 				VARCHAR (128) NOT NULL, 
+	osc_rol_dc				VARCHAR (16) NOT NULL ,
+	osc_comentarios 		VARCHAR (256) DEFAULT "No Comments",
+	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--
+	KEY idx_fk_osc_logs_dni (dni),
+    CONSTRAINT fk_logs_dc_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+--
+	KEY idx_fk_logs_dc_osc_nombre (osc_nombre),
+	CONSTRAINT fk_logs_dc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
+--
+    KEY idx_fk_osc_logs_rol (osc_rol_dc),
+    CONSTRAINT fk_logs_rol_dc FOREIGN KEY (osc_rol_dc) REFERENCES t_osc_rol_dc (osc_rol_dc) ON DELETE RESTRICT ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE t_osc_rol_dc (
+	osc_rol_dc				VARCHAR (16) NOT NULL ,
+	PRIMARY KEY (osc_rol_dc)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE t_osc_estados (
@@ -280,6 +303,11 @@ INSERT INTO `t_estados` (`estado`) VALUES
 ('Puntual'),
 ('A_Confirmar'),
 ('Desconoc');
+--
+INSERT INTO `t_osc_rol_dc` (`osc_rol_dc`) VALUES
+('Primario'),
+('Suplente'),
+('Desasignado');
 --
 INSERT INTO `t_osc_estados` (`osc_estado`) VALUES
 ('Identificada'),
