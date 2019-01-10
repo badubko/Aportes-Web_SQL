@@ -172,14 +172,13 @@ CREATE TABLE t_osc (
   PRIMARY KEY  (osc_nombre),
 --
   KEY idx_fk_osc_estado (osc_estado),
-  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE
+  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
-  -- KEY idx_fk_osc_dni_dc1 (osc_dni_dc1),
-  -- CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE, 
+KEY idx_fk_osc_dni_dc1 (osc_dni_dc1),
+CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (osc_dni_dc1) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
-  -- KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
-  -- CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
-   
+KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
+CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (osc_dni_dc2) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;  
   
 CREATE TABLE t_osc_contactos (
