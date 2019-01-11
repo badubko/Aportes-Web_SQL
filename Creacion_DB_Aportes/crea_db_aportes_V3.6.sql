@@ -136,10 +136,10 @@ CREATE TABLE t_hist_user_proy (
   CONSTRAINT fk_hist_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
+-- ---------------------------------------------------------------------
 -- Tablas de las OSCs
 --
---
+-- ---------------------------------------------------------------------
 
 
 CREATE TABLE t_osc (
@@ -198,7 +198,7 @@ CREATE TABLE t_osc_contactos (
 	KEY idx_fk_osc_nombre (osc_nombre),
 	CONSTRAINT fk_osc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- ---------------------------------------------------------------------
 CREATE TABLE t_osc_logs_dc (
     dni 					INT UNSIGNED NOT NULL,
     osc_nombre 				VARCHAR (128) NOT NULL, 
@@ -215,7 +215,7 @@ CREATE TABLE t_osc_logs_dc (
     KEY idx_fk_osc_logs_rol (osc_rol_dc),
     CONSTRAINT fk_logs_rol_dc FOREIGN KEY (osc_rol_dc) REFERENCES t_osc_rol_dc (osc_rol_dc) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- ---------------------------------------------------------------------
 
 CREATE TABLE t_osc_rol_dc (
 	osc_rol_dc				VARCHAR (16) NOT NULL ,
@@ -262,48 +262,56 @@ CREATE TABLE t_proyectos (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
 CREATE TABLE t_p_logs_estado_proy (
-	p_num_corr_proy    		INT UNSIGNED NOT NULL ,
-	p_fecha_cambio 			DATE NOT NULL DEFAULT DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	p_num_corr_proy    		INT UNSIGNED NOT NULL,
+	p_fecha_cambio 			DATE NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	p_estado_proy			VARCHAR(16) NOT NULL ,
 	p_audio_cambio			VARCHAR (256) NOT NULL DEFAULT "N/D",
+--
 	KEY idx_fk_num_corr_proy (p_num_corr_proy),
 	CONSTRAINT fk_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE,
-	KEY idx_fk_proy_osc_nombre (osc_nombre),
-	CONSTRAINT fk_proy_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
+--
+	KEY idx_fk_estado_proy (p_estado_proy),
+	CONSTRAINT fk_proy_estado_proy FOREIGN KEY (p_estado_proy) REFERENCES t_p_estado_proy(p_estado_proy) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8
 --  -------------------------------------------------------------------
 CREATE TABLE t_p_result_reun (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL ,
-	p_fecha_reun 			DATE NOT NULL DEFAULT DEFAULT CURRENT_TIMESTAMP,
+	p_fecha_reun 			DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	p_tipo_reun				VARCHAR(16) NOT NULL ,
 	p_result_reun			VARCHAR(16) NOT NULL ,
-	p_fecha_prox_reun 		DATE NOT NULL DEFAULT DEFAULT CURRENT_TIMESTAMP,
+	p_fecha_prox_reun 		DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	p_audio_reun			VARCHAR (256) NOT NULL DEFAULT "N/D",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
 	KEY idx_fk_r_num_corr_proy (p_num_corr_proy),
 	CONSTRAINT fk_r_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE,
---	---> OJO Corregir
-	KEY idx_fk_proy_osc_nombre (osc_nombre),
-	CONSTRAINT fk_proy_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
+--	
+	KEY idx_fk_p_tipo_reun (p_tipo_reun),
+	CONSTRAINT fk_p_tipo_reun FOREIGN KEY (p_tipo_reun) REFERENCES t_p_tipo_reun(p_tipo_reun) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
+	KEY idx_fk_p_result_reun (p_result_reun),
+	CONSTRAINT fk_p_result_reun FOREIGN KEY (p_result_reun) REFERENCES t_p_result_reun(p_result_reun) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8
-
 --  -------------------------------------------------------------------
 CREATE TABLE t_p_estado_proy (
-    p_estado_proy		 VARCHAR(16) NOT NULL,
-    p_color_estado		 VARCHAR(6) NOT NULL,
+    p_estado_proy		VARCHAR(16) NOT NULL,
+    p_color_estado		VARCHAR(8) NOT NULL,
     PRIMARY KEY (p_estado_proy)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
 CREATE TABLE t_p_result_reun (
-    p_result_reun		 VARCHAR(16) NOT NULL,
-    p_color_reun		 VARCHAR(6) NOT NULL,
+    p_result_reun		VARCHAR(16) NOT NULL,
+    p_color_reun		VARCHAR(8) NOT NULL,
     PRIMARY KEY (p_result_reun)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
+CREATE TABLE t_p_tipo_reun (
+    p_tipo_reun		 	VARCHAR(16) NOT NULL,
+    PRIMARY KEY (p_tipo_reun)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--  -------------------------------------------------------------------
 CREATE TABLE t_p_tipo_proy (
-    p_tipo_proy		 		VARCHAR(16) NOT NULL DEFAULT "No Especificado",
+    p_tipo_proy		 	VARCHAR(16) NOT NULL DEFAULT "No Especificado",
     PRIMARY KEY (p_tipo_proy)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
@@ -337,6 +345,7 @@ INSERT INTO `t_profesiones` (`profesion`) VALUES
 ('Sociologa'),
 ('Sociologo'),
 ('Otra'),
+--
 ('Chanta'),
 ('Chantologa'),
 ('Chantologo'),
@@ -408,3 +417,35 @@ INSERT INTO `t_osc_objetivos` (`osc_objetivo`) VALUES
 ('Beneficencia'),
 ('No Especificado'),
 ("Salud");
+-- ---------------------------------------------------------
+-- Proyectos
+-- ---------------------------------------------------------
+INSERT INTO `t_p_estado_proy` (`p_estado_proy`,`p_color_estado`) VALUES
+("En_Ejecucion","Verde"),
+("Suspendido","Rojo"),
+("Cancelado","Negro"),
+("Terminado","Azul"),
+("En_Implementacion","Verde"),
+("Pre-Proyecto","Verde");
+--
+INSERT INTO `t_p_result_reun_reun` (`p_result_reun`,`p_color_reun`) VALUES 
+("Normal","Verde"),
+("Postergada","Amarillo"),
+("Accion ASAP","Naranja");
+--
+INSERT INTO `t_p_tipo_reun` (`p_tipo_reun`) VALUES 
+("Interna"),
+("Con OSC");
+--
+INSERT INTO `t_p_tipo_proy` (`p_tipo_proy`) VALUES 
+("Estrategia"),
+("Governance"),
+("Procesos"),
+("RRHH"),
+("Sistemas"),
+("Administracion"),
+("Negocio Social"),
+("Financiero"),
+("Contable"),
+("No Especificado");
+
