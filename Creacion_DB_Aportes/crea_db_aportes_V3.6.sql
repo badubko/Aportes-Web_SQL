@@ -263,8 +263,8 @@ CREATE TABLE t_proyectos (
 --  -------------------------------------------------------------------
 CREATE TABLE t_p_logs_estado_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
-	p_fecha_cambio 			DATE NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	p_estado_proy			VARCHAR(16) NOT NULL ,
+	p_fecha_cambio 			DATE ,
+	p_estado_proy			VARCHAR(20) NOT NULL,
 	p_audio_cambio			VARCHAR (256) NOT NULL DEFAULT "N/D",
 --
 	KEY idx_fk_num_corr_proy (p_num_corr_proy),
@@ -272,14 +272,14 @@ CREATE TABLE t_p_logs_estado_proy (
 --
 	KEY idx_fk_estado_proy (p_estado_proy),
 	CONSTRAINT fk_proy_estado_proy FOREIGN KEY (p_estado_proy) REFERENCES t_p_estado_proy(p_estado_proy) ON DELETE RESTRICT ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
-CREATE TABLE t_p_result_reun (
-	p_num_corr_proy    		INT UNSIGNED NOT NULL ,
-	p_fecha_reun 			DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+CREATE TABLE t_p_logs_result_reun (
+	p_num_corr_proy    		INT UNSIGNED NOT NULL,
+	p_fecha_reun 			DATE,
 	p_tipo_reun				VARCHAR(16) NOT NULL ,
 	p_result_reun			VARCHAR(16) NOT NULL ,
-	p_fecha_prox_reun 		DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	p_fecha_prox_reun 		DATE,
 	p_audio_reun			VARCHAR (256) NOT NULL DEFAULT "N/D",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
@@ -291,10 +291,10 @@ CREATE TABLE t_p_result_reun (
 --
 	KEY idx_fk_p_result_reun (p_result_reun),
 	CONSTRAINT fk_p_result_reun FOREIGN KEY (p_result_reun) REFERENCES t_p_result_reun(p_result_reun) ON DELETE RESTRICT ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
 CREATE TABLE t_p_estado_proy (
-    p_estado_proy		VARCHAR(16) NOT NULL,
+    p_estado_proy		VARCHAR(20) NOT NULL,
     p_color_estado		VARCHAR(8) NOT NULL,
     PRIMARY KEY (p_estado_proy)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -428,7 +428,7 @@ INSERT INTO `t_p_estado_proy` (`p_estado_proy`,`p_color_estado`) VALUES
 ("En_Implementacion","Verde"),
 ("Pre-Proyecto","Verde");
 --
-INSERT INTO `t_p_result_reun_reun` (`p_result_reun`,`p_color_reun`) VALUES 
+INSERT INTO `t_p_result_reun` (`p_result_reun`,`p_color_reun`) VALUES 
 ("Normal","Verde"),
 ("Postergada","Amarillo"),
 ("Accion ASAP","Naranja");
