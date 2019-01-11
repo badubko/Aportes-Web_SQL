@@ -136,6 +136,10 @@ CREATE TABLE t_hist_user_proy (
   CONSTRAINT fk_hist_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Tablas de las OSCs
+--
+--
 
 
 CREATE TABLE t_osc (
@@ -228,12 +232,90 @@ CREATE TABLE t_osc_objetivos (
 	PRIMARY KEY (osc_objetivo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+-- --------------------------------------------------------------------
+-- Tablas de los proyectos
+--
+--  -------------------------------------------------------------------
+CREATE TABLE t_proyectos (
+	p_num_corr_proy    		INT UNSIGNED NOT NULL UNIQUE,
+	p_nombre_proy			VARCHAR (128) NOT NULL,
+	osc_nombre 				VARCHAR (128) NOT NULL, 
+	p_tipo_proy		 		VARCHAR(16) NOT NULL DEFAULT "No Especificado",
+	p_fecha_pre_proy 		DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_present_vol		DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_dup				DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_mitad_proy 		DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_cierre_proy 	DATE NOT NULL DEFAULT "2004-01-01",
+	p_link_a_dup			VARCHAR (256) NOT NULL DEFAULT "N/D",
+	p_dup_si_no				VARCHAR(2) NOT NULL DEFAULT "No",
+	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--
+	PRIMARY KEY  (p_num_corr_proy),
+--
+	KEY idx_fk_p_osc_nombre (osc_nombre),
+	CONSTRAINT fk_p_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
+--
+	KEY idx_fk_p_tipo_proy (p_tipo_proy),
+	CONSTRAINT fk_p_tipo_proy FOREIGN KEY (p_tipo_proy) REFERENCES t_p_tipo_proy (p_tipo_proy) ON DELETE RESTRICT ON UPDATE CASCADE  
+--
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--  -------------------------------------------------------------------
+CREATE TABLE t_p_logs_estado_proy (
+	p_num_corr_proy    		INT UNSIGNED NOT NULL ,
+	p_fecha_cambio 			DATE NOT NULL DEFAULT DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	p_estado_proy			VARCHAR(16) NOT NULL ,
+	p_audio_cambio			VARCHAR (256) NOT NULL DEFAULT "N/D",
+	KEY idx_fk_num_corr_proy (p_num_corr_proy),
+	CONSTRAINT fk_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE,
+	KEY idx_fk_proy_osc_nombre (osc_nombre),
+	CONSTRAINT fk_proy_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
+--  -------------------------------------------------------------------
+CREATE TABLE t_p_result_reun (
+	p_num_corr_proy    		INT UNSIGNED NOT NULL ,
+	p_fecha_reun 			DATE NOT NULL DEFAULT DEFAULT CURRENT_TIMESTAMP,
+	p_tipo_reun				VARCHAR(16) NOT NULL ,
+	p_result_reun			VARCHAR(16) NOT NULL ,
+	p_fecha_prox_reun 		DATE NOT NULL DEFAULT DEFAULT CURRENT_TIMESTAMP,
+	p_audio_reun			VARCHAR (256) NOT NULL DEFAULT "N/D",
+	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--
+	KEY idx_fk_r_num_corr_proy (p_num_corr_proy),
+	CONSTRAINT fk_r_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE,
+--	---> OJO Corregir
+	KEY idx_fk_proy_osc_nombre (osc_nombre),
+	CONSTRAINT fk_proy_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
+--
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+--  -------------------------------------------------------------------
+CREATE TABLE t_p_estado_proy (
+    p_estado_proy		 VARCHAR(16) NOT NULL,
+    p_color_estado		 VARCHAR(6) NOT NULL,
+    PRIMARY KEY (p_estado_proy)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--  -------------------------------------------------------------------
+CREATE TABLE t_p_result_reun (
+    p_result_reun		 VARCHAR(16) NOT NULL,
+    p_color_reun		 VARCHAR(6) NOT NULL,
+    PRIMARY KEY (p_result_reun)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--  -------------------------------------------------------------------
+CREATE TABLE t_p_tipo_proy (
+    p_tipo_proy		 		VARCHAR(16) NOT NULL DEFAULT "No Especificado",
+    PRIMARY KEY (p_tipo_proy)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--  -------------------------------------------------------------------
+--
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
--- Valores de las tablas "Fijas"
 
+--  -------------------------------------------------------------------
+-- Valores de las tablas "Fijas"
+--  -------------------------------------------------------------------
 INSERT INTO `t_profesiones` (`profesion`) VALUES
 ('Abogada'),
 ('Abogado'),
