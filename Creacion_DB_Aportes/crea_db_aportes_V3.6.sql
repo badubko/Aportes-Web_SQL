@@ -186,6 +186,7 @@ CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (osc_dni_dc2) REFERENCES t_users1 (dni) ON
 -- ------------------------------------------------------------  
 CREATE TABLE t_osc_contactos (
 	osc_nombre 				VARCHAR (128) NOT NULL,
+	osc_contacto_titulo		VARCHAR(16),
 	osc_contacto_apellido 	VARCHAR(45) NOT NULL,
 	osc_contacto_nombres 	VARCHAR(45) NOT NULL,
 	osc_contacto_cel  		VARCHAR (20) NOT NULL DEFAULT "N/D",
