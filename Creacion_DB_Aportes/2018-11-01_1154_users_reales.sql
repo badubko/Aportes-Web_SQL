@@ -5,6 +5,9 @@
 -- Directorio Origen:  /media/CGate/badubko/Back_F/BAS/DOCS/Aportes/Desa
 -- CSV_IN_FILE :				../Datos/Libro2_V1.4.csv
 -- --------------------------------------------------------------
+
+use aportes_V3_6;
+
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`email_1`,`email_2`)
 Values
@@ -602,7 +605,7 @@ Values
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
 Values
-('11285447','Pajas Mentales')
+('11285447','Versotica')
 ;
 Insert into t_logs_estado_user 
 (`dni`,`estado`)
