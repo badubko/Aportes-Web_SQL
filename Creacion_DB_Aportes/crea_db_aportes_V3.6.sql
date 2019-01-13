@@ -6,10 +6,10 @@ DROP SCHEMA IF EXISTS aportes_V3_6;
 CREATE SCHEMA aportes_V3_6;
 USE aportes_V3_6;
 
---
+-- ---------------------------------------------------------------------
 -- Table structure for table `users1`
 --
-
+-- ---------------------------------------------------------------------
 CREATE TABLE t_users1 (
   dni INT UNSIGNED NOT NULL,
   apellido VARCHAR(45) NOT NULL,
@@ -23,11 +23,11 @@ CREATE TABLE t_users1 (
   CONSTRAINT fk_profesiones_profesion FOREIGN KEY (profesion) REFERENCES t_profesiones (profesion) ON DELETE RESTRICT ON UPDATE CASCADE  
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
+-- ---------------------------------------------------------------------
 -- Table structure for table `users2`
 -- Agregados telefonos y modificado orden
 --
-
+-- ---------------------------------------------------------------------
 CREATE TABLE t_users2 (
   dni INT UNSIGNED NOT NULL UNIQUE,
   cuil VARCHAR(14) NOT NULL DEFAULT "N/D",
@@ -44,31 +44,35 @@ CREATE TABLE t_users2 (
   KEY idx_fk_estado (estado),
   CONSTRAINT fk_users2_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- ---------------------------------------------------------------------
 -- Tablas de valores "Fijos"
-
+-- ---------------------------------------------------------------------
 CREATE TABLE t_profesiones (
   profesion VARCHAR(25) NOT NULL,
   PRIMARY KEY  (profesion)
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_especialidades (
   especialidad VARCHAR(20) NOT NULL,
   PRIMARY KEY  (especialidad)
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-  
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------  
 CREATE TABLE t_roles (
   rol VARCHAR(6) NOT NULL DEFAULT "Vol",
   PRIMARY KEY  (rol)
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-  
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------  
 CREATE TABLE t_estados (
   estado VARCHAR(14) NOT NULL,
   PRIMARY KEY (estado)
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Tablas complementarias de los usuarios
-
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_especialidad_user (
   dni INT UNSIGNED NOT NULL,
   especialidad VARCHAR(20) DEFAULT "Desconocida",
@@ -78,7 +82,8 @@ CREATE TABLE t_especialidad_user (
   KEY idx_fk_especialidad (especialidad),
   CONSTRAINT fk_especialidades_especialidad FOREIGN KEY (especialidad) REFERENCES t_especialidades (especialidad) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-  
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------  
 CREATE TABLE t_logs_estado_user (
   dni INT UNSIGNED NOT NULL,
   estado VARCHAR (14) NOT NULL DEFAULT 'Disponible',
@@ -89,7 +94,8 @@ CREATE TABLE t_logs_estado_user (
   KEY idx_fk_estado (estado),
   CONSTRAINT fk_estados_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE  
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-  
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------  
 DELIMITER $$
 -- El estado del usuario se cambia en t_logs_estado_user
 -- El trigger se encarga de modificarlo en la t_user2, poniendo el ultimo estado
@@ -124,7 +130,8 @@ BEGIN
 END$$
 
 DELIMITER ;  
-
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_hist_user_proy (
   dni INT UNSIGNED NOT NULL,
   num_corr_proy INT UNSIGNED,
@@ -160,7 +167,7 @@ CREATE TABLE t_osc (
 --
   osc_pag_web 	VARCHAR (128),
 --
-  osc_estado 	VARCHAR (16) NOT NULL DEFAULT "Desconocido",
+  osc_estado 	VARCHAR (16) NOT NULL DEFAULT "Identificada",
 --
   osc_obj_1 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
   osc_obj_2 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
@@ -184,7 +191,8 @@ CREATE TABLE t_osc (
 -- KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
 -- CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (osc_dni_dc2) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;  
-  
+-- ---------------------------------------------------------------------  
+-- ---------------------------------------------------------------------
 CREATE TABLE t_osc_contactos (
 	osc_nombre 				VARCHAR (128) NOT NULL,
 	osc_contacto_apellido 	VARCHAR(45) NOT NULL,
@@ -199,11 +207,12 @@ CREATE TABLE t_osc_contactos (
 	CONSTRAINT fk_osc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_osc_logs_dc (
     dni 					INT UNSIGNED NOT NULL,
     osc_nombre 				VARCHAR (128) NOT NULL, 
 	osc_rol_dc				VARCHAR (16) NOT NULL ,
-	osc_comentarios 		VARCHAR (256) DEFAULT "No Comments",
+	osc_comentarios_dc 		VARCHAR (256) DEFAULT "No Comments",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
 	KEY idx_fk_osc_logs_dni (dni),
@@ -216,27 +225,52 @@ CREATE TABLE t_osc_logs_dc (
     CONSTRAINT fk_logs_rol_dc FOREIGN KEY (osc_rol_dc) REFERENCES t_osc_rol_dc (osc_rol_dc) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------
+CREATE TABLE t_osc_logs_estado (
+    
+    osc_nombre 				VARCHAR (128) NOT NULL, 
+    osc_estado 				VARCHAR (16) NOT NULL DEFAULT "Identificada",
+--	dni del autor del cambio de estado de la OSC
+	dni						INT UNSIGNED NOT NULL,
+	osc_coment_estado		VARCHAR (256) DEFAULT "No Comments",
+	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--
+	KEY 	idx_fk_logs_est_dni_autor (dni),
+    CONSTRAINT 	fk_logs_est_dni_autor FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+--
+	KEY 	idx_fk_logs_est_osc_nombre (osc_nombre),
+	CONSTRAINT 	fk_logs_est_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
+--
+	KEY 	idx_fk_logs_est_osc_estado (osc_estado),
+	CONSTRAINT 	fk_logs_est_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE
 
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_osc_rol_dc (
 	osc_rol_dc				VARCHAR (16) NOT NULL ,
 	PRIMARY KEY (osc_rol_dc)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_osc_estados (
 	osc_estado 				VARCHAR (16) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_estado)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_osc_objetivos (
 	osc_objetivo 			VARCHAR (16) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_objetivo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
+-- ---------------------------------------------------------------------
 -- --------------------------------------------------------------------
 -- Tablas de los proyectos
 --
 --  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_proyectos (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL UNIQUE,
 	p_nombre_proy			VARCHAR (128) NOT NULL,
@@ -261,6 +295,7 @@ CREATE TABLE t_proyectos (
 --
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_p_logs_estado_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
 	p_fecha_cambio 			DATE ,
@@ -274,6 +309,7 @@ CREATE TABLE t_p_logs_estado_proy (
 	CONSTRAINT fk_proy_estado_proy FOREIGN KEY (p_estado_proy) REFERENCES t_p_estado_proy(p_estado_proy) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_p_logs_result_reun (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
 	p_fecha_reun 			DATE,
@@ -293,28 +329,33 @@ CREATE TABLE t_p_logs_result_reun (
 	CONSTRAINT fk_p_result_reun FOREIGN KEY (p_result_reun) REFERENCES t_p_result_reun(p_result_reun) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_p_estado_proy (
     p_estado_proy		VARCHAR(20) NOT NULL,
     p_color_estado		VARCHAR(8) NOT NULL,
     PRIMARY KEY (p_estado_proy)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_p_result_reun (
     p_result_reun		VARCHAR(16) NOT NULL,
     p_color_reun		VARCHAR(8) NOT NULL,
     PRIMARY KEY (p_result_reun)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_p_tipo_reun (
     p_tipo_reun		 	VARCHAR(16) NOT NULL,
     PRIMARY KEY (p_tipo_reun)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 CREATE TABLE t_p_tipo_proy (
     p_tipo_proy		 	VARCHAR(16) NOT NULL DEFAULT "No Especificado",
     PRIMARY KEY (p_tipo_proy)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------
 --
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
