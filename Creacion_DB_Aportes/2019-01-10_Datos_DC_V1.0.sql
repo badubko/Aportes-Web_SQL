@@ -158,32 +158,32 @@ Values
 Insert into t_osc
 (`osc_nombre`,`osc_estado`)
 Values
-('Cruz Roja','En_Actividad')
+('Cruz Roja','Identificada')
 ;
 Insert into t_osc
 (`osc_nombre`,`osc_estado`)
 Values
-('Casa Rafael','En_Actividad')
+('Casa Rafael','Identificada')
 ;
 Insert into t_osc
 (`osc_nombre`,`osc_estado`)
 Values
-('Wingu','En_Actividad')
+('Wingu','Identificada')
 ;
 Insert into t_osc
 (`osc_nombre`,`osc_estado`)
 Values
-('Haciendo Camino','En_Actividad')
+('Haciendo Camino','Identificada')
 ;
 Insert into t_osc
 (`osc_nombre`,`osc_estado`)
 Values
-('IDEL','En_Actividad')
+('IDEL','Identificada')
 ;
 Insert into t_osc
 (`osc_nombre`,`osc_estado`)
 Values
-('Casa FOA','En_Actividad')
+('Casa FOA','Identificada')
 ;
 --
 -- Asignar DC
