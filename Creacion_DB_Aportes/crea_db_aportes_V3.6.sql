@@ -252,7 +252,8 @@ DELIMITER $$
 -- El trigger se encarga de modificarlo en la t_osc, poniendo el ultimo estado
 -- del Vol
 
--- 
+-- Nunca habra update sobre esta tabla.... Es un log asi que cada cambio es un insert
+-- ya que es precisamente el objetivo.
 
 CREATE TRIGGER after_t_osc_logs_estado_update 
     AFTER UPDATE ON t_osc_logs_estado
