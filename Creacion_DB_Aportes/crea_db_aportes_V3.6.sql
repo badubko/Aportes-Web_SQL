@@ -132,15 +132,26 @@ END$$
 DELIMITER ;  
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
+-- AL ser esta tabla un log, se agregan filas a medida que suceden eventos
+-- de asignacion o des-asignacion. 
+-- 
 CREATE TABLE t_hist_user_proy (
   dni INT UNSIGNED NOT NULL,
-  num_corr_proy INT UNSIGNED,
-  f_asignac DATE NOT NULL DEFAULT "2004-01-01",
-  f_desasign DATE NOT NULL DEFAULT "2100-01-01",
-  coment_desemp VARCHAR (256) DEFAULT "No Comments", 
-  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  
+  p_num_corr_proy INT UNSIGNED,
+-- f_asignac DATE NOT NULL DEFAULT "2004-01-01",
+-- f_desasign DATE NOT NULL DEFAULT "2100-01-01",
+-- coment_desemp VARCHAR (256) DEFAULT "No Comments", 
+-- fecha_evento DATE NOT NULL,
+-- Evaluar luego si hay que separa en 2 fechas: fecha_evento y last_update.
+--
+  tipo_evento ENUM ('Asignacion','Des-Asignacion'),
+  fecha_evento TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--
   KEY idx_fk_dni (dni),
-  CONSTRAINT fk_hist_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
+  CONSTRAINT fk_hist_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+--  
+  KEY idx_fk_num_corr_proy (p_num_corr_proy),
+  CONSTRAINT fk_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ---------------------------------------------------------------------
@@ -338,8 +349,8 @@ CREATE TABLE t_p_logs_estado_proy (
 	p_estado_proy			VARCHAR(20) NOT NULL,
 	p_audio_cambio			VARCHAR (256) NOT NULL DEFAULT "N/D",
 --
-	KEY idx_fk_num_corr_proy (p_num_corr_proy),
-	CONSTRAINT fk_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE,
+	KEY idx_fk_ple_num_corr_proy (p_num_corr_proy),
+	CONSTRAINT fk_ple_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
 	KEY idx_fk_estado_proy (p_estado_proy),
 	CONSTRAINT fk_proy_estado_proy FOREIGN KEY (p_estado_proy) REFERENCES t_p_estado_proy(p_estado_proy) ON DELETE RESTRICT ON UPDATE CASCADE
