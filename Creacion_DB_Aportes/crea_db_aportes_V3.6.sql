@@ -140,18 +140,19 @@ CREATE TABLE t_hist_user_proy (
   p_num_corr_proy INT UNSIGNED,
 -- f_asignac DATE NOT NULL DEFAULT "2004-01-01",
 -- f_desasign DATE NOT NULL DEFAULT "2100-01-01",
--- coment_desemp VARCHAR (256) DEFAULT "No Comments", 
+--  
 -- fecha_evento DATE NOT NULL,
 -- Evaluar luego si hay que separa en 2 fechas: fecha_evento y last_update.
 --
   tipo_evento ENUM ('Asignacion','Des-Asignacion'),
   fecha_evento TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  coment_desemp VARCHAR (256) DEFAULT "No Comments",
 --
-  KEY idx_fk_dni (dni),
+  KEY idx_fk_hist_dni (dni),
   CONSTRAINT fk_hist_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
 --  
-  KEY idx_fk_num_corr_proy (p_num_corr_proy),
-  CONSTRAINT fk_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE
+  KEY idx_fk_hu_num_corr_proy (p_num_corr_proy),
+  CONSTRAINT fk_hu_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ---------------------------------------------------------------------
