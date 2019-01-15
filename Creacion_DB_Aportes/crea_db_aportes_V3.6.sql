@@ -143,9 +143,11 @@ CREATE TABLE t_hist_user_proy (
 --  
 -- fecha_evento DATE NOT NULL,
 -- Evaluar luego si hay que separa en 2 fechas: fecha_evento y last_update.
+-- ESto serviria para registrar una asignacion ocurrida en el pasado.
 --
   tipo_evento ENUM ('Asignacion','Des-Asignacion'),
-  fecha_evento TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  fecha_evento DATE NOT NULL,
+  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   coment_desemp VARCHAR (256) DEFAULT "No Comments",
 --
   KEY idx_fk_hist_dni (dni),
@@ -323,7 +325,7 @@ CREATE TABLE t_proyectos (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL UNIQUE,
 	p_nombre_proy			VARCHAR (128) NOT NULL,
 	osc_nombre 				VARCHAR (128) NOT NULL, 
-	p_tipo_proy		 		VARCHAR(16) NOT NULL DEFAULT "No Especificado",
+--	p_tipo_proy		 		VARCHAR(16) NOT NULL DEFAULT "No Especificado",
 	p_fecha_pre_proy 		DATE NOT NULL DEFAULT "2004-01-01",
 	p_fecha_present_vol		DATE NOT NULL DEFAULT "2004-01-01",
 	p_fecha_dup				DATE NOT NULL DEFAULT "2004-01-01",
@@ -350,6 +352,8 @@ CREATE TABLE t_p_logs_estado_proy (
 	p_estado_proy			VARCHAR(20) NOT NULL,
 	p_audio_cambio			VARCHAR (256) NOT NULL DEFAULT "N/D",
 --
+-- ple= proyectos logs estado
+--
 	KEY idx_fk_ple_num_corr_proy (p_num_corr_proy),
 	CONSTRAINT fk_ple_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
@@ -358,6 +362,21 @@ CREATE TABLE t_p_logs_estado_proy (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
 -- ---------------------------------------------------------------------
+CREATE TABLE t_p_logs_tipo_proy (
+	p_num_corr_proy    		INT UNSIGNED NOT NULL,
+	p_tipo_proy		 		VARCHAR(16) NOT NULL DEFAULT "No Especificado",
+--
+-- ple= proyectos logs tipo (proyecto)
+--
+	KEY idx_fk_plt_num_corr_proy (p_num_corr_proy),
+	CONSTRAINT fk_plt_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE,
+--
+	KEY idx_fk_tipo_proy (p_tipo_proy),
+	CONSTRAINT fk_tipo_proy FOREIGN KEY (p_tipo_proy) REFERENCES t_p_tipo_proy(p_tipo_proy) ON DELETE RESTRICT ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------
+
 CREATE TABLE t_p_logs_result_reun (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
 	p_fecha_reun 			DATE,
@@ -377,6 +396,7 @@ CREATE TABLE t_p_logs_result_reun (
 	CONSTRAINT fk_p_result_reun FOREIGN KEY (p_result_reun) REFERENCES t_p_result_reun(p_result_reun) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
+-- Tablas "Fijas" de datos para los proyectos
 -- ---------------------------------------------------------------------
 CREATE TABLE t_p_estado_proy (
     p_estado_proy		VARCHAR(20) NOT NULL,
@@ -479,6 +499,8 @@ INSERT INTO `t_estados` (`estado`) VALUES
 ('ND_Temp'),
 ('De_Baja'),
 ('Con_Restricc'),
+-- El estado = Interno es solo para las personas que no trabajaran directamente
+-- en proyectos para las OSC. E.J. Susy Spielman
 ('Interno'),
 ('Puntual'),
 ('A_Confirmar'),
@@ -487,7 +509,7 @@ INSERT INTO `t_estados` (`estado`) VALUES
 INSERT INTO `t_osc_rol_dc` (`osc_rol_dc`) VALUES
 ('Primario'),
 ('Suplente'),
-('Desasignado');
+('Des-Asignado');
 --
 INSERT INTO `t_osc_estados` (`osc_estado`) VALUES
 ('Identificada'),
@@ -505,6 +527,7 @@ INSERT INTO `t_osc_objetivos` (`osc_objetivo`) VALUES
 ("Otro"),
 ('Beneficencia'),
 ('No Especificado'),
+('Mejora de la Gestion'),
 ("Salud");
 -- ---------------------------------------------------------
 -- Proyectos
@@ -527,6 +550,7 @@ INSERT INTO `t_p_tipo_reun` (`p_tipo_reun`) VALUES
 ("Con OSC");
 --
 INSERT INTO `t_p_tipo_proy` (`p_tipo_proy`) VALUES 
+("Interno"),
 ("Estrategia"),
 ("Governance"),
 ("Procesos"),
