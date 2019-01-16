@@ -311,7 +311,7 @@ CREATE TABLE t_osc_estados (
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 CREATE TABLE t_osc_objetivos (
-	osc_objetivo 			VARCHAR (16) NOT NULL DEFAULT "Desconocido",
+	osc_objetivo 			VARCHAR (22) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_objetivo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -338,10 +338,10 @@ CREATE TABLE t_proyectos (
 	PRIMARY KEY  (p_num_corr_proy),
 --
 	KEY idx_fk_p_osc_nombre (osc_nombre),
-	CONSTRAINT fk_p_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT fk_p_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
 --
-	KEY idx_fk_p_tipo_proy (p_tipo_proy),
-	CONSTRAINT fk_p_tipo_proy FOREIGN KEY (p_tipo_proy) REFERENCES t_p_tipo_proy (p_tipo_proy) ON DELETE RESTRICT ON UPDATE CASCADE  
+--	KEY idx_fk_p_tipo_proy (p_tipo_proy),
+--	CONSTRAINT fk_p_tipo_proy FOREIGN KEY (p_tipo_proy) REFERENCES t_p_tipo_proy (p_tipo_proy) ON DELETE RESTRICT ON UPDATE CASCADE  
 --
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --  -------------------------------------------------------------------
@@ -366,7 +366,7 @@ CREATE TABLE t_p_logs_tipo_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
 	p_tipo_proy		 		VARCHAR(16) NOT NULL DEFAULT "No Especificado",
 --
--- ple= proyectos logs tipo (proyecto)
+-- plt= proyectos logs tipo (proyecto)
 --
 	KEY idx_fk_plt_num_corr_proy (p_num_corr_proy),
 	CONSTRAINT fk_plt_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -505,7 +505,9 @@ INSERT INTO `t_estados` (`estado`) VALUES
 ('Puntual'),
 ('A_Confirmar'),
 ('Desconoc');
---
+-- ---------------------------------------------------------
+-- OSCs
+-- ---------------------------------------------------------
 INSERT INTO `t_osc_rol_dc` (`osc_rol_dc`) VALUES
 ('Primario'),
 ('Suplente'),
@@ -550,6 +552,10 @@ INSERT INTO `t_p_tipo_reun` (`p_tipo_reun`) VALUES
 ("Con OSC");
 --
 INSERT INTO `t_p_tipo_proy` (`p_tipo_proy`) VALUES 
+-- El tipo de proyecto "Interno" es un proyecto en el cual
+-- la OSC "cliente" es APortes. Tendra un num de proy igual que 
+-- para cualquier OSC y podra tener ademas otros tipificadores
+-- Ej: Sistemas, Governance, etc.
 ("Interno"),
 ("Estrategia"),
 ("Governance"),
