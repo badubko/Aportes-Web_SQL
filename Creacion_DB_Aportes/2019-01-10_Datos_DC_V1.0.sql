@@ -1,3 +1,5 @@
+-- Crea DCs
+
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
 Values
