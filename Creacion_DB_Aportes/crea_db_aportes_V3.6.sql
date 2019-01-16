@@ -348,9 +348,11 @@ CREATE TABLE t_proyectos (
 -- ---------------------------------------------------------------------
 CREATE TABLE t_p_logs_estado_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
-	p_fecha_cambio 			DATE ,
 	p_estado_proy			VARCHAR(20) NOT NULL,
+	p_fecha		 			DATE,
+	p_signif_fecha			VARCHAR(32), NOT NULL,
 	p_audio_cambio			VARCHAR (256) NOT NULL DEFAULT "N/D",
+	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
 -- ple= proyectos logs estado
 --
@@ -534,13 +536,13 @@ INSERT INTO `t_osc_objetivos` (`osc_objetivo`) VALUES
 -- ---------------------------------------------------------
 -- Proyectos
 -- ---------------------------------------------------------
-INSERT INTO `t_p_estado_proy` (`p_estado_proy`,`p_color_estado`) VALUES
-("En_Ejecucion","Verde"),
-("Suspendido","Rojo"),
-("Cancelado","Negro"),
-("Terminado","Azul"),
-("En_Implementacion","Verde"),
-("Pre-Proyecto","Verde");
+INSERT INTO `t_p_estado_proy` (`p_estado_proy`,`p_signif_fecha`,`p_color_estado`) VALUES
+("En_Ejecucion","Fecha prox reun","Verde"),
+("Suspendido","Fecha estim reanudac","Rojo"),
+("Cancelado","Fecha cancelacion","Negro"),
+("Terminado","Fecha terminac","Azul"),
+("En_Implementacion","Fecha estim fin implement","Verde"),
+("Pre-Proyecto","Fecha prox reun","Verde");
 --
 INSERT INTO `t_p_result_reun` (`p_result_reun`,`p_color_reun`) VALUES 
 ("Normal","Verde"),
