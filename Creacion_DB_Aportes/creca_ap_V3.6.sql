@@ -1,8 +1,8 @@
 -- Script que crea y carga la base de aportes
 
-\. sync
-\. sync
-\. ls
+\! sync
+\! sync
+\! ls
 \. crea_db_aportes_V3.6.sql
 --
 \. 2018-11-01_1154_users_reales.sql

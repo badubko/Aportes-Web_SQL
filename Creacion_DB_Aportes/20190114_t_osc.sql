@@ -32,6 +32,7 @@ INSERT INTO `t_osc` (`osc_nombre`, `osc_calle_1`, `osc_num_1`, `osc_ciudad_1`, `
 
 INSERT INTO `t_osc_contactos` (`osc_nombre`, `osc_contacto_apellido`, `osc_contacto_nombres`, `osc_contacto_cel`, `osc_contacto_tel_fijo`, `osc_contacto_email`, `osc_contacto_posicion`, `osc_contacto_horario`, `last_update`) VALUES
 ('Aportes de Gestion', 'Stilerman', 'David', '+54-11-4790-5990', 'N/D', 'contacto@aportesdegestion.org.ar', 'Presidente CD', 'No hay detalle', '2019-01-14 23:55:26'),
+('Aportes de Gestion', 'Eichel', 'Eduardo', '+54-911-4416-8011', 'N/D', 'eduardo.eichel@aportesdegestion.org.ar', 'Director de Proyectos', 'No hay detalle', '2019-01-14 23:55:26'),
 ('APA', 'Borensztejn', 'Claudia Lucia', '+54-911-4047-0996', 'N/D', 'claudiaborensztejn@gmail.com', 'Presidenta CD', 'No hay detalle', '2019-01-14 23:55:26'),
 ('APA', 'Safdie', 'Eduardo', 'N/D', 'N/D', 'eduardosafdie@gmail.com', 'Tesorero', 'No hay detalle', '2019-01-14 23:56:37'),
 ('APA', 'Escapa', 'Laura', 'N/D', 'N/D', 'lauraescapa@gmail.com', 'Secretaria CD', 'No hay detalle', '2019-01-15 00:00:24');

@@ -1,12 +1,15 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+-- SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+-- SHOW WARNINGS;
+-- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+-- SHOW WARNINGS;
+-- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+-- SHOW WARNINGS;
 
 DROP SCHEMA IF EXISTS aportes_V3_6;
 CREATE SCHEMA aportes_V3_6;
 USE aportes_V3_6;
 
--- ---------------------------------------------------------------------
+-- --------------------------------------------------------------------
 -- Table structure for table `users1`
 --
 -- ---------------------------------------------------------------------
@@ -182,6 +185,7 @@ CREATE TABLE t_osc (
   osc_pag_web 	VARCHAR (128),
 --
   osc_estado 	VARCHAR (16) NOT NULL DEFAULT "Identificada",
+  osc_acuerdo	ENUM ('Firmado','Pendiente') DEFAULT 'Pendiente',
 --
   osc_obj_1 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
   osc_obj_2 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
@@ -332,7 +336,7 @@ CREATE TABLE t_proyectos (
 	p_fecha_mitad_proy 		DATE NOT NULL DEFAULT "2004-01-01",
 	p_fecha_cierre_proy 	DATE NOT NULL DEFAULT "2004-01-01",
 	p_link_a_dup			VARCHAR (256) NOT NULL DEFAULT "N/D",
-	p_dup_si_no				VARCHAR(2) NOT NULL DEFAULT "No",
+	p_dup_si_no				ENUM('Si','No') DEFAULT 'No',
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
 	PRIMARY KEY  (p_num_corr_proy),
@@ -350,7 +354,7 @@ CREATE TABLE t_p_logs_estado_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
 	p_estado_proy			VARCHAR(20) NOT NULL,
 	p_fecha		 			DATE,
-	p_signif_fecha			VARCHAR(32), NOT NULL,
+	p_signif_fecha			VARCHAR(32) NOT NULL,
 	p_audio_cambio			VARCHAR (256) NOT NULL DEFAULT "N/D",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
@@ -402,6 +406,7 @@ CREATE TABLE t_p_logs_result_reun (
 -- ---------------------------------------------------------------------
 CREATE TABLE t_p_estado_proy (
     p_estado_proy		VARCHAR(20) NOT NULL,
+    p_signif_fecha		VARCHAR(32) NOT NULL,
     p_color_estado		VARCHAR(8) NOT NULL,
     PRIMARY KEY (p_estado_proy)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -412,25 +417,30 @@ CREATE TABLE t_p_result_reun (
     p_color_reun		VARCHAR(8) NOT NULL,
     PRIMARY KEY (p_result_reun)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SHOW WARNINGS;
 --  -------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 CREATE TABLE t_p_tipo_reun (
     p_tipo_reun		 	VARCHAR(16) NOT NULL,
     PRIMARY KEY (p_tipo_reun)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SHOW WARNINGS;
 --  -------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 CREATE TABLE t_p_tipo_proy (
     p_tipo_proy		 	VARCHAR(16) NOT NULL DEFAULT "No Especificado",
     PRIMARY KEY (p_tipo_proy)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SHOW WARNINGS;
 --  -------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 --
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
+-- SET SQL_MODE=@OLD_SQL_MODE;
+-- SHOW WARNINGS;
+-- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+-- SHOW WARNINGS;
+-- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+-- SHOW WARNINGS;
 
 --  -------------------------------------------------------------------
 -- Valores de las tablas "Fijas"
