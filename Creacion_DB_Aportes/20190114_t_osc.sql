@@ -24,9 +24,9 @@ SET time_zone = "-03:00";
 
 
 
-INSERT INTO `t_osc` (`osc_nombre`, `osc_calle_1`, `osc_num_1`, `osc_ciudad_1`, `osc_cp_1`, `osc_prov_1`, `osc_calle_2`, `osc_num_2`, `osc_ciudad_2`, `osc_cp_2`, `osc_prov_2`, `osc_pag_web`, `osc_estado`, `osc_obj_1`, `osc_obj_2`, `osc_obj_3`, `osc_notas`, `last_update`) VALUES
-('APA', 'Rodriguez Peña', '1674', 'CABA', 'C1021ABJ', NULL, NULL, NULL, NULL, NULL, NULL, 'apa.org.ar', 'En_Actividad', 'No Especificado', 'No Especificado', 'No Especificado', 'No hay notas', '2019-01-14 23:41:09'),
-('Aportes de Gestion', 'Working Ocampo', 'Edificio 3', 'CABA', 'ND', NULL, NULL, NULL, NULL, NULL, NULL, 'aportesdegestion.org.ar', 'En_Actividad', 'No Especificado', 'No Especificado', 'No Especificado', 'No hay notas', '2019-01-14 23:41:09');
+INSERT INTO `t_osc` (`osc_nombre`, `osc_calle_1`, `osc_num_1`, `osc_ciudad_1`, `osc_cp_1`, `osc_prov_1`, `osc_calle_2`, `osc_num_2`, `osc_ciudad_2`, `osc_cp_2`, `osc_prov_2`, `osc_pag_web`, `osc_estado`,  `osc_notas`, `last_update`) VALUES
+('APA', 'Rodriguez Peña', '1674', 'CABA', 'C1021ABJ', NULL, NULL, NULL, NULL, NULL, NULL, 'apa.org.ar', 'En_Actividad', 'No hay notas', '2019-01-14 23:41:09'),
+('Aportes de Gestion', 'Working Ocampo', 'Edificio 3', 'CABA', 'ND', NULL, NULL, NULL, NULL, NULL, NULL, 'aportesdegestion.org.ar', 'En_Actividad',  'No hay notas', '2019-01-14 23:41:09');
 
 
 

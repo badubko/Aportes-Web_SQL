@@ -1,9 +1,9 @@
--- SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
--- SHOW WARNINGS;
--- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
--- SHOW WARNINGS;
--- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
--- SHOW WARNINGS;
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SHOW WARNINGS;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SHOW WARNINGS;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+SHOW WARNINGS;
 
 DROP SCHEMA IF EXISTS aportes_V3_6;
 CREATE SCHEMA aportes_V3_6;
@@ -47,6 +47,7 @@ CREATE TABLE t_users2 (
   KEY idx_fk_estado (estado),
   CONSTRAINT fk_users2_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- ---------------------------------------------------------------------
 -- Tablas de valores "Fijos"
 -- ---------------------------------------------------------------------
@@ -187,9 +188,9 @@ CREATE TABLE t_osc (
   osc_estado 	VARCHAR (16) NOT NULL DEFAULT "Identificada",
   osc_acuerdo	ENUM ('Firmado','Pendiente') DEFAULT 'Pendiente',
 --
-  osc_obj_1 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
-  osc_obj_2 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
-  osc_obj_3 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
+  -- osc_obj_1 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
+  -- osc_obj_2 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
+  -- osc_obj_3 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
 --
 --  osc_dni_dc1 	INT UNSIGNED NOT NULL,
 --  osc_dni_dc2 	INT UNSIGNED NOT NULL,
@@ -210,6 +211,20 @@ CREATE TABLE t_osc (
 -- CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (osc_dni_dc2) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;  
 -- ---------------------------------------------------------------------  
+-- ---------------------------------------------------------------------
+CREATE TABLE t_osc_objetivos (
+	osc_nombre 				VARCHAR (128) NOT NULL,
+	osc_objetivo 			VARCHAR (32) NOT NULL DEFAULT "Desconocido",
+	id_truch				SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	last_update				TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (id_truch),
+	KEY 	idx_fk_osc_objet_nombre (osc_nombre),
+	CONSTRAINT 	fk_osc_objet_nombre  FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
+	KEY 	idx_fk_osc_objet_obj(osc_objetivo),
+	CONSTRAINT 	fk_osc_objet_obj FOREIGN KEY (osc_objetivo) REFERENCES t_osc_lista_objetivos(osc_objetivo) ON DELETE RESTRICT ON UPDATE CASCADE
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 CREATE TABLE t_osc_contactos (
 	osc_nombre 				VARCHAR (128) NOT NULL,
@@ -315,7 +330,7 @@ CREATE TABLE t_osc_estados (
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 CREATE TABLE t_osc_lista_objetivos (
-	osc_objetivo 			VARCHAR (22) NOT NULL DEFAULT "Desconocido",
+	osc_objetivo 			VARCHAR (32) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_objetivo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -534,7 +549,7 @@ INSERT INTO `t_osc_estados` (`osc_estado`) VALUES
 ('En_Conversacion'),
 ('Desconocido');
 --
-INSERT INTO `t_osc_objetivos` (`osc_objetivo`) VALUES 
+INSERT INTO `t_osc_lista_objetivos` (`osc_objetivo`) VALUES 
 ("Educacion"),
 ("Alimentos"),
 ("Caridad"),
