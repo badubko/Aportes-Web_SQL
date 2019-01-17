@@ -314,7 +314,7 @@ CREATE TABLE t_osc_estados (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
-CREATE TABLE t_osc_objetivos (
+CREATE TABLE t_osc_lista_objetivos (
 	osc_objetivo 			VARCHAR (22) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_objetivo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
