@@ -248,14 +248,14 @@ CREATE TABLE t_osc_logs_dc (
 	osc_comentarios_dc 		VARCHAR (256) DEFAULT "No Comments",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
-	KEY idx_fk_osc_logs_dni (dni),
-    CONSTRAINT fk_logs_dc_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+	KEY 		idx_fk_osc_logs_dni (dni),
+    CONSTRAINT 		fk_logs_dc_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
-	KEY idx_fk_logs_dc_osc_nombre (osc_nombre),
-	CONSTRAINT fk_logs_dc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
+	KEY 		idx_fk_logs_dc_osc_nombre (osc_nombre),
+	CONSTRAINT 		fk_logs_dc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
-    KEY idx_fk_osc_logs_rol (osc_rol_dc),
-    CONSTRAINT fk_logs_rol_dc FOREIGN KEY (osc_rol_dc) REFERENCES t_osc_rol_dc (osc_rol_dc) ON DELETE RESTRICT ON UPDATE CASCADE
+    KEY 		idx_fk_osc_logs_rol (osc_rol_dc),
+    CONSTRAINT 		fk_logs_rol_dc FOREIGN KEY (osc_rol_dc) REFERENCES t_osc_rol_dc (osc_rol_dc) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
