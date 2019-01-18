@@ -268,8 +268,8 @@ CREATE TABLE t_osc_logs_estado (
 	osc_coment_estado		VARCHAR (256) DEFAULT "No Comments",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
-	KEY 	idx_fk_logs_est_dni_autor (dni),
-    CONSTRAINT 	fk_logs_est_dni_autor FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+	KEY 	idx_fk_logs_est_dni_autor(dni),
+    CONSTRAINT 	fk_logs_est_dni_autor FOREIGN KEY (dni) REFERENCES t_users1(dni) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
 	KEY 	idx_fk_logs_est_osc_nombre (osc_nombre),
 	CONSTRAINT 	fk_logs_est_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,

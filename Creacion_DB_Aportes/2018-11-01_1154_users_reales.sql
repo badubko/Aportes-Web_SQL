@@ -6,7 +6,7 @@
 -- CSV_IN_FILE :				../Datos/Libro2_V1.4.csv
 -- --------------------------------------------------------------
 
-use aportes_V3_6;
+use aportes_V3_7;
 
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`email_1`,`email_2`)

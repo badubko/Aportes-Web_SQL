@@ -158,36 +158,71 @@ Values
 -- Agregar OSC
 --
 Insert into t_osc
-(`osc_nombre`,`osc_estado`)
+(`osc_nombre`)
 Values
-('Cruz Roja','Identificada')
+('Cruz Roja')
 ;
 Insert into t_osc
-(`osc_nombre`,`osc_estado`)
+(`osc_nombre`)
 Values
-('Casa Rafael','Identificada')
+('Casa Rafael')
 ;
 Insert into t_osc
-(`osc_nombre`,`osc_estado`)
+(`osc_nombre`)
 Values
-('Wingu','Identificada')
+('Wingu')
 ;
 Insert into t_osc
-(`osc_nombre`,`osc_estado`)
+(`osc_nombre`)
 Values
-('Haciendo Camino','Identificada')
+('Haciendo Camino')
 ;
 Insert into t_osc
-(`osc_nombre`,`osc_estado`)
+(`osc_nombre`)
 Values
-('IDEL','Identificada')
+('IDEL')
 ;
 Insert into t_osc
-(`osc_nombre`,`osc_estado`)
+(`osc_nombre`)
 Values
-('Casa FOA','Identificada')
+('Casa FOA')
 ;
 --
+--
+-- Cambiar estado OSC a Identificada
+
+Insert into t_osc_logs_estado
+(`osc_nombre`,`osc_estado`,`dni`)
+Values
+('Cruz Roja','Identificada',"11285447")
+;
+Insert into t_osc_logs_estado
+(`osc_nombre`,`osc_estado`,`dni`)
+Values
+('Casa Rafael','Identificada',"11285447")
+;
+Insert into t_osc_logs_estado
+(`osc_nombre`,`osc_estado`,`dni`)
+Values
+('Wingu','Identificada',"11285447")
+;
+Insert into t_osc_logs_estado
+(`osc_nombre`,`osc_estado`,`dni`)
+Values
+('Haciendo Camino','Identificada',"11285447")
+;
+Insert into t_osc_logs_estado
+(`osc_nombre`,`osc_estado`,`dni`)
+Values
+('IDEL','Identificada',"11285447")
+;
+Insert into t_osc_logs_estado
+(`osc_nombre`,`osc_estado`,`dni`)
+Values
+('Casa FOA','Identificada',"11285447")
+;
+
+
 -- Asignar DC
 --
 --
