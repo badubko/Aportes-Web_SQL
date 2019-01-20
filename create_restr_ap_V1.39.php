@@ -44,40 +44,6 @@ if (isset($_POST['submit'])) {
 
 
 <?php if (isset($_POST['submit']) && $statement && !$error){ ?>
-
-<?php
- require "./config_ap_V1.4.php";
-
-
-try {
-	
-	$connection = new PDO($dsn, $username, $password, $options);
-	$dni = $_GET['dni'];
-	$estado = 'Disponible';
-	$consideraciones = 'Estado Inicial de Nuevo Voluntario';
-    
-    
-    // set the PDO error mode to exception
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // prepare sql and bind parameters
-    $stmt_estado = $connection->prepare(" INSERT INTO t_logs_estado_user (dni, estado, consideraciones) VALUES (:dni, :estado, :consideraciones)");
-    $stmt_estado->bindParam(':dni', $dni);
-    $stmt_estado->bindParam(':consideraciones', $consideraciones);
-    
-   
-    // insertar Estado inicial= Disponible para Voluntario recien creado
-
-    $stmt_estado->execute();
-    // $result = $stmt->fetchAll();
-    $e_estado = "";
-    
-    } catch(PDOException $e_estado)
-		{  echo "Error: " . "<br>" . $e_estado->getMessage() . "<br>" . "No se pudo agregar estado: $estado" ;    }
-
-
-?>
-	
     <blockquote><?php echo $_GET['apellido'] , ", " , $_GET['nombres']; ?> Datos restringidos agregados.</blockquote>
     <a href="index_ap_V1.4.php">Back to home</a>
 <?php 
