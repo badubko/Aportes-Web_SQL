@@ -24,7 +24,7 @@ CREATE TABLE t_users1 (
   PRIMARY KEY  (dni),
   KEY idx_fk_prof (profesion),
   CONSTRAINT fk_profesiones_profesion FOREIGN KEY (profesion) REFERENCES t_profesiones (profesion) ON DELETE RESTRICT ON UPDATE CASCADE  
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos PUBLICOS de los voluntarios de Aportes';
 
 -- ---------------------------------------------------------------------
 -- Table structure for table `users2`
@@ -46,7 +46,7 @@ CREATE TABLE t_users2 (
   CONSTRAINT fk_users2_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
   KEY idx_fk_estado (estado),
   CONSTRAINT fk_users2_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos RESTRINGIDOS de los voluntarios de Aportes';
 
 -- ---------------------------------------------------------------------
 -- Tablas de valores "Fijos"
@@ -54,25 +54,25 @@ CREATE TABLE t_users2 (
 CREATE TABLE t_profesiones (
   profesion VARCHAR(25) NOT NULL,
   PRIMARY KEY  (profesion)
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos para las posibles profesiones de un voluntario';
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos de las posibles profesiones de un voluntario';
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 CREATE TABLE t_especialidades (
   especialidad VARCHAR(20) NOT NULL,
   PRIMARY KEY  (especialidad)
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos para las posibles especialidades de un voluntario';
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos de las posibles especialidades de un voluntario';
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------  
 CREATE TABLE t_roles (
   rol VARCHAR(6) NOT NULL DEFAULT "Vol",
   PRIMARY KEY  (rol)
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos para las posibles roles de un voluntario de Aportes';
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos para los posibles roles de un voluntario de Aportes';
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------  
 CREATE TABLE t_estados (
   estado VARCHAR(14) NOT NULL,
   PRIMARY KEY (estado)
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos para los posibles estados de un voluntario';
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos de los posibles estados de un voluntario';
 
 -- Tablas complementarias de los usuarios
 -- ---------------------------------------------------------------------
@@ -159,7 +159,7 @@ CREATE TABLE t_hist_user_proy (
 --  
   KEY idx_fk_hu_num_corr_proy (p_num_corr_proy),
   CONSTRAINT fk_hu_num_corr_proy FOREIGN KEY (p_num_corr_proy) REFERENCES t_proyectos(p_num_corr_proy) ON DELETE RESTRICT ON UPDATE CASCADE
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla registro de la asignacion y des-asignacion de un voluntario a un proyecto';
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla registro de la asignacion y desasignacion de un voluntario a un proyecto';
 
 -- ---------------------------------------------------------------------
 -- Tablas de las OSCs
@@ -209,7 +209,7 @@ CREATE TABLE t_osc (
 --
 -- KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
 -- CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (osc_dni_dc2) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de los datos base de una OSC';  
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de los datos basicos de una OSC';  
 -- ---------------------------------------------------------------------  
 -- ---------------------------------------------------------------------
 CREATE TABLE t_osc_objetivos (
@@ -256,7 +256,7 @@ CREATE TABLE t_osc_logs_dc (
 --
     KEY 		idx_fk_osc_logs_rol (osc_rol_dc),
     CONSTRAINT 		fk_logs_rol_dc FOREIGN KEY (osc_rol_dc) REFERENCES t_osc_rol_dc (osc_rol_dc) ON DELETE RESTRICT ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de registro de asignacion/des-asignacion de los DCs a una OSC';
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de registro de asignacion/desasignacion de los DCs a una OSC';
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 CREATE TABLE t_osc_logs_estado (
@@ -380,7 +380,7 @@ CREATE TABLE t_p_logs_estado_proy (
 --
 	KEY idx_fk_estado_proy (p_estado_proy),
 	CONSTRAINT fk_proy_estado_proy FOREIGN KEY (p_estado_proy) REFERENCES t_p_estado_proy(p_estado_proy) ON DELETE RESTRICT ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Registra los cambios de estado de un proyecto';
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla que registra los cambios de estado de un proyecto';
 --  -------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 CREATE TABLE t_p_logs_tipo_proy (
@@ -395,7 +395,7 @@ CREATE TABLE t_p_logs_tipo_proy (
 --
 	KEY idx_fk_tipo_proy (p_tipo_proy),
 	CONSTRAINT fk_tipo_proy FOREIGN KEY (p_tipo_proy) REFERENCES t_p_tipo_proy(p_tipo_proy) ON DELETE RESTRICT ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Registra las tipificaciones que tiene un proyecto';
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla que registra las tipificaciones que tiene un proyecto';
 --  -------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 
@@ -416,7 +416,7 @@ CREATE TABLE t_p_logs_result_reun (
 --
 	KEY idx_fk_p_result_reun (p_result_reun),
 	CONSTRAINT fk_p_result_reun FOREIGN KEY (p_result_reun) REFERENCES t_p_result_reun(p_result_reun) ON DELETE RESTRICT ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Registra los resultados de cada reunion relacionada con una OSC';
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla que registra los resultados de cada reunion relacionada con una OSC';
 --  -------------------------------------------------------------------
 -- Tablas "Fijas" de datos para los proyectos
 -- ---------------------------------------------------------------------
