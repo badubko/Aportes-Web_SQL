@@ -55,7 +55,7 @@ try {
 //				    "Procesos" , "RRHH" , "Sistemas");
 try {
   require "./config_ap_V1.4.php";
-  // require "./common_ap_V1.2.php";
+  
 
   $conn_esp = new PDO($dsn, $username, $password, $options);
   
@@ -105,11 +105,11 @@ try {
 	$nombres = $_GET['nombres'];
 ?>
 
-<a href="listar-esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
+<a href="listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
         ">Listar Esp VOL</a>
-<a href="index_ap_V1.4.php">Back to home</a>
+<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
 
