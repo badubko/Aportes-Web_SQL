@@ -61,10 +61,12 @@ if (isset($_POST['submit'])) {
 					<th>email_2</th>
 					<th>last_update</th> 
 -->
-					<th>Modif Datos</th>
+					<th>Cambiar</th>
+<!--					
 					<th>Agreg Datos</th>
 					<th>Modif Datos</th>
 					<th>Editar</th>
+-->
 				</tr>
 			</thead>
 			<tbody>
@@ -73,16 +75,18 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["dni"]); ?></td>
 				<td><?php echo escape($row["apellido"]); ?></td>
 				<td><?php echo escape($row["nombres"]); ?></td>
-<!--			<td><?php echo escape($row["profesion"]); ?></td>
+<!--				
+				<td><?php echo escape($row["profesion"]); ?></td>
 				<td><?php echo escape($row["email_1"]); ?></td>
 				<td><?php echo escape($row["email_2"]); ?></td>
 				<td><?php echo escape($row["last_update"]); ?></td>
+				<td><a href="cambia_est_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>">Estado Vol</a></td>
 -->
-				<td><a href="update-single_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>">PUB VOL</a></td>
-				<td><a href="create_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
+				<td><a href="cambia_est_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
-				">RESTR VOL</a></td>
+				">Estado VOL</a></td>
+<!--				
 				<td><a href="update-single_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
@@ -91,12 +95,13 @@ if (isset($_POST['submit'])) {
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
 				">Espec</a></td>
+-->				
 			</tr>
 		<?php } ?> 
 			</tbody>
 	</table>
 	<?php } else { ?>
-		<blockquote>No results found for <?php echo escape($_POST['apellido']); ?>.</blockquote>
+		<blockquote>No se encontro ningun Vol con:  <?php echo escape($_POST['apellido']); ?>.</blockquote>
 	<?php } 
 } ?> 
 
