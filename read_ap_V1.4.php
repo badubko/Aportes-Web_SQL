@@ -46,6 +46,10 @@ if (isset($_POST['submit'])) {
 					<th>email_1</th>
 					<th>email_2</th>
 					<th>last_update</th>
+					<th>Modif Datos</th>
+					<th>Agreg Datos</th>
+					<th>Modif Datos</th>
+					<th>Editar</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -58,19 +62,19 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["email_1"]); ?></td>
 				<td><?php echo escape($row["email_2"]); ?></td>
 				<td><?php echo escape($row["last_update"]); ?></td>
-				<td><a href="update-single_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>">Datos PUB VOL</a></td>
-				<td><a href="create_restr_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
+				<td><a href="update-single_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>">PUB VOL</a></td>
+				<td><a href="create_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
-				">Agreg Datos RESTR VOL</a></td>
-				<td><a href="update-single_restr_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
+				">RESTR VOL</a></td>
+				<td><a href="update-single_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
-				">Modif Datos RESTR VOL</a></td>
-				<td><a href="listar-esp_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
+				">RESTR VOL</a></td>
+				<td><a href="listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
-				">Edit Esp</a></td>
+				">Espec</a></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
