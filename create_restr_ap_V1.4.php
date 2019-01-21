@@ -32,6 +32,8 @@ if (isset($_POST['submit'])) {
         $error = "";
         $statement = $connection->prepare($sql2);
         $statement->execute($new_user2);
+	
+        
         
     } catch(PDOException $error) {
        // echo $sql . "<br>" . $error->getMessage();
@@ -43,26 +45,28 @@ if (isset($_POST['submit'])) {
 <?php require "templates/header.php"; ?>
 
 
-<?php if (isset($_POST['submit']) && $statement && !$error){ ?>
+<?php if (isset($_POST['submit']) && $statement && !$error){
+
+ require "./config_ap_V1.4.php"; ?>
+ 
+<blockquote><?php echo $_GET['dni'] ; ?> Agregado estado inicial = Disponible.</blockquote>
 
 <?php
- require "./config_ap_V1.4.php";
-
-
 try {
 	
-	$connection = new PDO($dsn, $username, $password, $options);
-	$dni = $_GET['dni'];
+	$connection_estado = new PDO($dsn, $username, $password, $options);
+	$dni = $_POST['dni'];
 	$estado = 'Disponible';
 	$consideraciones = 'Estado Inicial de Nuevo Voluntario';
     
     
     // set the PDO error mode to exception
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $connection_estado->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // prepare sql and bind parameters
-    $stmt_estado = $connection->prepare(" INSERT INTO t_logs_estado_user (dni, estado, consideraciones) VALUES (:dni, :estado, :consideraciones)");
+    $stmt_estado = $connection_estado->prepare("INSERT INTO t_logs_estado_user (dni, estado, consideraciones) VALUES (:dni, :estado, :consideraciones)");
     $stmt_estado->bindParam(':dni', $dni);
+    $stmt_estado->bindParam(':estado', $estado);
     $stmt_estado->bindParam(':consideraciones', $consideraciones);
     
    
@@ -126,7 +130,7 @@ try {
 			<label for="Rol">Rol</label> 
 			<select name="rol">
 <!--			<option value="<?php echo escape($value); ?>"><?php echo escape($value); ?></option> -->
-                <option value="">Vol</option> 
+                <option value="Vol">Vol</option> 
 			<?php foreach ($a_rol as $role) { ?>
 				<option value="<?php echo $role["rol"]; ?>"><?php echo $role["rol"]; ?></option>			
 			<?php } ?>	

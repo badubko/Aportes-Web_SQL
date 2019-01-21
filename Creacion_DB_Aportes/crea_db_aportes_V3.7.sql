@@ -531,7 +531,12 @@ INSERT INTO `t_estados` (`estado`) VALUES
 -- en proyectos para las OSC. E.J. Susy Spielman
 ('Interno'),
 ('Puntual'),
-('A_Confirmar'),
+-- Se elimina el estado "A_Confirmar"
+-- ('A_Confirmar'),
+--
+-- El estado "Desconoc" es solo para cuando se crean inicialmente el Vol 
+-- y se ingresan los datos Publicos
+-- Pasa a "Disponible" al agregar los datos restringidos
 ('Desconoc');
 -- ---------------------------------------------------------
 -- OSCs
