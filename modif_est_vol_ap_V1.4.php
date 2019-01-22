@@ -86,7 +86,10 @@ try {
 					"Puntual" , "ND_Temp" , "De_Baja");
 ?>
 
+<!--
 <form method="post" action="">
+-->
+<form method="post">
 <p>
 	<label for="estado">Nvo Estado</label> 
 	<select name="estado">
@@ -94,8 +97,11 @@ try {
 	<?php foreach ($a_estados_pos as $est_pos) { ?>
 		<option value="<?php echo $est_pos; ?>"><?php echo $est_pos; ?></option>
 	<?php } ?>
+	</select>
+</p>
 	<label for="consideraciones">Consideraciones</label>
 	<input type="text" name="consideraciones" id="consideraciones">
+	
 <!--
     
 	<option value="<?php echo escape($esp1); ?>"><?php echo escape($esp1); ?></option>
@@ -104,9 +110,9 @@ try {
 	<option value="<?php echo escape($esp4); ?>"><?php echo escape($esp4); ?></option>
 -->
 	
-	</select>
+	
 		<input type="submit" name="submit" value="Guardar">
-</p>
+
 </form>
 
 <?php
