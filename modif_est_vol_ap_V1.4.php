@@ -22,7 +22,8 @@ try {
     $stmt->bindParam(':dni', $dni);
     $stmt->bindParam(':estado', $estado);
     $stmt->bindParam(':consideraciones', $consideraciones);
-    // insertar nueva especialidad
+    
+    // insertar nuevo estado
 
     $stmt->execute();
     // $result = $stmt->fetchAll();
@@ -35,53 +36,16 @@ try {
 ?>
 
 <?php if (isset($_POST['submit']) && $stmt && !$e ) { ?>
-    <blockquote>Agregado nuevo estado: <?php echo $_POST['estado']; ?> </blockquote>
+	<blockquote>Registrado nuevo estado: <?php echo $_POST['estado']; ?></blockquote>
+	<blockquote>Para Voluntaria/o      : <?php echo $_GET['apellido'] , ", " , $_GET['nombres']; ?> </blockquote>
+    
 <?php } ?>
 
-<h2>Modicar estado de VOL V1.4</h2>
-<!--
-<form method="post" action="">
-	<select name=especialidad[] multiple>
-        <option value="Sistemas"> Sistemas </option>
-        <option value="Comercial">  Comercial </option>
-    </select>
-	<label for="especialdad">Especialdad</label> 
-	<input type="text" name="especialidad" id="especialidad"> 
-	<input type="submit" name="submit" value="Submit">
-</form>
--->
+
 
 <?php
 // Listado de estados posibles a los que se puede pasar desde 
 // estado != Asignado o estado != De_Baja
-
-
-//try {
-  //require "./config_ap_V1.4.php";
-  
-
-  //$conn_esp = new PDO($dsn, $username, $password, $options);
-  
-  //$sql_esp = "SELECT especialidad  FROM t_especialidades ORDER BY especialidad";
-
-  //$stat_esp = $conn_esp->prepare($sql_esp);
-  
-  //$stat_esp->execute();
-
-  //$a_espec = $stat_esp->fetchAll();
-//} catch(PDOException $error) {
-  //echo $sql_esp . "<br>" . $error->getMessage();
-//}         
-
-// 
-//$esp1 = "Contable";
-//$esp2 = "Diagnostico";
-//$esp3 = "Procesos";
-//$esp4 = "Sistemas";
-//
-?>
-
-<?php
  $a_estados_pos = array( "Disponible" , "Con_Restricc" , 
 					"Puntual" , "ND_Temp" , "De_Baja");
 ?>
@@ -89,38 +53,33 @@ try {
 <!--
 <form method="post" action="">
 -->
+<body>
+<h2>Modicar estado de VOL V1.4</h2>
 <form method="post">
-<p>
-	<label for="estado">Nvo Estado</label> 
-	<select name="estado">
-	<option value="">Seleccione...</option>
-	<?php foreach ($a_estados_pos as $est_pos) { ?>
-		<option value="<?php echo $est_pos; ?>"><?php echo $est_pos; ?></option>
-	<?php } ?>
-	</select>
-</p>
+
+	<p>
+		<label for="estado">Nuevo Estado</label> 
+		<select name="estado">
+		<option value="">Seleccione...</option>
+		<?php foreach ($a_estados_pos as $est_pos) { ?>
+			<option value="<?php echo $est_pos; ?>"><?php echo $est_pos; ?></option>
+		<?php } ?>
+		</select>
+	</p>
 	<label for="consideraciones">Consideraciones</label>
-	<input type="text" name="consideraciones" id="consideraciones">
-	
-<!--
-    
-	<option value="<?php echo escape($esp1); ?>"><?php echo escape($esp1); ?></option>
-	<option value="<?php echo escape($esp2); ?>"><?php echo escape($esp2); ?></option>
-	<option value="<?php echo escape($esp3); ?>"><?php echo escape($esp3); ?></option>
-	<option value="<?php echo escape($esp4); ?>"><?php echo escape($esp4); ?></option>
--->
-	
-	
-		<input type="submit" name="submit" value="Guardar">
+		<input type="text" name="consideraciones" id="consideraciones">
+	<input type="submit" name="submit" value="Guardar">
 
 </form>
+	
+
 
 <?php
 	$dni = $_GET['dni'];
 	$apellido = $_GET['apellido'];
 	$nombres = $_GET['nombres'];
 ?>
-
+</body>
 <a href="listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>

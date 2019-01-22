@@ -75,7 +75,7 @@ try {
 	<label for="apellido">Apellidos</label>
 		<input type="text" name="apellido" id="apellido">
 	<label for="dni">DNI</label>
-		<input type="text" name="dni" id="dni">
+	<input type="text" name="dni" id="dni">
 			<p>
 			<label for="profesion">Profesion</label> 
 			<select name="profesion">
