@@ -82,7 +82,7 @@ try {
 ?>
 
 <?php
- $a_estados_pos = array( "Disponible" , "Con Restricc" , 
+ $a_estados_pos = array( "Disponible" , "Con_Restricc" , 
 					"Puntual" , "ND_Temp" , "De_Baja");
 ?>
 
