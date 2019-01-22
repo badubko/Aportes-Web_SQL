@@ -5,9 +5,9 @@ SHOW WARNINGS;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 SHOW WARNINGS;
 
-DROP SCHEMA IF EXISTS aportes_V3_71;
-CREATE SCHEMA aportes_V3_71;
-USE aportes_V3_71;
+DROP SCHEMA IF EXISTS aportes_V3_7;
+CREATE SCHEMA aportes_V3_7;
+USE aportes_V3_7;
 
 -- --------------------------------------------------------------------
 -- Table structure for table `users1`

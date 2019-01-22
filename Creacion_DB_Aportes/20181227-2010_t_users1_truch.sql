@@ -17,6 +17,6 @@ INSERT INTO `t_users1` (`dni`, `apellido`, `nombres`, `profesion`, `email_1`, `e
 (1000010, 'Gonzalez', 'Tambucho', 'Chanta', 'tamb@gmail.com', 'N/D', '2018-12-24 03:05:02'),
 (1000011, 'Lacaliente', 'Juana', 'Contadora', 'jcal@gmail.com.ar', 'jcal@hot.com', '2018-12-17 01:25:11'),
 (1000012, 'Cachuchova', 'Maria', 'Antropologa', 'maria@lacachucha.com', 'N/D', '2018-12-24 03:04:13'),
-(1000013, 'Du Bois', 'Juan Carlos Nepomuceno ', 'Chantologo', 'adb@gmail.com', 'N/D', '2018-12-17 01:39:05');
+(1000013, 'Du Bois', 'Juan Carlos', 'Chantologo', 'adb@gmail.com', 'N/D', '2018-12-17 01:39:05');
 
 

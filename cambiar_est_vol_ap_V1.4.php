@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
 <?php  
 if (isset($_POST['submit'])) {
 	if ($result && $statement->rowCount() > 0) { ?>
-		<h2>Results</h2>
+		<h3>Resultados para (estado != Asignado y estado != De_Baja)</h3>
 		<a href="index_ap_V1.4.php">Back to home</a>
 		<table>
 			<thead>
@@ -56,15 +56,9 @@ if (isset($_POST['submit'])) {
 					<th>dni</th>
 					<th>apellido</th>
 					<th>nombre</th>
-<!--					<th>profesion</th>
-					<th>email_1</th>
-					<th>email_2</th>
-					<th>last_update</th> 
--->
+
 					<th>Cambiar</th>
 <!--					
-					<th>Agreg Datos</th>
-					<th>Modif Datos</th>
 					<th>Editar</th>
 -->
 				</tr>
@@ -105,7 +99,8 @@ if (isset($_POST['submit'])) {
 	<?php } 
 } ?> 
 
-<h2>Buscar Voluntario por apellido</h2>
+<h3>Buscar Voluntario por apellido</h3>
+<h3>Cambiar estado del Voluntario</h3>
 
 <form method="post">
 	<label for="apellido">Apellido (A%  %A%  %)</label>
