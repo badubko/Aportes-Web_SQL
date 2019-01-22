@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 		$result = $statement->fetchAll();
 	} catch(PDOException $error) {
 		echo $sql . "<br>" . $error->getMessage();
-	}
+													}
 }
 ?>
 <?php require "templates/header.php"; ?>
@@ -69,6 +69,25 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["dni"]); ?></td>
 				<td><?php echo escape($row["apellido"]); ?></td>
 				<td><?php echo escape($row["nombres"]); ?></td>
+				
+				<?php
+					try {	
+						require "./config_ap_V1.4.php";
+						$dni_estado = $row["dni"] ;
+						$connection = new PDO($dsn, $username, $password, $options);
+						$sql_estado = "SELECT 	estado FROM t_users2 WHERE dni = :dni_estado" ;
+						$stat_estado = $connection->prepare($sql_estado);
+						$stat_estado->bindParam(':dni_estado', $dni_estado, PDO::PARAM_STR);
+						$stat_estado->execute();
+						$result_estado = $stat_estado->fetchAll();
+						} catch(PDOException $err_estado) {
+						// echo $sql_estado . "<br>" . $err_estado->getMessage();
+				?>
+						<td>No Disponible</td>
+						
+														<?php	}
+				?>
+				<td><?php echo escape($result_estado); ?></td>
 <!--				
 				<td><?php echo escape($row["profesion"]); ?></td>
 				<td><?php echo escape($row["email_1"]); ?></td>
