@@ -5,9 +5,9 @@ SHOW WARNINGS;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 SHOW WARNINGS;
 
-DROP SCHEMA IF EXISTS aportes_V3_7;
-CREATE SCHEMA aportes_V3_7;
-USE aportes_V3_7;
+DROP SCHEMA IF EXISTS aportes_V3_71;
+CREATE SCHEMA aportes_V3_71;
+USE aportes_V3_71;
 
 -- --------------------------------------------------------------------
 -- Table structure for table `users1`
@@ -73,7 +73,19 @@ CREATE TABLE t_estados (
   estado VARCHAR(14) NOT NULL,
   PRIMARY KEY (estado)
   )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos de los posibles estados de un voluntario';
-
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------  
+CREATE TABLE t_cambios_estado (
+  estado_actual 	VARCHAR(14) NOT NULL,
+  estado_proximo 	VARCHAR(14) NOT NULL,
+  id_truch			SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY  (id_truch)
+  -- Por ahora dejamos afuera estos indices para poder incluir el estado "Imposible"
+  -- KEY idx_fk_est_act (estado_actual),
+  -- CONSTRAINT fk_est_act FOREIGN KEY (estado_actual) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE,
+  -- KEY idx_fk_est_prox (estado_proximo),
+  -- CONSTRAINT fk_est_prox FOREIGN KEY (estado_proximo) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE  
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de relacion de estado_actual y estado_proximo posible';
 -- Tablas complementarias de los usuarios
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
@@ -535,9 +547,34 @@ INSERT INTO `t_estados` (`estado`) VALUES
 -- ('A_Confirmar'),
 --
 -- El estado "Desconoc" es solo para cuando se crean inicialmente el Vol 
--- y se ingresan los datos Publicos
+-- y se ingresan los datos Publicos (Revisar si esto realmente sucede...)
 -- Pasa a "Disponible" al agregar los datos restringidos
 ('Desconoc');
+--
+INSERT INTO `t_cambios_estado` (`estado_actual`, `estado_proximo`) VALUES
+('Disponible','Con_Restricc'),
+('Disponible','Puntual'),
+('Disponible','ND_Temp'),
+('Disponible','De_Baja'),
+--
+('Asignado','Cambio Imposib'),
+--
+('Con_Restricc','Disponible'),
+('Con_Restricc','Puntual'),
+('Con_Restricc','ND_Temp'),
+('Con_Restricc','De_Baja'),
+--
+('Puntual','Disponible'),
+('Puntual','Con_Restricc'),
+('Puntual','ND_Temp'),
+('Puntual','De_Baja'),
+--
+('ND_Temp','Disponible'),
+('ND_Temp','Con_Restricc'),
+('ND_Temp','Puntual'),
+('ND_Temp','De_Baja'),
+--
+('De_Baja','Cambio Imposib');
 -- ---------------------------------------------------------
 -- OSCs
 -- ---------------------------------------------------------
