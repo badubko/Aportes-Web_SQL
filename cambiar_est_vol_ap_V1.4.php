@@ -102,6 +102,7 @@ if (isset($_POST['submit'])) {
 				<td><a href="modif_est_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
+				&est_act=<?php echo escape($row_est["estado"]); ?>
 				">Estado VOL</a></td>
 <!--				
 				<td><a href="update-single_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
