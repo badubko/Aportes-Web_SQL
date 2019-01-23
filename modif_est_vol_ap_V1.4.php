@@ -55,7 +55,7 @@ try {
 <form method="post" action="">
 -->
 <body>
-<h2>Modicar estado de VOL V1.4</h2>
+<h3>Modicar estado de VOL <?php echo escape($vers);?></h3>
 <blockquote>Voluntaria/o:  <?php echo escape($_GET['apellido']); ?>, <?php echo escape($_GET['nombres']); ?></blockquote>
 <blockquote>Estado actual:  <?php echo escape($_GET['est_act']); ?></blockquote>
 <form method="post">
