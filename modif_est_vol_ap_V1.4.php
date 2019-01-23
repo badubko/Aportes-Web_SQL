@@ -40,7 +40,13 @@ try {
 	<blockquote>Registrado nuevo estado: <?php echo $_POST['estado']; ?></blockquote>
 	<blockquote>Para Voluntaria/o      : <?php echo $_GET['apellido'] , ", " , $_GET['nombres']; ?> </blockquote>
     
-<?php } ?>
+    <a href="cambiar_est_vol_ap_<?php echo escape($vers);?>.php">Buscar otro VOL</a>
+    <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+<?php     
+   
+    $est_act=$_POST['estado'];
+    exit;
+} ?>
 
 
 
@@ -76,14 +82,18 @@ try {
 </form>
 	
 
-
+<!--
 <?php
 	$dni = $_GET['dni'];
 	$apellido = $_GET['apellido'];
 	$nombres = $_GET['nombres'];
 ?>
+-->
+
 </body>
+
 <a href="cambiar_est_vol_ap_<?php echo escape($vers);?>.php">Buscar otro VOL</a>
+
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
