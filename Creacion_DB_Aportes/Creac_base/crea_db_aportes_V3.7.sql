@@ -199,7 +199,7 @@ CREATE TABLE t_osc (
   osc_pag_web 	VARCHAR (128),
 --
   osc_estado 	VARCHAR (16) NOT NULL DEFAULT "Identificada",
-  osc_acuerdo	ENUM ('Firmado','Pendiente') DEFAULT 'Pendiente',
+  osc_acuerdo	ENUM ('Firmado','Pendiente','N/D') DEFAULT 'N/D',
 --
   -- osc_obj_1 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
   -- osc_obj_2 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
