@@ -613,7 +613,7 @@ INSERT INTO `t_osc_lista_objetivos` (`osc_objetivo`) VALUES
 ('Mejora de la Gestion'),
 ("Otro"),
 ('No Especificado');
-;
+
 
 -- ---------------------------------------------------------
 -- Proyectos
