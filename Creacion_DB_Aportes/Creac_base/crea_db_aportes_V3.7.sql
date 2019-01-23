@@ -580,7 +580,8 @@ INSERT INTO `t_cambios_estado` (`estado_actual`, `estado_proximo`) VALUES
 -- OSCs
 -- ---------------------------------------------------------
 INSERT INTO `t_osc_rol_dc` (`osc_rol_dc`) VALUES
-('Primario'),
+-- ('Primario'),
+('Titular'),
 ('Suplente'),
 ('Des-Asignado');
 --
