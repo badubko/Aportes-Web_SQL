@@ -1,0 +1,82 @@
+00000001 ; Croxatto          ; Espacio de Escucha;#281;#Ieladeinu III;#351 
+ 4357215 ; Vilate            ; AnyBody;#349 
+ 4368430 ; Fiocchi           ; CRA V;#155;#Dignidad II;#149;#LALCEC I;#200;#Nordelta II;#307 
+ 4373628 ; D'Alessio         ; AEAPG I;#222;#Alimentaris I;#273;#Hecho por Nosotros;#380 
+ 4381690 ; Jalfen            ; ASAC;#190;#Conciencia II;#202;#Hermanas Hospitalarias II;#126;#RUTA 40 . Asistencia I;#279;#Ruta 40 IV;#305;#Aiken I;#366 
+04383620 ; Blumenthal        ; ACER;#84;#Alimentaris I;#273;#Defensores;#14;#Feriado el Planeta I;#395;#Sagrada Familia II;#219 
+ 4403493 ; Falicoff          ; ASAC II;#308;#Ashoka III;#20;#Avanzar II;#152;#Caritas ;#49;#El almendro II;#369;#PROEM II;#243 
+ 4412265 ; Pampillo          ; Defensores del Chaco IV;#315 
+04437727 ; Castillo          ; Conciencia II;#202;#CRA III;#134;#Mundo Sano;#92;#United Way II;#171;#Surcos;#270;#RIL I;#345 
+ 4444524 ; Romero            ; AEAPG II;#306;#Citi;#207;#Frente Joven;#293;#Infant I;#250;#Rugby Solidario III;#220;#Santa Maria del Camino I;#381 
+ 4514672 ; Cortes            ; COAS II;#136;#Interno APORTES;#25;#Olimpiadas Especiales I;#247;#Pilares II;#303;#Reciduca II;#132;#Wingu;#334 
+04520142 ; Vicente           ; FORES;#392 
+04536924 ; Sorrosal          ; SES;#40;#Avanzar III;#244 
+ 4543686 ; Deleonardis       ; Comunia I;#203;#Evolucion III;#183;#Hermanas Hospitalarias II;#126 
+ 4548676 ; Sarno             ; Arte y Esperanza I;#229;#Help Argentina;#289;#Sagrada Familia II;#219;#Segunda Oportunidad I;#208;#United way;#128;#Valores para Crecer I;#201;#Peregrina;#336;#Direccion Adultos Pilar;#357 
+ 4553179 ; Quintana Aguilar  ; AAPPG I;#359 
+04556079 ; Philipps          ; AFI III;#187;#CRA III;#134;#CRA V;#155;#Dignidad II;#149;#Nordelta II;#307;#OAJNU;#145;#Fundacion Sistema B I;#350 
+ 4747813 ; Liendo            ; Hacienlo Lio I;#360 
+ 4981277 ; Vogel             ; Casa niño Maria de Nazareth;#196;#CABA 2016;#343 
+06082141 ; Marcer            ; ALMA;#257;#Flexer II;#31;#Grano de Mostaza;#321;#Habitat IV;#374;#Habitat V;#375;#Hermanas Hospitalarias;#53;#Manos Abiertas;#29;#Misiones Rurales I;#283;#Protege tu Corazon III;#215;#Solidagro;#108;#Zambrano I;#251 
+06153590 ; D'Avola           ; CABA 2016;#343;#Cero a la derecha;#379;#Citi;#207;#Emmanuel I;#123;#FAIAM;#82;#Interno APORTES;#25;#Nuevos Caminos;#156;#Sahdes;#17;#SECHI I - Carrillo/Lacarra;#232;#Temas I;#284 
+ 6714305 ; Pezzolla          ; Brincar I;#264;#Educar y Crecer II;#192 
+ 7375447 ; Lopez             ; Aiken I;#366;#Germinare II;#387 
+07604925 ; Zucchino          ; Canales II;#164;#Doncel I;#245;#Evolucion;#88;#FVSA II;#56;#Hogar Sta Rafaela;#127;#Vicaria;#15;#Mensajeros de la Paz I;#347 
+ 7638418 ; Lopez Marti       ; Interno APORTES;#25;#Sur solidario II;#385 
+07660708 ; Bagg              ; AFI II;#137;#AFI III;#187;#APA I;#397;#Ashoka III;#20;#Brincar I;#264;#Evolucion;#88;#Media Pila II;#131;#Pilar 2016;#344 
+ 7685597 ; Pujals            ; Conciencia III;#235;#Defensores del Chaco IV;#315;#Idel I;#320;#Ruta 40 IV;#305;#United Way III;#198 
+ 7704808 ; Rabinovich        ; Proyecto Suma;#101;#Fiorire 1;#225;#ASPERGER 1;#238;#AnyBody;#349 
+07837645 ; Carchak Canes     ; AFI;#116;#AFI IV;#393;#Comunia I;#203;#Infant I;#250 
+ 8261239 ; Hall              ; al reparo;#376;#Convivir;#12;#Defensores II;#99;#Direccion Adultos Pilar;#357;#FARN II;#139;#Habitat V;#375;#Ieladeinu II;#48;#Interno APORTES;#25 
+ 8406769 ; Magnus            ; CABA 2016;#343;#FAMM I ;#333;#Hogar Sta Rafaela II;#231;#IDEL II;#402;#Puentes;#153 
+ 8591589 ; Conde             ; OBRA PADRE MARIO III;#353;#Thevenet I;#365 
+ 8627432 ; Vega              ; DAD ;#298;#Granja Andar II;#179;#Habitat V;#375;#OBRA PADRE MARIO  / ACOMPAÑAMIENTO;#355;#Obra Padre Mario II;#330;#Ruta 40 III;#193 
+10110647 ; Prado             ; CABA 2016;#343;#La Usina V (Redactivos);#384 
+10123767 ; Larralde          ; ASPERGER 1;#238;#GDFE I;#396 
+10125826 ; Di Nucci          ; DDRR V;#338;#OBRA PADRE MARIO III;#353;#Segunda Oportunidad I;#208 
+10128986 ; Donzelli          ; Cascos Verdes II;#221;#De todo para todos II;#301;#Equidad II;#18;#Media Pila III;#391;#OAJNU;#145;#Reciduca III;#169;#Responde;#50;#Rugby Sin Fronteras I;#81;#TEcho II;#337 
+10161593 ; Fidalgo           ; Amartya II;#324 
+10558702 ; Peña             ; El almendro II;#369;#Interno APORTES;#25 
+10661746 ; Indaco            ; Misiones Rurales I;#283;#Misiones Rurales II;#310 
+11023715 ; Arco              ; CABA 2016;#343;#Cero a la derecha;#379;#Empujar II;#292;#Empujar III;#331;#Evolucion III;#151;#FIC A;#263;#Rugby solidario II;#172;#Yo no fui;#194 
+11077171 ; Albisetti         ; CABA 2016;#343;#Diaz Velez;#295;#Educar 2050 I;#403;#Movilizarse;#302 
+11285447 ; Dubko             ; Interno APORTES;#25 
+11362109 ; Sabban Cohen      ; Mensajeros de la Paz I;#347;#Media Pila III;#391 
+11368729 ; Niemetz           ; Aves Argentinas II;#230 
+11467178 ; Kievsky           ; Ashoka III;#20;#FARN II;#139;#CRA V;#155;#Ieladeinu III;#351 
+11478659 ; Villahoz          ; APAER;#382;#ASAC II;#308;#Care II;#159;#Citi;#207;#Espacio de Escucha;#281;#Fundacion Proyecto Padres I;#212;#Interno APORTES;#25 
+11524703 ; Oxoby             ; FIC A;#263;#Manos Abiertas IV;#294;#Hogar Ma Rosario SN III;#341 
+11710217 ; Vasaro            ; CABA 2016;#343;#Pies Descalzos II;#213 
+11788722 ; Brandt            ; AEAPG I;#222;#Manos Abiertas III;#150;#Maria de los Angeles I;#346 
+11802203 ; Pages             ; APAER;#382 
+11815205 ; Iglesias          ; FIORIRE - ACOMPAÑAMIENTO;#386;#Haciendo Camino;#166;#Hogar Sta Rafaela II;#231;#Interno APORTES;#25;#Surcos;#270;#ACIFAD I;#398 
+11997550 ; Pfister           ; ACER;#84;#Diagonal;#33;#Nordelta;#109;#Obra del Padre Mario I;#218;#Reciduca;#47;#Pilar 2016;#344 
+11997550 ; Spielmann         ; Interno APORTES;#25 
+12001693 ; Valchi            ; El arranque I;#254;#FAMM I ;#333;#Flexer II;#31;#Proactiva I;#390;#TEcho II;#337 
+12107641 ; Nuevo             ; Haciendo Lio Asist;#388;#Interno APORTES;#25 
+12463662 ; Schargorodsky     ; FADEPOF;#269 
+12600203 ; Serebrennik       ; Luz de Esperanza I;#400 
+12601664 ; San Gil           ; AEPSO;#46;#LALCEC I;#200;#Los naranjos;#327;#ASDRA II;#135 
+12861175 ; KEBLERIS          ; Hecho por Nosotros;#380;#TEcho II;#337 
+12865409 ; Fuster            ; FADEPOF III;#378 
+12865523 ; Sgro              ; Cascos Verdes II;#221;#FVSA III;#35;#Ieladeinu II;#48;#PROEM II;#243;#Ruta 40 I;#144;#Wingu;#334 
+13211906 ; Valotta           ; Conciencia II;#202;#DAD II;#309;#El Reparo;#170;#Escuela Taller Fatima I;#364;#Lekotek;#36;#Puentes;#153;#Rugby Solidario III;#220 
+13980034 ; Flores            ; Hampatu;#370 
+14026826 ; CASTILLO          ; RIL I;#345;#Aves Arg III;#361 
+14809026 ; Marine            ; Defensores IV;#389 
+14927381 ; Sanchez           ; Conciencia;#147;#Fe y Alegria;#115;#FVSA IV;#404;#Orientación a la Joven;#261;#Rugby Sin Fronteras I;#81;#Rugby solidario II;#172;#Siloe;#328 
+16412832 ; De Paul           ; AFI II;#137;#Integrar I;#165;#Diaz Velez;#295 
+17233641 ; Segura            ; AMA I;#358 
+17446349 ; Zamora            ; ASDRA II;#135;#El puente posible I;#168;#Equidad II;#18;#Fadepof II;#339;#Interno APORTES;#25;#La Nacion;#146;#Manos Abiertas II;#51 
+17481570 ; Moya              ; Fiorire II;#354 
+17812861 ; Gaston            ; Colegio Madre Teresa;#224;#DEHUM Asistencia I;#274;#Fiorire 1;#225;#Interno APORTES;#25;#Movilizarse;#302;#Valores para Crecer I;#201 
+18475365 ; Lijtman           ; Escuela Taller Fatima I;#364;#AFI IV;#393 
+21764250 ; GARDELLA          ; Feriado el Planeta I;#395;#Los naranjos;#327 
+22759102 ; Sarabia           ; Casa Ronald McDonald;#326;#Comprometerse mas;#199;#DEHUM I;#227;#Luz de Esperanza I;#400;#Movilizarse;#302 
+24569384 ; Scquizzato        ; Doncel I;#245;#Sur Solidario;#329 
+26115457 ; Jejcic            ; Germinare II;#387 
+29217019 ; Lopez Dagan       ; Thevenet I;#365 
+92334192 ; LLano Leguizamon  ; Hacienlo Lio I;#360 
+93345440 ; Bernardini        ; CABA 2016;#343;#Peregrina II;#368;#TEcho II;#337;#Vivienda Digna (SagFamilia) II;#383;#Vivienda digna III;#407 
+93445268 ; Rosenfeld         ; Ashoka II;#106;#Forge I;#216;#Interno APORTES;#25;#Pilares II;#303;#Tzedaka;#42 
+94602041 ; Rovira Cubillo    ; Proactiva I;#390 
