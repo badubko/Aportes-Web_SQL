@@ -593,14 +593,27 @@ INSERT INTO `t_osc_estados` (`osc_estado`) VALUES
 ('Desconocido');
 --
 INSERT INTO `t_osc_lista_objetivos` (`osc_objetivo`) VALUES 
+-- En el orden de numeracion de la planilla del share
+("Comunicacion"),
+("Discapacidad"),
+("Comunidad"),
+("Salud"),
+("Integracion"),
 ("Educacion"),
+("Adicciones"),
+("Infancia"),
+("Informatica"),
+("Medio Ambiente"),
+("Tercera Edad"),
+-- Agregados por BD
 ("Alimentos"),
 ("Caridad"),
-("Otro"),
 ('Beneficencia'),
-('No Especificado'),
 ('Mejora de la Gestion'),
-("Salud");
+("Otro"),
+('No Especificado');
+;
+
 -- ---------------------------------------------------------
 -- Proyectos
 -- ---------------------------------------------------------
