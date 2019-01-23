@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 					<th>dni</th>
 					<th>apellido</th>
 					<th>nombre</th>
-
+					<th>Estado Act</th>
 					<th>Cambiar</th>
 <!--					
 					<th>Editar</th>
@@ -87,8 +87,13 @@ if (isset($_POST['submit'])) {
 						
 														<?php	}
 				?>
-				<td><?php echo escape($result_estado); ?></td>
-<!--				
+<!--
+				<td><?php echo escape($dni_estado); ?></td>
+-->
+				<?php foreach ($result_estado as $row_est ) { ?>
+					<td><?php echo $row_est["estado"] ; ?></td>
+				<?php											} ?>
+<!--					
 				<td><?php echo escape($row["profesion"]); ?></td>
 				<td><?php echo escape($row["email_1"]); ?></td>
 				<td><?php echo escape($row["email_2"]); ?></td>

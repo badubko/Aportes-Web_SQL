@@ -46,8 +46,8 @@ try {
 <?php
 // Listado de estados posibles a los que se puede pasar desde 
 // estado != Asignado o estado != De_Baja
- $a_estados_pos = array( "Disponible" , "Con_Restricc" , 
-					"Puntual" , "ND_Temp" , "De_Baja");
+ $a_estados_pos = array( 	"Disponible" , "Con_Restricc" , 
+							"Puntual" , "ND_Temp" , "De_Baja" , "Interno");
 ?>
 
 <!--
@@ -80,10 +80,7 @@ try {
 	$nombres = $_GET['nombres'];
 ?>
 </body>
-<a href="listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
-        &apellido=<?php echo escape($apellido); ?>
-        &nombres=<?php echo escape($nombres); ?>
-        ">Listar Esp VOL</a>
+<a href="cambiar_est_vol_ap_<?php echo escape($vers);?>.php">Buscar otro VOL</a>
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
