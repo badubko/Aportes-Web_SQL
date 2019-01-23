@@ -11,6 +11,7 @@ try {
 	$dni = $_GET['dni'];
 	$apellido = $_GET['apellido'];
 	$nombres = $_GET['nombres'];
+	$est_act = $_GET['est_act'];
     $estado = $_POST['estado'];
     $consideraciones = $_POST['consideraciones'];
     
@@ -55,6 +56,8 @@ try {
 -->
 <body>
 <h2>Modicar estado de VOL V1.4</h2>
+<blockquote>Voluntaria/o:  <?php echo escape($_GET['apellido']); ?>, <?php echo escape($_GET['nombres']); ?></blockquote>
+<blockquote>Estado actual:  <?php echo escape($_GET['est_act']); ?></blockquote>
 <form method="post">
 
 	<p>
