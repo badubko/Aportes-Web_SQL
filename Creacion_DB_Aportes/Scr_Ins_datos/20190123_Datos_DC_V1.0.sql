@@ -192,8 +192,6 @@ Values
 ('1000206','Disponible')
 ;
 -- ------------------------------------------------
-Codara	Monica				Asignado C.O.	"
-Ingreso al C.O. 23/2/2016​ -SOCIO-"	41183		15 	4320-7031 /	; 	SI
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
 Values
