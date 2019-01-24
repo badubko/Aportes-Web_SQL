@@ -1,4 +1,4 @@
--- Script que crea y carga la base de aportes
+-- Script que carga la base de aportes.
 
 \! sync
 \! sync
@@ -15,7 +15,7 @@ USE aportes_V3_7;
 \. 20181227-2010_t_users1_truch.sql
 
 -- Agrega datos de DCs 
--- --> Aencion: no todos tienen el verdadero numero de DNI
+-- --> Atencion: no todos tienen el verdadero numero de DNI
 \. 20190123_Datos_DC_V1.0.sql
 --
 
@@ -29,3 +29,4 @@ USE aportes_V3_7;
 \. 20190123_dc_tit_base_V1.0.sql
 
 -- Asocia DCs Suplentes con OSCs
+\. 20190123_dc_supl_base_V1.0.sql
