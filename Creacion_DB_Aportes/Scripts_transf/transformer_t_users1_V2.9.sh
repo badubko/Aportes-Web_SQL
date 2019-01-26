@@ -319,10 +319,13 @@ CUIL_NO_DISPONIBLE="N/D"
 EMAIL_NO_DISPONIBLE="N/D"
 
 SQL_SCRIPT_NAME="USERS"
-CSV_IN_FILE="../Datos/Libro2_V1.4.csv"
+# CSV_IN_FILE="../Datos/Libro2_V1.4.csv"
+# /media/CGate/badubko/Back_F/BAS/DOCS/Aportes/Aportes-Web_SQL/Creacion_DB_Aportes/Planillas_Orig/Libro2-no_dni.csv
+CSV_IN_FILE="../Planillas_Orig/Libro2-no_dni.csv"
 
-SQL_INS_DATOS_DIR="SQL_Ins_Datos"
-SQL_INS_T_FIJAS_DIR="SQL_Ins_T_fijas"
+# SQL_INS_DATOS_DIR="SQL_Ins_Datos"
+SQL_INS_DATOS_DIR="Scr_Ins_datos"
+SQL_INS_T_FIJAS_DIR="Scr_Ins_datos"
 ERROR_DIR="Errores"
 
 SQL_OUT_FILE=../${SQL_INS_DATOS_DIR}/"${RUN_DATE_FILE}_${SQL_SCRIPT_NAME}"".sql"
