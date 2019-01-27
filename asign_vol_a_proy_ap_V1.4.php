@@ -48,7 +48,9 @@ if (isset($_POST['submit'])) {
 <?php  
 if (isset($_POST['submit'])) {
 	if ($result && $statement->rowCount() > 0) { ?>
-		<h3>Resultados para (estado != Asignado y estado != De_Baja)</h3>
+		<h3>Buscar Voluntario por apellido</h3>
+		<h3>para ASIGNAR a un Proyecto</h3>
+		<h3>Resultados para (estado != ND_Temp y estado != De_Baja)</h3>
 		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 		<table>
 			<thead>
@@ -121,7 +123,12 @@ if (isset($_POST['submit'])) {
 	</table>
 	<?php } else { ?>
 		<blockquote>No se encontro ningun Vol con:  <?php echo escape($_POST['apellido']); ?>.</blockquote>
-	<?php } 
+	<?php } ?>
+
+<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+<?php
+require "templates/footer.php"; 
+exit;	
 } ?> 
 
 <h3>Buscar Voluntario por apellido</h3>
@@ -132,6 +139,9 @@ if (isset($_POST['submit'])) {
 	<input type="text" id="apellido" name="apellido">
 	<input type="submit" name="submit" value="Buscar">
 </form>
+
+<?php  	require "./config_ap_V1.4.php";
+		require "./common_ap_V1.4.php";?>
 
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
