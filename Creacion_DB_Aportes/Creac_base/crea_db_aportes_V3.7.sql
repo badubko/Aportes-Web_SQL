@@ -277,7 +277,7 @@ CREATE TABLE t_osc_logs_estado (
     osc_nombre 				VARCHAR (128) NOT NULL, 
     osc_estado 				VARCHAR (16) NOT NULL DEFAULT "Identificada",
 --	dni del autor del cambio de estado de la OSC
-	dni						INT UNSIGNED NOT NULL,
+	dni						INT UNSIGNED NOT NULL COMMENT "dni del autor del cambio de estado de la OSC",
 	osc_coment_estado		VARCHAR (256) DEFAULT "No Comments",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
