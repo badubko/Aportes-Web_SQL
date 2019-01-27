@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 					<th>apellido</th>
 					<th>nombre</th>
 					<th>Estado Act</th>
-					<th>Cambiar</th>
+					<th>Seleccionar</th>
 <!--					
 					<th>Editar</th>
 -->
@@ -102,11 +102,11 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["last_update"]); ?></td>
 				<td><a href="modif_est_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>">Estado Vol</a></td>
 -->
-				<td><a href="modif_est_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
+				<td><a href="sel_osc_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
 				&est_act=<?php echo escape($row_est["estado"]); ?>
-				">Seleccionar</a></td>
+				">P/Asignar</a></td>
 <!--				
 				<td><a href="update-single_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
