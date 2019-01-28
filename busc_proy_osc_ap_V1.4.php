@@ -2,10 +2,10 @@
 
 /**
  * 
- * Buscar OSC por Nombre aproximado
- * Con estado = En_Actividad o = En_Conversacion (?)
- * Se seleccionara OSC y se pasara a buscar los proyectos
- * de esa OSC
+ * Buscar los proyectos de una OSC 
+ * Con estado = En_Ejecucion o = Pre-Proyecto(?) (Que otros estados???)
+ * Se seleccionara el proyecto y se asignara al Voluntario
+ * 
  * 
  */
 
