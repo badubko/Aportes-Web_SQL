@@ -16,6 +16,11 @@ if (isset($_POST['submit'])) {
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
+// select p_num_corr_proy, osc_nombre, p_nombre_proy from t_proyectos 
+// where osc_nombre = "ALPI" and 
+// ( p_num_corr_proy in (select p_num_corr_proy from t_p_logs_estado_proy where p_estado_proy = 'En_Ejecucion'));
+
+
 		$sql = "SELECT
 						t_osc.osc_nombre, t_osc.osc_estado
 				FROM    t_osc
