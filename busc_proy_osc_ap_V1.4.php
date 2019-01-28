@@ -9,7 +9,7 @@
  * 
  */
 
-if (isset($_POST['submit'])) {
+
 	try {	
 		require "./config_ap_V1.4.php";
 		require "./common_ap_V1.4.php";
@@ -18,17 +18,18 @@ if (isset($_POST['submit'])) {
 
 // select p_num_corr_proy, osc_nombre, p_nombre_proy from t_proyectos 
 // where osc_nombre = "ALPI" and 
-// ( p_num_corr_proy in (select p_num_corr_proy from t_p_logs_estado_proy where p_estado_proy = 'En_Ejecucion'));
+// ( p_num_corr_proy in (SELECT p_num_corr_proy FROM t_p_logs_estado_proy 
+//  WHERE (p_estado_proy = 'En_Ejecucion' ) OR (p_estado_proy = 'Pre-Proyecto')  ));
 
 
-		$sql = "SELECT
-						t_osc.osc_nombre, t_osc.osc_estado
-				FROM    t_osc
-				WHERE ((osc_nombre LIKE :osc)  AND 
-						( (osc_estado = 'En_Actividad') OR  (osc_estado = 'En_Conversacion'))
-						) ORDER BY osc_nombre;" ;
+		$sql = "SELECT p_num_corr_proy, osc_nombre, p_nombre_proy FROM t_proyectos 
+				where osc_nombre = :osc AND 
+				( p_num_corr_proy IN (SELECT p_num_corr_proy FROM t_p_logs_estado_proy 
+				WHERE 
+				(p_estado_proy = 'En_Ejecucion' ) OR (p_estado_proy = 'Pre-Proyecto')  
+				) ) 	" ;
 						
-		$osc = $_POST['osc'];				
+		$osc = $_GET['osc'];				
 		$dni = $_GET['dni'];
 		$apellido = $_GET['apellido'];
 		$nombres = $_GET['nombres'];
@@ -41,37 +42,38 @@ if (isset($_POST['submit'])) {
 	} catch(PDOException $error) {
 		echo $sql . "<br>" . $error->getMessage();
 													}
-}
-?>
-<?php require "templates/header.php"; ?>
+
+ require "templates/header.php"; 
 		
-<?php  
-if (isset($_POST['submit'])) {
+
 	if ($result && $statement->rowCount() > 0) { ?>
 		<h3><?php echo "Asignacion de Vol: " , escape($apellido) , ", " , escape($nombres); ?></h3>
-		<h3>Buscar OSC por nombre aproximado</h3>
-		<h3>para buscar sus Proyectos</h3>
-		<h3>Resultados para (osc_estado = En_Actividad OR estado = En_Conversacion)</h3>
+		
+		<h3><?php echo "Seleccionar Proy de OSC: " , escape($_GET['osc']); ?></h3>
+		<h3>Resultados para (Estado Proyecto = En_Ejecucion OR estado = Pre-Proyecto)</h3>
 		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 		<table>
 			<thead>
 				<tr>
 					<th>OSC</th>
-					<th>Estado</th>
-					<th>Elegir OSC</th>
+					<th>Num Corr Proy</th>
+					<th>Nombre Proy</th>			
+					<th>Elegir Proyecto</th>
 				</tr>
 			</thead>
 			<tbody>
 	<?php foreach ($result as $row) { ?>
 			<tr>
 				<td><?php echo escape($row["osc_nombre"]); ?></td>
-				<td><?php echo escape($row["osc_estado"]); ?></td>		
-				<td><a href="busc_proy_osc_ap_<?php echo escape($vers);?>.php
+				<td><?php echo escape($row["p_num_corr_proy"]); ?></td>
+				<td><?php echo escape($row["p_nombre_proy"]); ?></td>		
+				<td><a href="asign_a_proy_ap_<?php echo escape($vers);?>.php
 				?dni=<?php echo escape($dni); ?>
 				&apellido=<?php echo escape ($apellido); ?>
 				&nombres=<?php echo escape($nombres); ?>
 				&osc=<?php echo escape($row["osc_nombre"]); ?>
-				">P/Asignar Vol</a></td>
+				&num_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
+				">Asignar</a></td>
 		
 			</tr>
 		<?php } ?> 
@@ -85,7 +87,7 @@ if (isset($_POST['submit'])) {
 <?php
 require "templates/footer.php"; 
 exit;	
-} ?> 
+?> 
 
 <!--
     Aca comenzamos...
@@ -93,15 +95,11 @@ exit;
 <?php  	require "./config_ap_V1.4.php";
 		require "./common_ap_V1.4.php";?>
 		
-<h3><?php echo "Asignacion de Vol: " , escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?></h3>
-<h3>Buscar OSC por nombre aproximado</h3>
-<h3>para buscar sus proyectos</h3>
 
-<form method="post">
-	<label for="osc">OSC (A%  %A%  %)</label>
-	<input type="text" id="osc" name="osc">
-	<input type="submit" name="submit" value="Buscar">
-</form>
+<h3><?php echo "Seleccionar Proy de OSC: " , escape($_GET['osc']); ?></h3>
+
+<h3><?php echo "Para asignar VOL: " , escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?></h3>
+
 
 
 
