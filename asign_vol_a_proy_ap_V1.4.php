@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 								)						     
 									)		
 				 
-							) ORDER by apellido;" ;
+							) ORDER BY apellido;" ;
 
 		$apellido = $_POST['apellido'];
 
@@ -102,7 +102,7 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["last_update"]); ?></td>
 				<td><a href="modif_est_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>">Estado Vol</a></td>
 -->
-				<td><a href="sel_osc_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
+				<td><a href="sel_osc_p_proy_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
 				&est_act=<?php echo escape($row_est["estado"]); ?>
