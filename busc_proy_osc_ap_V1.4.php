@@ -26,7 +26,7 @@
 				where osc_nombre = :osc AND 
 				( p_num_corr_proy IN (SELECT p_num_corr_proy FROM t_p_logs_estado_proy 
 				WHERE 
-				(p_estado_proy = 'En_Ejecucion' ) OR (p_estado_proy = 'Pre-Proyecto')  
+				(p_estado_proy = 'Pre-Proyecto' ) OR (p_estado_proy = 'En_Ejecucion')  
 				) ) 	" ;
 						
 		$osc = $_GET['osc'];				
@@ -49,8 +49,10 @@
 	if ($result && $statement->rowCount() > 0) { ?>
 		<h3><?php echo "Asignacion de Vol: " , escape($apellido) , ", " , escape($nombres); ?></h3>
 		
-		<h3><?php echo "Seleccionar Proy de OSC: " , escape($_GET['osc']); ?></h3>
-		<h3>Resultados para (Estado Proyecto = En_Ejecucion OR estado = Pre-Proyecto)</h3>
+		<h3><?php echo "a un Proyecto de OSC: " , escape($_GET['osc']) , ", en Estado = (Pre-Proyecto o En_Ejecucion)"; ?></h3>
+<!--
+		<h3>Resultados para Proyectos en Estado = (Pre-Proyecto o En_Ejecucion)</h3>
+-->
 		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 		<table>
 			<thead>

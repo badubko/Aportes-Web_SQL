@@ -5,9 +5,11 @@ SHOW WARNINGS;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 SHOW WARNINGS;
 
-DROP SCHEMA IF EXISTS aportes_V3_71;
-CREATE SCHEMA aportes_V3_71;
-USE aportes_V3_71;
+SET time_zone = "-03:00";
+
+DROP SCHEMA IF EXISTS aportes_V3_72;
+CREATE SCHEMA aportes_V3_72;
+USE aportes_V3_72;
 
 -- --------------------------------------------------------------------
 -- Table structure for table `users1`
@@ -40,11 +42,14 @@ CREATE TABLE t_users2 (
   tel_1 VARCHAR (20) NULL DEFAULT "N/D",
   tel_2 VARCHAR (20) NULL DEFAULT "N/D",
   a_socio YEAR NOT NULL DEFAULT "0000",
+  status_socio ENUM ('Si', 'No', 'Declino') DEFAULT 'No',
   f_ingreso DATE NOT NULL DEFAULT "2004-01-01",
   acuerdo ENUM ('Si','No','N/D','N/A') DEFAULT "N/A",
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  
   KEY idx_fk_dni (dni),
   CONSTRAINT fk_users2_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+  
   KEY idx_fk_estado (estado),
   CONSTRAINT fk_users2_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos RESTRINGIDOS de los voluntarios de Aportes';
@@ -94,8 +99,10 @@ CREATE TABLE t_especialidad_user (
   dni INT UNSIGNED NOT NULL,
   especialidad VARCHAR(20) DEFAULT "Desconocida",
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  
   KEY idx_fk_dni (dni),
   CONSTRAINT fk_especialidad_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+  
   KEY idx_fk_especialidad (especialidad),
   CONSTRAINT fk_especialidades_especialidad FOREIGN KEY (especialidad) REFERENCES t_especialidades (especialidad) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de las especialidades que tiene un voluntario';
@@ -105,9 +112,11 @@ CREATE TABLE t_logs_estado_user (
   dni INT UNSIGNED NOT NULL,
   estado VARCHAR (14) NOT NULL DEFAULT 'Disponible',
   consideraciones VARCHAR (256) DEFAULT "No Comments", 
-  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  
+  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
   KEY idx_fk_dni (dni),
   CONSTRAINT fk_estado_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+  
   KEY idx_fk_estado (estado),
   CONSTRAINT fk_estados_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE  
   )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla registro del estado de un voluntario';
@@ -201,13 +210,6 @@ CREATE TABLE t_osc (
   osc_estado 	VARCHAR (16) NOT NULL DEFAULT "Identificada",
   osc_acuerdo	ENUM ('Firmado','Pendiente','N/D') DEFAULT 'N/D',
 --
-  -- osc_obj_1 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
-  -- osc_obj_2 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
-  -- osc_obj_3 	VARCHAR (32) NOT NULL DEFAULT "No Especificado",
---
---  osc_dni_dc1 	INT UNSIGNED NOT NULL,
---  osc_dni_dc2 	INT UNSIGNED NOT NULL,
---
   osc_notas 	VARCHAR (256) DEFAULT "No hay notas",
 --
   last_update 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -217,11 +219,7 @@ CREATE TABLE t_osc (
   KEY idx_fk_osc_estado (osc_estado),
   CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE
 --
--- KEY idx_fk_osc_dni_dc1 (osc_dni_dc1),
--- CONSTRAINT fk_osc_dni_dc1 FOREIGN KEY (osc_dni_dc1) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
---
--- KEY idx_fk_osc_dni_dc2 (osc_dni_dc2),
--- CONSTRAINT fk_osc_dni_dc2 FOREIGN KEY (osc_dni_dc2) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE
+
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de los datos basicos de una OSC';  
 -- ---------------------------------------------------------------------  
 -- ---------------------------------------------------------------------
@@ -357,12 +355,14 @@ CREATE TABLE t_proyectos (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL UNIQUE,
 	p_nombre_proy			VARCHAR (128) NOT NULL,
 	osc_nombre 				VARCHAR (128) NOT NULL, 
---	p_tipo_proy		 		VARCHAR(16) NOT NULL DEFAULT "No Especificado",
-	p_fecha_pre_proy 		DATE NOT NULL DEFAULT "2004-01-01",
-	p_fecha_present_vol		DATE NOT NULL DEFAULT "2004-01-01",
-	p_fecha_dup				DATE NOT NULL DEFAULT "2004-01-01",
-	p_fecha_mitad_proy 		DATE NOT NULL DEFAULT "2004-01-01",
-	p_fecha_cierre_proy 	DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_pre_proy 			DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_present_vol			DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_dup					DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_mitad_proy_estim 	DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_mitad_proy_real 	DATE NOT NULL DEFAULT "2004-12-01",
+	p_fecha_cierre_proy_estim 	DATE NOT NULL DEFAULT "2004-01-01",
+	p_fecha_cierre_proy_real 	DATE NOT NULL DEFAULT "2004-12-01",
+	p_ultimo_estado				VARCHAR(20) NOT NULL COMMENT "Registra el ultimo estado en que esta el proyecto",
 	p_dup_si_no				ENUM('Si','No') DEFAULT 'No',
 	p_link_a_dup			VARCHAR (256) NOT NULL DEFAULT "N/D",	
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -372,8 +372,7 @@ CREATE TABLE t_proyectos (
 	KEY idx_fk_p_osc_nombre (osc_nombre),
 	CONSTRAINT fk_p_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
 --
---	KEY idx_fk_p_tipo_proy (p_tipo_proy),
---	CONSTRAINT fk_p_tipo_proy FOREIGN KEY (p_tipo_proy) REFERENCES t_p_tipo_proy (p_tipo_proy) ON DELETE RESTRICT ON UPDATE CASCADE  
+  
 --
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla base de registro de proyectos';
 --  -------------------------------------------------------------------
@@ -393,8 +392,49 @@ CREATE TABLE t_p_logs_estado_proy (
 --
 	KEY idx_fk_estado_proy (p_estado_proy),
 	CONSTRAINT fk_proy_estado_proy FOREIGN KEY (p_estado_proy) REFERENCES t_p_estado_proy(p_estado_proy) ON DELETE RESTRICT ON UPDATE CASCADE
+
+--  Burro: No puede haber 2 primary keys !!	
+--	KEY idx_fk_sign_fech (p_signif_fecha),
+--	CONSTRAINT fk_sign_fech FOREIGN KEY (p_signif_fecha) REFERENCES t_p_estado_proy(p_signif_fecha) ON DELETE RESTRICT ON UPDATE CASCADE
+	
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla que registra los cambios de estado de un proyecto';
 --  -------------------------------------------------------------------
+DELIMITER $$
+-- El estado del proyecto se cambia en t_p_logs_estado_proy
+-- El trigger se encarga de modificarlo en la t_proyectos, poniendo el ultimo estado
+-- del proyecto. 
+-- Esto se hace para posibilitar la busqueda sencilla de los proy
+-- que solo estan En_Conversacion o En_Ejecucion... 
+-- (Los buenos en sql lo harian mejor...)
+
+-- Nunca habra update sobre esta tabla.... Es un log asi que cada cambio es un insert
+-- ya que es precisamente el objetivo. Igual por las dudas lo dejamos...
+
+CREATE TRIGGER after_t_p_logs_estado_proy_update 
+    AFTER UPDATE ON t_p_logs_estado_proy
+FOR EACH ROW
+BEGIN
+    UPDATE t_proyectos
+    SET 
+    p_num_corr_proy= OLD.p_num_corr_proy,
+    p_ultimo_estado = NEW.p_estado_proy,
+    last_update = NOW()
+    WHERE OLD.p_num_corr_proy=NEW.p_num_corr_proy;  
+END$$
+
+CREATE TRIGGER after_t_p_logs_estado_proy_insert 
+    AFTER INSERT ON t_p_logs_estado_proy
+FOR EACH ROW
+BEGIN
+    UPDATE t_proyectos
+    SET 
+		p_num_corr_proy= NEW.p_num_corr_proy,
+		p_ultimo_estado = NEW.p_estado_proy,
+		last_update = NOW()
+     WHERE p_num_corr_proy=NEW.p_num_corr_proy; 
+END$$
+
+DELIMITER ;  
 -- ---------------------------------------------------------------------
 CREATE TABLE t_p_logs_tipo_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
@@ -438,6 +478,7 @@ CREATE TABLE t_p_estado_proy (
     p_signif_fecha		VARCHAR(32) NOT NULL,
     p_color_estado		VARCHAR(8) NOT NULL,
     PRIMARY KEY (p_estado_proy)
+    
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lista de los posibles estados de los proyectos';
 --  -------------------------------------------------------------------
 -- ---------------------------------------------------------------------
@@ -625,7 +666,7 @@ INSERT INTO `t_p_estado_proy` (`p_estado_proy`,`p_signif_fecha`,`p_color_estado`
 ("Cancelado","Fecha cancelacion","Negro"),
 ("Terminado","Fecha terminac","Azul"),
 ("En_Implementacion","Fecha estim fin implement","Verde"),
-("Pre-Proyecto","Fecha prox reun","Verde");
+("Pre-Proyecto","Fecha sig reun","Verde");
 --
 INSERT INTO `t_p_result_reun` (`p_result_reun`,`p_color_reun`) VALUES 
 ("Normal","Verde"),
