@@ -73,7 +73,7 @@
 				&nombres=<?php echo escape($nombres); ?>
 				&osc=<?php echo escape($row["osc_nombre"]); ?>
 				&num_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
-				">Asignar</a></td>
+				">Asignar VOL</a></td>
 		
 			</tr>
 		<?php } ?> 

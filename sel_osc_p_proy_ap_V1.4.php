@@ -73,7 +73,10 @@ if (isset($_POST['submit'])) {
 			</tbody>
 	</table>
 	<?php } else { ?>
-		<blockquote>No se encontro ninguna OSC con:  <?php echo escape($_POST['osc']); ?>.</blockquote>
+<!--
+		<blockquote>No se encontro ninguna OSC: <?php echo escape($_POST['osc']); ?>  con proyectos para asignar Vol.</blockquote>
+-->
+		<blockquote><?php echo "No se encontro ninguna OSC: " , escape($_POST['osc']) , " , con proyectos para asignar Vol." ; ?></blockquote>
 	<?php } ?>
 
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
