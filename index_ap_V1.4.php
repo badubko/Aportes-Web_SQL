@@ -11,7 +11,7 @@ require "./common_ap_V1.4.php";
 		<li><a href="create_ap_<?php echo escape($vers);?>.php"><strong>Crear VOL</strong></a> - Agregar Voluntario</li>
 		<li><a href="read_ap_<?php echo escape($vers);?>.php"><strong>Actualizar un VOL</strong></a> - Buscar y modif Voluntario</li>
 		<li><a href="cambiar_est_vol_ap_<?php echo escape($vers);?>.php"><strong>Cambiar Estado VOL</strong></a> - Buscar y cambiar Estado de Voluntario</li>
-		<li><a href="asign_vol_a_proy_ap_<?php echo escape($vers);?>.php"><strong>Asignar VOL</strong></a> - Asignar VOL a proyecto</li>
+		<li><a href="buscar_vol_x_apell_ap_<?php echo escape($vers);?>.php"><strong>Asignar VOL</strong></a> - Asignar VOL a proyecto</li>
 		
 <!--
 		<li><a href="update_ap_V1.4.php"><strong>Actualizar todos los VOL</strong></a> - Mostrar y Modif todos</li>
