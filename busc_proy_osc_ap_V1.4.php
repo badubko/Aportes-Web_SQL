@@ -48,9 +48,7 @@
 		<h3><?php echo "Asignacion de Vol: " , escape($apellido) , ", " , escape($nombres); ?></h3>
 		
 		<h3><?php echo "a un Proyecto de OSC: " , escape($_GET['osc']) , ", en Estado = (Pre-Proyecto o En_Ejecucion)"; ?></h3>
-<!--
-		<h3>Resultados para Proyectos en Estado = (Pre-Proyecto o En_Ejecucion)</h3>
--->
+
 		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 		<table>
 			<thead>

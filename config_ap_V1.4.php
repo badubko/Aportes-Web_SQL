@@ -6,6 +6,9 @@
  */
 
 //$host       = "192.168.1.29";
+
+date_default_timezone_set('America/Argentina/Buenos_Aires');
+
 $vers        = "V1.4";
 $host       = "localhost";
 $username   = "root";
