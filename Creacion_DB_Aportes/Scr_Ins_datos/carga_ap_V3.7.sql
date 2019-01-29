@@ -5,12 +5,14 @@
 \! ls
 
 
--- \. crea_db_aportes_V3.7.sql
---
-USE aportes_V3_7;
+
+-- EN este script esta la version de la base a usar
+\. ./Scr_Ins_datos/que_base_V1.4.sql
+
 -- Usuarios reales
 -- \. ./Creacion_DB_Aportes/Scr_Ins_datos/20190122_users_reales.sql
 \. ./Scr_Ins_datos/20190122_users_reales.sql
+
 -- Usuarios ficticios
 -- \. ./Creacion_DB_Aportes/Scr_Ins_datos/20181227-2010_t_users1_truch.sql
 
@@ -26,11 +28,19 @@ USE aportes_V3_7;
 
 -- Agrega los objetivos de las OSCs
 -- \. ./Creacion_DB_Aportes/Scr_Ins_datos/20190123_osc_obj_V1.2.sql
--- \. ./Scr_Ins_datos/20190123_osc_obj_V1.2.sql
+\. ./Scr_Ins_datos/20190123_osc_obj_V1.2.sql
+
 -- Asocia DCs Titulares con OSCs
 -- \. ./Creacion_DB_Aportes/Scr_Ins_datos/20190123_dc_tit_base_V1.0.sql
--- \. ./Scr_Ins_datos/20190123_dc_tit_base_V1.0.sql
+\. ./Scr_Ins_datos/20190123_dc_tit_base_V1.0.sql
 
 -- Asocia DCs Suplentes con OSCs
 -- \. ./Creacion_DB_Aportes/Scr_Ins_datos/20190123_dc_supl_base_V1.0.sql
--- \. ./Scr_Ins_datos/20190123_dc_supl_base_V1.0.sql
+\. ./Scr_Ins_datos/20190123_dc_supl_base_V1.0.sql
+
+-- Conjunto minimo de proyectos de prueba
+\. ./Scr_Ins_datos/20190128_t_proyectos.sql
+
+-- Conjunto minimo de estado de proyectos
+
+\. ./Scr_Ins_datos/20190128_t_p_logs_estado_proy.sql

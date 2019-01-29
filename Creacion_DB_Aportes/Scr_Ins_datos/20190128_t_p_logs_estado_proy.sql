@@ -7,6 +7,9 @@
 -- Server version: 5.7.24
 -- PHP Version: 7.0.32-0ubuntu0.16.04.1
 
+\. ./Scr_Ins_datos/que_base_V1.4.sql
+
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "-03:00";
 
@@ -21,7 +24,6 @@ SET time_zone = "-03:00";
 --
 -- Dumping data for table `t_p_logs_estado_proy`
 --
-use aportes_V3_7;
 
 INSERT INTO `t_p_logs_estado_proy` (`p_num_corr_proy`, `p_estado_proy`, `p_fecha`, `p_signif_fecha`, `p_audio_cambio`, `last_update`) VALUES
 (1001, 'En_Ejecucion', '2019-01-24', 'Fecha prox reun', 'N/D', '2019-01-28 02:31:46'),

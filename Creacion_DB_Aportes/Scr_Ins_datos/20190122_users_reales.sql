@@ -8,7 +8,9 @@
 -- :1,$s/\(estado\`\)/\1,\`consideraciones\`/
 -- :g/dni`,`esta/+2,$s/\')/\',\"Carga inicial\"\)/
 
-use aportes_V3_7;
+
+\. ./Scr_Ins_datos/que_base_V1.4.sql
+
 
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`email_1`,`email_2`)

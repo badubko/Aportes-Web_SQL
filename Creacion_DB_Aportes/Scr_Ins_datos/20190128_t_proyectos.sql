@@ -7,6 +7,8 @@
 -- Server version: 5.7.24
 -- PHP Version: 7.0.32-0ubuntu0.16.04.1
 
+\. ./Scr_Ins_datos/que_base_V1.4.sql
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "-03:00";
 
@@ -16,16 +18,15 @@ SET time_zone = "-03:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `aportes_V3_7`
+
 --
 
 -- --------------------------------------------------------
 
-use aportes_V3_7;
+
 --
 
-INSERT INTO `t_proyectos` (`p_num_corr_proy`, `p_nombre_proy`, `osc_nombre`, `p_fecha_pre_proy`, `p_fecha_present_vol`, `p_fecha_dup`, `p_fecha_mitad_proy`, `p_fecha_cierre_proy`, `p_dup_si_no`, `p_link_a_dup`, `last_update`) VALUES
+INSERT INTO `t_proyectos` (`p_num_corr_proy`, `p_nombre_proy`, `osc_nombre`, `p_fecha_pre_proy`, `p_fecha_present_vol`, `p_fecha_dup`, `p_fecha_mitad_proy_estim`, `p_fecha_cierre_proy_estim`, `p_dup_si_no`, `p_link_a_dup`, `last_update`) VALUES
 (998, 'ALPI ', 'ALPI', '2004-01-01', '2004-01-01', '2004-01-01', '2004-01-01', '2004-01-01', 'No', 'N/D', '2019-01-28 03:06:42'),
 (999, 'ALPI I', 'ALPI', '2004-01-01', '2004-01-01', '2004-01-01', '2004-01-01', '2004-01-01', 'No', 'N/D', '2019-01-28 03:00:29'),
 (1001, 'APA I', 'APA (Asoc.Psicoanalitica Argentina)', '2019-01-01', '2004-01-01', '2004-01-01', '2004-01-01', '2004-01-01', 'Si', 'N/D', '2019-01-28 02:26:03'),

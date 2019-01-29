@@ -1,6 +1,7 @@
 
 
-use aportes_V3_7;
+\. ./Scr_Ins_datos/que_base_V1.4.sql
+
 --
 -- Dumping data for table `t_users1`
 --

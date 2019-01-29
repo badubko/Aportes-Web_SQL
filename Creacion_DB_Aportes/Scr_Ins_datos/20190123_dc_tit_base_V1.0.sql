@@ -1,5 +1,8 @@
 -- :%s/\(^.*\);\(.*\)/INSERT INTO t_osc_logs_dc \(`osc_nombre`,`dni`,`osc_rol_dc`\) VALUES \('\1'\,'\2','Titular');/
 
+\. ./Scr_Ins_datos/que_base_V1.4.sql
+
+
 INSERT INTO t_osc_logs_dc (`osc_nombre`,`dni`,`osc_rol_dc`) VALUES ('ACDE','1000206','Titular');
 INSERT INTO t_osc_logs_dc (`osc_nombre`,`dni`,`osc_rol_dc`) VALUES ('ADOPTARE','1000206','Titular');
 INSERT INTO t_osc_logs_dc (`osc_nombre`,`dni`,`osc_rol_dc`) VALUES ('AEDROS','1000206','Titular');

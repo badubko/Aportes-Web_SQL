@@ -1,7 +1,8 @@
 -- 
 -- :%s/\(^.*\)\;.\(.*\)/INSERT INTO t_osc_objetivos \(`osc_nombre`,`osc_objetivo`\) VALUES \('\1','\2'\);/
 --
-USE aportes_V3_7;
+\. ./Scr_Ins_datos/que_base_V1.4.sql
+
 
 INSERT INTO t_osc_objetivos (`osc_nombre`,`osc_objetivo`) VALUES ('COLEGIO DE ESCRIBANOS','Adicciones');
 INSERT INTO t_osc_objetivos (`osc_nombre`,`osc_objetivo`) VALUES ('CONVIVIR','Adicciones');

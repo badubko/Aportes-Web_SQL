@@ -1,4 +1,5 @@
 -- Crea DCs
+\. ./Scr_Ins_datos/que_base_V1.4.sql
 
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
