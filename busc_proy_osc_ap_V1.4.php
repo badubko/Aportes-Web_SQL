@@ -22,12 +22,10 @@
 //  WHERE (p_estado_proy = 'En_Ejecucion' ) OR (p_estado_proy = 'Pre-Proyecto')  ));
 
 
-		$sql = "SELECT p_num_corr_proy, osc_nombre, p_nombre_proy FROM t_proyectos 
-				where osc_nombre = :osc AND 
-				( p_num_corr_proy IN (SELECT p_num_corr_proy FROM t_p_logs_estado_proy 
-				WHERE 
-				(p_estado_proy = 'Pre-Proyecto' ) OR (p_estado_proy = 'En_Ejecucion')  
-				) ) 	" ;
+		$sql = "SELECT p_num_corr_proy, osc_nombre, p_nombre_proy , p_ultimo_estado FROM t_proyectos 
+				where osc_nombre LIKE :osc AND 
+				((p_ultimo_estado = 'Pre-Proyecto' ) OR (p_ultimo_estado = 'En_Ejecucion') )";
+
 						
 		$osc = $_GET['osc'];				
 		$dni = $_GET['dni'];
@@ -59,7 +57,8 @@
 				<tr>
 					<th>OSC</th>
 					<th>Num Corr Proy</th>
-					<th>Nombre Proy</th>			
+					<th>Nombre Proy</th>
+					<th>Estado Proy</th>			
 					<th>Elegir Proyecto</th>
 				</tr>
 			</thead>
@@ -68,7 +67,8 @@
 			<tr>
 				<td><?php echo escape($row["osc_nombre"]); ?></td>
 				<td><?php echo escape($row["p_num_corr_proy"]); ?></td>
-				<td><?php echo escape($row["p_nombre_proy"]); ?></td>		
+				<td><?php echo escape($row["p_nombre_proy"]); ?></td>
+				<td><?php echo escape($row["p_ultimo_estado"]); ?></td>		
 				<td><a href="asign_a_proy_ap_<?php echo escape($vers);?>.php
 				?dni=<?php echo escape($dni); ?>
 				&apellido=<?php echo escape ($apellido); ?>

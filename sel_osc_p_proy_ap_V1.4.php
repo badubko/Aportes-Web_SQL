@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
 		<h3><?php echo "Asignacion de Vol: " , escape($apellido) , ", " , escape($nombres); ?></h3>
 		<h3>Buscar OSC por nombre aproximado</h3>
 		<h3>para buscar sus Proyectos</h3>
-		<h3>Resultados para (osc_estado = En_Actividad OR estado = En_Conversacion)</h3>
+		<h3>Resultados para osc_estado (= En_Actividad o = En_Conversacion)</h3>
 		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 		<table>
 			<thead>
