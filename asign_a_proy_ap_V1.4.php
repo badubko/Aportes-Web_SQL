@@ -53,12 +53,21 @@
 
 <h2>Asignar Voluntario a proyecto</h2>
 
+<form method="post">
+<label for="coment_desemp">Comentario</label>
+		<input type="text" name="coment_desemp" id="coment_desemp">
+<label for="fecha_evento">Fecha Asignacion</label>
+		<input type="text" name="fecha_evento" id="fecha_evento">		
+
+</form>
+
 <a href="index_ap_V1.4.php">Back to home</a>
 
 <?php 
 // echo "Today is " . date("Y/m/d H i") . "<br>";
-// echo timezone_identifiers_list(2,Argentina). "<br>";
+
 // print_r(timezone_identifiers_list(2));
+
 require "templates/footer.php"; 
 exit; ?>
 

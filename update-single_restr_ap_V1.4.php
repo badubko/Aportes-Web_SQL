@@ -118,11 +118,13 @@ try {
 				<option value="<?php echo $role["rol"]; ?>"><?php echo $role["rol"]; ?></option>			
 			<?php } ?>	
 			</select>		
-	<?php	break;	?>	
+	<?php	break;	?>
+		
 	<?php case 'estado': 	?>
 		<label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>    
 	    <input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'estado' ? 'readonly' : null); ?>>
 	<?php	break;
+	
 		default:		?>
 		<label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>    
 	    <input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'dni' ? 'readonly' : null); ?>>
