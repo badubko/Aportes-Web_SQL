@@ -1,7 +1,5 @@
 <?php
 /**
- * Use an HTML form to edit an entry in the
- * users2 table.
  * Update de datos restringidos de un VOL
  * Version con drop-down de ROL 
  *

@@ -49,7 +49,9 @@
 		
 		<h3><?php echo "a un Proyecto de OSC: " , escape($_GET['osc']) , ", en Estado = (Pre-Proyecto o En_Ejecucion)"; ?></h3>
 
+<!--
 		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+-->
 		<table>
 			<thead>
 				<tr>
@@ -96,13 +98,12 @@ exit;
 		require "./common_ap_V1.4.php";?>
 		
 
+<!--
 <h3><?php echo "Seleccionar Proy de OSC: " , escape($_GET['osc']); ?></h3>
 
 <h3><?php echo "Para asignar VOL: " , escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?></h3>
 
-
-
-
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
+-->
 <?php require "templates/footer.php"; ?>
