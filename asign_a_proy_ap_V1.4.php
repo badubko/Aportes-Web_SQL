@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
             "dni"     				=> $_GET['dni'],
             "p_num_corr_proy"       => $_GET['num_proy'],
 							//"fecha_evento"			=> date("Y-m-d"),
-            "fecha_asignac"			=> $_POST['fecha_asign'],
+            "f_asignac"			=> $_POST['f_asignac'],
 							//"tipo_evento"  			=> 'Asignacion',
             "coment_desemp"  		=> $_POST['coment_desemp']
         );
@@ -60,7 +60,7 @@ require "templates/header.php";
 		<label for="coment_desemp">Comentario</label>
 		<input type="text" name="coment_desemp" id="coment_desemp"><br>
 		<label for="fecha_asign">Fecha Asignacion</label>
-		<input type="text" name="fecha_asign" id="fecha_asign" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>	
+		<input type="text" name="f_asignac" id="f_asignac" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>	
         <input type="submit" name="submit" value="Asignar" class="button">
 </form>
 

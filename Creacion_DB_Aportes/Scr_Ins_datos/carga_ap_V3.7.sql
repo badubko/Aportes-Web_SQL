@@ -38,6 +38,11 @@
 -- \. ./Creacion_DB_Aportes/Scr_Ins_datos/20190123_dc_supl_base_V1.0.sql
 \. ./Scr_Ins_datos/20190123_dc_supl_base_V1.0.sql
 
+
+--  ---------- Datos Ficticios
+-- Conjunto minimo de estados de OSC
+\. ./Scr_Ins_datos/20190130_t_osc_logs_estado.sql 
+
 -- Conjunto minimo de proyectos de prueba
 \. ./Scr_Ins_datos/20190128_t_proyectos.sql
 
