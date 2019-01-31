@@ -4,11 +4,12 @@
  * 
  * Buscar los proyectos de una OSC 
  * Con estado = En_Ejecucion o = Pre-Proyecto(?) (Que otros estados???)
- * Se seleccionara el proyecto y se asignara al Voluntario
- * 
+ * Se seleccionara el proyecto al que se asignara al Voluntario
+ * en el proximo paso.
+ * Si Vil YA esta asignado a un proyecto, informa
+ * Si Vol NO esta asignado a un proyecto, permite asignarlo
  * 
  */
-
 
 	try {	
 		require "./config_ap_V1.4.php";
@@ -42,7 +43,7 @@
 													}
 
  require "templates/header.php"; 
-		
+ require "verificar_asign_V1.4.php";		
 
 	if ($result && $statement->rowCount() > 0) { ?>
 		<h3><?php echo "Asignacion de Vol: " , escape($apellido) , ", " , escape($nombres); ?></h3>
@@ -68,16 +69,23 @@
 				<td><?php echo escape($row["osc_nombre"]); ?></td>
 				<td><?php echo escape($row["p_num_corr_proy"]); ?></td>
 				<td><?php echo escape($row["p_nombre_proy"]); ?></td>
-				<td><?php echo escape($row["p_ultimo_estado"]); ?></td>		
-				<td><a href="asign_a_proy_ap_<?php echo escape($vers);?>.php
-				?dni=<?php echo escape($dni); ?>
-				&apellido=<?php echo escape ($apellido); ?>
-				&nombres=<?php echo escape($nombres); ?>
-				&osc=<?php echo escape($row["osc_nombre"]); ?>
-				&num_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
-				&p_nombre_proy=<?php echo escape($row["p_nombre_proy"]); ?>
-				">Asignar VOL</a></td>
-		
+				<td><?php echo escape($row["p_ultimo_estado"]); ?></td>
+	
+	<?php       if ( verificar_asign( $dni , $row["p_num_corr_proy"]) == 'No_Asignado' 	) { 	?>			
+					
+					<td><a href="asign_a_proy_ap_<?php echo escape($vers);?>.php
+					?dni=<?php echo escape($dni); ?>
+					&apellido=<?php echo escape ($apellido); ?>
+					&nombres=<?php echo escape($nombres); ?>
+					&osc=<?php echo escape($row["osc_nombre"]); ?>
+					&num_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
+					&p_nombre_proy=<?php echo escape($row["p_nombre_proy"]); ?>
+					">Asignar VOL</a></td>
+	<?php  																	} 
+				else 	{  ?>
+					<td>Ya esta ASIGNADA/O a este Proyecto</td>
+	<?php 				} ?>	
+					
 			</tr>
 		<?php } ?> 
 			</tbody>
