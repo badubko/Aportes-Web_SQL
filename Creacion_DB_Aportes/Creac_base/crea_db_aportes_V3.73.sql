@@ -159,8 +159,9 @@ DELIMITER ;
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 -- Nuevo formato de esta tabla, recuperando la idea anterior de 2 fechas
--- AL ser esta tabla un log, se agregan filas a medida que suceden eventos
--- de asignacion o des-asignacion. 
+-- AL ser esta tabla un log, se agregan y actualizan
+-- las filas correspondientes a cada asignacion 
+-- cuando suceden estos eventos de asignacion o des-asignacion. 
 -- 
 CREATE TABLE t_hist_user_proy (
 	dni 			INT UNSIGNED NOT NULL,
