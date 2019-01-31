@@ -13,6 +13,10 @@
 -- \. ./Creacion_DB_Aportes/Scr_Ins_datos/20190122_users_reales.sql
 \. ./Scr_Ins_datos/20190122_users_reales.sql
 
+-- Usuarios reales pero con DNIs inventados ya que no figuraban
+-- \. ./Creacion_DB_Aportes/Scr_Ins_datos/20190122_users_reales.sql
+\. ./Scr_Ins_datos/2019-01-25_2014_USERS.sql
+
 -- Usuarios ficticios
 -- \. ./Creacion_DB_Aportes/Scr_Ins_datos/20181227-2010_t_users1_truch.sql
 
