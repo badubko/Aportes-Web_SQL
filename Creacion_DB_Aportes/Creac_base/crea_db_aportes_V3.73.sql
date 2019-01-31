@@ -84,7 +84,7 @@ CREATE TABLE t_estados (
 CREATE TABLE t_cambios_estado (
   estado_actual 	VARCHAR(14) NOT NULL,
   estado_proximo 	VARCHAR(14) NOT NULL,
-  id_truch			SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  id_truch			INT UNSIGNED NOT NULL AUTO_INCREMENT,
   PRIMARY KEY  (id_truch)
   -- Por ahora dejamos afuera estos indices para poder incluir el estado "Imposible"
   -- KEY idx_fk_est_act (estado_actual),
@@ -163,13 +163,16 @@ DELIMITER ;
 -- de asignacion o des-asignacion. 
 -- 
 CREATE TABLE t_hist_user_proy (
-	dni INT UNSIGNED NOT NULL,
+	dni 			INT UNSIGNED NOT NULL,
 	p_num_corr_proy INT UNSIGNED,
-	f_asignac DATE NOT NULL DEFAULT "2000-01-01",
-	f_desasign DATE NOT NULL DEFAULT "2100-01-01",
-	last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	coment_desemp VARCHAR (256) DEFAULT "No Comments",
+	f_asignac 		DATE NOT NULL DEFAULT "2000-01-01",
+	f_desasign 		DATE NOT NULL DEFAULT "2100-01-01",
+	last_update 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	coment_desemp 	VARCHAR (256) DEFAULT "No Comments",
+	id_truch		INT UNSIGNED NOT NULL AUTO_INCREMENT,
 --
+	PRIMARY KEY (id_truch),
+--	
 	KEY idx_fk_hist_dni (dni),
 	CONSTRAINT fk_hist_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
 --  
@@ -241,7 +244,7 @@ CREATE TABLE t_osc (
 CREATE TABLE t_osc_objetivos (
 	osc_nombre 				VARCHAR (128) NOT NULL,
 	osc_objetivo 			VARCHAR (32) NOT NULL DEFAULT "Desconocido",
-	id_truch				SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	last_update				TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (id_truch),
 	KEY 	idx_fk_osc_objet_nombre (osc_nombre),

@@ -3,7 +3,7 @@
 // Probar si asignado a un proy
 
 require "verificar_asign_V1.4.php";
-$dni='4403493';
+$dni='10661746';
 $proy='1006';
 
 $asig = verificar_asign ( $dni , $proy );
