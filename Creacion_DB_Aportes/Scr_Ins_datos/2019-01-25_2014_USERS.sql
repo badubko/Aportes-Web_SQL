@@ -5,7 +5,7 @@
 -- Directorio Origen:  /media/CGate/badubko/Back_F/BAS/DOCS/Aportes/Aportes-Web_SQL/Creacion_DB_Aportes/Scripts_transf
 -- CSV_IN_FILE :				../Planillas_Orig/Libro2-no_dni.csv
 -- --------------------------------------------------------------
-. ./Scr_Ins_datos/que_base_V1.4.sql
+\. ./Scr_Ins_datos/que_base_V1.4.sql
 
 -- --------------------------------------------------------------
 -- Esta en la lista de los DCs
