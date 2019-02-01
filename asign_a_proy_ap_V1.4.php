@@ -105,7 +105,7 @@ if ( verificar_asign( $_GET['dni'] , $_GET['num_proy']) == 'No_Asignado' 	) { ?>
 <?php } 
 else {  ?>
 	   <blockquote><?php echo $_GET['apellido'] , ", " , $_GET['nombres']  . "<br>" . 
-					"Ya esta asignado al proyecto:",    $_GET['num_proy'] . "<br>" .
+					"Ya esta asignada/o al proyecto:",    $_GET['num_proy'] . "<br>" .
 					" Nombre Proy: " , $_GET['p_nombre_proy'] . "<br>" .
 					"  OSC: ", $_GET['osc']  ;?></blockquote> <br>
  <?php   }  ?>
