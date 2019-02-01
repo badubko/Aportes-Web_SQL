@@ -9,11 +9,13 @@
 require "./config_ap_V1.4.php";
 require "./common_ap_V1.4.php";
 
+
 if (isset($_POST['submit'])) {
     // Aca insertamos la asignacion del Vol al proyecto
     // agregando una fila a t_hist_user_proy
     try  {
 
+		
         $connection = new PDO($dsn, $username, $password, $options);
         
         $new_asign = array(
@@ -41,6 +43,10 @@ if (isset($_POST['submit'])) {
         exit;
     }
 
+// Paranoia check: Pese que en paso anterior se verifica que la/el Vol
+// no este asignado al proyecto, existe la posibilidad que este paso se 
+// ejecute nuevamente y se genere un segundo registro erroneo.
+// Para evitar esto, se vuelve a verificar...
 
 
 require "templates/header.php";
@@ -81,7 +87,12 @@ require "templates/header.php";
 <h2>Asignar Voluntario a proyecto</h2>
 
 <?php  	require "./config_ap_V1.4.php";
-	//	require "./common_ap_V1.4.php";?>
+	//	require "./common_ap_V1.4.php";
+		require "verificar_asign_V1.4.php"; 
+
+// echo verificar_asign( $_GET['dni'] , $_GET['num_proy']) , $_GET['dni'] , $_GET['num_proy'];
+
+if ( verificar_asign( $_GET['dni'] , $_GET['num_proy']) == 'No_Asignado' 	) { ?>
 		
 <form method="post">
 		<label for="coment_desemp">Comentario</label>
@@ -90,6 +101,14 @@ require "templates/header.php";
 		<input type="text" name="f_asignac" id="f_asignac" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>	
         <input type="submit" name="submit" value="Asignar" class="button">
 </form>
+
+<?php } 
+else {  ?>
+	   <blockquote><?php echo $_GET['apellido'] , ", " , $_GET['nombres']  . "<br>" . 
+					"Ya esta asignado al proyecto:",    $_GET['num_proy'] . "<br>" .
+					" Nombre Proy: " , $_GET['p_nombre_proy'] . "<br>" .
+					"  OSC: ", $_GET['osc']  ;?></blockquote> <br>
+ <?php   }  ?>
 
 
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
