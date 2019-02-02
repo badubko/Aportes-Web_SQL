@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
 					<th>tel 1</th>
 					<th>Seleccionar</th>
 					
-					<th>Ver Espec</th>
+					<th>Espec.</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
 				<td><a href="listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
-				">Espec</a></td>
+				">Ver Todas</a></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
@@ -98,7 +98,8 @@ if (isset($_POST['submit'])) {
 	<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 	<?php require "templates/footer.php"; ?>
 	<?php } else { ?>
-		<blockquote>No results found for <?php echo escape($_POST['apellido']); ?>.</blockquote>
+		<blockquote>No se encontraron resultados. Ingrese una especialidad </blockquote>
+		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 	<?php } 
 exit;	
 } ?> 
@@ -110,6 +111,7 @@ exit;
 <h3>Buscar Voluntario por especialidad</h3>
 <h3>con estados: Disponible | Asignado | Con_Restricc | Puntual </h3>
 <h3>para ASIGNAR a un Proyecto</h3>
+
 <form method="post" action="">
 <?php	
 // Buscar las especialidades posibles
@@ -125,10 +127,14 @@ try {
   exit;
 }      
 ?>
+
 <p>
 	<label for="especialdad">Especialdad</label> 
 	<select name="especialidad">
+<!--
 	<option value="">Seleccione...</option>
+-->
+	<option value="" selected hidden>Seleccione...</option>
 	<?php foreach ($a_espec as $espe) { ?>
 		<option value="<?php echo $espe["especialidad"]; ?>"><?php echo $espe["especialidad"]; ?></option>
 	<?php } ?>

@@ -13,6 +13,14 @@ try {
 	$nombres = $_GET['nombres'];
     $especialidad = $_POST['especialidad'];
     
+    if ($especialidad == "") {
+		echo "Seleccione una especialidad". "<br>" ; ?>
+		<a href="agreg_nva_esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
+        &apellido=<?php echo escape($apellido); ?>
+        &nombres=<?php echo escape($nombres); ?>
+        ">Agregar Nva Esp</a>
+	<?php	exit; }
+    
     // set the PDO error mode to exception
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -83,7 +91,7 @@ try {
 <p>
 	<label for="especialdad">Especialdad</label> 
 	<select name="especialidad">
-	<option value="">Seleccione...</option>
+	<option value=""selected hidden>Seleccione...</option>
 	<?php foreach ($a_espec as $espe) { ?>
 		<option value="<?php echo $espe["especialidad"]; ?>"><?php echo $espe["especialidad"]; ?></option>
 	<?php } ?>
