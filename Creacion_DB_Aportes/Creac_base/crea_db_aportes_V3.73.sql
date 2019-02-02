@@ -287,6 +287,9 @@ CREATE TABLE t_osc_logs_dc (
 	osc_rol_dc				VARCHAR (16) NOT NULL ,
 	osc_comentarios_dc 		VARCHAR (256) DEFAULT "No Comments",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
+--
+	PRIMARY KEY  (id_truch),
 --
 	KEY 		idx_fk_osc_logs_dni (dni),
     CONSTRAINT 		fk_logs_dc_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
