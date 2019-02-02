@@ -51,12 +51,19 @@ CREATE TABLE t_users2 (
   CONSTRAINT fk_users2_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
   
   KEY idx_fk_rol (rol),
-  CONSTRAINT fk_users2_rol FOREIGN KEY (rol) REFERENCES t_roles (rol) ON DELETE RESTRICT ON UPDATE CASCADE
+  CONSTRAINT fk_users2_rol FOREIGN KEY (rol) REFERENCES t_roles (rol) ON DELETE RESTRICT ON UPDATE CASCADE,
   
   KEY idx_fk_estado (estado),
   CONSTRAINT fk_users2_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos RESTRINGIDOS de los voluntarios de Aportes';
-
+-- ---------------------------------------------------------------------
+-- View para seleccionar datos de users1 y users2
+-- ---------------------------------------------------------------------
+CREATE VIEW esp_est AS
+SELECT 	t_users1.dni, t_users1.apellido, t_users1.nombres, t_users1.email_1,
+		t_users2.rol, t_users2.estado , t_users2.tel_1, t_users2.tel_2
+FROM
+t_users1 INNER JOIN t_users2 ON t_users1.dni=t_users2.dni ;
 -- ---------------------------------------------------------------------
 -- Tablas de valores "Fijos"
 -- ---------------------------------------------------------------------
