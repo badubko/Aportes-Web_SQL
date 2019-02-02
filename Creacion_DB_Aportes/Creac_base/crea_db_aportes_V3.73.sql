@@ -50,6 +50,9 @@ CREATE TABLE t_users2 (
   KEY idx_fk_dni (dni),
   CONSTRAINT fk_users2_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
   
+  KEY idx_fk_rol (rol),
+  CONSTRAINT fk_users2_rol FOREIGN KEY (rol) REFERENCES t_roles (rol) ON DELETE RESTRICT ON UPDATE CASCADE
+  
   KEY idx_fk_estado (estado),
   CONSTRAINT fk_users2_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos RESTRINGIDOS de los voluntarios de Aportes';
