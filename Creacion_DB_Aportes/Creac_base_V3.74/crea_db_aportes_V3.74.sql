@@ -7,9 +7,9 @@ SHOW WARNINGS;
 
 SET time_zone = "-03:00";
 
-DROP SCHEMA IF EXISTS aportes_V3_73;
-CREATE SCHEMA aportes_V3_73;
-USE aportes_V3_73;
+DROP SCHEMA IF EXISTS aportes_V3_74;
+CREATE SCHEMA aportes_V3_74;
+USE aportes_V3_74;
 
 -- --------------------------------------------------------------------
 -- Table structure for table `users1`
@@ -241,23 +241,41 @@ CREATE TABLE t_osc (
 --
   osc_notas 	VARCHAR (256) DEFAULT "No hay notas",
 --
+-- El DC=1 ==> DC Titular NO asignado. 
+--
+  osc_dc_tit	INT UNSIGNED NOT NULL DEFAULT "1" 	COMMENT "El numero de dni del DC Titular",
+  osc_f_titular DATE NOT NULL DEFAULT "2000-01-01"  COMMENT "Fecha asignacion del DC Titular",
+--
+-- El DC=2 ==> DC Suplente NO asignada.
+--
+  osc_dc_supl	INT UNSIGNED NOT NULL DEFAULT "2" 	COMMENT "El numero de dni del DC Suplente",
+  osc_f_supl	DATE NOT NULL DEFAULT "2000-01-01"  COMMENT "Fecha asignacion del DC Suplente",
+--
   last_update 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --
   PRIMARY KEY  (osc_nombre),
 --
-  KEY idx_fk_osc_estado (osc_estado),
-  CONSTRAINT fk_osc_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE
+  KEY 			idx_fk_osc_tit (osc_dc_tit),
+  CONSTRAINT 		fk_osc_tit FOREIGN KEY (osc_dc_tit) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+--
+  KEY 			idx_fk_osc_supl (osc_dc_supl),
+  CONSTRAINT 		fk_osc_supl FOREIGN KEY (osc_dc_supl) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+--
+  KEY 			idx_fk_osc_estado (osc_estado),
+  CONSTRAINT 		fk_osc_estado FOREIGN KEY (osc_estado) REFERENCES t_osc_estados (osc_estado) ON DELETE RESTRICT ON UPDATE CASCADE
 --
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de los datos basicos de una OSC';  
 -- ---------------------------------------------------------------------  
 -- ---------------------------------------------------------------------
 CREATE TABLE t_osc_objetivos (
-	osc_nombre 				VARCHAR (128) NOT NULL,
-	osc_objetivo 			VARCHAR (32) NOT NULL DEFAULT "Desconocido",
-	id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	last_update				TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	osc_nombre 		VARCHAR (128) NOT NULL,
+	osc_objetivo 	VARCHAR (32) NOT NULL DEFAULT "Desconocido",
+	last_update		TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	id_truch		INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	
 	PRIMARY KEY (id_truch),
+	
 	KEY 	idx_fk_osc_objet_nombre (osc_nombre),
 	CONSTRAINT 	fk_osc_objet_nombre  FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
 	KEY 	idx_fk_osc_objet_obj(osc_objetivo),
@@ -276,8 +294,8 @@ CREATE TABLE t_osc_contactos (
 	osc_contacto_posicion 	VARCHAR(64) NOT NULL DEFAULT "N/D",
 	osc_contacto_horario 	VARCHAR (256) NOT NULL DEFAULT "No hay detalle",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	KEY idx_fk_osc_nombre (osc_nombre),
-	CONSTRAINT fk_osc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
+	KEY 		idx_fk_osc_nombre (osc_nombre),
+	CONSTRAINT 		fk_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de los contactos correspondientes a una OSC';
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
@@ -285,20 +303,21 @@ CREATE TABLE t_osc_logs_dc (
     dni 					INT UNSIGNED NOT NULL,
     osc_nombre 				VARCHAR (128) NOT NULL, 
 	osc_rol_dc				VARCHAR (16) NOT NULL ,
+	osc_f_cambio			DATE NOT NULL DEFAULT "2000-01-01",
 	osc_comentarios_dc 		VARCHAR (256) DEFAULT "No Comments",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
 --
 	PRIMARY KEY  (id_truch),
 --
-	KEY 		idx_fk_osc_logs_dni (dni),
-    CONSTRAINT 		fk_logs_dc_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
+	KEY 		idx_fk_osc_logs_dc_dni (dni),
+    CONSTRAINT 		fk_osc_logs_dc_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
 	KEY 		idx_fk_logs_dc_osc_nombre (osc_nombre),
 	CONSTRAINT 		fk_logs_dc_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
 --
     KEY 		idx_fk_osc_logs_rol (osc_rol_dc),
-    CONSTRAINT 		fk_logs_rol_dc FOREIGN KEY (osc_rol_dc) REFERENCES t_osc_rol_dc (osc_rol_dc) ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT 		fk_osc_logs_rol_dc FOREIGN KEY (osc_rol_dc) REFERENCES t_osc_rol_dc (osc_rol_dc) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de registro de asignacion/desasignacion de los DCs a una OSC';
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
