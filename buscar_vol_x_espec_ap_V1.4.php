@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
-		$sql = "SELECT dni , apellido  , nombres , email_1 , estado,tel_1	FROM esp_est
+		$sql = "SELECT dni , apellido  , nombres , email_1 , estado,tel_1	FROM us1_us2
 						WHERE rol = 'Vol' 
 						and (estado='Disponible' OR estado='Asignado' OR estado = 'Con_Restricc' OR estado= 'Puntual'  )
 						and dni 

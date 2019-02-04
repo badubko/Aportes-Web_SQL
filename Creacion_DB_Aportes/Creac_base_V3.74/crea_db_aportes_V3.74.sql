@@ -57,9 +57,13 @@ CREATE TABLE t_users2 (
   CONSTRAINT fk_users2_estado FOREIGN KEY (estado) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE
   )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos RESTRINGIDOS de los voluntarios de Aportes';
 -- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------  
 -- View para seleccionar datos de users1 y users2
 -- ---------------------------------------------------------------------
-CREATE VIEW esp_est AS
+-- 
+-- ---------------------------------------------------------------------  
+
+CREATE VIEW us1_us2 AS
 SELECT 	t_users1.dni, t_users1.apellido, t_users1.nombres, t_users1.email_1,
 		t_users2.rol, t_users2.estado , t_users2.tel_1, t_users2.tel_2
 FROM
@@ -269,6 +273,14 @@ CREATE TABLE t_osc (
 --
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de los datos basicos de una OSC';  
+-- --------------------------------------------------------------------- 
+-- ---------------------------------------------------------------------   
+-- Inclusion script del Trigger que inserta los logs de los cambios de 
+-- DC Titular o Suplente de OSC en t_osc_logs_dc
+-- ---------------------------------------------------------------------  
+
+\. ./t_osc_trigg_V3.74.sql
+
 -- ---------------------------------------------------------------------  
 -- ---------------------------------------------------------------------
 CREATE TABLE t_osc_objetivos (
