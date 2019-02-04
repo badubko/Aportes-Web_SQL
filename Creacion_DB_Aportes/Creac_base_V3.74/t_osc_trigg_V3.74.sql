@@ -1,6 +1,8 @@
 -- \. ./Scr_Ins_V3.74/que_base_V1.4.sql
 
-USE aportes_V3_74;
+-- USE aportes_V3_74;
+
+-- Trigger que inserta los logs de los cambios de DC Titular o Suplente de OSC
 
 DELIMITER $$
 
