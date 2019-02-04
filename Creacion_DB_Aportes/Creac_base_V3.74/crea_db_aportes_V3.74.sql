@@ -123,7 +123,10 @@ CREATE TABLE t_logs_estado_user (
   estado VARCHAR (14) NOT NULL DEFAULT 'Disponible',
   consideraciones VARCHAR (256) DEFAULT "No Comments", 
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    
+  id_truch		INT UNSIGNED NOT NULL AUTO_INCREMENT,
+--
+  PRIMARY KEY (id_truch),
+--
   KEY idx_fk_dni (dni),
   CONSTRAINT fk_estado_dni FOREIGN KEY (dni) REFERENCES t_users1 (dni) ON DELETE RESTRICT ON UPDATE CASCADE,
   
@@ -300,9 +303,9 @@ CREATE TABLE t_osc_contactos (
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 CREATE TABLE t_osc_logs_dc (
-    dni 					INT UNSIGNED NOT NULL,
+    dni 					INT UNSIGNED NOT NULL COMMENT "dni del DC en cuestion",
     osc_nombre 				VARCHAR (128) NOT NULL, 
-	osc_rol_dc				VARCHAR (16) NOT NULL ,
+	osc_rol_dc				VARCHAR (16) NOT NULL COMMENT "Roles posibles en tabla aparte",
 	osc_f_cambio			DATE NOT NULL DEFAULT "2000-01-01",
 	osc_comentarios_dc 		VARCHAR (256) DEFAULT "No Comments",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -675,6 +678,7 @@ INSERT INTO `t_osc_rol_dc` (`osc_rol_dc`) VALUES
 -- ('Primario'),
 ('Titular'),
 ('Suplente'),
+('No_Asignado'),
 ('Des-Asignado');
 --
 INSERT INTO `t_osc_estados` (`osc_estado`) VALUES

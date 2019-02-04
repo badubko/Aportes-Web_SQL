@@ -1,4 +1,6 @@
 -- :%s/\(^.*\);\(.*\)/INSERT INTO t_osc_logs_dc \(`osc_nombre`,`dni`,`osc_rol_dc`\) VALUES \('\1'\,'\2','Titular');/
+-- UPDATE `t_osc_logs_dc` SET `dni`=[value-1],`osc_nombre`=[value-2],`osc_rol_dc`=[value-3],`osc_comentarios_dc`=[value-4],`last_update`=[value-5] WHERE 1
+-- UPDATE `t_osc_logs_dc` SET `osc_comentarios_dc`= "Carga inicial de DC Titular" WHERE osc_rol_dc = "Titular" ;
 
 \. ./Scr_Ins_V3.74/que_base_V1.4.sql
 
@@ -327,5 +329,3 @@ INSERT INTO t_osc_logs_dc (`osc_nombre`,`dni`,`osc_rol_dc`) VALUES ('SUMANDO ARG
 INSERT INTO t_osc_logs_dc (`osc_nombre`,`dni`,`osc_rol_dc`) VALUES ('UASI-LA CAVA','14772995','Titular');
 INSERT INTO t_osc_logs_dc (`osc_nombre`,`dni`,`osc_rol_dc`) VALUES ('VERGEL','14772995','Titular');
 
--- UPDATE `t_osc_logs_dc` SET `dni`=[value-1],`osc_nombre`=[value-2],`osc_rol_dc`=[value-3],`osc_comentarios_dc`=[value-4],`last_update`=[value-5] WHERE 1
--- UPDATE `t_osc_logs_dc` SET `osc_comentarios_dc`= "Carga inicial de DC Titular" WHERE osc_rol_dc = "Titular" ;

@@ -7,7 +7,7 @@
 -- Server version: 5.7.24
 -- PHP Version: 7.0.32-0ubuntu0.16.04.1
 
-\. ./Scr_Ins_datos/que_base_V1.4.sql
+\. ./Scr_Ins_V3.74/que_base_V1.4.sql
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "-03:00";

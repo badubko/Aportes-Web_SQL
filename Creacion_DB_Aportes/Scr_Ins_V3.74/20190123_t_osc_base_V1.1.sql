@@ -4,7 +4,7 @@
 
 -- %s/\(^.*\);\(.*\)/INSERT INTO t_osc \(`osc_nombre`,`osc_acuerdo`\) VALUES \('\1'\,'\2');/
 
-\. ./Scr_Ins_datos/que_base_V1.4.sql
+\. ./Scr_Ins_V3.74/que_base_V1.4.sql
 
 
 INSERT INTO t_osc (`osc_nombre`,`osc_acuerdo`) VALUES ('ACDE','PENDIENTE');

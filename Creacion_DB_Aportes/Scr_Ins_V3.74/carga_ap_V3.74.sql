@@ -8,7 +8,7 @@
 
 
 -- EN este script esta la version de la base a usar
-\. ./Scr_Ins_V3.74/que_base_V3.74.sql
+\. ./Scr_Ins_V3.74/que_base_V1.4.sql
 
 -- Usuarios reales
 -- \. ./Creacion_DB_Aportes/Scr_Ins_V3.74/20190122_users_reales.sql
@@ -37,11 +37,11 @@
 
 -- Asocia DCs Titulares con OSCs
 -- \. ./Creacion_DB_Aportes/Scr_Ins_V3.74/20190123_dc_tit_base_V1.0.sql
-\. ./Scr_Ins_V3.74/20190123_dc_tit_base_V1.0.sql
+\. ./Scr_Ins_V3.74/20190204_dc_tit_base_V1.2.sql
 
 -- Asocia DCs Suplentes con OSCs
 -- \. ./Creacion_DB_Aportes/Scr_Ins_V3.74/20190123_dc_supl_base_V1.0.sql
-\. ./Scr_Ins_V3.74/20190123_dc_supl_base_V1.0.sql
+\. ./Scr_Ins_V3.74/20190204_dc_supl_base_V1.2.sql
 
 
 --  ---------- Datos Ficticios

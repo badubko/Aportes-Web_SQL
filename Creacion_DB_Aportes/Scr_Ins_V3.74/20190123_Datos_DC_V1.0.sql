@@ -1,5 +1,5 @@
 -- Crea DCs
-\. ./Scr_Ins_datos/que_base_V1.4.sql
+\. ./Scr_Ins_V3.74/que_base_V1.4.sql
 --
 -- Este es el DC titular ficticio cuando no hay asignado ninguno
 -- Dado que la columna dni es NOT NULL
@@ -15,9 +15,9 @@ Values
 ('1','N/D','DC','N/D','N/D','2011','2000-01-01','No')
 ;
 Insert into t_logs_estado_user 
-(`dni`,`estado`,`consideraciones`)
+(`dni`,`consideraciones`)
 Values
-('1','Desconoc','Carga Inicial DC Titular ficticio')
+('1','Carga Inicial DC Titular ficticio')
 ;
 --
 -- Este es el DC suplente ficticio cuando no hay asignado ninguno
@@ -26,7 +26,7 @@ Values
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
 Values
-('2','No_Asignada','Titular No_Asignada/o','N/D','N/D','N/D')
+('2','No_Asignada','Suplente No_Asignada/o','N/D','N/D','N/D')
 ;
 Insert into t_users2 
 (`dni`,`cuil`,`rol`,`tel_1`,`tel_2`,`a_socio`,`f_ingreso`,`acuerdo`)
@@ -36,7 +36,7 @@ Values
 Insert into t_logs_estado_user 
 (`dni`,`estado`,`consideraciones`)
 Values
-('2','Desconoc','Carga Inicial DC Suplente ficticio')
+('2','Carga Inicial DC Suplente ficticio')
 ;
 -- -----------------------------------------------------------------------------
 Insert into t_users1 

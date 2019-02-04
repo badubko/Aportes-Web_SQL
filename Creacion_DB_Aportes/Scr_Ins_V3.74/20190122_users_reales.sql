@@ -9,7 +9,7 @@
 -- :g/dni`,`esta/+2,$s/\')/\',\"Carga inicial\"\)/
 
 
-\. ./Scr_Ins_datos/que_base_V1.4.sql
+\. ./Scr_Ins_V3.74/que_base_V1.4.sql
 
 
 Insert into t_users1 
