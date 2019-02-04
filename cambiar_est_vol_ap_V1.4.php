@@ -119,11 +119,12 @@ if (isset($_POST['submit'])) {
 			</tbody>
 	</table>
 	<?php } else { ?>
-		<blockquote>No se encontro ningun Vol con:  <?php echo escape($_POST['apellido']); ?>.</blockquote>
+		<blockquote>No se encontro ningun Vol con (estado != Asignado y estado != De_Baja) y Apellido:  <?php echo escape($_POST['apellido']); ?>.</blockquote>
 	<?php } 
 } ?> 
 
 <h3>Buscar Voluntario por apellido</h3>
+<h3>Con (estado != Asignado y estado != De_Baja)</h3>
 <h3>Cambiar estado del Voluntario</h3>
 
 <form method="post">

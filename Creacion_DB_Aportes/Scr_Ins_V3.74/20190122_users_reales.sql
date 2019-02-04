@@ -614,7 +614,7 @@ Values
 Insert into t_logs_estado_user 
 (`dni`,`estado`,`consideraciones`)
 Values
-('11285447','Interno',"Carga inicial")
+('11285447','Asignado',"Carga inicial")
 ;
 -- --------------------------------------------------------------
 Insert into t_users1 

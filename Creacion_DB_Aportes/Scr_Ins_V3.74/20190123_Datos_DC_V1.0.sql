@@ -15,9 +15,9 @@ Values
 ('1','N/D','DC','N/D','N/D','2011','2000-01-01','No')
 ;
 Insert into t_logs_estado_user 
-(`dni`,`consideraciones`)
+(`dni`,`estado`,`consideraciones`)
 Values
-('1','Carga Inicial DC Titular ficticio')
+('1','Desconoc','Carga Inicial DC Titular ficticio')
 ;
 --
 -- Este es el DC suplente ficticio cuando no hay asignado ninguno
@@ -36,7 +36,7 @@ Values
 Insert into t_logs_estado_user 
 (`dni`,`estado`,`consideraciones`)
 Values
-('2','Carga Inicial DC Suplente ficticio')
+('2','Desconoc','Carga Inicial DC Suplente ficticio')
 ;
 -- -----------------------------------------------------------------------------
 Insert into t_users1 
