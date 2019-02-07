@@ -442,6 +442,14 @@ CREATE TABLE t_proyectos (
 --
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla base de registro de proyectos';
 --  -------------------------------------------------------------------
+--  -------------------------------------------------------------------
+-- View que une las tablas de t_proyectos con t_hist_user_proy
+--  -------------------------------------------------------------------
+--  -------------------------------------------------------------------
+CREATE VIEW osc_proy AS
+SELECT 	t_hist_user_proy.dni, t_proyectos.p_num_corr_proy , t_proyectos.osc_nombre, t_proyectos.p_nombre_proy 
+FROM
+t_proyectos INNER JOIN t_hist_user_proy ON t_proyectos.p_num_corr_proy=t_hist_user_proy.p_num_corr_proy ;
 -- ---------------------------------------------------------------------
 CREATE TABLE t_p_logs_estado_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
