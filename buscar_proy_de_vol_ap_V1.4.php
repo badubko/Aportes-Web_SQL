@@ -84,13 +84,19 @@
 				<td><?php echo escape($row["p_num_corr_proy"]); ?></td>
 				<td><?php echo escape($row["p_nombre_proy"]); ?></td>
 				<td><?php echo escape($row["p_ultimo_estado"]); ?></td>
+				<td><a href="desasign_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
+				&apellido=<?php echo escape($_GET["apellido"]); ?>
+				&nombres=<?php echo escape($_GET["nombres"]); ?>
+				&est_act=<?php echo escape($row["p_ultimo_estado"]); ?>
+				&p_num_corr_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
+				">p/DesAsignar de este</a></td>
 			</tr>
 		<?php 																			}
 									} ?> 
 			</tbody>
 	</table>
 	<?php } else { ?>
-		<blockquote>No se encontro ningun proy para:  <?php echo escape($_POST['dni']); ?>.</blockquote>
+		<blockquote>No se encontro ningun proy para VOL:  <?php echo escape($_GET['dni']); ?>.</blockquote>
 	<?php } ?>
 
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
