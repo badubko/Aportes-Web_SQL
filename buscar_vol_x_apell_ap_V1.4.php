@@ -3,7 +3,7 @@
 /**
  * 
  * Buscar Vol por apellido aproximado
- * En esta version primitiva, no incluimos el tema de las especialidades...
+ * En esta version, no incluimos el tema de las especialidades...
  * 
  */
 
