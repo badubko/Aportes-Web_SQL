@@ -23,10 +23,11 @@
 //  WHERE (p_estado_proy = 'En_Ejecucion' ) OR (p_estado_proy = 'Pre-Proyecto')  ));
 
 
-		$sql = "SELECT DISTINCT dni, p_num_corr_proy FROM t_hist_user_proy 
-				WHERE dni = :dni 	";
+//		$sql = "SELECT DISTINCT dni, p_num_corr_proy FROM t_hist_user_proy 
+//				WHERE dni = :dni 	";
 
-						
+		$sql = "SELECT osc_nombre, p_num_corr_proy, p_nombre_proy, p_ultimo_estado  FROM osc_proy 
+		WHERE dni = :dni 	ORDER BY osc_nombre";				
 						
 		$dni = $_GET['dni'];
 //		$apellido = $_GET['apellido'];
@@ -79,8 +80,10 @@
 			if ( verificar_asign( $dni , $row["p_num_corr_proy"]) == 'Asignado' 	) { 
 			?>
 			<tr>
-				<td><?php echo escape($row["dni"]); ?></td>
+				<td><?php echo escape($row["osc_nombre"]); ?></td>
 				<td><?php echo escape($row["p_num_corr_proy"]); ?></td>
+				<td><?php echo escape($row["p_nombre_proy"]); ?></td>
+				<td><?php echo escape($row["p_ultimo_estado"]); ?></td>
 			</tr>
 		<?php 																			}
 									} ?> 
