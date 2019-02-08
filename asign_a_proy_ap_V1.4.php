@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
 							//"fecha_evento"			=> date("Y-m-d"),
 					"f_asignac"				=> $_POST['f_asignac'],
 							//"tipo_evento"  			=> 'Asignacion',
-					"coment_desemp"  		=> $_POST['coment_desemp']
+					"coment_asignac"  		=> $_POST['coment_asignac']
 						);
         $sql = sprintf(
                 "INSERT INTO %s (%s) values (%s)",
@@ -57,7 +57,7 @@ require "templates/header.php";
 			$log_estado = array(
             "dni"     				=> $_GET['dni'],
             "estado"				=> 'Asignado',
-            "consideraciones"  		=> $_POST['coment_desemp']
+            "consideraciones"  		=> $_POST['coment_asignac']
 								);
         $sql_log_estado = sprintf(
 									"INSERT INTO %s (%s) values (%s)",
@@ -95,8 +95,8 @@ require "templates/header.php";
 if ( verificar_asign( $_GET['dni'] , $_GET['num_proy']) == 'No_Asignado' 	) { ?>
 		
 <form method="post">
-		<label for="coment_desemp">Comentario</label>
-		<input type="text" name="coment_desemp" id="coment_desemp"><br>
+		<label for="coment_asignac">Comentario</label>
+		<input type="text" name="coment_asignac" id="coment_asignac"><br>
 		<label for="fecha_asign">Fecha Asignacion</label>
 		<input type="text" name="f_asignac" id="f_asignac" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>	
         <input type="submit" name="submit" value="Asignar" class="button">
