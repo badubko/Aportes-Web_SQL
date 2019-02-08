@@ -186,7 +186,8 @@ CREATE TABLE t_hist_user_proy (
 	f_asignac 		DATE NOT NULL DEFAULT "2000-01-01",
 	f_desasign 		DATE NOT NULL DEFAULT "2100-01-01",
 	last_update 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	coment_desemp 	VARCHAR (256) DEFAULT "No Comments",
+	coment_asignac 	VARCHAR (256) DEFAULT "No Comments",
+	coment_desasign	VARCHAR (256) DEFAULT "No Comments",
 	id_truch		INT UNSIGNED NOT NULL AUTO_INCREMENT,
 --
 	PRIMARY KEY (id_truch),
