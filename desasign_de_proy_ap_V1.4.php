@@ -23,9 +23,9 @@ if (isset($_POST['submit'])) {
 					"dni"     				=> $_GET['dni'],
 					"p_num_corr_proy"       => $_GET['num_proy'],
 							//"fecha_evento"			=> date("Y-m-d"),
-					"f_asignac"				=> $_POST['f_asignac'],
+					"f_desasign"				=> $_POST['f_desasign'],
 							//"tipo_evento"  			=> 'Asignacion',
-					"coment_desemp"  		=> $_POST['coment_desemp']
+					"coment_desasign"  		=> $_POST['coment_desasign']
 						);
         $sql = sprintf(
                 "INSERT INTO %s (%s) values (%s)",
@@ -57,7 +57,7 @@ require "templates/header.php";
 			$log_estado = array(
             "dni"     				=> $_GET['dni'],
             "estado"				=> 'Asignado',
-            "consideraciones"  		=> $_POST['coment_desemp']
+            "consideraciones"  		=> $_POST['coment_desasign']
 								);
         $sql_log_estado = sprintf(
 									"INSERT INTO %s (%s) values (%s)",
@@ -88,7 +88,7 @@ require "templates/header.php";
 		require "./common_ap_V1.4.php";
 		require "verificar_asign_V1.4.php"; 
 ?>
-<h2>Desasignar Voluntario a proyecto</h2>
+<h2>Desasignar Voluntario de proyecto</h2>
 <h3><?php echo "DesAsignacion de Vol: " , escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?></h3>
 <h3><?php echo "De Proyecto: " , escape($_GET['osc_nombre']) , ", " , escape($_GET['p_num_corr_proy']), ", " , escape($_GET['p_nombre_proy']); ?></h3>
 
@@ -98,8 +98,8 @@ require "templates/header.php";
 
 		
 <form method="post">
-		<label for="coment_desemp">Comentario</label>
-		<input type="text" name="coment_desemp" id="coment_desemp"><br>
+		<label for="coment_desasign">Comentario DesAsignacion</label>
+		<input type="text" name="coment_desasign" id="coment_desasign"><br>
 		<label for="fecha_desasign">Fecha DesAsignacion</label>
 		<input type="text" name="f_desasign" id="f_desasign" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>	
         <input type="submit" name="submit" value="DesAsignar" class="button">
