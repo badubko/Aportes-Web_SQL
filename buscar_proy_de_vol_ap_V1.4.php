@@ -84,10 +84,12 @@
 				<td><?php echo escape($row["p_num_corr_proy"]); ?></td>
 				<td><?php echo escape($row["p_nombre_proy"]); ?></td>
 				<td><?php echo escape($row["p_ultimo_estado"]); ?></td>
-				<td><a href="desasign_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
+				<td><a href="desasign_de_proy_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
 				&apellido=<?php echo escape($_GET["apellido"]); ?>
 				&nombres=<?php echo escape($_GET["nombres"]); ?>
-				&est_act=<?php echo escape($row["p_ultimo_estado"]); ?>
+				&osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+				&p_nombre_proy=<?php echo escape($row["p_nombre_proy"]); ?>
+				&p_ultimo_estado=<?php echo escape($row["p_ultimo_estado"]); ?>
 				&p_num_corr_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
 				">p/DesAsignar de este</a></td>
 			</tr>
