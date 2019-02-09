@@ -23,7 +23,7 @@ require "./config_ap_V1.4.php";
         $statement = $conn_asign->prepare($sql_ver);
         $statement->execute($ver_asign);
         $count = $statement->rowCount();
-        // echo  "Paso 1 " , $count . "<br>";
+//         echo  "Paso 1 " , $proy, $count . "<br>";
          
         // Si no se encontro ninguna fila, el Vol no esta asignado 					
 		if ( $count == 0 ) { return 'No_Asignado' ; }
@@ -58,7 +58,7 @@ require "./config_ap_V1.4.php";
         $result= $statement->fetchAll();
         $count = $statement->rowCount();
         
-        // echo  "Paso 2 ", $count . "<br>";
+//        echo  "Paso 2 ",  $proy, $count . "<br>";
         
         if ( $count == 0 ) { return 'Asignado' ; } 
 				else { 	
@@ -74,14 +74,14 @@ require "./config_ap_V1.4.php";
 											);
 						$sql_ver = "SELECT f_asignac , last_update FROM  t_hist_user_proy WHERE 
 									(dni = :dni AND 	p_num_corr_proy = :p_num_corr_proy )
-									AND (f_asignac > :f_asignac AND f_desasign = :f_desasign )
+									AND (f_asignac >= :f_asignac AND f_desasign = :f_desasign )
 									";				
 		 
 										$error = "";
 										$statement = $conn_asign->prepare($sql_ver);
 										$statement->execute($ver_asign);
 										$count = $statement->rowCount();
-					// echo  "Paso 3 ", $count . "<br>";
+//					 echo  "Paso 3 ",  $proy, $count . "<br>";
 					if ( $count == 0 ) { return 'No_Asignado' ; } 						
 				
 //					Si rows > 0 Significa que esta asignado
