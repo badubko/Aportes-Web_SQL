@@ -2,13 +2,17 @@
 
 /**
  * 
- * Buscar los proyectos de una OSC 
+ * Buscar los proyectos de un Vol para desasignarlo
  * Con estado = En_Ejecucion o = Pre-Proyecto(?) (Que otros estados???)
- * Se seleccionara el proyecto al que se asignara al Voluntario
+ * Se seleccionara el proyecto al que se desasignara el Voluntario
  * en el proximo paso.
- * Si Vil YA esta asignado a un proyecto, informa
- * Si Vol NO esta asignado a un proyecto, permite asignarlo
+ * Referencia:
  * 
+ * 	CREATE VIEW osc_proy AS
+ * 	SELECT DISTINCT	t_hist_user_proy.dni, t_proyectos.p_num_corr_proy , t_proyectos.osc_nombre, 
+ * 	t_proyectos.p_nombre_proy  ,  t_proyectos.p_ultimo_estado
+ * 	FROM
+ * 	t_proyectos INNER JOIN t_hist_user_proy ON t_proyectos.p_num_corr_proy=t_hist_user_proy.p_num_corr_proy ;
  */
 
 	try {	
@@ -17,21 +21,10 @@
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
-// select p_num_corr_proy, osc_nombre, p_nombre_proy from t_proyectos 
-// where osc_nombre = "ALPI" and 
-// ( p_num_corr_proy in (SELECT p_num_corr_proy FROM t_p_logs_estado_proy 
-//  WHERE (p_estado_proy = 'En_Ejecucion' ) OR (p_estado_proy = 'Pre-Proyecto')  ));
-
-
-//		$sql = "SELECT DISTINCT dni, p_num_corr_proy FROM t_hist_user_proy 
-//				WHERE dni = :dni 	";
-
 		$sql = "SELECT osc_nombre, p_num_corr_proy, p_nombre_proy, p_ultimo_estado  FROM osc_proy 
 		WHERE dni = :dni 	ORDER BY osc_nombre";				
 						
 		$dni = $_GET['dni'];
-//		$apellido = $_GET['apellido'];
-//		$nombres = $_GET['nombres'];
 
 		$statement = $connection->prepare($sql);
 		$statement->bindParam(':dni', $dni, PDO::PARAM_STR);
@@ -56,15 +49,17 @@
 
 		
 
-	if ($result && $statement->rowCount() > 0) { ?>
-<!--	
-		<h3><?php echo "DesAsignacion de Vol: " , escape($apellido) , ", " , escape($nombres); ?></h3>
-	
-		<h3><?php echo "a un Proyecto de OSC: " , escape($_GET['osc']) , ", en Estado = (Pre-Proyecto o En_Ejecucion)"; ?></h3>
+	if ($result && $statement->rowCount() > 0) { 
+		// Contar el total de proyectos validos
+		// para luego saber cuando se desasigna del ultimo
+		// Este valor se pasa al siguiente paso en cada renglon.
+		//
+		$tot_proy=0; 
+		foreach ($result as $row) { 
+			if ( verificar_asign( $dni , $row["p_num_corr_proy"]) == 'Asignado' 	) { 
+			$tot_proy++ ; }
+									}?>
 
-
-		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
--->
 		<table>
 			<thead>
 				<tr>
@@ -77,8 +72,7 @@
 			</thead>
 			<tbody>
 	<?php foreach ($result as $row) { 
-			if ( verificar_asign( $dni , $row["p_num_corr_proy"]) == 'Asignado' 	) { 
-			?>
+			if ( verificar_asign( $dni , $row["p_num_corr_proy"]) == 'Asignado' 	) { ?>
 			<tr>
 				<td><?php echo escape($row["osc_nombre"]); ?></td>
 				<td><?php echo escape($row["p_num_corr_proy"]); ?></td>
@@ -91,6 +85,7 @@
 				&p_nombre_proy=<?php echo escape($row["p_nombre_proy"]); ?>
 				&p_ultimo_estado=<?php echo escape($row["p_ultimo_estado"]); ?>
 				&p_num_corr_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
+				&tot_proy=<?php echo escape($tot_proy); ?>
 				">p/DesAsignar de este</a></td>
 			</tr>
 		<?php 																			}
