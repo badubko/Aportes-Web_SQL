@@ -21,8 +21,6 @@ if (isset($_POST['submit01'])) {
         $connection = new PDO($dsn, $username, $password, $options);
         
         $f_max='2100-01-01';
-//        $dni=$_GET['dni'];
-//        $p_num_corr_proy=$_GET['p_num_corr_proy'];
 
         $new_asign =[
 					"dni"     				=> $_GET['dni'],
