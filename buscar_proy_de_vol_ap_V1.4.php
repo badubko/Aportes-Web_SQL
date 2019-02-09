@@ -38,9 +38,9 @@
  require "templates/header.php"; 
  require "verificar_asign_V1.4.php";?>
  
-<h3>Buscar Proy del VOL</h3>
+<h3>Buscar Proyectos de un Voluntario</h3>
 
-<h3><?php echo "Para desasignar VOL: " , escape($_GET['dni']) , ", " ,escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?></h3>
+<h3><?php echo "Para desasignar al Voluntario: " , escape($_GET['dni']) , ", " ,escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?></h3>
 
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
@@ -50,16 +50,24 @@
 		
 
 	if ($result && $statement->rowCount() > 0) { 
+
 		// Contar el total de proyectos validos
 		// para luego saber cuando se desasigna del ultimo
 		// Este valor se pasa al siguiente paso en cada renglon.
 		//
+		// Se recorren todos los proyectos encontrados y se 
+		// verifica si esta asignado o desasignado en cada uno
+		// Puede darse que fue asignado, desasignado y asignado nuevamente
+		// en cuyo caso debe contabilizarse una sola vez y aparecer como
+		// desasignado.
+		// Se contabiliza aqui para tener antes el total de proyectos 
 		$tot_proy=0; 
 		foreach ($result as $row) { 
-			if ( verificar_asign( $dni , $row["p_num_corr_proy"]) == 'Asignado' 	) { 
-			$tot_proy++ ; }
-									}?>
 
+			if ( verificar_asign( $dni , $row["p_num_corr_proy"]) == 'Asignado' 	) { 
+			$tot_proy++ ; 															   }
+									}?>
+         
 		<table>
 			<thead>
 				<tr>

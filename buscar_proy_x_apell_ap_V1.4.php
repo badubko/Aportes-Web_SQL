@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['submit'])) {
 	if ($result && $statement->rowCount() > 0) { ?>
 		<h3>Buscar Voluntario por apellido</h3>
-		<h3>para DESASIGNAR a un Proyecto</h3>
+		<h3>para DESASIGNAR de un Proyecto</h3>
 		<h3>Resultados para (estado = "Asignado" y (rol = "VOL" OR rol = "VC") )</h3>
 		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 		<table>

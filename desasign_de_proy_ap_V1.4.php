@@ -59,9 +59,49 @@ if (isset($_POST['submit01'])) {
 		require "./common_ap_V1.4.php";
 		require "verificar_asign_V1.4.php"; 
 ?>
-<h2>Desasignar Voluntario de proyecto</h2>
+<h2>Desasignar Voluntaria/o de proyecto</h2>
+<!--
 <h3><?php echo "DesAsignacion de Vol: " , escape($_GET['apellido']) , ", " , escape($_GET['nombres']); ?></h3>
+-->
+		<table>
+			<div align="justify"> 
+			<thead>
+				<tr>
+					<th>DNI:</th>
+					<th>Apellido:</th>
+					<th>Nombre:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<td><?php echo escape($_GET['dni']); ?></td>
+				<td><?php echo escape($_GET['apellido']); ?></td>
+				<td><?php echo escape($_GET['nombres']); ?></td>
+			</tbody>
+			</div>	
+		</table>
+        <br>
+        
+		<table>
+			<div align="justify"> 
+			<thead>
+				<tr>
+					<th>OSC:</th>
+					<th>Num Proy:</th>
+					<th>Nombre Proy:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<td><?php echo escape($_GET['osc_nombre']); ?></td>
+				<td><?php echo escape($_GET['p_num_corr_proy']); ?></td>
+				<td><?php echo escape($_GET['p_nombre_proy']); ?></td>
+			</tbody>
+			</div>	
+		</table>
+		<br> <br>
+
+<!--
 <h3><?php echo "De Proyecto: " , escape($_GET['osc_nombre']) , ", " , escape($_GET['p_num_corr_proy']), ", " , escape($_GET['p_nombre_proy']); ?></h3>
+-->
 
 <?php
 // echo verificar_asign( $_GET['dni'] , $_GET['num_proy']) , $_GET['dni'] , $_GET['num_proy'];
@@ -69,10 +109,10 @@ if (isset($_POST['submit01'])) {
 
 		
 <form method="post">
-		<label for="coment_desasign">Comentario DesAsignacion</label>
+		<label for="coment_desasign">Comentario DesAsignacion</label><br>
 		<input type="text" name="coment_desasign" id="coment_desasign"><br>
-		<label for="fecha_desasign">Fecha DesAsignacion</label>
-		<input type="text" name="f_desasign" id="f_desasign" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>	
+		<label for="fecha_desasign">Fecha DesAsignacion</label><br>
+		<input type="text" name="f_desasign" id="f_desasign" value= "<?php echo escape(date("Y-m-d")); ?>">	<br><br>	
         <input type="submit" name="submit01" value="DesAsignar" class="button">
 </form>
 
