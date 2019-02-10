@@ -1,9 +1,9 @@
 <!doctype html>
 
 <?php 
-include "templates/header_osc_V1.4.php"; 
-require "./config_ap_V1.4.php";
-require "./common_ap_V1.4.php";
+include "../templates/header_osc_V1.4.php"; 
+require "../config_ap_V1.4.php";
+require "../common_ap_V1.4.php";
 ?>
 
 
@@ -22,4 +22,4 @@ require "./common_ap_V1.4.php";
 
 	</ul>
 
-<?php include "templates/footer.php"; ?>
+<?php include "../templates/footer_osc_V1.4.php"; ?>
