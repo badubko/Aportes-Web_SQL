@@ -282,7 +282,22 @@ CREATE TABLE t_osc (
 
 \. ./t_osc_trigg_V3.74.sql
 
--- ---------------------------------------------------------------------  
+-- -------------------------------------------------------------------------
+-- View para listar datos del DC Titular  
+-- -------------------------------------------------------------------------
+CREATE VIEW list_osc_dc_tit AS 
+SELECT `aportes_V3_74`.`t_osc`.`osc_nombre` AS `osc_nombre`,`aportes_V3_74`.`t_users1`.`dni` AS `dni`,
+`aportes_V3_74`.`t_users1`.`apellido` AS `apellido`,`aportes_V3_74`.`t_users1`.`nombres` AS `nombres`
+ FROM (`aportes_V3_74`.`t_users1` 
+ INNER JOIN `aportes_V3_74`.`t_osc` ON((`aportes_V3_74`.`t_users1`.`dni` = `aportes_V3_74`.`t_osc`.`osc_dc_tit`)));
+-- -------------------------------------------------------------------------
+-- View para listar datos del DC Suplente  
+-- -------------------------------------------------------------------------
+CREATE VIEW list_osc_dc_supl AS 
+SELECT `aportes_V3_74`.`t_osc`.`osc_nombre` AS `osc_nombre`,`aportes_V3_74`.`t_users1`.`dni` AS `dni`,
+`aportes_V3_74`.`t_users1`.`apellido` AS `apellido`,`aportes_V3_74`.`t_users1`.`nombres` AS `nombres`
+ FROM (`aportes_V3_74`.`t_users1` 
+ INNER JOIN `aportes_V3_74`.`t_osc` ON((`aportes_V3_74`.`t_users1`.`dni` = `aportes_V3_74`.`t_osc`.`osc_dc_supl`))); 
 -- ---------------------------------------------------------------------
 CREATE TABLE t_osc_objetivos (
 	osc_nombre 		VARCHAR (128) NOT NULL,
