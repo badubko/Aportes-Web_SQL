@@ -19,12 +19,12 @@ if (isset($_POST['submit'])) {
 		$sql = "SELECT
 						t_osc.osc_nombre, t_osc.osc_estado
 				FROM    t_osc
-				WHERE 	osc_nombre LIKE :osc  ;" ;
+				WHERE 	osc_nombre LIKE :osc_nombre  ;" ;
 						
-		$osc = $_POST['osc'];				
+		$osc_nombre = $_POST['osc_nombre'];				
 
 		$statement = $connection->prepare($sql);
-		$statement->bindParam(':osc', $osc, PDO::PARAM_STR);
+		$statement->bindParam(':osc_nombre', $osc_nombre, PDO::PARAM_STR);
 		$statement->execute();
 
 		$result = $statement->fetchAll();
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 
 		<h3>Buscar OSC por nombre aproximado</h3>
 
-		<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 		<table>
 			<thead>
 				<tr>
@@ -56,17 +56,15 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["osc_nombre"]); ?></td>
 				<td><?php echo escape($row["osc_estado"]); ?></td>		
 				<td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php
-				?osc=<?php echo escape($row["osc_nombre"]); ?>
+				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
 				">Administrar datos OSC</a></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
 	</table>
 	<?php } else { ?>
-<!--
-		<blockquote>No se encontro ninguna OSC: <?php echo escape($_POST['osc']); ?>  con proyectos para asignar Vol.</blockquote>
--->
-		<blockquote><?php echo "No se encontro ninguna OSC: " , escape($_POST['osc']) ;?></blockquote>
+
+		<blockquote><?php echo "No se encontro ninguna OSC: " , escape($_POST['osc_nombre']) ;?></blockquote>
 	<?php } ?>
 
 <a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
@@ -86,8 +84,8 @@ exit;
 <h3>para para agregar o actualizar datos</h3>
 
 <form method="post">
-	<label for="osc">OSC (A%  %A%  %)</label>
-	<input type="text" id="osc" name="osc">
+	<label for="osc_nombre">OSC (A%  %A%  %)</label>
+	<input type="text" id="osc_nombre" name="osc_nombre">
 	<input type="submit" name="submit" value="Buscar">
 </form>
 

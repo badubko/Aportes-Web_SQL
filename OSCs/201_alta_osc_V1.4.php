@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 <?php if (isset($_POST['submit']) && $statement && !$error){ ?>
     <blockquote><?php echo $_POST['osc_nombre'] ?> Registrada en la base de Aportes.</blockquote><br>
     <td><a href="200_OSCs_<?php echo escape($vers);?>.php">Menu Principal OSC</a></td><br>
-    <td><a href="202_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo $_POST['osc_nombre']; ?>
+    <td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo $_POST['osc_nombre']; ?>
 				">Administrar OSC</a></td><br>
     <a href="../index_ap_V1.4.php">Back to home</a>
     
