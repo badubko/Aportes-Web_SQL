@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 
 		<h3>Buscar OSC por nombre aproximado</h3>
 
-		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a><br><br>
 		<table>
 			<thead>
 				<tr>
@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
 
 		<blockquote><?php echo "No se encontro ninguna OSC: " , escape($_POST['osc_nombre']) ;?></blockquote>
 	<?php } ?>
-
+<br>
 <a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <?php
 require "../templates/footer_osc.php"; 
@@ -90,7 +90,6 @@ exit;
 </form>
 
 
-
-<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+<br><a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
 <?php require "../templates/footer_osc.php"; ?>
