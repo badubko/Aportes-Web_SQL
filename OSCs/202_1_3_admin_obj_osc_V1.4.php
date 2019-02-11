@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Listar objetivos de una OSC para poder editarlos
+ * Listar objetivos de una OSC para 
+ * Eliminarlos o
+ * Agregar uno nuevo
  */
 
 try {
@@ -42,7 +44,7 @@ try {
         <td><?php echo escape($row["osc_nombre"]); ?></td>
         <td><?php echo escape($row["osc_objetivo"]); ?></td>
         <td><?php echo escape($row["last_update"]); ?></td>
-        <td><a href="202_1_3_2_2_elim_obj_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+        <td><a href="202_1_3_2_1_elim_obj_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
         &osc_objetivo=<?php echo escape($row["osc_objetivo"]); ?>
     
         ">Eliminar Objetivo</a></td>
