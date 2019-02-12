@@ -50,12 +50,58 @@ if (isset($_POST['submit'])) {
 exit;
 } ?>
 
-
+<?php
+ $a_acuerdo = array( "Firmado" , "Pendiente" , "N/D");
+?>
 <h2>Agregar OSC</h2>
 
 <form method="post">
 	<label for="osc_nombre">Nombre OSC</label><br>
 		<input type="text" name="osc_nombre" id="osc_nombre"><br>
+	<label for="osc_calle_1">Nombre Calle 1</label><br>
+		<input type="text" name="osc_calle_1" id="osc_calle_1"><br>	
+	<label for="osc_num_1">Numero 1</label><br>
+		<input type="text" name="osc_num_1" id="osc_num_1"><br>		
+	<label for="osc_ciudad_1">Ciudad 1</label><br>
+		<input type="text" name="osc_ciudad_1" id="osc_ciudad_1"><br>		
+	<label for="osc_cp_1">Codigo Postal 1</label><br>
+		<input type="text" name="osc_cp_1" id="osc_cp_1"><br>
+	<label for="osc_prov_1">Provincia 1</label><br>
+		<input type="text" name="osc_prov_1" id="osc_prov_1"><br><br>		
+	
+		<label for="osc_calle_2">Nombre Calle 2</label><br>
+		<input type="text" name="osc_calle_2" id="osc_calle_2"><br>	
+	<label for="osc_num_2">Numero 2</label><br>
+		<input type="text" name="osc_num_2" id="osc_num_2"><br>		
+	<label for="osc_ciudad_2">Ciudad 2</label><br>
+		<input type="text" name="osc_ciudad_2" id="osc_ciudad_2"><br>		
+	<label for="osc_cp_2">Codigo Postal 2</label><br>
+		<input type="text" name="osc_cp_2" id="osc_cp_2"><br>
+	<label for="osc_prov_2">Provincia 2</label><br>
+		<input type="text" name="osc_prov_2" id="osc_prov_2"><br><br>	
+		
+	<label for="osc_pag_web">Pagina web</label><br>
+		<input type="text" name="osc_pag_web" id="osc_pag_web"><br><br>	
+
+<!--		
+    El estado de la OSC se actualiza en t_osc_logs_estado y el trigger lo
+    replica aqui
+    
+	<label for="osc_estado">Estado OSC</label><br>
+		<input type="text" name="osc_estado" id="osc_estado"><br><br>
+
+	<label for="osc_acuerdo">OSC Firmo acuerdo?</label><br>
+		<input type="text" name="osc_acuerdo" id="osc_acuerdo"><br><br>
+-->
+	
+    <label for="osc_acuerdo">OSC Firmo acuerdo?</label><br>
+	<select name="osc_acuerdo">
+	<option value=""selected hidden>Seleccione...</option>
+	<?php foreach ($a_acuerdo as $acuerdo) { ?>
+		<option value="<?php echo $acuerdo; ?>"><?php echo $acuerdo; ?></option>
+	<?php } ?>	
+	</select><br><br>
+						
 	<label for="osc_notas">Notas sobre OSC</label><br>
 		<input type="text" name="osc_notas" id="osc_notas"><br><br>
 

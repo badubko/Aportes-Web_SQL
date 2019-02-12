@@ -25,7 +25,7 @@ require "../common_ap_V1.4.php";
 				"><strong>Administrar Objetivos</strong></a> - Administar los objetivos de la OSC</li>		
 				
 				
-		<br><a href="../index_ap_<?php echo escape($vers);?>.php">Back to home<class=button /a>
+		<br><a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <!--
 		<h3>---------------------------------------------------------------------------------------------</h3>
 		<li><a href="buscar_vol_x_apell_ap_<?php echo escape($vers);?>.php"><strong>Asignar VOL x Apellido</strong></a> - Buscar VOL x Apellido p/ asignar a proyecto</li>
