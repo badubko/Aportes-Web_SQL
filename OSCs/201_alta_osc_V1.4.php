@@ -14,6 +14,21 @@ if (isset($_POST['submit'])) {
         
         $new_osc = array(
             "osc_nombre" => $_POST['osc_nombre'],
+   // OSC Direccion 1         
+            "osc_calle_1" => $_POST['osc_calle_1'],
+            "osc_num_1" => $_POST['osc_num_1'],
+            "osc_ciudad_1" => $_POST['osc_ciudad_1'],
+            "osc_cp_1" => $_POST['osc_cp_1'],
+            "osc_prov_1" => $_POST['osc_prov_1'],
+   // OSC Direccion 2         
+            "osc_calle_2" => $_POST['osc_calle_2'],
+            "osc_num_2" => $_POST['osc_num_2'],
+            "osc_ciudad_2" => $_POST['osc_ciudad_2'],
+            "osc_cp_2" => $_POST['osc_cp_2'],
+            "osc_prov_2" => $_POST['osc_prov_2'],
+                     
+            "osc_pag_web" => $_POST['osc_pag_web'],
+            "osc_acuerdo" => $_POST['osc_acuerdo'],
             "osc_notas"  => $_POST['osc_notas'],
 
         );
@@ -56,12 +71,15 @@ exit;
 <h2>Agregar OSC</h2>
 
 <form method="post">
+	
 	<label for="osc_nombre">Nombre OSC</label><br>
-		<input type="text" name="osc_nombre" id="osc_nombre"><br>
+	<input type="text" name="osc_nombre" id="osc_nombre"><br><br>
+	
 	<label for="osc_calle_1">Nombre Calle 1</label><br>
-		<input type="text" name="osc_calle_1" id="osc_calle_1"><br>	
+		<input type="text" name="osc_calle_1" id="osc_calle_1"><br>
 	<label for="osc_num_1">Numero 1</label><br>
 		<input type="text" name="osc_num_1" id="osc_num_1"><br>		
+		
 	<label for="osc_ciudad_1">Ciudad 1</label><br>
 		<input type="text" name="osc_ciudad_1" id="osc_ciudad_1"><br>		
 	<label for="osc_cp_1">Codigo Postal 1</label><br>
