@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
     <blockquote><?php echo $_POST['osc_nombre'] ?> Registrada en la base de Aportes.</blockquote><br>
     <td><a href="200_OSCs_<?php echo escape($vers);?>.php">Menu Principal OSC</a></td><br>
     <td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo $_POST['osc_nombre']; ?>
-				">Administrar OSC</a></td><br>
+				">Administrar OSC</a></td><br><br>
     <a href="../index_ap_V1.4.php">Back to home</a>
     
 <?php require "../templates/footer_osc.php"; ?>
@@ -76,34 +76,37 @@ exit;
 	<input type="text" name="osc_nombre" id="osc_nombre"><br><br>
 	
 	<label for="osc_calle_1">Nombre Calle 1</label><br>
-		<input type="text" name="osc_calle_1" id="osc_calle_1"><br>
+		<input type="text" name="osc_calle_1" id="osc_calle_1" value="N/D"><br>
 	<label for="osc_num_1">Numero 1</label><br>
-		<input type="text" name="osc_num_1" id="osc_num_1"><br>		
+		<input type="text" name="osc_num_1" id="osc_num_1" value="N/D"><br>		
 		
 	<label for="osc_ciudad_1">Ciudad 1</label><br>
-		<input type="text" name="osc_ciudad_1" id="osc_ciudad_1"><br>		
+		<input type="text" name="osc_ciudad_1" id="osc_ciudad_1" value="N/D"><br>		
 	<label for="osc_cp_1">Codigo Postal 1</label><br>
-		<input type="text" name="osc_cp_1" id="osc_cp_1"><br>
+		<input type="text" name="osc_cp_1" id="osc_cp_1" value="N/D"><br>
 	<label for="osc_prov_1">Provincia 1</label><br>
-		<input type="text" name="osc_prov_1" id="osc_prov_1"><br><br>		
+		<input type="text" name="osc_prov_1" id="osc_prov_1" value="N/D"><br><br>		
 	
 		<label for="osc_calle_2">Nombre Calle 2</label><br>
-		<input type="text" name="osc_calle_2" id="osc_calle_2"><br>	
+		<input type="text" name="osc_calle_2" id="osc_calle_2" value="N/D"><br>	
 	<label for="osc_num_2">Numero 2</label><br>
-		<input type="text" name="osc_num_2" id="osc_num_2"><br>		
+		<input type="text" name="osc_num_2" id="osc_num_2" value="N/D"><br>		
 	<label for="osc_ciudad_2">Ciudad 2</label><br>
-		<input type="text" name="osc_ciudad_2" id="osc_ciudad_2"><br>		
+		<input type="text" name="osc_ciudad_2" id="osc_ciudad_2" value="N/D"><br>		
 	<label for="osc_cp_2">Codigo Postal 2</label><br>
-		<input type="text" name="osc_cp_2" id="osc_cp_2"><br>
+		<input type="text" name="osc_cp_2" id="osc_cp_2" value="N/D"><br>
 	<label for="osc_prov_2">Provincia 2</label><br>
-		<input type="text" name="osc_prov_2" id="osc_prov_2"><br><br>	
+		<input type="text" name="osc_prov_2" id="osc_prov_2" value="N/D"><br><br>	
 		
 	<label for="osc_pag_web">Pagina web</label><br>
-		<input type="text" name="osc_pag_web" id="osc_pag_web"><br><br>	
+		<input type="text" name="osc_pag_web" id="osc_pag_web" value="N/D"><br><br>	
 
 <!--		
     El estado de la OSC se actualiza en t_osc_logs_estado y el trigger lo
     replica aqui
+    Por ahora toma el valor default que es "Identificada" que se inserta aqui
+    Hay que agregar el insert correspondiente en t_osc_logs_estado
+    
     
 	<label for="osc_estado">Estado OSC</label><br>
 		<input type="text" name="osc_estado" id="osc_estado"><br><br>
@@ -121,10 +124,19 @@ exit;
 	</select><br><br>
 						
 	<label for="osc_notas">Notas sobre OSC</label><br>
-		<input type="text" name="osc_notas" id="osc_notas"><br><br>
+		<input type="text" name="osc_notas" id="osc_notas" value="No hay notas"><br><br>
 
 	<input type="submit" name="submit" value="Agregar OSC">
 </form>
+
+<?php
+require "../config_ap_V1.4.php";
+require "../common_ap_V1.4.php";
+?>
+
+<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+
+<?php require "../templates/footer_osc.php"; ?>
 
 <?php // if (isset($_POST['submit']) && $statement && !$error){ ?>
    
@@ -142,7 +154,6 @@ exit;
 <!--
 <a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 -->
-<a href="../index_ap_V1.4.php">Back to home</a>
-<?php require "../templates/footer_osc.php"; ?>
+
 
 

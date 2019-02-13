@@ -22,9 +22,14 @@ require "../common_ap_V1.4.php";
 				
 		<li><a href="202_1_3_admin_obj_osc_<?php echo escape($vers);?>.php
 				?osc_nombre=<?php echo escape($_GET["osc_nombre"]); ?>
-				"><strong>Administrar Objetivos</strong></a> - Administar los objetivos de la OSC</li>		
+				"><strong>Administrar Objetivos</strong></a> - Administar los objetivos de la OSC</li>	
 				
-				
+		<li><a href="202_1_4_asign_desasign_dcs_<?php echo escape($vers);?>.php
+				?osc_nombre=<?php echo escape($_GET["osc_nombre"]); ?>
+				"><strong>Asignar/Desasignar DCs</strong></a> - Asignar o Desasignar DCs para OSC</li><br><br>
+		
+		<li><a href="202_buscar_osc_<?php echo escape($vers);?>.php"><strong>Buscar OSC p/Actualizar</strong></a> - Buscar OSC p/ Agregar o Actualizar datos</li><br>
+						
 		<br><a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <!--
 		<h3>---------------------------------------------------------------------------------------------</h3>

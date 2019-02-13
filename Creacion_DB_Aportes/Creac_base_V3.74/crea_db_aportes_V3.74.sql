@@ -286,16 +286,22 @@ CREATE TABLE t_osc (
 -- View para listar datos del DC Titular  
 -- -------------------------------------------------------------------------
 CREATE VIEW list_osc_dc_tit AS 
-SELECT `t_osc`.`osc_nombre` AS `osc_nombre`, `t_users1`.`dni` AS `dni`,
-`t_users1`.`apellido` AS `apellido`, `t_users1`.`nombres` AS `nombres`
+SELECT 	`t_osc`.`osc_nombre` AS `osc_nombre`,
+		`t_osc`.`osc_f_titular` AS `osc_f_titular`,
+		`t_users1`.`dni` AS `dni`,
+		`t_users1`.`apellido` AS `apellido`,
+		`t_users1`.`nombres` AS `nombres`
  FROM (`t_users1` 
  INNER JOIN `t_osc` ON((`t_users1`.`dni` = `t_osc`.`osc_dc_tit`)));
 -- -------------------------------------------------------------------------
 -- View para listar datos del DC Suplente  
 -- -------------------------------------------------------------------------
 CREATE VIEW list_osc_dc_supl AS 
-SELECT `t_osc`.`osc_nombre` AS `osc_nombre`,`t_users1`.`dni` AS `dni`,
-`t_users1`.`apellido` AS `apellido`,`t_users1`.`nombres` AS `nombres`
+SELECT 	`t_osc`.`osc_nombre` AS `osc_nombre`,
+		`t_osc`.`osc_f_supl` AS `osc_f_supl`,
+		`t_users1`.`dni` AS `dni`,
+		`t_users1`.`apellido` AS `apellido`,
+		`t_users1`.`nombres` AS `nombres`
  FROM (`t_users1` 
  INNER JOIN `aportes_V3_74`.`t_osc` ON((`t_users1`.`dni` = `t_osc`.`osc_dc_supl`))); 
 -- ---------------------------------------------------------------------

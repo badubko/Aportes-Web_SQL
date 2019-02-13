@@ -7,7 +7,7 @@
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
 Values
-('1','No_Asignado','Titular No_Asignada/o','N/D','N/D','N/D')
+('1','Titular','No_Asignada/o','N/D','N/D','N/D')
 ;
 Insert into t_users2 
 (`dni`,`cuil`,`rol`,`tel_1`,`tel_2`,`a_socio`,`f_ingreso`,`acuerdo`)
@@ -26,7 +26,7 @@ Values
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
 Values
-('2','No_Asignada','Suplente No_Asignada/o','N/D','N/D','N/D')
+('2','Suplente','No_Asignada/o','N/D','N/D','N/D')
 ;
 Insert into t_users2 
 (`dni`,`cuil`,`rol`,`tel_1`,`tel_2`,`a_socio`,`f_ingreso`,`acuerdo`)
