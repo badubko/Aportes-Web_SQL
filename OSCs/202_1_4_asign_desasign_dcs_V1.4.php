@@ -64,7 +64,7 @@ try {
       <th>Nombres</th>
       <th>F Asign</th>
     </tr>
-  </thead>
+  </thead> 
     <tbody>
 
     <?php foreach ($result_tit as $row) : ?>
@@ -76,11 +76,11 @@ try {
         <td><?php echo escape($row["osc_f_titular"]); ?></td>
         <td><a href="202_1_4_2_1_asign_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
         &dni=1
-        &rol=Titular
+        &rol_dc=Titular
         &osc_f_titular=<?php echo escape($row["osc_f_titular"]); ?>
         ">Desasignar Titular</a></td>
-        <td><a href="202_1_4_2_buscar_nuevo_dc<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-        &rol=Titular
+        <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+        &rol_dc=Titular
         ">Nuevo DC Titular</a></td>
       </tr>
     <?php endforeach; ?>
@@ -94,11 +94,11 @@ try {
         <td><?php echo escape($row["osc_f_supl"]); ?></td>
         <td><a href="202_1_4_2_1_asign_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
         &dni=2
-        &rol=Suplente
+        &rol_dc=Suplente
         &osc_f_titular=<?php echo escape($row["osc_f_supl"]); ?>
         ">Desasignar Titular</a></td>
-        <td><a href="202_1_4_2_buscar_nuevo_dc<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-        &rol=Suplente
+        <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+        &rol_dc=Suplente
         ">Nuevo DC Suplente</a></td>
       </tr>
     <?php endforeach; ?>
