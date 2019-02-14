@@ -19,14 +19,16 @@ if (isset($_POST['submit'])) {
 				FROM    us1_us2
 				WHERE
 				apellido LIKE :apellido AND (estado='Disponible') AND (rol='VC' OR rol='DC')
-				AND ( dni != :dc_ant)
+				AND ( dni != :dc_tit_ant) AND ( dni != :dc_supl_ant) 
 				ORDER BY apellido;" ;
 
 		$apellido = $_POST['apellido'];
-        $dc_ant = $_GET['dc_ant'];
+        $dc_tit_ant = $_GET['dc_tit_ant'];
+        $dc_supl_ant = $_GET['dc_supl_ant'];
 		$statement = $connection->prepare($sql);
 		$statement->bindParam(':apellido', $apellido, PDO::PARAM_STR);
-		$statement->bindParam(':dc_ant', $dc_ant, PDO::PARAM_STR);
+		$statement->bindParam(':dc_tit_ant', $dc_tit_ant, PDO::PARAM_STR);
+		$statement->bindParam(':dc_supl_ant', $dc_supl_ant, PDO::PARAM_STR);
 		$statement->execute();
 
 		$result = $statement->fetchAll();
@@ -54,11 +56,11 @@ table, th, td {
 		<table>
 			<thead>
 				<tr>
-					<th>dni</th>
-					<th>apellido</th>
-					<th>nombres</th>
+					<th>DNI</th>
+					<th>Apellido</th>
+					<th>Nombres</th>
 					<th>Rol</th>
-					<th>Tel 1</th>
+					<th>Telefono 1</th>
 					<th>email 1</th>
 					<th>Seleccionar</th>
 				</tr>

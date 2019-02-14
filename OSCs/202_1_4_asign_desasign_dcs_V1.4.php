@@ -51,7 +51,7 @@ try {
 <!--
 		Practicas de programacion LAMENTABLES !
 		Un foreach para 1 sola fila 
-		y no user foreach anidados... 
+		y no usar foreach anidados... 
 		Como extraño otros lenguajes...
 -->
 <style>
@@ -71,8 +71,19 @@ table, th, td {
     </tr>
   </thead> 
     <tbody>
-
-    <?php foreach ($result_tit as $row) : ?>
+    
+    <?php foreach ($result_supl as $row) : 
+	$dc_supl_ant=$row["dni"];
+	endforeach;	
+    
+    ?>
+    
+<!--
+Esto es HORRIBLEEEE... pero.... "funciona"
+-->
+    
+    <?php foreach ($result_tit as $row) : 
+    $dc_tit_ant=$row["dni"];?>
       <tr>
         <td><?php echo escape($row["osc_nombre"]); ?></td>
         <td>Tit</td>
@@ -82,7 +93,7 @@ table, th, td {
         
         
 		<?php if(  ($row["dni"] != 1 ) AND  ($row["dni"] != 2)) { ?>	
-				<td><a href="202_1_4_2_1_asign_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
 				&dni=1
 				&rol_dc=Titular
 				&osc_f_titular=<?php echo escape($row["osc_f_titular"]); ?>
@@ -94,7 +105,8 @@ table, th, td {
 
         <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
         &rol_dc=Titular
-        &dc_ant=<?php echo escape($row["dni"]); ?>
+        &dc_tit_ant=<?php echo escape($row["dni"]); ?>
+        &dc_supl_ant=<?php echo escape($dc_supl_ant); ?>
         ">Nuevo DC Titular</a></td>
         
        </tr>
@@ -109,7 +121,7 @@ table, th, td {
         <td><?php echo escape($row["osc_f_supl"]); ?></td>
         
         <?php if(  ($row["dni"] != 1 ) AND  ($row["dni"] != 2)) { ?>	
-				<td><a href="202_1_4_2_1_asign_dc_<?php echo escape($vers);?>.php
+				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php
 				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
 				&dni=2
 				&rol_dc=Suplente
@@ -122,7 +134,8 @@ table, th, td {
         
         <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
         &rol_dc=Suplente
-        &dc_ant=<?php echo escape($row["dni"]); ?>
+        &dc_tit_ant=<?php echo escape($dc_tit_ant); ?>
+        &dc_supl_ant=<?php echo escape($row["dni"]); ?>
         ">Nuevo DC Suplente</a></td>
       </tr>
     <?php endforeach; ?>
@@ -135,6 +148,7 @@ table, th, td {
 		<br>
 		<br>
 		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+		<?php require "../templates/footer_osc.php"; ?>
 
 
 
