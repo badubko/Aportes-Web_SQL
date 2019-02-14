@@ -28,7 +28,7 @@ require "../common_ap_V1.4.php";
 				?osc_nombre=<?php echo escape($_GET["osc_nombre"]); ?>
 				"><strong>Asignar/Desasignar DCs</strong></a> - Asignar o Desasignar DCs para OSC</li><br><br>
 		
-		<li><a href="202_buscar_osc_<?php echo escape($vers);?>.php"><strong>Buscar OSC p/Actualizar</strong></a> - Buscar OSC p/ Agregar o Actualizar datos</li><br>
+		<li><a href="202_buscar_osc_<?php echo escape($vers);?>.php"><strong>Buscar otra OSC p/Actualizar</strong></a> - Buscar otra OSC p/ Agregar o Actualizar datos</li><br>
 						
 		<br><a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <!--

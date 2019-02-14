@@ -43,10 +43,10 @@ try {
   echo $sql_supl . "<br>" . $error->getMessage();
 }
 ?>
-<?php require "../templates/header.php"; ?>
+<?php require "../templates/header_osc.php"; ?>
         
-<h2>Actualizar los DCs de la OSC:</h2>
-<h3><?php echo escape($osc_nombre) ; ?></h3>
+<h3>Actualizar los DCs de la OSC: <?php echo escape($osc_nombre) ; ?></h3>
+
 
 <!--
 		Practicas de programacion LAMENTABLES !
@@ -54,6 +54,11 @@ try {
 		y no user foreach anidados... 
 		Como extraño otros lenguajes...
 -->
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
 <table>
 
   <thead>
@@ -74,15 +79,25 @@ try {
         <td><?php echo escape($row["apellido"]); ?></td>
         <td><?php echo escape($row["nombres"]); ?></td>
         <td><?php echo escape($row["osc_f_titular"]); ?></td>
-        <td><a href="202_1_4_2_1_asign_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-        &dni=1
-        &rol_dc=Titular
-        &osc_f_titular=<?php echo escape($row["osc_f_titular"]); ?>
-        ">Desasignar Titular</a></td>
+        
+        
+		<?php if(  ($row["dni"] != 1 ) AND  ($row["dni"] != 2)) { ?>	
+				<td><a href="202_1_4_2_1_asign_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+				&dni=1
+				&rol_dc=Titular
+				&osc_f_titular=<?php echo escape($row["osc_f_titular"]); ?>
+				">Desasignar Titular</a></td>
+															<?php } 
+			else{  ?>
+				<td> <a>--N/A--</a></td>
+		<?php } ?>
+
         <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
         &rol_dc=Titular
+        &dc_ant=<?php echo escape($row["dni"]); ?>
         ">Nuevo DC Titular</a></td>
-      </tr>
+        
+       </tr>
     <?php endforeach; ?>
     
      <?php foreach ($result_supl as $row) : ?>
@@ -92,13 +107,22 @@ try {
         <td><?php echo escape($row["apellido"]); ?></td>
         <td><?php echo escape($row["nombres"]); ?></td>
         <td><?php echo escape($row["osc_f_supl"]); ?></td>
-        <td><a href="202_1_4_2_1_asign_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-        &dni=2
-        &rol_dc=Suplente
-        &osc_f_titular=<?php echo escape($row["osc_f_supl"]); ?>
-        ">Desasignar Titular</a></td>
+        
+        <?php if(  ($row["dni"] != 1 ) AND  ($row["dni"] != 2)) { ?>	
+				<td><a href="202_1_4_2_1_asign_dc_<?php echo escape($vers);?>.php
+				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+				&dni=2
+				&rol_dc=Suplente
+				&osc_f_titular=<?php echo escape($row["osc_f_supl"]); ?>
+				">Desasignar Titular</a></td>
+														<?php } 
+			else{  ?>
+				<td> <a>--N/A--</a></td>
+			<?php } ?>
+        
         <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
         &rol_dc=Suplente
+        &dc_ant=<?php echo escape($row["dni"]); ?>
         ">Nuevo DC Suplente</a></td>
       </tr>
     <?php endforeach; ?>
@@ -106,7 +130,11 @@ try {
     
     </tbody>
 </table>
-
+        <br>
+		<a href="202_buscar_osc_<?php echo escape($vers);?>.php">Buscar otra OSC p/ Agregar o Actualizar datos</a>
+		<br>
+		<br>
+		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
 
 

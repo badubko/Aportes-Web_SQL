@@ -42,6 +42,12 @@ if (isset($_POST['submit'])) {
 		<h3>Buscar OSC por nombre aproximado</h3>
 
 		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a><br><br>
+		
+		<style>
+		table, th, td {
+		border: 1px solid black; }
+		</style>
+		
 		<table>
 			<thead>
 				<tr>

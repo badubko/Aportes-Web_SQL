@@ -19,12 +19,14 @@ if (isset($_POST['submit'])) {
 				FROM    us1_us2
 				WHERE
 				apellido LIKE :apellido AND (estado='Disponible') AND (rol='VC' OR rol='DC')
+				AND ( dni != :dc_ant)
 				ORDER BY apellido;" ;
 
 		$apellido = $_POST['apellido'];
-
+        $dc_ant = $_GET['dc_ant'];
 		$statement = $connection->prepare($sql);
 		$statement->bindParam(':apellido', $apellido, PDO::PARAM_STR);
+		$statement->bindParam(':dc_ant', $dc_ant, PDO::PARAM_STR);
 		$statement->execute();
 
 		$result = $statement->fetchAll();
@@ -84,6 +86,8 @@ table, th, td {
 		<?php } ?> 
 			</tbody>
 	</table><br><br>
+	
+	
 	<?php } else { ?>
 		<blockquote>No se encontro ningun DC con:  <?php echo escape($_POST['apellido']); ?>.</blockquote>
 		<a href="<?php $_PHP_SELF ?>
@@ -92,6 +96,10 @@ table, th, td {
 		">Volver a Buscar</a><br><br>
 	<?php } ?>
 
+<br>
+<a href="202_buscar_osc_<?php echo escape($vers);?>.php">Buscar otra OSC p/ Agregar o Actualizar datos</a>
+<br>
+<br>
 <a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <?php
 require "../templates/footer_osc.php"; 
