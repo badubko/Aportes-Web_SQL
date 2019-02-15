@@ -19,9 +19,12 @@ if (isset($_POST['submit'])) {
 				FROM    us1_us2
 				WHERE
 				apellido LIKE :apellido AND (estado !='Be_baja' AND estado != 'ND_Temp' ) AND (rol='VC' OR rol='DC')
-				AND ( dni != :dc_tit_ant) AND ( dni != :dc_supl_ant) 
+				AND ( dni != :dc_tit_ant) AND ( dni != :dc_supl_ant) AND ( dni != '1' ) AND (dni !='2' )
 				ORDER BY apellido;" ;
-
+        
+        $dc_tit_fict=1;
+        $dc_supl_fict=2;
+        
 		$apellido = $_POST['apellido'];
         $dc_tit_ant = $_GET['dc_tit_ant'];
         $dc_supl_ant = $_GET['dc_supl_ant'];
