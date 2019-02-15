@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 				FROM    us1_us2
 				WHERE
 				apellido LIKE :apellido AND (estado !='Be_baja' AND estado != 'ND_Temp' ) AND (rol='VC' OR rol='DC')
-				AND ( dni != :dc_tit_ant) AND ( dni != :dc_supl_ant) AND ( dni != '1' ) AND (dni !='2' )
+				AND ( dni != :dc_tit_ant) AND ( dni != :dc_supl_ant) AND ( dni != :dc_tit_fict ) AND (dni != :dc_supl_fict )
 				ORDER BY apellido;" ;
         
         $dc_tit_fict=1;
@@ -32,6 +32,8 @@ if (isset($_POST['submit'])) {
 		$statement->bindParam(':apellido', $apellido, PDO::PARAM_STR);
 		$statement->bindParam(':dc_tit_ant', $dc_tit_ant, PDO::PARAM_STR);
 		$statement->bindParam(':dc_supl_ant', $dc_supl_ant, PDO::PARAM_STR);
+		$statement->bindParam(':dc_tit_fict', $dc_tit_fict, PDO::PARAM_STR);
+		$statement->bindParam(':dc_supl_fict', $dc_supl_fict, PDO::PARAM_STR);
 		$statement->execute();
 
 		$result = $statement->fetchAll();
