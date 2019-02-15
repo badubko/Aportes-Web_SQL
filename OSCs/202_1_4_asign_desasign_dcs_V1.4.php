@@ -126,7 +126,7 @@ Esto es HORRIBLEEEE... pero.... "funciona"
 				&dni=2
 				&rol_dc=Suplente
 				&osc_f_titular=<?php echo escape($row["osc_f_supl"]); ?>
-				">Desasignar Titular</a></td>
+				">Desasignar Suplente</a></td>
 														<?php } 
 			else{  ?>
 				<td> <a>--N/A--</a></td>
