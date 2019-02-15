@@ -9,6 +9,12 @@
 
 date_default_timezone_set('America/Argentina/Buenos_Aires');
 
+
+// Estos son los dnis de los DCs ficticios que significan "NO Asignado"
+$dc_tit_fict=1;
+$dc_supl_fict=2;
+
+
 $vers        = "V1.4";
 $host       = "localhost";
 $username   = "root";

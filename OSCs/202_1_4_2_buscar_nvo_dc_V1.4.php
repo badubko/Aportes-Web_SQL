@@ -22,8 +22,8 @@ if (isset($_POST['submit'])) {
 				AND ( dni != :dc_tit_ant) AND ( dni != :dc_supl_ant) AND ( dni != :dc_tit_fict ) AND (dni != :dc_supl_fict )
 				ORDER BY apellido;" ;
         
-        $dc_tit_fict=1;
-        $dc_supl_fict=2;
+//        $dc_tit_fict=1;
+//        $dc_supl_fict=2;
         
 		$apellido = $_POST['apellido'];
         $dc_tit_ant = $_GET['dc_tit_ant'];
@@ -48,8 +48,9 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['submit'])) {
 	if ($result && $statement->rowCount() > 0) { ?>
 		<h3>Buscar DC por apellido</h3>
-		<h3>para ASIGNAR a OSC: <?php echo escape($_GET['osc_nombre']); ?> como: DC <?php echo escape($_GET['rol_dc']); ?> </h3>
+		<h3>para ASIGNAR a OSC: <?php echo escape($_GET['osc_nombre']); ?> como NUEVO: DC <?php echo escape($_GET['rol_dc']); ?> </h3>
 		<h3>Resultados para rol = DC o VC y estado != De_Baja y != ND_Temp </h3>
+		<h3>(Excluye a los DCs/VCs asignados a esa OSC)</h3>
 <!--
 		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 -->
