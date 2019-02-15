@@ -95,6 +95,8 @@ Esto es HORRIBLEEEE... pero.... "funciona"
 		<?php if(  ($row["dni"] != 1 ) AND  ($row["dni"] != 2)) { ?>	
 				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
 				&dni=1
+				&apellido=<?php echo escape($row["apellido"]); ?>
+				&nombres=<?php echo escape($row["nombres"]); ?>
 				&rol_dc=Titular
 				&osc_f_titular=<?php echo escape($row["osc_f_titular"]); ?>
 				">Desasignar Titular</a></td>
@@ -104,9 +106,9 @@ Esto es HORRIBLEEEE... pero.... "funciona"
 		<?php } ?>
 
         <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-        &rol_dc=Titular
-        &dc_tit_ant=<?php echo escape($row["dni"]); ?>
-        &dc_supl_ant=<?php echo escape($dc_supl_ant); ?>
+		&rol_dc=Titular
+		&dc_tit_ant=<?php echo escape($row["dni"]); ?>
+		&dc_supl_ant=<?php echo escape($dc_supl_ant); ?>
         ">Nuevo DC Titular</a></td>
         
        </tr>
@@ -124,6 +126,8 @@ Esto es HORRIBLEEEE... pero.... "funciona"
 				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php
 				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
 				&dni=2
+				&apellido=<?php echo escape($row["apellido"]); ?>
+				&nombres=<?php echo escape($row["nombres"]); ?>
 				&rol_dc=Suplente
 				&osc_f_titular=<?php echo escape($row["osc_f_supl"]); ?>
 				">Desasignar Suplente</a></td>
@@ -133,9 +137,9 @@ Esto es HORRIBLEEEE... pero.... "funciona"
 			<?php } ?>
         
         <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-        &rol_dc=Suplente
-        &dc_tit_ant=<?php echo escape($dc_tit_ant); ?>
-        &dc_supl_ant=<?php echo escape($row["dni"]); ?>
+		&rol_dc=Suplente
+		&dc_tit_ant=<?php echo escape($dc_tit_ant); ?>
+		&dc_supl_ant=<?php echo escape($row["dni"]); ?>
         ">Nuevo DC Suplente</a></td>
       </tr>
     <?php endforeach; ?>
