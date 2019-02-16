@@ -84,10 +84,15 @@ table, th, td {
 
 				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php
 				?osc_nombre=<?php echo escape($_GET['osc_nombre']); ?>
-				&dni=<?php echo escape($row["dni"]); ?>
-				&apellido=<?php echo escape($row["apellido"]); ?>
-				&nombres=<?php echo escape($row["nombres"]); ?>
+				&dni_ant=<?php echo escape($_GET['dni_ant']); ?>
+				&apellido_ant=<?php echo escape($_GET['apellido_ant']); ?>
+				&nombres_ant=<?php echo escape($_GET['nombres_ant']); ?>
+				&dni_nvo=<?php echo escape($row["dni"]); ?>
+				&apellido_nvo=<?php echo escape($row["apellido"]); ?>
+				&nombres_nvo=<?php echo escape($row["nombres"]); ?>
 				&rol_dc=<?php echo escape($_GET['rol_dc']); ?>
+				
+				
 				">P/Asignar</a></td>
 	
 			</tr>
