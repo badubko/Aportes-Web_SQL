@@ -94,9 +94,13 @@ Esto es HORRIBLEEEE... pero.... "funciona"
         
 		<?php if(  ($row["dni"] != 1 ) AND  ($row["dni"] != 2)) { ?>	
 				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-				&dni=1
+				&dni_ant=<?php echo escape($row["dni"]); ?>
+				&apellido_ant=<?php echo escape($row["apellido"]); ?>
+				&nombres_ant=<?php echo escape($row["nombres"]); ?>
+				&dni_nvo=<?php echo escape($dc_tit_fict); ?>
+				&apellido_nvo=Titular
+				&nombres_nvo=No Asignado
 				&rol_dc=Titular
-				&osc_f_titular=<?php echo escape($row["osc_f_titular"]); ?>
 				">Desasignar Titular</a></td>
 															<?php } 
 			else{  ?>
@@ -104,9 +108,10 @@ Esto es HORRIBLEEEE... pero.... "funciona"
 		<?php } ?>
 
         <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-        &rol_dc=Titular
-        &dc_tit_ant=<?php echo escape($row["dni"]); ?>
-        &dc_supl_ant=<?php echo escape($dc_supl_ant); ?>
+		&dni_ant=<?php echo escape($row["dni"]); ?>
+		&apellido_ant=<?php echo escape($row["apellido"]); ?>
+		&nombres_ant=<?php echo escape($row["nombres"]); ?>
+		&rol_dc=Titular
         ">Nuevo DC Titular</a></td>
         
        </tr>
@@ -123,20 +128,25 @@ Esto es HORRIBLEEEE... pero.... "funciona"
         <?php if(  ($row["dni"] != 1 ) AND  ($row["dni"] != 2)) { ?>	
 				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php
 				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-				&dni=2
+				&dni_ant=<?php echo escape($row["dni"]); ?>
+				&apellido_ant=<?php echo escape($row["apellido"]); ?>
+				&nombres_ant=<?php echo escape($row["nombres"]); ?>
+				&dni_nvo=<?php echo escape($dc_supl_fict); ?>
+				&apellido_nvo=Suplente
+				&nombres_nvo='No Asignado'
 				&rol_dc=Suplente
-				&osc_f_titular=<?php echo escape($row["osc_f_supl"]); ?>
-				">Desasignar Titular</a></td>
+				">Desasignar Suplente</a></td>
 														<?php } 
 			else{  ?>
 				<td> <a>--N/A--</a></td>
 			<?php } ?>
         
         <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-        &rol_dc=Suplente
-        &dc_tit_ant=<?php echo escape($dc_tit_ant); ?>
-        &dc_supl_ant=<?php echo escape($row["dni"]); ?>
-        ">Nuevo DC Suplente</a></td>
+		&dni_ant=<?php echo escape($row["dni"]); ?>
+		&apellido_ant=<?php echo escape($row["apellido"]); ?>
+		&nombres_ant=<?php echo escape($row["nombres"]); ?>
+		&rol_dc=Suplente
+		">Nuevo DC Suplente</a></td>
       </tr>
     <?php endforeach; ?>
     
