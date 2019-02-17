@@ -26,10 +26,10 @@ if (isset($_POST['submit'])) {
 //        $dc_supl_fict=2;
         
 		$apellido = $_POST['apellido'];
-//		$dni_tit_ant=$_GET['dni_tit_ant'];
-//		$dni_supl_ant=$_GET['dni_supl_ant'];
-		$dni_tit_ant=1000207;
-		$dni_supl_ant=2;        
+		$dni_tit_ant=$_GET['dni_tit_ant'];
+		$dni_supl_ant=$_GET['dni_supl_ant'];
+//		$dni_tit_ant=1000207;
+//		$dni_supl_ant=2;        
         echo $apellido,", ",$dni_tit_ant,", ",$dni_supl_ant,", ",$dni_tit_fict,", ",$dni_supl_fict,"<br>";
 		
 		$statement = $connection->prepare($sql);
@@ -65,6 +65,7 @@ table, th, td {
   border: 1px solid black;
 }
 </style>
+
 		<table>
 			<thead>
 				<tr>
@@ -142,16 +143,17 @@ exit;
 		
 <h3>Buscar DC por apellido</h3>
 <h3>para ASIGNAR a OSC: <?php echo escape($_GET['osc_nombre']); ?> como: DC <?php echo escape($_GET['rol_dc']); ?> </h3>
+<?php
+        //$dni_tit_ant=$_GET['dni_tit_ant'];
+        //$dni_supl_ant=$_GET['dni_supl_ant'];
+        //echo $dni_tit_ant,", ",$dni_supl_ant,"<br>";
+        
+?>
 
 
 
 <form method="post">
-	<?php
-        $dni_tit_ant=$_GET['dni_tit_ant'];
-        $dni_supl_ant=$_GET['dni_supl_ant'];
-        echo $dni_tit_ant,", ",$dni_supl_ant,"<br>";
-?>
-
+	
 	
 	
 	<label for="apellido">Apellido (A%  %A%  %)</label>
