@@ -22,15 +22,13 @@ if (isset($_POST['submit'])) {
 				AND ( dni != :dni_tit_ant) AND ( dni != :dni_supl_ant) AND ( dni != :dni_tit_fict ) AND (dni != :dni_supl_fict )
 				ORDER BY apellido;" ;
         
-//        $dc_tit_fict=1;
-//        $dc_supl_fict=2;
+
         
 		$apellido = $_POST['apellido'];
 		$dni_tit_ant=$_GET['dni_tit_ant'];
 		$dni_supl_ant=$_GET['dni_supl_ant'];
-//		$dni_tit_ant=1000207;
-//		$dni_supl_ant=2;        
-        echo $apellido,", ",$dni_tit_ant,", ",$dni_supl_ant,", ",$dni_tit_fict,", ",$dni_supl_fict,"<br>";
+
+ //       echo $apellido,", ",$dni_tit_ant,", ",$dni_supl_ant,", ",$dni_tit_fict,", ",$dni_supl_fict,"<br>";
 		
 		$statement = $connection->prepare($sql);
 		
@@ -79,7 +77,7 @@ table, th, td {
 				</tr>
 			</thead>
 			<tbody>
-	<?php foreach ($result as $row) { ?>
+	<?php foreach ($result as $row): { ?>
 			<tr>
 				<td><?php echo escape($row["dni"]); ?></td>
 				<td><?php echo escape($row["apellido"]); ?></td>
@@ -97,13 +95,18 @@ table, th, td {
 					&dni_ant=<?php echo escape($_GET['dni_tit_ant']); ?>
 					&ap_ant=<?php echo escape($_GET['ap_tit_ant']); ?>
 					&nom_ant=<?php echo escape($_GET['nom_tit_ant']); ?>
+					
 				
-				<?php case 'Suplente':?>
+				<?php
+				 break;
+				 case 'Suplente':?>
 					&dni_ant=<?php echo escape($_GET['dni_supl_ant']); ?>
 					&ap_ant=<?php echo escape($_GET['ap_supl_ant']); ?>
 					&nom_ant=<?php echo escape($_GET['nom_supl_ant']); ?>
 				
-				<?php }	
+				<?php
+				  break;
+				   }	
 				 ?> 
 				
 				&dni_nvo=<?php echo escape($row["dni"]); ?>
@@ -115,7 +118,8 @@ table, th, td {
 				">P/Asignar</a></td>
 	
 			</tr>
-		<?php } ?> 
+		<?php } 
+		endforeach;?> 
 			</tbody>
 	</table><br><br>
 	
@@ -153,9 +157,7 @@ exit;
 
 
 <form method="post">
-	
-	
-	
+
 	<label for="apellido">Apellido (A%  %A%  %)</label>
 	<input type="text" id="apellido" name="apellido">
 	<input type="submit" name="submit" value="Buscar">
