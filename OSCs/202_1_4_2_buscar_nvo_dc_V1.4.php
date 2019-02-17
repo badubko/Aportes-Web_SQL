@@ -26,9 +26,10 @@ if (isset($_POST['submit'])) {
 //        $dc_supl_fict=2;
         
 		$apellido = $_POST['apellido'];
-		$dni_tit_ant=$_GET['dni_tit_ant'];
-		$dni_supl_ant=$_GET['dni_supl_ant'];
-        
+//		$dni_tit_ant=$_GET['dni_tit_ant'];
+//		$dni_supl_ant=$_GET['dni_supl_ant'];
+		$dni_tit_ant=1000207;
+		$dni_supl_ant=2;        
         echo $apellido,", ",$dni_tit_ant,", ",$dni_supl_ant,", ",$dni_tit_fict,", ",$dni_supl_fict,"<br>";
 		
 		$statement = $connection->prepare($sql);
