@@ -63,7 +63,7 @@ table, th, td {
 
   <thead>
     <tr>
-      <th>OSC</th>
+      <th>DNI</th>
       <th>Rol</th>
       <th>Apellido</th>
       <th>Nombres</th>
@@ -72,8 +72,24 @@ table, th, td {
   </thead> 
     <tbody>
     
-    <?php foreach ($result_supl as $row) : 
-	$dc_supl_ant=$row["dni"];
+    <?php 
+    // Hay una sola fila para titular y suplente...
+    // Hacemos esto de antemano para luego tener todos los valores
+    // para cada fila en la tabla
+        
+    foreach ($result_tit as $row_tit) : 
+	$dni_tit_ant=$row_tit["dni"];
+	$ap_tit_ant=$row_tit["apellido"];
+	$nom_tit_ant=$row_tit["nombres"];
+	$f_tit_ant=$row_tit["osc_f_titular"];
+	endforeach;
+	
+    foreach ($result_supl as $row_supl) : 
+	$dni_supl_ant=$row_supl["dni"];
+	$ap_supl_ant=$row_supl["apellido"];
+	$nom_supl_ant=$row_supl["nombres"];
+	$f_supl_ant=$row_supl["osc_f_supl"];
+	
 	endforeach;	
     
     ?>
@@ -82,58 +98,75 @@ table, th, td {
 Esto es HORRIBLEEEE... pero.... "funciona"
 -->
     
-    <?php foreach ($result_tit as $row) : 
-    $dc_tit_ant=$row["dni"];?>
+
       <tr>
-        <td><?php echo escape($row["osc_nombre"]); ?></td>
+        <td><?php echo escape($dni_tit_ant); ?></td>
         <td>Tit</td>
-        <td><?php echo escape($row["apellido"]); ?></td>
-        <td><?php echo escape($row["nombres"]); ?></td>
-        <td><?php echo escape($row["osc_f_titular"]); ?></td>
+        <td><?php echo escape($ap_tit_ant); ?></td>
+        <td><?php echo escape($nom_tit_ant); ?></td>
+        <td><?php echo escape($f_tit_ant); ?></td>
         
         
-		<?php if(  ($row["dni"] != 1 ) AND  ($row["dni"] != 2)) { ?>	
-				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-				&dni_ant=<?php echo escape($row["dni"]); ?>
-				&apellido_ant=<?php echo escape($row["apellido"]); ?>
-				&nombres_ant=<?php echo escape($row["nombres"]); ?>
-				&dni_nvo=<?php echo escape($dc_tit_fict); ?>
-				&apellido_nvo=Titular
-				&nombres_nvo=No Asignado
+		<?php if(  ($row_tit["dni"] != 1 ) AND  ($row_tit["dni"] != 2)) { ?>	
+				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row_tit["osc_nombre"]); ?>
+				&dni_ant=<?php echo escape($dni_tit_ant); ?>
+				&ap_ant=<?php echo escape($ap_tit_ant); ?>
+				&nom_ant=<?php echo escape($nom_tit_ant); ?>
+
+				&dni_nvo=<?php echo escape($dni_tit_fict); ?>
+				&ap_nvo=<?php echo escape($ap_tit_fict); ?>
+				&nom_nvo=<?php echo escape($nom_supl_fict); ?>
+
 				&rol_dc=Titular
 				">Desasignar Titular</a></td>
 															<?php } 
 			else{  ?>
 				<td> <a>--N/A--</a></td>
 		<?php } ?>
+  
+<!--
+        Pasamos todos estos datos para:
+        En buscar: poder filtrar al DC titular y suplente de la busqueda
+				   Eso es: no se puede asignar al mismo DC como tit o supl de si mismo.
+		En asignar: Para poder pasarle estos valores
+		Los valores de dni apellido y nombres de los DCs ficticios vienen 
+		definidos en el config_ap_VX.X.php
+-->
+  
+        <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row_tit["osc_nombre"]); ?>
 
-        <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-		&dni_ant=<?php echo escape($row["dni"]); ?>
-		&apellido_ant=<?php echo escape($row["apellido"]); ?>
-		&nombres_ant=<?php echo escape($row["nombres"]); ?>
+		&dni_tit_ant=<?php echo escape($dni_tit_ant); ?>
+		&ap_tit_ant=<?php echo escape($ap_tit_ant); ?>
+		&nom_tit_ant=<?php echo escape($nom_tit_ant); ?>
+
+		&dni_supl_ant=<?php echo escape($dni_supl_ant); ?>
+		&ap_supl_ant=<?php echo escape($ap_supl_ant); ?>
+		&nom_supl_ant=<?php echo escape($nom_supl_ant); ?>
 		&rol_dc=Titular
         ">Nuevo DC Titular</a></td>
         
        </tr>
-    <?php endforeach; ?>
+   
     
-     <?php foreach ($result_supl as $row) : ?>
+
       <tr>
-        <td><?php echo escape($row["osc_nombre"]); ?></td>
+		<td><?php echo escape($dni_supl_ant); ?></td>
         <td>Supl</td>
-        <td><?php echo escape($row["apellido"]); ?></td>
-        <td><?php echo escape($row["nombres"]); ?></td>
-        <td><?php echo escape($row["osc_f_supl"]); ?></td>
+        <td><?php echo escape($ap_supl_ant); ?></td>
+        <td><?php echo escape($nom_supl_ant); ?></td>
+        <td><?php echo escape($f_supl_ant); ?></td>
         
-        <?php if(  ($row["dni"] != 1 ) AND  ($row["dni"] != 2)) { ?>	
+        <?php if(  ($row_supl["dni"] != 1 ) AND  ($row_supl["dni"] != 2)) { ?>	
 				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php
-				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-				&dni_ant=<?php echo escape($row["dni"]); ?>
-				&apellido_ant=<?php echo escape($row["apellido"]); ?>
-				&nombres_ant=<?php echo escape($row["nombres"]); ?>
-				&dni_nvo=<?php echo escape($dc_supl_fict); ?>
-				&apellido_nvo=Suplente
-				&nombres_nvo='No Asignado'
+				?osc_nombre=<?php echo escape($row_supl["osc_nombre"]); ?>
+				&dni_ant=<?php echo escape($dni_supl_ant); ?>
+				&ap_ant=<?php echo escape($ap_supl_ant); ?>
+				&nom_ant=<?php echo escape($nom_supl_ant); ?>
+				
+				&dni_nvo=<?php echo escape($dni_supl_fict); ?>
+				&ap_nvo=<?php echo escape($ap_supl_fict); ?>
+				&nom_nvo=<?php echo escape($nom_supl_fict); ?>
+				
 				&rol_dc=Suplente
 				">Desasignar Suplente</a></td>
 														<?php } 
@@ -141,14 +174,19 @@ Esto es HORRIBLEEEE... pero.... "funciona"
 				<td> <a>--N/A--</a></td>
 			<?php } ?>
         
-        <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-		&dni_ant=<?php echo escape($row["dni"]); ?>
-		&apellido_ant=<?php echo escape($row["apellido"]); ?>
-		&nombres_ant=<?php echo escape($row["nombres"]); ?>
+        <td><a href="202_1_4_2_buscar_nvo_dc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row_supl["osc_nombre"]); ?>
+		&dni_tit_ant=<?php echo escape($dni_tit_ant); ?>
+		&ap_tit_ant=<?php echo escape($ap_tit_ant); ?>
+		&nom_tit_ant=<?php echo escape($nom_tit_ant); ?>
+
+		&dni_supl_ant=<?php echo escape($dni_supl_ant); ?>
+		&ap_supl_ant=<?php echo escape($ap_supl_ant); ?>
+		&nom_supl_ant=<?php echo escape($nom_supl_ant); ?>
+		
 		&rol_dc=Suplente
 		">Nuevo DC Suplente</a></td>
       </tr>
-    <?php endforeach; ?>
+
     
     
     </tbody>

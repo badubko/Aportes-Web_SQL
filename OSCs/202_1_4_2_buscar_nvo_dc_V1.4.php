@@ -19,23 +19,27 @@ if (isset($_POST['submit'])) {
 				FROM    us1_us2
 				WHERE
 				apellido LIKE :apellido AND (estado !='Be_baja' AND estado != 'ND_Temp' ) AND (rol='VC' OR rol='DC')
-				AND ( dni != :dc_tit_ant) AND ( dni != :dc_supl_ant) AND ( dni != :dc_tit_fict ) AND (dni != :dc_supl_fict )
+				AND ( dni != :dni_tit_ant) AND ( dni != :dni_supl_ant) AND ( dni != :dni_tit_fict ) AND (dni != :dni_supl_fict )
 				ORDER BY apellido;" ;
         
-//        $dc_tit_fict=1;
-//        $dc_supl_fict=2;
+
         
 		$apellido = $_POST['apellido'];
-        $dc_tit_ant = $_GET['dc_tit_ant'];
-        $dc_supl_ant = $_GET['dc_supl_ant'];
-		$statement = $connection->prepare($sql);
-		$statement->bindParam(':apellido', $apellido, PDO::PARAM_STR);
-		$statement->bindParam(':dc_tit_ant', $dc_tit_ant, PDO::PARAM_STR);
-		$statement->bindParam(':dc_supl_ant', $dc_supl_ant, PDO::PARAM_STR);
-		$statement->bindParam(':dc_tit_fict', $dc_tit_fict, PDO::PARAM_STR);
-		$statement->bindParam(':dc_supl_fict', $dc_supl_fict, PDO::PARAM_STR);
-		$statement->execute();
+		$dni_tit_ant=$_GET['dni_tit_ant'];
+		$dni_supl_ant=$_GET['dni_supl_ant'];
 
+ //       echo $apellido,", ",$dni_tit_ant,", ",$dni_supl_ant,", ",$dni_tit_fict,", ",$dni_supl_fict,"<br>";
+		
+		$statement = $connection->prepare($sql);
+		
+		$statement->bindParam(':apellido', $apellido, PDO::PARAM_STR);
+		$statement->bindParam(':dni_tit_ant', $dni_tit_ant, PDO::PARAM_STR);
+		$statement->bindParam(':dni_supl_ant', $dni_supl_ant, PDO::PARAM_STR);
+		$statement->bindParam(':dni_tit_fict', $dni_tit_fict, PDO::PARAM_STR);
+		$statement->bindParam(':dni_supl_fict', $dni_supl_fict, PDO::PARAM_STR);
+		$statement->execute();
+        
+        
 		$result = $statement->fetchAll();
 	} catch(PDOException $error) {
 		echo $sql . "<br>" . $error->getMessage();
@@ -59,6 +63,7 @@ table, th, td {
   border: 1px solid black;
 }
 </style>
+
 		<table>
 			<thead>
 				<tr>
@@ -72,7 +77,7 @@ table, th, td {
 				</tr>
 			</thead>
 			<tbody>
-	<?php foreach ($result as $row) { ?>
+	<?php foreach ($result as $row): { ?>
 			<tr>
 				<td><?php echo escape($row["dni"]); ?></td>
 				<td><?php echo escape($row["apellido"]); ?></td>
@@ -81,22 +86,40 @@ table, th, td {
 				<td><?php echo escape($row["tel_1"]); ?></td>
 				<td><?php echo escape($row["email_1"]); ?></td>
 
-
 				<td><a href="202_1_4_2_1_asigna_dc_<?php echo escape($vers);?>.php
 				?osc_nombre=<?php echo escape($_GET['osc_nombre']); ?>
-				&dni_ant=<?php echo escape($_GET['dni_ant']); ?>
-				&apellido_ant=<?php echo escape($_GET['apellido_ant']); ?>
-				&nombres_ant=<?php echo escape($_GET['nombres_ant']); ?>
+				
+				<?php switch ($_GET['rol_dc']) {
+				case 'Titular':?>
+							
+					&dni_ant=<?php echo escape($_GET['dni_tit_ant']); ?>
+					&ap_ant=<?php echo escape($_GET['ap_tit_ant']); ?>
+					&nom_ant=<?php echo escape($_GET['nom_tit_ant']); ?>
+					
+				
+				<?php
+				 break;
+				 case 'Suplente':?>
+					&dni_ant=<?php echo escape($_GET['dni_supl_ant']); ?>
+					&ap_ant=<?php echo escape($_GET['ap_supl_ant']); ?>
+					&nom_ant=<?php echo escape($_GET['nom_supl_ant']); ?>
+				
+				<?php
+				  break;
+				   }	
+				 ?> 
+				
 				&dni_nvo=<?php echo escape($row["dni"]); ?>
-				&apellido_nvo=<?php echo escape($row["apellido"]); ?>
-				&nombres_nvo=<?php echo escape($row["nombres"]); ?>
+				&ap_nvo=<?php echo escape($row["apellido"]); ?>
+				&nom_nvo=<?php echo escape($row["nombres"]); ?>
+				
+				
 				&rol_dc=<?php echo escape($_GET['rol_dc']); ?>
-				
-				
 				">P/Asignar</a></td>
 	
 			</tr>
-		<?php } ?> 
+		<?php } 
+		endforeach;?> 
 			</tbody>
 	</table><br><br>
 	
@@ -124,13 +147,21 @@ exit;
 		
 <h3>Buscar DC por apellido</h3>
 <h3>para ASIGNAR a OSC: <?php echo escape($_GET['osc_nombre']); ?> como: DC <?php echo escape($_GET['rol_dc']); ?> </h3>
+<?php
+        //$dni_tit_ant=$_GET['dni_tit_ant'];
+        //$dni_supl_ant=$_GET['dni_supl_ant'];
+        //echo $dni_tit_ant,", ",$dni_supl_ant,"<br>";
+        
+?>
+
+
 
 <form method="post">
+
 	<label for="apellido">Apellido (A%  %A%  %)</label>
 	<input type="text" id="apellido" name="apellido">
 	<input type="submit" name="submit" value="Buscar">
 </form>
-
 
 
 <a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
