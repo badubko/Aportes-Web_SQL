@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
                 implode(", ", array_keys($new_user2)),
                 ":" . implode(", :", array_keys($new_user2))
         );
-
+        $error="";
         $statement = $connection->prepare($sql2);
         $statement->execute($new_user2);
 	

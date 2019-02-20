@@ -6,12 +6,12 @@ require "../common_ap_V1.4.php";
 if (isset($_POST['submit'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
-
-		if ( $osc_rol_dc = 'Titular') {
+//        echo $_GET['rol_dc'] , "<br> " ;
+		if ( $_GET['rol_dc'] == 'Titular') {
 			$osc =[
 			  "osc_nombre"      		=> $_GET['osc_nombre'],   
 			  "osc_dc_tit"  			=> $_GET['dni_nvo'],
-			  "osc_f_titular" 				=> $_POST['osc_f_titular'],
+			  "osc_f_titular" 				=> $_POST['osc_f_titular']
 					];
 			$sql = "UPDATE t_osc
 					SET osc_nombre = :osc_nombre,
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 			  $osc =[
 			  "osc_nombre"      		=> $_GET['osc_nombre'],   
 			  "osc_dc_supl"  			=> $_GET['dni_nvo'],
-			  "osc_f_supl" 				=> $_POST['osc_f_supl'],
+			  "osc_f_supl" 				=> $_POST['osc_f_supl']
 					];
 			$sql = "UPDATE t_osc
 					SET osc_nombre = :osc_nombre,
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
    //$nombres = $_POST['nombres'];
     
 
- 
+  $error="";
   $statement = $connection->prepare($sql);
   $statement->execute($osc);
   
@@ -89,7 +89,9 @@ table, th, td {
 <?php
 // Si es asignacion
 
-if ( $dni_nvo != 1 AND $dni_nvo !=2 ) { ?>
+if ( $dni_nvo != 1 AND $dni_nvo !=2 ) { 
+//	echo $dni_nvo , " rol ", $rol_dc , "<br>"
+	?>
 	
 <h3>Asignar nueva/o DC <?php echo escape($rol_dc) ; ?> a la OSC: <?php echo escape($osc_nombre) ; ?></h3>
 <?php } 
@@ -137,6 +139,7 @@ else
 	<?php
 				break;
 			case 'Suplente':
+//	        echo "Es Suplente <br>"
 	?>
 				<label for="osc_f_supl">Fecha Cambio Supl</label>
 				<input type="text" name="osc_f_supl" id="osc_f_supl" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>
