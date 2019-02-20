@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 				WHERE
 				apellido LIKE :apellido AND (estado !='Be_baja' AND estado != 'ND_Temp' ) AND (rol='VC' OR rol='DC')
 				AND ( dni != :dni_tit_ant) AND ( dni != :dni_supl_ant) AND ( dni != :dni_tit_fict ) AND (dni != :dni_supl_fict )
-				ORDER BY apellido;" ;
+				ORDER BY rol , apellido;" ;
         
 
         
