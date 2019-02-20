@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 		$connection = new PDO($dsn, $username, $password, $options);
 
 		$sql = "SELECT dni , apellido  , nombres , email_1 , estado,tel_1	FROM us1_us2
-						WHERE rol = 'Vol' 
+						WHERE (rol = 'Vol'  OR rol = 'VC' )
 						and (estado='Disponible' OR estado='Asignado' OR estado = 'Con_Restricc' OR estado= 'Puntual'  )
 						and dni 
 						IN (SELECT dni from t_especialidad_user 
