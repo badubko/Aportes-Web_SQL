@@ -18,8 +18,11 @@ $rol_dc=$_GET['rol_dc'];
 
 ?>
 
-<?php require "../templates/header_osc.php";?>        
-<h3>Asignar nuevo DCs <?php echo escape($rol_dc) ; ?> a la OSC: <?php echo escape($osc_nombre) ; ?></h3>
+<?php require "../templates/header_osc.php";?> 
+
+
+       
+
 
 <style>
 table, th, td {
@@ -27,8 +30,20 @@ table, th, td {
 }
 </style>
 
-<table>
+<?php
+// Si no es desasignacion
 
+if ( $dni_nvo != 1 AND $dni_nvo !=2 ) { ?>
+	
+<h3>Asignar nueva/o DC <?php echo escape($rol_dc) ; ?> a la OSC: <?php echo escape($osc_nombre) ; ?></h3>
+<?php } 
+else 
+      {?>
+<h3>Desasignar DCs <?php echo escape($rol_dc) ; ?> de la OSC: <?php echo escape($osc_nombre) ; ?></h3>
+
+<?php } ?>
+
+<table>
   <thead>
     <tr>
 	<th>Status</th>	
@@ -49,7 +64,7 @@ table, th, td {
 
       </tr>
       <tr>
-		<td>DC Nuevo</td>    
+		<td>DC Nueva/o</td>    
         <td><?php echo escape($dni_nvo); ?></td>
         <td><?php echo escape($ap_nvo); ?></td>
         <td><?php echo escape($nom_nvo); ?></td>
@@ -61,21 +76,21 @@ table, th, td {
 
 	<?php 	switch ($_GET['rol_dc']) {
 			case 'Titular':?>
-			<label for="osc_f_titular">Fecha Asignacion Tit</label>
-			<input type="text" name="osc_f_titular" id="osc_f_titular" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>
+				<label for="osc_f_titular">Fecha Cambio Tit</label>
+				<input type="text" name="osc_f_titular" id="osc_f_titular" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>
 	<?php
 				break;
 			case 'Suplente':
 	?>
-			<label for="osc_f_supl">Fecha Asignacion Supl</label>
-			<input type="text" name="osc_f_supl" id="osc_f_supl" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>
+				<label for="osc_f_supl">Fecha Cambio Supl</label>
+				<input type="text" name="osc_f_supl" id="osc_f_supl" value= "<?php echo escape(date("Y-m-d")); ?>">	<br>
 	
 	<?php
 				break;
 				   }	
 	?> 			 
 				 		
-	<label for="osc_comentarios_dc">Comentario sobre asignacion<br></label>
+	<label for="osc_comentarios_dc">Comentario sobre este cambio<br></label>
 		<input type="text" name="osc_comentarios_dc" id="osc_comentarios_dc">
 	<input type="submit" name="submit" value="Confirmar">
 
