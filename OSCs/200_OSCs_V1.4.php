@@ -10,6 +10,7 @@ require "../common_ap_V1.4.php";
 	<ul>
 		<li><a href="201_alta_osc_<?php echo escape($vers);?>.php"><strong>Alta OSC</strong></a> - Alta OSC</li>
 		<li><a href="202_buscar_osc_<?php echo escape($vers);?>.php"><strong>Buscar OSC p/Actualizar</strong></a> - Buscar OSC p/ Agregar o Actualizar datos</li><br>
+		<li><a href="203_buscar_dcs_<?php echo escape($vers);?>.php"><strong>Buscar DCs p/ver sus OSCs</strong></a> - Buscar DCs p/ ver sus OSCs </li><br>
 		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 		
 <!--
