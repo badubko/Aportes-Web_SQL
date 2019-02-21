@@ -77,9 +77,11 @@ table, th, td {
 				<td><?php echo escape($row["tel_1"]); ?></td>
 				<td><?php echo escape($row["email_1"]); ?></td>
 
-				<td><a href="203_1_lista_osc_x_dc_<?php echo escape($vers);?>.php
-				?dni_dc=<?php echo escape($row["dni"]); ?>
-
+				<td><a href="203_1_lista_oscs_x_dc_<?php echo escape($vers);?>.php
+				?dni_dc=<?php echo escape($row["dni"]);?>
+				&apellido=<?php echo escape($row["apellido"]);?>
+				&nombres=<?php echo escape($row["nombres"]);?>
+				&rol=<?php echo escape($row["rol"]);?>
 				">p/Ver OSCs</a></td>
 	
 			</tr>
