@@ -52,6 +52,74 @@ if (isset($_GET['osc_nombre'])) {
 }
 ?>
 
+
+<?php
+// Aca se actualizan los datos...
+
+if (isset($_POST['submit'])) {
+  try {
+//    $connection = new PDO($dsn, $username, $password, $options);
+    $upd_osc =[
+			"osc_nombre" 	=> $_POST['osc_nombre'],
+			"osc_calle_1" 	=> $_POST['osc_calle_1'],
+			"osc_num_1" 	=> $_POST['osc_num_1'],
+			"osc_ciudad_1" 	=> $_POST['osc_ciudad_1'],
+			"osc_cp_1" 		=> $_POST['osc_cp_1'],
+			"osc_prov_1" 	=> $_POST['osc_prov_1'],
+			
+			"osc_calle_2" 	=> $_POST['osc_calle_2'],
+			"osc_num_2" 	=> $_POST['osc_num_2'],
+			"osc_ciudad_2" 	=> $_POST['osc_ciudad_2'],
+			"osc_cp_2" 		=> $_POST['osc_cp_2'],
+			"osc_prov_2" 	=> $_POST['osc_prov_2'],
+			
+			"osc_pag_web" 	=> $_POST['osc_pag_web'],
+			"osc_acuerdo" 	=> $_POST['osc_acuerdo'],
+			"osc_notas" 	=> $_POST['osc_notas']
+			];
+
+    
+   //$apellido = $_POST['apellido'];
+   //$nombres = $_POST['nombres'];
+    
+    $sql2 = "UPDATE t_osc
+            SET  
+					osc_calle_1 = :osc_calle_1,
+    				osc_num_1 = :osc_num_1,
+    				osc_ciudad_1 = :osc_ciudad_1,
+    				osc_cp_1 = :osc_cp_1,
+    				osc_prov_1 = :osc_prov_1,
+    				
+    				osc_calle_2 = :osc_calle_2,
+    				osc_num_2 = :osc_num_2,
+    				osc_ciudad_2 = :osc_ciudad_2,
+    				osc_cp_2 = :osc_cp_2,
+    				osc_prov_2 = :osc_prov_2,
+    				
+    				osc_pag_web = :osc_pag_web,
+    				osc_acuerdo = :osc_acuerdo,
+    				osc_notas = :osc_notas
+             WHERE osc_nombre = :osc_nombre";
+             
+  $error="";
+  $statement = $connection->prepare($sql2);
+  $statement->execute($upd_osc);
+  
+  
+  } catch(PDOException $error) {
+      echo $sql2 . "<br>" . $error->getMessage();
+  }
+  
+if ( $statement && !$error) : ?>
+	<blockquote>
+	OSC: <?php echo escape($_GET['osc_nombre'])  ?> Fue actualizada OK. <br>
+	</blockquote>
+<?php endif;
+exit; 
+}
+
+?>
+
 <h3>Modificar datos de OSC <?php echo escape($_GET['osc_nombre'])?> </h3>
 
 <?php if ( $count != 0 ) { ?>
