@@ -329,6 +329,7 @@ CREATE TABLE t_osc_contactos (
 	osc_contacto_tel_fijo  	VARCHAR (20) NOT NULL DEFAULT "N/D",
 	osc_contacto_email 		VARCHAR(50) NOT NULL DEFAULT "N/D",
 	osc_contacto_posicion 	VARCHAR(64) NOT NULL DEFAULT "N/D",
+	osc_contacto_comentarios VARCHAR (512) NOT NULL DEFAULT "No hay comentarios",
 	osc_contacto_horario 	VARCHAR (256) NOT NULL DEFAULT "No hay detalle",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
