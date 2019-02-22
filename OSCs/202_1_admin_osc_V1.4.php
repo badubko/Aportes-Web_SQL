@@ -9,7 +9,9 @@ require "../config_ap_V1.4.php";
 require "../common_ap_V1.4.php";
 ?>
 
-<h3><?php echo "Administar datos de OSC: " , escape($_GET['osc_nombre']);  ?></h3>
+<h3>Administar datos de OSC: </h3>
+<h3><?php echo  escape($_GET['osc_nombre']);  ?></h3>
+
 	<ul>
 		
 		<li><a href="202_1_1_modif_datos_osc_<?php echo escape($vers);?>.php

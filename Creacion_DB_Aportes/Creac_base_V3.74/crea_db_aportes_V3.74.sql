@@ -331,6 +331,9 @@ CREATE TABLE t_osc_contactos (
 	osc_contacto_posicion 	VARCHAR(64) NOT NULL DEFAULT "N/D",
 	osc_contacto_horario 	VARCHAR (256) NOT NULL DEFAULT "No hay detalle",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	PRIMARY KEY (id_truch),
 	KEY 		idx_fk_osc_nombre (osc_nombre),
 	CONSTRAINT 		fk_osc_nombre FOREIGN KEY (osc_nombre) REFERENCES t_osc(osc_nombre) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de los contactos correspondientes a una OSC';

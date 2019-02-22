@@ -27,12 +27,19 @@ try {
   echo $sql . "<br>" . $error->getMessage();
 }
 ?>
-<?php require "../templates/header.php"; ?>
+<?php require "../templates/header_osc.php"; ?>
         
-<h2>Administrar contactos de la OSC:</h2>
-<h3><?php echo escape($osc_nombre) ; ?></h3>
+<h3>Administrar contactos de la OSC:</h3>
+<h3> <?php echo escape($osc_nombre) ; ?></h3>
 
 <?php if ( $count != 0 ) { ?>
+	
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
 
 <table>
 
@@ -53,11 +60,14 @@ try {
         <td><?php echo escape($row["osc_contacto_nombres"]); ?></td>
         <td><?php echo escape($row["osc_contacto_cel"]); ?></td>
         <td><?php echo escape($row["osc_contacto_posicion"]); ?></td>
+
+        <td><a href="202_1_2_2_1_modif_cont_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+		&id_truch=<?php echo escape($row["id_truch"]); ?>
+		">Modif Contacto</a></td>
         
-        <td><a href="202_1_3_2_1_elim_obj_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-        &osc_objetivo=<?php echo escape($row["osc_objetivo"]); ?>
-    
-        ">Eliminar Objetivo</a></td>
+       <td><a href="202_1_2_2_2_elim_cont_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+		&id_truch=<?php echo escape($row["id_truch"]); ?>
+		">Eliminar Contacto</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
@@ -65,14 +75,14 @@ try {
 
 <?php }
 else {
-	 echo "OSC: " , $osc_nombre ,  " --> No tiene objetivos listados" , "<br>" ;
+	 echo "OSC: " , $osc_nombre ,  " --> No tiene contactos listados" , "<br>" ;
 	} ?>
         <br>
-        <a href="202_1_3_1_1_agreg_obj_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($osc_nombre); ?>
-         ">Agregar Nuevo Objetivo</a>
+        <a href="202_1_2_1_agreg_cont_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($osc_nombre); ?>
+         ">Agregar Nuevo Contacto</a>
         <br>
         
-<a href="<?php $_PHP_SELF ?>">Listar Objetivos</a><br><br>
+<a href="<?php $_PHP_SELF ?>">Listar Contactos</a><br><br>
 <a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($osc_nombre); ?>
         ">Menu Administrar OSC</a><br> 
 <a href="../index_ap_V1.4.php">Back to home</a>

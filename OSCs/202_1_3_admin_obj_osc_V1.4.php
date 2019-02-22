@@ -25,9 +25,9 @@ try {
   echo $sql . "<br>" . $error->getMessage();
 }
 ?>
-<?php require "../templates/header.php"; ?>
+<?php require "../templates/header_osc.php"; ?>
         
-<h2>Actualizar Objetivos de la OSC:</h2>
+<h3>Actualizar Objetivos de la OSC:</h3>
 <h3><?php echo escape($osc_nombre) ; ?></h3>
 
 <?php if ( $count != 0 ) { ?>
