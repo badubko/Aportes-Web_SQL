@@ -82,9 +82,13 @@ if (isset($_POST['submit'])) {
   
 if ( $statement && !$error) : ?>
 	<blockquote>
-	OSC: <?php echo escape($_POST['osc_contacto_apellido'])  ?> Fue actualizada/o OK. <br>
+	OSC: <?php echo escape($_GET['osc_nombre']), ", " , escape($_POST['osc_contacto_apellido']), 
+	", " , escape($_POST['osc_contacto_nombres']) ; ?> Fue actualizada/o OK. <br>
 	</blockquote>
-	<a href="202_buscar_osc_<?php echo escape($vers);?>.php">Buscar otra OSC p/Actualizar</a> - Buscar otra OSC p/ Agregar o Actualizar datos	
+	<a href="202_1_2_admin_cont_osc_<?php echo escape($vers);?>.php
+				?osc_nombre=<?php echo escape($_GET["osc_nombre"]); ?>
+				"><strong>Administrar Contactos</strong></a> - Administar los contactos de la OSC<br>
+	<a href="202_buscar_osc_<?php echo escape($vers);?>.php"><strong>Buscar otra OSC p/Actualizar</strong></a> - Buscar otra OSC p/ Agregar o Actualizar datos	
 	<br><a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <?php endif;
 exit; 

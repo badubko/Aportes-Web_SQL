@@ -89,8 +89,12 @@ if (isset($_POST['submit'])) {
 	<input type="submit" name="submit" value="Guardar Datos Contacto">
 </form>
 
+<a href="202_1_2_admin_cont_osc_<?php echo escape($vers);?>.php
+				?osc_nombre=<?php echo escape($_GET["osc_nombre"]); ?>
+				"><strong>Administrar Contactos</strong></a> - Administar los contactos de la OSC<br>
+
 <a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($_GET['osc_nombre']); ?>
-        ">Menu Administrar OSC</a><br>  
+        "><strong>Menu Administrar OSC</strong></a><br>  
              
 <a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
