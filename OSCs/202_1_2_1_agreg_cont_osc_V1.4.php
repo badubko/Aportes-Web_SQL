@@ -26,6 +26,7 @@ if (isset($_POST['submit'])) {
             "osc_contacto_tel_fijo"  	=> $_POST['osc_contacto_tel_fijo'],
             "osc_contacto_email"  		=> $_POST['osc_contacto_email'],
             "osc_contacto_posicion"  	=> $_POST['osc_contacto_posicion'],
+            "osc_contacto_comentario"  	=> $_POST['osc_contacto_comentario'],
             "osc_contacto_horario"  	=> $_POST['osc_contacto_horario']
 
 						);
@@ -81,6 +82,9 @@ if (isset($_POST['submit'])) {
 		
 	<label for="osc_contacto_posicion">Posicion Contacto</label>
 		<input type="text" name="osc_contacto_posicion" id="osc_contacto_posicion">	
+		
+	<label for="osc_contacto_comentarios">Comentarios sobre Contacto</label>
+		<input type="text" name="osc_contacto_comentarios" id="osc_contacto_comentarios">	
 	
 	<label for="osc_contacto_horario">Horarios del Contacto</label>
 		<input type="text" name="osc_contacto_horario" id="osc_contacto_horario">	

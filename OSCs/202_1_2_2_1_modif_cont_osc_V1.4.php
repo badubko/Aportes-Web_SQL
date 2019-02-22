@@ -20,6 +20,7 @@ if (isset($_GET['osc_nombre'])) {
     				osc_contacto_tel_fijo,
     				osc_contacto_email,
     				osc_contacto_posicion,
+    				osc_contacto_comentarios,
     				osc_contacto_horario,
     				last_update
     				
@@ -55,6 +56,7 @@ if (isset($_POST['submit'])) {
 				"osc_contacto_tel_fijo" 		=> $_POST['osc_contacto_tel_fijo'],
 				"osc_contacto_email" 			=> $_POST['osc_contacto_email'],
 				"osc_contacto_posicion" 		=> $_POST['osc_contacto_posicion'],
+				"osc_contacto_comentarios" 		=> $_POST['osc_contacto_comentarios'],
 				"osc_contacto_horario" 			=> $_POST['osc_contacto_horario'],
 				"id_truch" 						=> $_GET['id_truch']
 			];
@@ -68,6 +70,7 @@ if (isset($_POST['submit'])) {
 				osc_contacto_tel_fijo 		= :osc_contacto_tel_fijo,
 				osc_contacto_email 			= :osc_contacto_email,
 				osc_contacto_posicion 		= :osc_contacto_posicion,
+				osc_contacto_comentarios 	= :osc_contacto_comentarios,
 				osc_contacto_horario 		= :osc_contacto_horario
              WHERE id_truch = :id_truch";
              
