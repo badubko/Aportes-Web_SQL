@@ -1,7 +1,7 @@
 <?php
 /**
  * Update de datos de una OSC
- * Version con drop-down de ROL 
+ * Version con drop-down de Acuerdo firmado
  *
  */
 require "../config_ap_V1.4.php";
@@ -114,6 +114,8 @@ if ( $statement && !$error) : ?>
 	<blockquote>
 	OSC: <?php echo escape($_GET['osc_nombre'])  ?> Fue actualizada OK. <br>
 	</blockquote>
+	<a href="202_buscar_osc_<?php echo escape($vers);?>.php">Buscar otra OSC p/Actualizar</a> - Buscar otra OSC p/ Agregar o Actualizar datos	
+	<br><a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <?php endif;
 exit; 
 }
