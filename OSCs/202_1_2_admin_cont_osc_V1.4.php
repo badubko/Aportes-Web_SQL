@@ -67,6 +67,8 @@ table, th, td {
         
        <td><a href="202_1_2_2_2_elim_cont_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
 		&id_truch=<?php echo escape($row["id_truch"]); ?>
+		&osc_contacto_apellido=<?php echo escape($row["osc_contacto_apellido"]); ?>
+		&osc_contacto_nombres=<?php echo escape($row["osc_contacto_nombres"]); ?>
 		">Eliminar Contacto</a></td>
       </tr>
     <?php endforeach; ?>
