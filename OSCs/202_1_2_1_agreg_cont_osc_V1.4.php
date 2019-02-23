@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
             "osc_contacto_tel_fijo"  	=> $_POST['osc_contacto_tel_fijo'],
             "osc_contacto_email"  		=> $_POST['osc_contacto_email'],
             "osc_contacto_posicion"  	=> $_POST['osc_contacto_posicion'],
-            "osc_contacto_comentario"  	=> $_POST['osc_contacto_comentario'],
+            "osc_contacto_comentarios"  => $_POST['osc_contacto_comentarios'],
             "osc_contacto_horario"  	=> $_POST['osc_contacto_horario']
 
 						);
