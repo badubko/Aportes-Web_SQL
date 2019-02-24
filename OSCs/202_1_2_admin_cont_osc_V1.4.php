@@ -53,6 +53,7 @@ table, th, td {
        <th>Mas detalles</th>
     </tr>
   </thead>
+
     <tbody>
     <?php foreach ($result as $row) : ?>
       <tr>
@@ -60,7 +61,13 @@ table, th, td {
         <td><?php echo escape($row["osc_contacto_nombres"]); ?></td>
         <td><?php echo escape($row["osc_contacto_cel"]); ?></td>
         <td><?php echo escape($row["osc_contacto_posicion"]); ?></td>
+        
 
+        <td><a href="202_1_2_2_3_ver_det_cont_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+		&id_truch=<?php echo escape($row["id_truch"]); ?>
+		">del Contacto</a></td>
+		
+	
         <td><a href="202_1_2_2_1_modif_cont_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
 		&id_truch=<?php echo escape($row["id_truch"]); ?>
 		">Modif Contacto</a></td>
