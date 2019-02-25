@@ -80,7 +80,7 @@ table, th, td {
 		 <?php foreach ($osc_cont as $key => $value) : ?>
 		 <tr>
 			
-				 <td><?php echo escape (ucfirst($key)); ?>: </td>
+				 <td><strong><?php echo escape (ucfirst(str_replace("osc_contacto_","",$key))); ?></strong></td>
 				 <td><?php echo escape($value); ?></td> 
 			
 		</tr>
@@ -93,7 +93,7 @@ table, th, td {
 } 
 else { 
 ?>
-	<a> No se encontraron datos del contacto ... </a> <br>
+	<a> No se encontraron datos del contacto ...<?php echo escape($_GET['id_truch'])?>  </a> <br><br>
 
 <?php 	
 }

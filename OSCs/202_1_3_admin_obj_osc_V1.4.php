@@ -31,6 +31,12 @@ try {
 <h3><?php echo escape($osc_nombre) ; ?></h3>
 
 <?php if ( $count != 0 ) { ?>
+	
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
 
 <table>
 
