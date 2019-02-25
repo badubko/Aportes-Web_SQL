@@ -6,12 +6,12 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Aportes: Administracion de Voluntarios, OSCs y Proyectos </title>
+	<title>Aportes: VOLs </title>
 
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
 
 <body>
-	<h2>Aportes: Administracion de Voluntarios, OSCs y Proyectos !! </h2>
+	<h2>Aportes: Administrar Voluntarios </h2>
 

@@ -1,3 +1,16 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+	<title>Aportes: VOLs </title>
+-->
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+
+
 <?php
 
 /**
@@ -8,8 +21,8 @@
 
 if (isset($_POST['submit'])) {
 	try {	
-		require "./config_ap_V1.4.php";
-		require "./common_ap_V1.4.php";
+		require "../config_ap_V1.4.php";
+		require "../common_ap_V1.4.php";
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
@@ -29,13 +42,13 @@ if (isset($_POST['submit'])) {
 	}
 }
 ?>
-<?php require "templates/header.php"; ?>
+<?php require "../templates/header_vol.php"; ?>
 		
 <?php  
 if (isset($_POST['submit'])) {
 	if ($result && $statement->rowCount() > 0) { ?>
 		<h2>Results</h2>
-		<a href="index_ap_V1.4.php">Back to home</a>
+		<a href="../index_ap_V1.4.php">Back to home</a>
 		<table>
 			<thead>
 				<tr>
@@ -62,16 +75,16 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["email_1"]); ?></td>
 				<td><?php echo escape($row["email_2"]); ?></td>
 				<td><?php echo escape($row["last_update"]); ?></td>
-				<td><a href="update-single_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>">PUB VOL</a></td>
-				<td><a href="create_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
+				<td><a href="102_2_1_update-single_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>">PUB VOL</a></td>
+				<td><a href="102_2_2_create_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
 				">RESTR VOL</a></td>
-				<td><a href="update-single_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
+				<td><a href="102_2_3_update-single_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
 				">RESTR VOL</a></td>
-				<td><a href="listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
+				<td><a href="102_2_4_listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
 				">Espec</a></td>
@@ -92,6 +105,6 @@ if (isset($_POST['submit'])) {
 	<input type="submit" name="submit" value="Buscar">
 </form>
 
-<a href="index_ap_V1.4.php">Back to home</a>
+<a href="../index_ap_V1.4.php">Back to home</a>
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer_vol.php"; ?>

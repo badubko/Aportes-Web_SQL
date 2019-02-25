@@ -1,6 +1,17 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Aportes: VOLs </title>
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+
+
 <?php
- require "./config_ap_V1.4.php";
- require "./common_ap_V1.4.php";
+ require "../config_ap_V1.4.php";
+ require "../common_ap_V1.4.php";
 
 if (isset($_POST['submit'])) {
    
@@ -15,7 +26,7 @@ try {
     
     if ($especialidad == "") {
 		echo "Seleccione una especialidad". "<br>" ; ?>
-		<a href="agreg_nva_esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
+		<a href="102_2_4_1_agreg_nva_esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
         ">Agregar Nva Esp</a>
@@ -62,7 +73,7 @@ try {
 // $a_espec = array( "Contable" , "Diagnostico" , 
 //				    "Procesos" , "RRHH" , "Sistemas");
 try {
-  require "./config_ap_V1.4.php";
+  require "../config_ap_V1.4.php";
   
 
   $conn_esp = new PDO($dsn, $username, $password, $options);
@@ -78,12 +89,7 @@ try {
   echo $sql_esp . "<br>" . $error->getMessage();
 }         
 
-// 
-//$esp1 = "Contable";
-//$esp2 = "Diagnostico";
-//$esp3 = "Procesos";
-//$esp4 = "Sistemas";
-//
+
 
 ?>
 
@@ -95,12 +101,7 @@ try {
 	<?php foreach ($a_espec as $espe) { ?>
 		<option value="<?php echo $espe["especialidad"]; ?>"><?php echo $espe["especialidad"]; ?></option>
 	<?php } ?>
-<!--
-	<option value="<?php echo escape($esp1); ?>"><?php echo escape($esp1); ?></option>
-	<option value="<?php echo escape($esp2); ?>"><?php echo escape($esp2); ?></option>
-	<option value="<?php echo escape($esp3); ?>"><?php echo escape($esp3); ?></option>
-	<option value="<?php echo escape($esp4); ?>"><?php echo escape($esp4); ?></option>
--->
+
 	
 	</select>
 		<input type="submit" name="submit" value="Guardar">
@@ -113,12 +114,12 @@ try {
 	$nombres = $_GET['nombres'];
 ?>
 
-<a href="listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
+<a href="102_2_4_listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
         ">Listar Esp VOL</a>
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer_vol.php"; ?>
 
 

@@ -1,3 +1,16 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+	<title>Aportes: VOLs </title>
+-->
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+
+
 <?php
 /**
  * Use an HTML form to edit an entry in the
@@ -6,8 +19,8 @@
  * Version con drop-down de profesion
  *
  */
-require "./config_ap_V1.4.php";
-require "./common_ap_V1.4.php";
+require "../config_ap_V1.4.php";
+require "../common_ap_V1.4.php";
 
 if (isset($_POST['submit'])) {
   try {
@@ -61,7 +74,7 @@ if (isset($_GET['dni'])) {
 }
 ?>
 
-<?php require "templates/header.php"; ?>
+<?php require "../templates/header_vol.php"; ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
 	<blockquote>
@@ -73,7 +86,7 @@ if (isset($_GET['dni'])) {
 <?php
 
 try {
-  require "./config_ap_V1.4.php";
+  require "../config_ap_V1.4.php";
 
   $conn_prof = new PDO($dsn, $username, $password, $options);
   
@@ -119,8 +132,8 @@ try {
 </form>
 
 <h2> </h2>
-<a href="read_ap_V1.4.php">Modif Otro Voluntario</a>
+<a href="102_read_ap_V1.4.php">Modif Otro Voluntario</a>
 <h2> </h2>
-<a href="index_ap_V1.4.php">Back to home</a>
+<a href="../index_ap_V1.4.php">Back to home</a>
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer_vol.php"; ?>

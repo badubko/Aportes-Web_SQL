@@ -4,8 +4,8 @@
  * users table.
  *
  */
-require "./config_ap_V1.4.php";
-require "./common_ap_V1.4.php";
+require "../config_ap_V1.4.php";
+require "../common_ap_V1.4.php";
 
 if (isset($_POST['submit'])) {
   try {
@@ -49,7 +49,7 @@ if (isset($_GET['dni'])) {
 }
 ?>
 
-<?php require "templates/header.php"; ?>
+<?php require "../templates/header_osc.php"; ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
 	<blockquote><?php echo escape($_POST['dni']); ?> successfully updated.</blockquote>
@@ -66,8 +66,8 @@ if (isset($_GET['dni'])) {
 </form>
 
 <h2> </h2>
-<a href="read_ap_V1.4.php">Modif Otro Voluntario</a>
+<a href="102_read_ap_V1.4.php">Modif Otro Voluntario</a>
 <h2> </h2>
-<a href="index_ap_V1.4.php">Back to home</a>
+<a href="../index_ap_V1.4.php">Back to home</a>
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer.php"; ?>

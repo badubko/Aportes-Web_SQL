@@ -4,8 +4,8 @@
  * Delete a user
  */
 
-  require "./config_ap_V1.4.php";
-  require "./common_ap_V1.4.php";
+  require "../config_ap_V1.4.php";
+  require "../common_ap_V1.4.php";
 
 if (isset($_GET["dni"])) {
   try {
@@ -22,7 +22,7 @@ if (isset($_GET["dni"])) {
     $statement->bindValue(':especialidad', $especialidad);
     $statement->execute();
 
-    $success = "Especialidad successfully deleted $especialidad";
+    $success = "Especialidad: $especialidad  Eliminada <br><br>";
     		
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
@@ -30,15 +30,15 @@ if (isset($_GET["dni"])) {
 }
 ?>
 
-<?php require "templates/header.php"; ?>
+<?php require "../templates/header_vol.php"; ?>
         
 <h2>Delete especialidad</h2>
 
 <?php if ($success) echo $success , "\n"; ?>
-<a href="listar-esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
+<a href="102_2_4_listar-esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
 				&apellido=<?php echo escape($apellido); ?>
 				&nombres=<?php echo escape($nombres); ?>
 				">Listar Esp VOL</a>
-<a href="read_ap_V1.4.php">Back to Act Vol</a>
+<a href="102_read_ap_V1.4.php">Back to Act Vol</a>
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer_vol.php"; ?>

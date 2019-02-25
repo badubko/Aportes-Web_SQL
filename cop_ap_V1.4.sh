@@ -18,7 +18,9 @@ VERS="V1.4"
 
 
 cp -v -u *${VERS}.php *${VERS}.sh /var/www/html
+cp -v -u ./VOLs/*${VERS}.php  /var/www/html/VOLs
 cp -v -u ./OSCs/*${VERS}.php  /var/www/html/OSCs
+cp -v -u ./PROY/*${VERS}.php  /var/www/html/PROY
 
 cp -v -u ./data/* /var/www/html/data
 cp -v -u ./css/* /var/www/html/css

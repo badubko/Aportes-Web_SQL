@@ -1,3 +1,15 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+	<title>Aportes: VOLs </title>
+-->
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+
 <?php
 
 /**
@@ -5,8 +17,8 @@
  */
 
 try {
-  require "./config_ap_V1.4.php";
-  require "./common_ap_V1.4.php";
+  require "../config_ap_V1.4.php";
+  require "../common_ap_V1.4.php";
 
   $connection = new PDO($dsn, $username, $password, $options);
   $dni = $_GET['dni'];
@@ -23,7 +35,7 @@ try {
   echo $sql . "<br>" . $error->getMessage();
 }
 ?>
-<?php require "templates/header.php"; ?>
+<?php require "../templates/header_vol.php"; ?>
         
 <h2>Actualizar Especialidad de un Vol</h2>
 <h3><?php echo escape($apellido) , ", " , escape($nombres); ?></h3>
@@ -35,6 +47,7 @@ try {
       <th>DNI</th>
       <th>Especialidad</th>
       <th>Ultima Act</th>
+      <th>Accion</th>
     </tr>
   </thead>
     <tbody>
@@ -43,11 +56,11 @@ try {
         <td><?php echo escape($row["dni"]); ?></td>
         <td><?php echo escape($row["especialidad"]); ?></td>
         <td><?php echo escape($row["last_update"]); ?></td>
-        <td><a href="delete-espec_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
+        <td><a href="102_2_4_2_delete-espec_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
         &especialidad=<?php echo escape($row["especialidad"]); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
-        ">Delete</a></td>
+        ">Eliminar</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
@@ -59,12 +72,12 @@ try {
     <input id="espec" type="text">
 </p>
 -->
-        <a href="agreg_nva_esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
+        <a href="102_2_4_1_agreg_nva_esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
         ">Agregar Nva Esp</a>
         
 <a href="<?php $_PHP_SELF ?>">Listar Espec</a>
-<a href="index_ap_V1.4.php">Back to home</a>
+<a href="../index_ap_V1.4.php">Back to home</a>
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer_vol.php"; ?>

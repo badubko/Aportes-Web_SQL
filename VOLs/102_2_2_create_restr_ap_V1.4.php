@@ -1,3 +1,12 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Aportes: VOLs </title>
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
 
 <?php
 /**
@@ -5,8 +14,8 @@
  * users2 table.
  *
  */
-require "./config_ap_V1.4.php";
-require "./common_ap_V1.4.php";
+require "../config_ap_V1.4.php";
+require "../common_ap_V1.4.php";
 if (isset($_POST['submit'])) {
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
@@ -42,12 +51,12 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php require "templates/header.php"; ?>
+<?php require "../templates/header_vol.php"; ?>
 
 
 <?php if (isset($_POST['submit']) && $statement && !$error){
 
- require "./config_ap_V1.4.php"; ?>
+ require "../config_ap_V1.4.php"; ?>
  
 <blockquote><?php echo $_GET['dni'] ; ?> Agregado estado inicial = Disponible.</blockquote>
 
@@ -83,7 +92,7 @@ try {
 ?>
 	
     <blockquote><?php echo $_GET['apellido'] , ", " , $_GET['nombres']; ?> Datos restringidos agregados.</blockquote>
-    <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+    <a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <?php 
 exit;
 } ?>
@@ -91,7 +100,7 @@ exit;
 <?php
 
 try {
-  require "./config_ap_V1.4.php";
+  require "../config_ap_V1.4.php";
 
   $conn_rol = new PDO($dsn, $username, $password, $options);
   
@@ -152,8 +161,8 @@ try {
 </form>
 
 
-<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer_vol.php"; ?>
 
 

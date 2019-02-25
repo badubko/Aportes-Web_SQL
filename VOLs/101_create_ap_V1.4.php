@@ -1,4 +1,12 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<title>Aportes: VOLs </title>
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
 <?php
 /**
  * Use an HTML form to create a new entry in the
@@ -6,8 +14,8 @@
  *
  */
 if (isset($_POST['submit'])) {
-    require "./config_ap_V1.4.php";
-    require "./common_ap_V1.4.php";
+    require "../config_ap_V1.4.php";
+    require "../common_ap_V1.4.php";
 
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
@@ -37,7 +45,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php require "templates/header.php"; ?>
+<?php require "../templates/header_vol.php"; ?>
 
 
 <?php if (isset($_POST['submit']) && $statement && !$error){ ?>
@@ -48,7 +56,7 @@ if (isset($_POST['submit'])) {
 <?php
 
 try {
-  require "./config_ap_V1.4.php";
+  require "../config_ap_V1.4.php";
 
   $conn_prof = new PDO($dsn, $username, $password, $options);
   
@@ -94,15 +102,15 @@ try {
 
 <?php if (isset($_POST['submit']) && $statement && !$error){ ?>
    
-				<td><a href="create_restr_ap_V1.4.php?dni=<?php echo $_POST['dni']; ?>
+				<td><a href="102_2_2_create_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo $_POST['dni']; ?>
 				&apellido=<?php echo $_POST['apellido']; ?>
 				&nombres=<?php echo $_POST['nombres']; ?>
 				">Agreg Datos RESTR VOL</a></td>
 <?php } ?>
 
 
-<a href="index_ap_V1.4.php">Back to home</a>
+<a href="../index_ap_V1.4.php">Back to home</a>
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer_vol.php"; ?>
 
 
