@@ -36,7 +36,7 @@ CREATE TABLE t_users1 (
 CREATE TABLE t_users2 (
   dni INT UNSIGNED NOT NULL UNIQUE,
   cuil VARCHAR(14) NOT NULL DEFAULT "N/D",
-  rol VARCHAR (6) NOT NULL DEFAULT "Vol",
+  rol VARCHAR (8) NOT NULL DEFAULT "Vol",
   estado VARCHAR (14) NOT NULL DEFAULT 'Desconoc',
   comentarios varchar(256) NULL DEFAULT 'No Comments',
   tel_1 VARCHAR (20) NULL DEFAULT "N/D",
@@ -84,7 +84,7 @@ CREATE TABLE t_especialidades (
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------  
 CREATE TABLE t_roles (
-  rol VARCHAR(6) NOT NULL DEFAULT "Vol",
+  rol VARCHAR(8) NOT NULL DEFAULT "Vol",
   PRIMARY KEY  (rol)
   )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de datos para los posibles roles de un voluntario de Aportes';
 -- ---------------------------------------------------------------------
@@ -672,6 +672,8 @@ INSERT INTO `t_roles` (`rol`) VALUES
 ('PMO'),
 ('DPI'),
 ('Asist'),
+-- Se agrego rol = Interno
+('Interno'),
 ('Vol'),
 ('VC'),
 ('Col');
@@ -684,7 +686,9 @@ INSERT INTO `t_estados` (`estado`) VALUES
 ('Con_Restricc'),
 -- El estado = Interno es solo para las personas que no trabajaran directamente
 -- en proyectos para las OSC. E.J. Susy Spielman
-('Interno'),
+-- Esto se corrigio: estado = interno No deberia existir. El rol puede ser Interno.
+-- Los proyectos internos son en los que la OSC cliente es Aportes, y el VOL esta "asignado"
+-- ('Interno'),
 ('Puntual'),
 -- Se elimina el estado "A_Confirmar"
 -- ('A_Confirmar'),
