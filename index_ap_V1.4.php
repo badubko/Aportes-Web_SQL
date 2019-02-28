@@ -18,6 +18,11 @@ require "./common_ap_V1.4.php";
 		<h3>---------------------------------------------------------------------------------------------</h3>
 		<li><a href="./OSCs/200_OSCs_<?php echo escape($vers);?>.php"><strong>OSCs</strong></a> - Administracion de OSCs</li>
 		<h3>---------------------------------------------------------------------------------------------</h3>
+		
+		<h3>---------------------------------------------------------------------------------------------</h3>
+		<li><a href="./PROY/300_Proy_<?php echo escape($vers);?>.php"><strong>Proy</strong></a> - Administracion de Proyectos</li>
+		<h3>---------------------------------------------------------------------------------------------</h3>
+		
 		<li><a href="buscar_vol_x_apell_ap_<?php echo escape($vers);?>.php"><strong>Asignar VOL x Apellido</strong></a> - Buscar VOL x Apellido p/ asignar a proyecto</li>
 		<li><a href="buscar_vol_x_espec_ap_<?php echo escape($vers);?>.php"><strong>Asignar VOL x Especialidad</strong></a> - Buscar VOL x Especialidad p/ asignar a proyecto<br><br></li>
 		
