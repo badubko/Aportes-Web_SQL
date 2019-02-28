@@ -1,6 +1,6 @@
 <?php
- require "./config_ap_V1.4.php";
- require "./common_ap_V1.4.php";
+ require "../config_ap_V1.4.php";
+ require "../common_ap_V1.4.php";
 
 if (isset($_POST['submit'])) {
    
@@ -40,8 +40,8 @@ try {
 	<blockquote>Registrado nuevo estado: <?php echo $_POST['estado']; ?></blockquote>
 	<blockquote>Para Voluntaria/o      : <?php echo $_GET['apellido'] , ", " , $_GET['nombres']; ?> </blockquote>
     
-    <a href="cambiar_est_vol_ap_<?php echo escape($vers);?>.php">Buscar otro VOL</a>
-    <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+    <a href="103_cambiar_est_vol_ap_<?php echo escape($vers);?>.php">Buscar otro VOL</a>
+    <a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <?php     
    
     $est_act=$_POST['estado'];
@@ -92,10 +92,14 @@ try {
 
 </body>
 
-<a href="cambiar_est_vol_ap_<?php echo escape($vers);?>.php">Buscar otro VOL</a>
+<a href="./103_cambiar_est_vol_ap_<?php echo escape($vers);?>.php">Buscar otro VOL</a>
+<br>
+<br>
+<a href="./100_VOLs_<?php echo escape($vers);?>.php">VOLs</a> - Administracion de VOLuntarios
+<br>
+<br>
+<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
-<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
-
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer_vol.php"; ?>
 
 

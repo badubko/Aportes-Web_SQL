@@ -12,7 +12,8 @@ require "../common_ap_V1.4.php";
 		
 		<li><a href="102_read_ap_<?php echo escape($vers);?>.php"><strong>Actualizar un VOL</strong></a> - Buscar y modif Voluntario</li>
 		<li><a href="103_cambiar_est_vol_ap_<?php echo escape($vers);?>.php"><strong>Cambiar Estado VOL</strong></a> - Buscar y cambiar Estado de Voluntario</li>
-		
+		<br>
+		<br>
 		
 		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 

@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Function to query information based on 
- * a parameter: in this case, apellido.
+ * Cambiar el estado de un voluntario
+ * 
  *
  */
 
 if (isset($_POST['submit'])) {
 	try {	
-		require "./config_ap_V1.4.php";
-		require "./common_ap_V1.4.php";
+		require "../config_ap_V1.4.php";
+		require "../common_ap_V1.4.php";
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
@@ -42,13 +42,13 @@ if (isset($_POST['submit'])) {
 													}
 }
 ?>
-<?php require "templates/header.php"; ?>
+<?php require "../templates/header_vol.php"; ?>
 		
 <?php  
 if (isset($_POST['submit'])) {
 	if ($result && $statement->rowCount() > 0) { ?>
 		<h3>Resultados para (estado != Asignado y estado != De_Baja)</h3>
-		<a href="index_ap_V1.4.php">Back to home</a>
+		<a href="../index_ap_V1.4.php">Back to home</a>
 		<table>
 			<thead>
 				<tr>
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
 				
 				<?php
 					try {	
-						require "./config_ap_V1.4.php";
+						require "../config_ap_V1.4.php";
 						$dni_estado = $row["dni"] ;
 						$connection = new PDO($dsn, $username, $password, $options);
 						$sql_estado = "SELECT 	estado FROM t_users2 WHERE dni = :dni_estado" ;
@@ -99,7 +99,7 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["last_update"]); ?></td>
 				<td><a href="modif_est_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>">Estado Vol</a></td>
 -->
-				<td><a href="modif_est_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
+				<td><a href="103_1_modif_est_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
 				&est_act=<?php echo escape($row_est["estado"]); ?>
@@ -133,6 +133,6 @@ if (isset($_POST['submit'])) {
 	<input type="submit" name="submit" value="Buscar">
 </form>
 
-<a href="index_ap_V1.4.php">Back to home</a>
+<a href="../index_ap_V1.4.php">Back to home</a>
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer_vol.php"; ?>
