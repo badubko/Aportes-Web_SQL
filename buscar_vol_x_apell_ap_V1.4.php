@@ -14,6 +14,8 @@ if (isset($_POST['submit'])) {
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
+		// Se elimino "AND 	(estado != 'ND_Temp' )"
+
 		$sql = "SELECT
 						t_users1.dni, t_users1.apellido, t_users1.nombres
 				FROM    t_users1
@@ -21,7 +23,10 @@ if (isset($_POST['submit'])) {
 					dni IN (			
 							SELECT dni 
 							FROM t_users2 
-						     WHERE ( ((estado != 'De_Baja') AND (estado != 'ND_Temp' )) AND ((rol = 'Vol' ) OR (rol = 'VC') ) 
+						     WHERE 	( (		(estado != 'De_Baja') AND 	(estado != 'Interno' ) ) 
+								AND ( 		(rol = 'Vol' ) 
+										OR  (rol = 'VC') 
+										OR	(rol = 'DC')	) 
 								AND dni IN
 								(SELECT dni
 									FROM t_users1 
