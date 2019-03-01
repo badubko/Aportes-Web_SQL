@@ -5,7 +5,14 @@ include "../templates/header_proy.php";
 require "../config_ap_V1.4.php";
 require "../common_ap_V1.4.php";
 ?>
+<?php
+echo escape(date("Y-m-d")) , "<br>";
 
+$date=date_create(date("Y-m-d"));
+date_add($date,date_interval_create_from_date_string("33 days"));
+$new_date=date_format($date,"Y-m-d");
+echo $new_date;
+ ?>
 
 	<ul>
 		<li><a href="301_buscar_osc_p_proy_<?php echo escape($vers);?>.php"><strong>Buscar OSC para crear proy</strong></a> - Buscar OSC para crear un nuevo proyecto</li><br>
