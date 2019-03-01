@@ -5,11 +5,12 @@ require "../config_ap_V1.4.php";
 require "../common_ap_V1.4.php";
 
 $f_default='2014-01-01'; 
+$estado_inic='Pre-Proyecto';
 
 ?>
 
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['proy'])) {
    
 
     try  {
@@ -29,6 +30,8 @@ if (isset($_POST['submit'])) {
             "p_fecha_cierre_proy_estim" => $_POST['p_fecha_cierre_proy_estim'],
             "p_fecha_cierre_proy_real"	=> $_POST['p_fecha_cierre_proy_real'],
             
+            "p_ultimo_estado"			=> $_POST['p_ultimo_estado'],
+
             "p_dup_si_no"				=> $_POST['p_dup_si_no'],
             "p_fecha_dup" 				=> $_POST['p_fecha_dup'],
             "p_link_a_dup"				=> $_POST['p_link_a_dup'],
@@ -52,7 +55,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php if (isset($_POST['submit']) && $statement && !$error){ ?>
+<?php if (isset($_POST['proy']) && $statement && !$error){ ?>
     <blockquote>Proy: <?php echo $_POST['p_num_corr_proy'] ?>, Nombre: <?php echo $_POST['p_nombre_proy'] ?> Registrado en la base de Aportes.</blockquote><br>
 
 <?php 
@@ -83,14 +86,18 @@ exit;
 	<label for="p_fecha_mitad_proy_estim">Fecha ESTIMADA mitad proyecto</label><br>
 		<input type="text" name="p_fecha_mitad_proy_estim" id="p_fecha_mitad_proy_estim" value="<?php echo escape($f_default); ?>"><br><br>
 
-	<label for="p_fecha_cierre_proy_estim">Fecha REAL mitad proyecto</label><br>
-		<input type="text" name="p_fecha_cierre_proy_estim" id="p_fecha_cierre_proy_estim" value="<?php echo escape($f_default); ?>"><br><br>	
+	<label for="p_fecha_mitad_proy_real">Fecha REAL mitad proyecto</label><br>
+		<input type="text" name="p_fecha_mitad_proy_real" id="p_fecha_mitad_proy_real" value="<?php echo escape($f_default); ?>"><br><br>	
 
 	<label for="p_fecha_cierre_proy_estim">Fecha ESTIMADA cierre proyecto</label><br>
 		<input type="text" name="p_fecha_cierre_proy_estim" id="p_fecha_cierre_proy_estim" value="<?php echo escape($f_default); ?>"><br><br>	
 
-<label for="p_fecha_cierre_proy_real">Fecha REAL cierre proyecto</label><br>
+	<label for="p_fecha_cierre_proy_real">Fecha REAL cierre proyecto</label><br>
 		<input type="text" name="p_fecha_cierre_proy_real" id="p_fecha_cierre_proy_real" value="<?php echo escape($f_default); ?>"><br><br>	
+
+	<label for="p_ultimo_estado">Estado Inicial Proy</label><br>
+	<input type="text" name="p_ultimo_estado" id="p_ultimo_estado" value="<?php echo escape ($estado_inic); ?>"<?php echo ( 'readonly' ); ?>><br><br>
+
 
 
     <label for="p_dup_si_no">Se hizo el DUP?</label><br>
@@ -107,13 +114,10 @@ exit;
 	<label for="p_link_a_dup">Link al DUP</label><br>
 	<input type="text" name="p_link_a_dup" id="p_link_a_dup" value="N/D"><br><br><br>	
 
-	<input type="submit" name="submit" value="Crear Proyecto">
+	<input type="submit" name="proy" value="Crear Proyecto">
 </form>
 
-<?php
-//require "../config_ap_V1.4.php";
-//require "../common_ap_V1.4.php";
-?>
+
 
 
 <?php require "../templates/footer_proy.php"; ?>
