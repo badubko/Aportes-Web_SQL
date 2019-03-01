@@ -98,31 +98,28 @@ $sql_np="SELECT p_num_corr_proy  FROM t_proyectos
 												
 foreach ($res_np as $row_np) { ?>
 <br>
+<form action="./301_1_1_alta_proy_<?php echo escape($vers);?>.php" method="post">
 <table>
 	<thead>
 				<tr>
 					<th>OSC</th>
-					<th>Nvo Num Proy</th>
-<!--
-					<th>Nombre Proy </th>
-					<th>------------</th>			
-					<th>Crear Proyecto</th>
--->
-
+					<th>Nuevo Numero Proy</th>
+					<th>Nuevo Nombre Proy</th>
 				</tr>
 	</thead>
+	
 	<tbody>
+<!--
 		<td><?php echo escape($row["osc_nombre"]); ?></td>
-		<td><?php echo  escape ($row_np["p_num_corr_proy"] + 1 ) ; ?> </td>
-
+-->
+		<td> <input type="text" id="osc_nombre" name="osc_nombre" value=<?php echo escape($row["osc_nombre"]); ?> <?php echo ( 'readonly' ); ?> ></td>
+		<td> <input type="text" id="p_num_corr_proy" name="p_num_corr_proy" value=<?php echo  escape ($row_np["p_num_corr_proy"] + 1 ) ; ?>  > </td>
+		<td> <input type="text" id="p_nombre_proy" name="p_nombre_proy"> </td>
 	</tbody>
 </table>
-
-<form method="post">
-	<label for="p_nombre_proy">Nuevo Nombre Proy</label>
-	<input type="text" id="p_nombre_proy" name="p_nombre_proy">
-	<input type="submit" name="submit" value="Crear">
+<input type="submit" name="submit" value="Crear">
 </form>
+
 
 
 <?php
@@ -130,9 +127,6 @@ foreach ($res_np as $row_np) { ?>
 ?>
 
 
-
-<br>
-<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 <?php
 require "../templates/footer_proy.php"; 
 exit;	
