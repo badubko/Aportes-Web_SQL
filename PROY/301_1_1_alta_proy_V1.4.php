@@ -55,13 +55,53 @@ if (isset($_POST['nuevo_proy'])) {
 }
 ?>
 
+<!--
+Una vez que el proyecto se dio de alta en t_proyectos
+Se escribe en el log el estado inicial del proyecto para mantener la consistencia
+en p_logs_estado_proy
+EL trigger after_t_p_logs_estado_proy_insert  replicara el estado en 
+t_proyectos, aunque ya al haber creado el proyecto se haya registrado al proy
+como "Pre-Proyecto" y se fija la fecha de la prox reunion en hoy + 14 dias? 
+HARDCODED !!!! yackkkkk !!!
+
+-->
+
+
 <?php if (isset($_POST['nuevo_proy']) && $statement && !$error){ ?>
    OSC 	 : <?php echo $_POST['osc_nombre'] ?><br>
    Numero Proy: <?php echo $_POST['p_num_corr_proy'] ?><br>
    Nombre Proy: <?php echo $_POST['p_nombre_proy'] ?> <br>
    Registrado en la base de Aportes.<br><br>
 
-<?php 
+<?php  
+    $date=date_create(date("Y-m-d"));
+	date_add($date,date_interval_create_from_date_string("14 days"));
+	$fecha_prox_reun=date_format($date,"Y-m-d"); 
+    
+    try {
+    $new_log = array(
+            "p_num_corr_proy" 			=> $_POST['p_num_corr_proy'],
+            "p_estado_proy"				=> $_POST['p_ultimo_estado'],
+			"p_fecha" 					=> $fecha_prox_reun,
+			"p_signif_fecha"			=> 'Fecha prox reun',
+					);
+	$sql_new_log = sprintf(
+						"INSERT INTO %s (%s) values (%s)",
+						"t_p_logs_estado_proy",
+						implode(", ", array_keys($new_log)),
+						":" . implode(", :", array_keys($new_log))
+								);
+        $error_p_log = "";
+        $statement = $connection->prepare($sql_new_log);
+        $statement->execute($new_log);		
+		} catch(PDOException $error_p_log) {
+       // echo $sql . "<br>" . $error->getMessage();
+        echo "Hubo un error en el insert de log: " , $_POST['osc_nombre'] . "<br>" . $error_p_log->getMessage();
+    }
+
+
+
+
 require "../templates/footer_proy.php"; 
 exit;
 } ?>
