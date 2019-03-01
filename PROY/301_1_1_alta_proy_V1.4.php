@@ -56,7 +56,9 @@ if (isset($_POST['nuevo_proy'])) {
 ?>
 
 <?php if (isset($_POST['nuevo_proy']) && $statement && !$error){ ?>
-    <blockquote>Proy: <?php echo $_POST['p_num_corr_proy'] ?>, Nombre: <?php echo $_POST['p_nombre_proy'] ?> Registrado en la base de Aportes.</blockquote><br>
+   OSC 	 : <?php echo $_POST['osc_nombre'] ?><br>
+   Numero Proy: <?php echo $_POST['p_num_corr_proy'] ?><br>
+   Nombre Proy: <?php echo $_POST['p_nombre_proy'] ?> Registrado en la base de Aportes.<br><br>
 
 <?php 
 require "../templates/footer_proy.php"; 
