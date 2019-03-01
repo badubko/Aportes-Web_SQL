@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['submit'])) {
 	if ($result && $statement->rowCount() > 0) { ?>
 		<h3>Resultados para (estado != Asignado y estado != De_Baja)</h3>
-		<a href="../index_ap_V1.4.php">Back to home</a>
+		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 		<table>
 			<thead>
 				<tr>
@@ -133,6 +133,6 @@ if (isset($_POST['submit'])) {
 	<input type="submit" name="submit" value="Buscar">
 </form>
 
-<a href="../index_ap_V1.4.php">Back to home</a>
+<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
 <?php require "../templates/footer_vol.php"; ?>

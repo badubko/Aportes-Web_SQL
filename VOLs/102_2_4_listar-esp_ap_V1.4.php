@@ -56,7 +56,7 @@ try {
         <td><?php echo escape($row["dni"]); ?></td>
         <td><?php echo escape($row["especialidad"]); ?></td>
         <td><?php echo escape($row["last_update"]); ?></td>
-        <td><a href="102_2_4_2_delete-espec_ap_V1.4.php?dni=<?php echo escape($row["dni"]); ?>
+        <td><a href="102_2_4_2_delete-espec_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
         &especialidad=<?php echo escape($row["especialidad"]); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
@@ -72,12 +72,12 @@ try {
     <input id="espec" type="text">
 </p>
 -->
-        <a href="102_2_4_1_agreg_nva_esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
+        <a href="102_2_4_1_agreg_nva_esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
         ">Agregar Nva Esp</a>
         
 <a href="<?php $_PHP_SELF ?>">Listar Espec</a>
-<a href="../index_ap_V1.4.php">Back to home</a>
+<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
 <?php require "../templates/footer_vol.php"; ?>

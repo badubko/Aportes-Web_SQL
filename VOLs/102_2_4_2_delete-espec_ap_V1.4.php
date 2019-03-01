@@ -35,10 +35,10 @@ if (isset($_GET["dni"])) {
 <h2>Delete especialidad</h2>
 
 <?php if ($success) echo $success , "\n"; ?>
-<a href="102_2_4_listar-esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
+<a href="102_2_4_listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
 				&apellido=<?php echo escape($apellido); ?>
 				&nombres=<?php echo escape($nombres); ?>
 				">Listar Esp VOL</a>
-<a href="102_read_ap_V1.4.php">Back to Act Vol</a>
+<a href="102_read_ap_<?php echo escape($vers);?>.php">Back to Act Vol</a>
 
 <?php require "../templates/footer_vol.php"; ?>

@@ -26,7 +26,7 @@ try {
     
     if ($especialidad == "") {
 		echo "Seleccione una especialidad". "<br>" ; ?>
-		<a href="102_2_4_1_agreg_nva_esp_ap_V1.4.php?dni=<?php echo escape($dni); ?>
+		<a href="102_2_4_1_agreg_nva_esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($dni); ?>
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
         ">Agregar Nva Esp</a>
@@ -56,7 +56,7 @@ try {
     <blockquote>Agregada especialidad: <?php echo $_POST['especialidad']; ?> </blockquote>
 <?php } ?>
 
-<h2>Agregar Especialidad V1.4</h2>
+<h2>Agregar Especialidad</h2>
 <!--
 <form method="post" action="">
 	<select name=especialidad[] multiple>
