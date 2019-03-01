@@ -10,7 +10,7 @@ $estado_inic='Pre-Proyecto';
 ?>
 
 <?php
-if (isset($_POST['proy'])) {
+if (isset($_POST['nuevo_proy'])) {
    
 
     try  {
@@ -55,7 +55,7 @@ if (isset($_POST['proy'])) {
 }
 ?>
 
-<?php if (isset($_POST['proy']) && $statement && !$error){ ?>
+<?php if (isset($_POST['nuevo_proy']) && $statement && !$error){ ?>
     <blockquote>Proy: <?php echo $_POST['p_num_corr_proy'] ?>, Nombre: <?php echo $_POST['p_nombre_proy'] ?> Registrado en la base de Aportes.</blockquote><br>
 
 <?php 
@@ -114,7 +114,7 @@ exit;
 	<label for="p_link_a_dup">Link al DUP</label><br>
 	<input type="text" name="p_link_a_dup" id="p_link_a_dup" value="N/D"><br><br><br>	
 
-	<input type="submit" name="proy" value="Crear Proyecto">
+	<input type="submit" name="nuevo_proy" value="Crear Proyecto">
 </form>
 
 

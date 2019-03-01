@@ -77,7 +77,7 @@
 			</tbody>
 	</table>
 	<?php } else { ?>
-		<blockquote>No se encontraron proyectos para la OSC:  <?php echo escape($_GET['osc_nombre']); ?>.</blockquote>
+		<blockquote>No se encontraron proyectos para la OSC:  <?php echo escape($_GET["osc_nombre"]); ?>.</blockquote>
 	<?php } ?>
 
 <?php 
@@ -112,7 +112,7 @@ foreach ($res_np as $row_np) { ?>
 <!--
 		<td><?php echo escape($row["osc_nombre"]); ?></td>
 -->
-		<td> <input type="text" id="osc_nombre" name="osc_nombre" value=<?php echo escape($row["osc_nombre"]); ?> <?php echo ( 'readonly' ); ?> ></td>
+		<td> <input type="text" id="osc_nombre" name="osc_nombre" value="<?php echo escape($_GET["osc_nombre"]); ?>" <?php echo ( 'readonly' ); ?> ></td>
 		<td> <input type="text" id="p_num_corr_proy" name="p_num_corr_proy" value=<?php echo  escape ($row_np["p_num_corr_proy"] + 1 ) ; ?>  > </td>
 		<td> <input type="text" id="p_nombre_proy" name="p_nombre_proy"> </td>
 	</tbody>
