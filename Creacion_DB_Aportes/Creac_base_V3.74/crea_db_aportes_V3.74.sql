@@ -485,6 +485,9 @@ CREATE TABLE t_p_logs_estado_proy (
 	p_signif_fecha			VARCHAR(32) NOT NULL,
 	p_audio_cambio			VARCHAR (256) NOT NULL DEFAULT "N/D",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
+--
+	PRIMARY KEY  (id_truch),
 --
 -- ple= proyectos logs estado
 --
