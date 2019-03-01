@@ -109,7 +109,7 @@ try {
 <?php } ?>
 
 
-<a href="../index_ap_V1.4.php">Back to home</a>
+<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
 <?php require "../templates/footer_vol.php"; ?>
 
