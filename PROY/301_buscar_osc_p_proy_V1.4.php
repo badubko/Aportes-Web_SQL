@@ -61,9 +61,9 @@ if (isset($_POST['submit'])) {
 			<tr>
 				<td><?php echo escape($row["osc_nombre"]); ?></td>
 				<td><?php echo escape($row["osc_estado"]); ?></td>		
-				<td><a href="301_1_buscar_proy_de_osc_<?php echo escape($vers);?>.php
+				<td><a href="301_1_buscar_proy_osc_<?php echo escape($vers);?>.php
 				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-				">Buscar proy de OSC y/o crear uno nuevo</a></td>
+				">Ver proy de OSC o crear uno nuevo</a></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
