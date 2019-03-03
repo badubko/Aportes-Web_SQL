@@ -59,8 +59,8 @@
 					<th>Num Corr Proy</th>
 					<th>Nombre Proy</th>
 					<th>Estado Proy</th>			
-					<th>Modif Proyecto</th>
-					<th>Agregar tipo Proyecto</th>
+					<th>Modificar</th>
+					<th>Agregar tipo</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -70,7 +70,14 @@
 				<td><?php echo escape($row["p_num_corr_proy"]); ?></td>
 				<td><?php echo escape($row["p_nombre_proy"]); ?></td>
 				<td><?php echo escape($row["p_ultimo_estado"]); ?></td>
-
+				
+				<td><a href="./301_1_2_modif_proy_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+				&p_num_corr_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
+				&p_nombre_proy=<?php echo escape($row["p_nombre_proy"]); ?>">Este PROY</a></td>
+				
+				<td><a href="./301_1_3_lista_tipos_proy_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+				&p_num_corr_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
+				&p_nombre_proy=<?php echo escape($row["p_nombre_proy"]); ?>">para este PROY</a></td>
 			</tr>
 		<?php } ?> 
 			</tbody>
