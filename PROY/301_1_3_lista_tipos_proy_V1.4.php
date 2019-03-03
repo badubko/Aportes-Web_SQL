@@ -25,7 +25,7 @@ try {
   $osc_nombre = $_GET['osc_nombre'];
   $p_num_corr_proy = $_GET['p_num_corr_proy'];
   $p_nombre_proy = $_GET['p_nombre_proy'];
-  $sql = "SELECT p_num_corr_proy, p_tipo_proy , last_update FROM t_p_logs_tipo_proy WHERE p_num_corr_proy = :p_num_corr_proy ORDER BY last_update";
+  $sql = "SELECT p_num_corr_proy, p_tipo_proy , last_update, id_truch FROM t_p_logs_tipo_proy WHERE p_num_corr_proy = :p_num_corr_proy ORDER BY last_update";
 
   $statement = $connection->prepare($sql);
   $statement->bindParam(':p_num_corr_proy', $p_num_corr_proy, PDO::PARAM_STR);
@@ -45,9 +45,10 @@ try {
 
   <thead>
     <tr>
-      <th>OSC</th>
-      <th>Num Corr Proy</th>
-      <th>Nombre Proy</th>
+     
+      <th>Num Corr<br>Proy</th>
+      <th>Tipo Proy</th>
+      <th>Actualizado el</th>
       <th>Accion</th>
     </tr>
   </thead>
@@ -61,6 +62,7 @@ try {
         &p_num_corr_proy=<?php echo escape($row["p_num_corr_proy"]); ?>
         &p_nombre_proy=<?php echo escape($p_nombre_proy); ?>
         &p_tipo_proy=<?php echo escape($row["p_tipo_proy"]); ?>
+        &id_truch=<?php echo escape($row["id_truch"]); ?>
         ">Eliminar</a></td>
       </tr>
     <?php endforeach; ?>
@@ -73,12 +75,13 @@ try {
     <input id="espec" type="text">
 </p>
 -->
+        <br>
         <a href="301_1_3_1_agregar_tipo_proy<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($osc_nombre); ?>
         &p_num_corr_proy=<?php echo escape($p_num_corr_proy); ?>
         &p_nombre_proy=<?php echo escape($p_nombre_proy); ?>
         ">Agregar Nvo Tipo Proy</a>
-        
+<br>        
 <a href="<?php $_PHP_SELF ?>">Listar tipos del PROY</a>
-<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
+<br><br>
 <?php require "../templates/footer_proy.php"; ?>
