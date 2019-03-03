@@ -544,6 +544,9 @@ CREATE TABLE t_p_logs_tipo_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
 	p_tipo_proy		 		VARCHAR(16) NOT NULL DEFAULT "No Especificado",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
+--
+	PRIMARY KEY  (id_truch),
 --
 -- plt= proyectos logs tipo (proyecto)
 --
