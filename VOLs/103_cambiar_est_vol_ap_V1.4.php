@@ -1,3 +1,10 @@
+
+<head>
+<link rel="stylesheet" reference="text/css" href="../css/style.css" >
+</head>
+
+
+
 <?php
 
 /**
@@ -133,6 +140,6 @@ if (isset($_POST['submit'])) {
 	<input type="submit" name="submit" value="Buscar">
 </form>
 
-<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+<a href="../index_ap_V1.4.php">Back to home</a>
 
 <?php require "../templates/footer_vol.php"; ?>
