@@ -10,6 +10,7 @@
  * 
  * Buscar los proyectos de una OSC 
  * para ver detalles de un proyecto en particular
+ * Modificar proy o agregar tipo
  * o crear un nuevo proyecto
  */
 
@@ -27,9 +28,6 @@
 
 		$sql = "SELECT p_num_corr_proy, osc_nombre, p_nombre_proy , p_ultimo_estado FROM t_proyectos 
 				where osc_nombre LIKE :osc_nombre ORDER BY p_num_corr_proy";
-				
-		
-
 						
 		$osc_nombre = $_GET['osc_nombre'];				
 
@@ -44,7 +42,7 @@
 													}
 
  require "../templates/header_proy.php"; 
- require "../verificar_asign_V1.4.php";		
+ 	
 
 	if ($result && $statement->rowCount() > 0) { ?>
 
@@ -61,7 +59,8 @@
 					<th>Num Corr Proy</th>
 					<th>Nombre Proy</th>
 					<th>Estado Proy</th>			
-					<th>Elegir Proyecto</th>
+					<th>Modif Proyecto</th>
+					<th>Agregar tipo Proyecto</th>
 				</tr>
 			</thead>
 			<tbody>
