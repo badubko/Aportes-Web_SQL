@@ -69,7 +69,6 @@ if (isset($_POST['submit'])) {
 
     $sql2 = "UPDATE t_proyectos
             SET  
-					p_num_corr_proy = :p_num_corr_proy,
 					p_fecha_pre_proy = :p_fecha_pre_proy,
 					p_fecha_present_vol = :p_fecha_present_vol,
 					
@@ -81,7 +80,7 @@ if (isset($_POST['submit'])) {
 					
 					p_dup_si_no = :p_dup_si_no,
 					p_fecha_dup = :p_fecha_dup,
-					p_link_a_dup = :p_link_a_dup,
+					p_link_a_dup = :p_link_a_dup
     				
              WHERE p_num_corr_proy = :p_num_corr_proy";
              
@@ -96,20 +95,32 @@ if (isset($_POST['submit'])) {
   }
   
 if ( $statement && !$error) : ?>
+    <br>
 	<blockquote>
-	Proyecto: <?php echo escape($_GET['p_num_corr_proy'])  ?> Fue actualizado OK. <br>
+	Proyecto: <strong><?php echo escape($_GET['p_num_corr_proy']) ?></strong>  Nombre: <strong><?php echo escape($_GET['p_nombre_proy']) ?> </strong>  <br>
+	
+	de la OSC: <strong><?php echo escape($_GET['osc_nombre'])  ?> </strong>Fue actualizado OK. <br>
+	
 	</blockquote>
-	<a href="202_buscar_osc_<?php echo escape($vers);?>.php">Buscar otra OSC p/Actualizar</a> - Buscar otra OSC p/ Agregar o Actualizar datos	
-	<br><a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
-<?php endif;
+	
+<?php 
+		require "../templates/footer_proy.php"; 
+	endif;
 exit; 
 }
-
 ?>
 
-<h3>Modificar datos de un Proyecto de <?php echo escape($_GET['p_num_corr_proy'])?> </h3>
+<h3>Modificar datos de un Proyecto: </h3>
+<blockquote>
+Proyecto: <strong><?php echo escape($_GET['p_num_corr_proy']) ?></strong>  Nombre: <strong><?php echo escape($_GET['p_nombre_proy']) ?> </strong>  <br>
 
-<?php if ( $count != 0 ) { ?>
+de la OSC: <strong><?php echo escape($_GET['osc_nombre'])  ?> </strong><br>
+
+</blockquote>
+
+
+<?php if ( $count != 0 ) {
+	 $limit=1; ?>
 <form method="post">
 <table>
     <?php foreach ($proy as $key => $value) : ?>
@@ -121,16 +132,31 @@ exit;
 			case 'last_update':  
 	?>	
 			<tr>
-<!--
-				 <td><strong><?php echo escape (ucfirst(str_replace("p_","",$key))); ?></strong></td>
-				 <td><?php echo escape($value); ?></td> 
--->
-				<label for="<?php echo $key; ?>"><?php echo (ucfirst(str_replace("p_","",$key))); ?><br></label>    
+
+				<label for="<?php echo $key; ?>"><?php echo (ucfirst(preg_replace('/p_/','',$key,$limit))); ?><br></label>    
 				<input type="text" name="<?php echo $key; ?>" iden="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ( 'readonly' ); ?>><br>
 			</tr>	
 		   
 	<?php 	break;
-	
+			case 'p_dup_si_no': 
+			// Use esta construccion para hacer el Select de opciones pero tambien porque
+			// no descubri el funcionamiento de preg_replace... parece distinto de lo que conozco...
+			// no da para perder mas tiempo 
+	?>		
+
+			    <br>
+			    <label for="p_dup_si_no">Se hizo el DUP?</label><br>
+				<select name="p_dup_si_no">
+<!--
+				<option value=""selected hidden>Seleccione...</option>
+
+				<option value="<?php echo escape($value); ?>"selected></option>
+-->
+				<option value="<?php echo escape($value); ?>"><?php echo escape($value); ?></option>
+						<option value="Si">SI</option>
+						<option value="No">NO</option>
+				</select><br>
+	<?php 	break;
 			default: 
 	?>
 			<tr>
@@ -144,13 +170,11 @@ exit;
 </table>
 </form>
 	
-	<li><a href="202_1_4_asign_desasign_dcs_<?php echo escape($vers);?>.php
-				?osc_nombre=<?php echo escape($_GET["osc_nombre"]); ?>
-				">Ver o Asignar/Desasignar DCs</a> - Asignar o Desasignar DCs para OSC</li>
-	<li><a href="202_buscar_osc_<?php echo escape($vers);?>.php">Buscar otra OSC p/Actualizar</a> - Buscar otra OSC p/ Agregar o Actualizar datos</li>		
-	<br><a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
-<?php }  ?>	
+
+<?php } 
+ require "../templates/footer_proy.php"; 
+?> 
 
 
 
