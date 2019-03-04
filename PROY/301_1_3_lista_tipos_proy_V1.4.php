@@ -76,7 +76,7 @@ try {
 </p>
 -->
         <br>
-        <a href="301_1_3_1_agregar_tipo_proy<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($osc_nombre); ?>
+        <a href="301_1_3_1_agregar_tipo_proy_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($osc_nombre); ?>
         &p_num_corr_proy=<?php echo escape($p_num_corr_proy); ?>
         &p_nombre_proy=<?php echo escape($p_nombre_proy); ?>
         ">Agregar Nvo Tipo Proy</a>

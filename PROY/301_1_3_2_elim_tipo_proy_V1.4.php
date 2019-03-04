@@ -68,15 +68,11 @@ endif; ?>
 <form method="post">
 	<input type="submit" name="submit" value="Confirmar">
 </form>
-
+<br><br>
 <a href="./301_1_3_lista_tipos_proy_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($_GET['osc_nombre']); ?>
 				&p_num_corr_proy=<?php echo escape($_GET["p_num_corr_proy"]); ?>
 				&p_nombre_proy=<?php echo escape($_GET["p_nombre_proy"]); ?>">Listar tipos</a>
-				
-<a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo escape($_GET['osc_nombre']); ?>
-        ">Menu Administrar OSC</a><br> 	
-        			
-<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+<br>				
 
 
 <?php require "../templates/footer_proy.php"; ?>
