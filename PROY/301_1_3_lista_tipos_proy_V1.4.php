@@ -36,10 +36,15 @@ try {
   echo $sql . "<br>" . $error->getMessage();
 }
 ?>
-<?php require "../templates/header_vol.php"; ?>
+<?php require "../templates/header_proy.php"; ?>
         
 <h2>Actualizar los tipos del Proyecto</h2>
-<h3><?php echo escape($osc_nombre) , ", " , escape($p_num_corr_proy), ", " , escape($p_nombre_proy); ?></h3>
+<blockquote>
+Proyecto: <strong><?php echo escape($_GET['p_num_corr_proy']) ?></strong>  Nombre: <strong><?php echo escape($_GET['p_nombre_proy']) ?> </strong>  <br>
+
+de la OSC: <strong><?php echo escape($_GET['osc_nombre'])  ?> </strong><br>
+
+</blockquote>
 
 <table>
 
