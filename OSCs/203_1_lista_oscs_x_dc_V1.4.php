@@ -59,7 +59,7 @@ if (isset($_GET['dni_dc'])) {
 
 	if ($result_tit && $count_tit> 0) { ?>
 
-		<h3>Listar OSCs de: <?php echo escape($_GET['apellido']); ?>, <?php echo escape($_GET['nombres']); ?> </h3>
+		<h3>Listar OSCs de: <?php echo escape($_GET['dni_dc']); ?>, <?php echo escape($_GET['apellido']); ?>, <?php echo escape($_GET['nombres']); ?> </h3>
         <h4>Total OSCs como Titular : <?php echo escape($count_tit); ?><br></4>
 		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a><br><br>
 		
