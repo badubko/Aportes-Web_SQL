@@ -1,4 +1,8 @@
 
+<head>
+<link rel="stylesheet" reference="text/css" href="./css/style.css" >
+</head>
+
 <?php
 /**
  *
@@ -109,9 +113,9 @@ if (isset($_POST['submit01'])) {
 
 		
 <form method="post">
-		<label for="coment_desasign">Comentario DesAsignacion</label><br>
+		<label for="coment_desasign">Comentario DesAsignacion</label>
 		<input type="text" name="coment_desasign" id="coment_desasign"><br>
-		<label for="fecha_desasign">Fecha DesAsignacion</label><br>
+		<label for="fecha_desasign">Fecha DesAsignacion</label>
 		<input type="text" name="f_desasign" id="f_desasign" value= "<?php echo escape(date("Y-m-d")); ?>">	<br><br>	
         <input type="submit" name="submit01" value="DesAsignar" class="button">
 </form>
