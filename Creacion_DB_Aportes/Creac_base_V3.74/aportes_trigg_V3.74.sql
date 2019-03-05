@@ -2,8 +2,7 @@
 
 -- USE aportes_V3_74;
 
--- Trigger que inserta los logs de los cambios de DC Titular o Suplente de OSC
-
+-- ---------------------------------------------------------------------  
 
 -- ---------------------------------------------------------------------  
 DELIMITER $$
@@ -15,34 +14,22 @@ DELIMITER $$
 -- ND_Temp o De_Baja el DC1 o DC2 de la OSC pase a ser Lalo o sea el DP
 -- Por ahora dni= 000 010
 
+DROP TRIGGER IF EXISTS `after_t_logs_estado_user_update`;
+
 CREATE TRIGGER after_t_logs_estado_user_update 
     AFTER UPDATE ON t_logs_estado_user
 FOR EACH ROW
 BEGIN
     UPDATE t_users2
     SET 
-    dni = OLD.dni,
-     estado = NEW.estado,
-     last_update = NOW()
+		dni = OLD.dni,
+		estado = NEW.estado,
+		last_update = NOW()
      WHERE OLD.dni=NEW.dni ; 
-     
-     IF NEW.estado = 'De_Baja'
-     THEN
-		UPDATE t_osc 
-		SET 
-			NEW.osc_dc_tit = '1',
-			last_update = NOW()
-		WHERE osc_dc_tit = OLD.dni;
-			
-	 IF NEW.estado = 'De_Baja'
-     THEN
-		UPDATE t_osc 
-		SET 
-			NEW.osc_dc_supl = '2',
-			last_update = NOW()
-		WHERE osc_dc_supl = OLD.dni;	
-		
+    
 END$$
+
+DROP TRIGGER IF EXISTS `after_t_logs_estado_user_insert`;
 
 CREATE TRIGGER after_t_logs_estado_user_insert 
     AFTER INSERT ON t_logs_estado_user
@@ -54,6 +41,23 @@ BEGIN
      estado = NEW.estado,
      last_update = NOW()
      WHERE dni=NEW.dni ; 
+     
+      
+     IF NEW.estado = 'De_Baja'
+     THEN
+		UPDATE t_osc 
+		SET 
+			osc_dc_tit = '1',
+			last_update = NOW()
+		WHERE osc_dc_tit = NEW.dni;
+	 
+		UPDATE t_osc 
+		SET 
+			osc_dc_supl = '2',
+			last_update = NOW()
+		WHERE osc_dc_supl = NEW.dni;	
+	 END IF;	
+     
 END$$
 
 DELIMITER ;  
