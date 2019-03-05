@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 					  (apellido LIKE :apellido) AND
 					 ((estado != 'De_Baja') AND (estado != 'Asignado' )) AND 
 					 ((rol = 'Vol' ) OR (rol = 'VC') OR (rol = 'DC')) 
-						ORDER BY apellido;" ;				
+						ORDER BY apellido, nombres;" ;				
 							
 							
 		$apellido = $_POST['apellido'];
