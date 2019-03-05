@@ -275,12 +275,6 @@ CREATE TABLE t_osc (
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de los datos basicos de una OSC';  
 -- --------------------------------------------------------------------- 
--- ---------------------------------------------------------------------   
--- Inclusion script del Trigger que inserta los logs de los cambios de 
--- DC Titular o Suplente de OSC en t_osc_logs_dc
--- ---------------------------------------------------------------------  
-
-\. ./t_osc_dc_trigg_V3.74.sql
 
 -- -------------------------------------------------------------------------
 -- View para listar datos del DC Titular  
@@ -618,6 +612,22 @@ SHOW WARNINGS;
 -- SHOW WARNINGS;
 -- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- SHOW WARNINGS;
+
+--  -------------------------------------------------------------------
+-- Creacion de triggers desde scripts separados
+--  -------------------------------------------------------------------
+-- ---------------------------------------------------------------------   
+-- Inclusion script del Trigger que inserta los logs de los cambios de 
+-- DC Titular o Suplente de OSC en t_osc_logs_dc
+-- ---------------------------------------------------------------------  
+
+\. ./t_osc_dc_trigg_V3.74.sql
+
+--  -------------------------------------------------------------------
+-- Triggers generales
+--  -------------------------------------------------------------------
+
+\. ./aportes_trigg_V3.74.sql
 
 --  -------------------------------------------------------------------
 -- Valores de las tablas "Fijas"
