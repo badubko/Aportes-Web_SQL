@@ -68,9 +68,12 @@ HARDCODED !!!! yackkkkk !!!
 
 
 <?php if (isset($_POST['nuevo_proy']) && $statement && !$error){ ?>
-   OSC 	 : <?php echo $_POST['osc_nombre'] ?><br>
-   Numero Proy: <?php echo $_POST['p_num_corr_proy'] ?><br>
-   Nombre Proy: <?php echo $_POST['p_nombre_proy'] ?> <br>
+<blockquote>
+Proyecto: <strong><?php echo escape($_POST['p_num_corr_proy']) ?></strong>  Nombre: <strong><?php echo escape($_POST['p_nombre_proy']) ?> </strong>  <br>
+
+de la OSC: <strong><?php echo escape($_POST['osc_nombre'])  ?> </strong><br>
+
+</blockquote>
    Registrado en la base de Aportes.<br><br>
 
 <?php  
