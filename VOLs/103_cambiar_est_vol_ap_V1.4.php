@@ -20,23 +20,15 @@ if (isset($_POST['submit'])) {
 
 		$connection = new PDO($dsn, $username, $password, $options);
 
-		$sql = "SELECT
-						t_users1.dni, t_users1.apellido, t_users1.nombres
-				FROM    t_users1
-				WHERE
-					dni IN (			
-							SELECT dni 
-							FROM t_users2 
-						     WHERE ( ((estado != 'De_Baja') AND (estado != 'Asignado' )) AND ((rol = 'Vol' ) OR (rol = 'VC') ) 
-								AND dni IN
-								(SELECT dni
-									FROM t_users1 
-									WHERE apellido LIKE :apellido
-								)						     
-									)		
-				 
-							) ORDER by apellido;" ;
 
+			
+			$sql = "SELECT dni, apellido, nombres, rol, estado FROM us1_us2 WHERE 
+					  (apellido LIKE :apellido) AND
+					 ((estado != 'De_Baja') AND (estado != 'Asignado' )) AND 
+					 ((rol = 'Vol' ) OR (rol = 'VC') OR (rol = 'DC')) 
+						ORDER BY apellido;" ;				
+							
+							
 		$apellido = $_POST['apellido'];
 
 		$statement = $connection->prepare($sql);
@@ -59,9 +51,10 @@ if (isset($_POST['submit'])) {
 		<table>
 			<thead>
 				<tr>
-					<th>dni</th>
-					<th>apellido</th>
-					<th>nombre</th>
+					<th>DNI</th>
+					<th>Apellido</th>
+					<th>Nombres</th>
+					<th>ROL</th>
 					<th>Estado Act</th>
 					<th>Cambiar</th>
 <!--					
@@ -75,52 +68,15 @@ if (isset($_POST['submit'])) {
 				<td><?php echo escape($row["dni"]); ?></td>
 				<td><?php echo escape($row["apellido"]); ?></td>
 				<td><?php echo escape($row["nombres"]); ?></td>
-				
-				<?php
-					try {	
-						require "../config_ap_V1.4.php";
-						$dni_estado = $row["dni"] ;
-						$connection = new PDO($dsn, $username, $password, $options);
-						$sql_estado = "SELECT 	estado FROM t_users2 WHERE dni = :dni_estado" ;
-						$stat_estado = $connection->prepare($sql_estado);
-						$stat_estado->bindParam(':dni_estado', $dni_estado, PDO::PARAM_STR);
-						$stat_estado->execute();
-						$result_estado = $stat_estado->fetchAll();
-						} catch(PDOException $err_estado) {
-						// echo $sql_estado . "<br>" . $err_estado->getMessage();
-				?>
-						<td>No Disponible</td>
-						
-														<?php	}
-				?>
-<!--
-				<td><?php echo escape($dni_estado); ?></td>
--->
-				<?php foreach ($result_estado as $row_est ) { ?>
-					<td><?php echo $row_est["estado"] ; ?></td>
-				<?php											} ?>
-<!--					
-				<td><?php echo escape($row["profesion"]); ?></td>
-				<td><?php echo escape($row["email_1"]); ?></td>
-				<td><?php echo escape($row["email_2"]); ?></td>
-				<td><?php echo escape($row["last_update"]); ?></td>
-				<td><a href="modif_est_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>">Estado Vol</a></td>
--->
+				<td><?php echo escape($row["rol"]); ?></td>
+				<td><?php echo escape($row["estado"]); ?></td>
+
 				<td><a href="103_1_modif_est_vol_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
 				&apellido=<?php echo escape($row["apellido"]); ?>
 				&nombres=<?php echo escape($row["nombres"]); ?>
-				&est_act=<?php echo escape($row_est["estado"]); ?>
+				&est_act=<?php echo escape($row["estado"]); ?>
 				">Estado VOL</a></td>
-<!--				
-				<td><a href="update-single_restr_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
-				&apellido=<?php echo escape($row["apellido"]); ?>
-				&nombres=<?php echo escape($row["nombres"]); ?>
-				">RESTR VOL</a></td>
-				<td><a href="listar-esp_ap_<?php echo escape($vers);?>.php?dni=<?php echo escape($row["dni"]); ?>
-				&apellido=<?php echo escape($row["apellido"]); ?>
-				&nombres=<?php echo escape($row["nombres"]); ?>
-				">Espec</a></td>
--->				
+		
 			</tr>
 		<?php } ?> 
 			</tbody>
