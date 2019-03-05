@@ -7,7 +7,7 @@
 DELIMITER $$
 
 
-CREATE TRIGGER after_t_osc_update 
+CREATE TRIGGER after_t_osc_dc_update 
     AFTER UPDATE ON t_osc
 FOR EACH ROW
 BEGIN
@@ -49,7 +49,7 @@ BEGIN
 	END IF;			
 END;$$
 
-CREATE TRIGGER after_t_osc_insert 
+CREATE TRIGGER after_t_osc_dc_insert 
     AFTER INSERT ON t_osc
 FOR EACH ROW
 BEGIN
