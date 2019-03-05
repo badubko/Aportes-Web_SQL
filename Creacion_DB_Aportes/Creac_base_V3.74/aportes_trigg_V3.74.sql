@@ -48,12 +48,14 @@ BEGIN
 		UPDATE t_osc 
 		SET 
 			osc_dc_tit = '1',
+			osc_f_titular = CURRDATE(),
 			last_update = NOW()
 		WHERE osc_dc_tit = NEW.dni;
 	 
 		UPDATE t_osc 
 		SET 
 			osc_dc_supl = '2',
+			osc_f_supl = CURRDATE(),
 			last_update = NOW()
 		WHERE osc_dc_supl = NEW.dni;	
 	 END IF;	
