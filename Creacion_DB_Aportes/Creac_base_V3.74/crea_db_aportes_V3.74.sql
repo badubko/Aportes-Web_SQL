@@ -139,40 +139,40 @@ CREATE TABLE t_logs_estado_user (
   )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla registro del estado de un voluntario';
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------  
-DELIMITER $$
--- El estado del usuario se cambia en t_logs_estado_user
--- El trigger se encarga de modificarlo en la t_user2, poniendo el ultimo estado
--- del Vol
+-- DELIMITER $$
+-- -- El estado del usuario se cambia en t_logs_estado_user
+-- -- El trigger se encarga de modificarlo en la t_user2, poniendo el ultimo estado
+-- -- del Vol
 
--- Hay que escribir un trigger para el caso de que el VOL pase a estar 
--- ND_Temp o De_Baja el DC1 o DC2 de la OSC pase a ser Lalo o sea el DP
--- Por ahora dni= 000 010
+-- -- Hay que escribir un trigger para el caso de que el VOL pase a estar 
+-- -- ND_Temp o De_Baja el DC1 o DC2 de la OSC pase a ser Lalo o sea el DP
+-- -- Por ahora dni= 000 010
 
-CREATE TRIGGER after_t_logs_estado_user_update 
-    AFTER UPDATE ON t_logs_estado_user
-FOR EACH ROW
-BEGIN
-    UPDATE t_users2
-    SET 
-    dni = OLD.dni,
-     estado = NEW.estado,
-     last_update = NOW()
-     WHERE OLD.dni=NEW.dni ;  
-END$$
+-- CREATE TRIGGER after_t_logs_estado_user_update 
+    -- AFTER UPDATE ON t_logs_estado_user
+-- FOR EACH ROW
+-- BEGIN
+    -- UPDATE t_users2
+    -- SET 
+    -- dni = OLD.dni,
+     -- estado = NEW.estado,
+     -- last_update = NOW()
+     -- WHERE OLD.dni=NEW.dni ;  
+-- END$$
 
-CREATE TRIGGER after_t_logs_estado_user_insert 
-    AFTER INSERT ON t_logs_estado_user
-FOR EACH ROW
-BEGIN
-    UPDATE  t_users2
-    SET 
-     dni = NEW.dni,
-     estado = NEW.estado,
-     last_update = NOW()
-     WHERE dni=NEW.dni ; 
-END$$
+-- CREATE TRIGGER after_t_logs_estado_user_insert 
+    -- AFTER INSERT ON t_logs_estado_user
+-- FOR EACH ROW
+-- BEGIN
+    -- UPDATE  t_users2
+    -- SET 
+     -- dni = NEW.dni,
+     -- estado = NEW.estado,
+     -- last_update = NOW()
+     -- WHERE dni=NEW.dni ; 
+-- END$$
 
-DELIMITER ;  
+-- DELIMITER ;  
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 -- Nuevo formato de esta tabla, recuperando la idea anterior de 2 fechas
