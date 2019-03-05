@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 						dni, apellido, nombres, rol, tel_1, email_1,estado
 				FROM    us1_us2
 				WHERE
-				apellido LIKE :apellido AND (estado !='Be_baja' AND estado != 'ND_Temp' ) AND (rol='VC' OR rol='DC')
+				apellido LIKE :apellido AND (estado !='De_Baja' AND estado != 'ND_Temp' ) AND (rol='VC' OR rol='DC')
 				AND ( dni != :dni_tit_fict ) AND (dni != :dni_supl_fict )
 				ORDER BY rol , apellido;" ;
         
