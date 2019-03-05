@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 						dni, apellido, nombres, rol, tel_1, email_1,estado
 				FROM    us1_us2
 				WHERE
-				apellido LIKE :apellido AND (estado !='Be_baja' AND estado != 'ND_Temp' ) AND (rol='VC' OR rol='DC')
+				apellido LIKE :apellido AND (estado !='De_Baja' AND estado != 'ND_Temp' ) AND (rol='VC' OR rol='DC')
 				AND ( dni != :dni_tit_ant) AND ( dni != :dni_supl_ant) AND ( dni != :dni_tit_fict ) AND (dni != :dni_supl_fict )
 				ORDER BY rol , apellido;" ;
         
@@ -126,10 +126,18 @@ table, th, td {
 	
 	<?php } else { ?>
 		<blockquote>No se encontro ningun DC con:  <?php echo escape($_POST['apellido']); ?>.</blockquote>
+<!--
 		<a href="<?php $_PHP_SELF ?>
 		?osc_nombre=<?php echo escape($_GET['osc_nombre']); ?>
+		&dni_ant=<?php echo escape($_GET['dni']); ?>
+		&apellido_ant=<?php echo escape($_GET['apellido']); ?>
+		&nombres_ant=<?php echo escape($_GET['nombres']); ?>
 		&rol_dc=<?php echo escape($_GET['rol_dc']); ?> 
 		">Volver a Buscar</a><br><br>
+-->
+				<a href="202_1_4_asign_desasign_dcs_<?php echo escape($vers);?>.php
+				?osc_nombre=<?php echo escape($_GET["osc_nombre"]); ?>
+				"><strong>Ver o Asignar/Desasignar DCs</strong></a> -Volver a  Asignar o Desasignar DCs para OSC<br><br>
 	<?php } ?>
 
 <br>
