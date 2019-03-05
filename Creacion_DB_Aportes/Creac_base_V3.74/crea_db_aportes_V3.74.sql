@@ -280,7 +280,7 @@ CREATE TABLE t_osc (
 -- DC Titular o Suplente de OSC en t_osc_logs_dc
 -- ---------------------------------------------------------------------  
 
-\. ./t_osc_trigg_V3.74.sql
+\. ./t_osc_dc_trigg_V3.74.sql
 
 -- -------------------------------------------------------------------------
 -- View para listar datos del DC Titular  
