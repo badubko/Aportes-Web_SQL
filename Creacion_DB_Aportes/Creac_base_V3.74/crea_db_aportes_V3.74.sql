@@ -299,6 +299,8 @@ SELECT 	`t_osc`.`osc_nombre` AS `osc_nombre`,
  FROM (`t_users1` 
  INNER JOIN `aportes_V3_74`.`t_osc` ON((`t_users1`.`dni` = `t_osc`.`osc_dc_supl`))); 
 -- ---------------------------------------------------------------------
+
+-- -------------------------------------------------------------------------
 CREATE TABLE t_osc_objetivos (
 	osc_nombre 		VARCHAR (128) NOT NULL,
 	osc_objetivo 	VARCHAR (32) NOT NULL DEFAULT "Desconocido",
