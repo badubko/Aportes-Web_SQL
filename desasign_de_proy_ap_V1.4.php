@@ -48,16 +48,27 @@ if (isset($_POST['submit01'])) {
         $statement = $connection->prepare($sql);
         $statement->execute($new_asign);
       
-        echo "Listo". "<br>" ;
-        exit;
+        
     
     } catch(PDOException $error) {
        // echo $sql . "<br>" . $error->getMessage();
-        echo "Hubo un error en el update de: " , $_GET['apellido'] . "<br>" . $error->getMessage();
+        echo "Hubo un error en la desasignacion de: " , $_GET['apellido'] . "<br>" . $error->getMessage();
         exit;
     }
+
+if ( $statement && !$error ) { ?>
+    <blockquote>Desasignada/o de proyecto: <?php echo $_GET['p_num_corr_proy']; ?> </blockquote>
+    <br><br>
+    <a href="index_ap_V1.4.php">Back to home</a>
+<?php 							} 
+
+require "templates/footer.php"; 
+exit;
+
 }    
 ?>
+
+
 
 <?php  	require "./config_ap_V1.4.php";
 		require "./common_ap_V1.4.php";
