@@ -1,34 +1,34 @@
 -- Crea DCs
 
-Insert into t_users1 
-(`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
-Values
-('1000200','Kurlat','Miguel Pedro','Ingeniero','miguel.kurlat@gmail.com','N/D')
-;
-Insert into t_users2 
-(`dni`,`cuil`,`rol`)
-Values
-('1000200','N/D','DC')
-;
-Insert into t_especialidad_user 
-(`dni`,`especialidad`)
-Values
-('1000200','Procesos')
-;
-Insert into t_especialidad_user 
-(`dni`,`especialidad`)
-Values
-('1000200','Sistemas')
-;
-Insert into t_especialidad_user 
-(`dni`,`especialidad`)
-Values
-('1000200','Diagnostico')
-;
-Insert into t_logs_estado_user 
-(`dni`,`estado`)
-Values
-('1000200','Disponible')
+-- Insert into t_users1 
+-- (`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
+-- Values
+-- ('1000200','Kurlat','Miguel Pedro','Ingeniero','miguel.kurlat@gmail.com','N/D')
+-- ;
+-- Insert into t_users2 
+-- (`dni`,`cuil`,`rol`)
+-- Values
+-- ('1000200','N/D','DC')
+-- ;
+-- Insert into t_especialidad_user 
+-- (`dni`,`especialidad`)
+-- Values
+-- ('1000200','Procesos')
+-- ;
+-- Insert into t_especialidad_user 
+-- (`dni`,`especialidad`)
+-- Values
+-- ('1000200','Sistemas')
+-- ;
+-- Insert into t_especialidad_user 
+-- (`dni`,`especialidad`)
+-- Values
+-- ('1000200','Diagnostico')
+-- ;
+-- Insert into t_logs_estado_user 
+-- (`dni`,`estado`)
+-- Values
+-- ('1000200','Disponible')
 ;
 --
 Insert into t_users1 

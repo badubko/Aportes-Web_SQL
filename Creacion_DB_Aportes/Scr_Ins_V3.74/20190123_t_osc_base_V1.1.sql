@@ -329,3 +329,8 @@ INSERT INTO t_osc (`osc_nombre`,`osc_acuerdo`) VALUES ('SEMBRAR VALORES','PENDIE
 INSERT INTO t_osc (`osc_nombre`,`osc_acuerdo`) VALUES ('SUMANDO ARG.','N/D');
 INSERT INTO t_osc (`osc_nombre`,`osc_acuerdo`) VALUES ('UASI-LA CAVA','PENDIENTE');
 INSERT INTO t_osc (`osc_nombre`,`osc_acuerdo`) VALUES ('VERGEL','PENDIENTE');
+
+-- Faltantes agregados a mano...
+INSERT INTO t_osc (`osc_nombre`,`osc_acuerdo`) VALUES ('IPA','PENDIENTE');
+INSERT INTO t_osc (`osc_nombre`,`osc_acuerdo`) VALUES ('MI HUERTA','PENDIENTE');
+INSERT INTO t_osc (`osc_nombre`,`osc_acuerdo`) VALUES ('MIRADAS DE AMOR','PENDIENTE');
