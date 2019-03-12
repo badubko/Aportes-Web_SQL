@@ -91,7 +91,8 @@ if (isset($_POST['submit'])) {
 			</tbody>
 	</table>
 	<?php } else { ?>
-		<blockquote>No se encontro ningun Vol con:  <?php echo escape($_POST['apellido']); ?>.</blockquote>
+		<blockquote>No se encontro ningun Vol con apellido: "<?php echo escape($_POST['apellido']); ?>"</blockquote>
+		<blockquote>Con Rol:   Vol, VC o DC y    Estado != (De_Baja o Interno)</blockquote>
 	<?php } ?>
 
 <a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
