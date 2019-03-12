@@ -1,7 +1,11 @@
 
 <?php
 /**
- *
+ * 
+ * NOOO APLICA
+ * 
+ * OJJJJJOOOOO Este era para el modelo anterior de la t_hist_user_proy
+ * 
  * Desasignar un usuario a un proyecto
  * Buscar los proyectos a los cuales esta asignado el VOL
  *

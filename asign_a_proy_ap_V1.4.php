@@ -57,7 +57,8 @@ require "templates/header.php";
 			$log_estado = array(
             "dni"     				=> $_GET['dni'],
             "estado"				=> 'Asignado',
-            "consideraciones"  		=> $_POST['coment_asignac']
+            // "consideraciones"  		=> $_POST['coment_asignac']
+            "consideraciones"  => "Asignado a Proy: $_GET['num_proy']"
 								);
         $sql_log_estado = sprintf(
 									"INSERT INTO %s (%s) values (%s)",

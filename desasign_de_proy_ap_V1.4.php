@@ -6,7 +6,7 @@
 <?php
 /**
  *
- * asignar un usuario a un proyecto
+ * desasignar un usuario a un proyecto
  * 
  *
  */
