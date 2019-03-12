@@ -3,7 +3,7 @@
 -- USE aportes_V3_74;
 
 -- ---------------------------------------------------------------------  
-
+-- TRIGGERS de Voluntarios o (users...)
 -- ---------------------------------------------------------------------  
 DELIMITER $$
 -- El estado del usuario se cambia en t_logs_estado_user
@@ -63,6 +63,7 @@ BEGIN
 END$$
 
 DELIMITER ;  
+
 -- ---------------------------------------------------------------------
 -- Trigger que actualiza el estado a 'Disponible'
 -- en t_logs_estado_user
@@ -95,6 +96,83 @@ DECLARE TPROY INT;
 			VALUES 						(OLD.dni, 'Disponible', 'Quedo Disponible: Se desasigno de todos los proy');
 	 END IF;	
      
+END$$
+
+DELIMITER ;  
+
+-- ---------------------------------------------------------------------
+-- TRIGGERS de OSCs
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------  
+DELIMITER $$
+-- El estado de la osc se cambia en t_osc_logs_estado
+-- El trigger se encarga de modificarlo en la t_osc, poniendo el ultimo estado
+-- del Vol
+
+-- Nunca habra update sobre esta tabla.... Es un log asi que cada cambio es un insert
+-- ya que es precisamente el objetivo.
+
+CREATE TRIGGER after_t_osc_logs_estado_update 
+    AFTER UPDATE ON t_osc_logs_estado
+FOR EACH ROW
+BEGIN
+    UPDATE t_osc
+    SET 
+    osc_nombre= OLD.osc_nombre,
+     osc_estado = NEW.osc_estado,
+     last_update = NOW()
+     WHERE OLD.osc_nombre=NEW.osc_nombre;  
+END$$
+
+CREATE TRIGGER after_t_osc_logs_estado_insert 
+    AFTER INSERT ON t_osc_logs_estado
+FOR EACH ROW
+BEGIN
+    UPDATE t_osc
+    SET 
+		osc_nombre= NEW.osc_nombre,
+		osc_estado = NEW.osc_estado,
+		last_update = NOW()
+     WHERE osc_nombre=NEW.osc_nombre; 
+END$$
+
+DELIMITER ;  
+-- ---------------------------------------------------------------------
+-- TRIGGERS de Proyectos
+-- ---------------------------------------------------------------------
+-- El estado del proyecto se cambia en t_p_logs_estado_proy
+-- El trigger se encarga de modificarlo en la t_proyectos, poniendo el ultimo estado
+-- del proyecto. 
+-- Esto se hace para posibilitar la busqueda sencilla de los proy
+-- que solo estan En_Conversacion o En_Ejecucion... 
+-- (Los buenos en sql lo harian mejor...)
+
+-- Nunca habra update sobre esta tabla.... Es un log asi que cada cambio es un insert
+-- ya que es precisamente el objetivo. Igual por las dudas lo dejamos...
+
+DELIMITER $$
+CREATE TRIGGER after_t_p_logs_estado_proy_update 
+    AFTER UPDATE ON t_p_logs_estado_proy
+FOR EACH ROW
+BEGIN
+    UPDATE t_proyectos
+    SET 
+    p_num_corr_proy= OLD.p_num_corr_proy,
+    p_ultimo_estado = NEW.p_estado_proy,
+    last_update = NOW()
+    WHERE OLD.p_num_corr_proy=NEW.p_num_corr_proy;  
+END$$
+
+CREATE TRIGGER after_t_p_logs_estado_proy_insert 
+    AFTER INSERT ON t_p_logs_estado_proy
+FOR EACH ROW
+BEGIN
+    UPDATE t_proyectos
+    SET 
+		p_num_corr_proy= NEW.p_num_corr_proy,
+		p_ultimo_estado = NEW.p_estado_proy,
+		last_update = NOW()
+     WHERE p_num_corr_proy=NEW.p_num_corr_proy; 
 END$$
 
 DELIMITER ;  

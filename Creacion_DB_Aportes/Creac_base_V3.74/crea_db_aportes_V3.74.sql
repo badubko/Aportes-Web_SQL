@@ -379,39 +379,39 @@ CREATE TABLE t_osc_logs_estado (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de registro de la evolucion de los estados de una OSC';
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------  
-DELIMITER $$
--- El estado de la osc se cambia en t_osc_logs_estado
--- El trigger se encarga de modificarlo en la t_osc, poniendo el ultimo estado
--- del Vol
+-- DELIMITER $$
+-- -- El estado de la osc se cambia en t_osc_logs_estado
+-- -- El trigger se encarga de modificarlo en la t_osc, poniendo el ultimo estado
+-- -- del Vol
 
--- Nunca habra update sobre esta tabla.... Es un log asi que cada cambio es un insert
--- ya que es precisamente el objetivo.
+-- -- Nunca habra update sobre esta tabla.... Es un log asi que cada cambio es un insert
+-- -- ya que es precisamente el objetivo.
 
-CREATE TRIGGER after_t_osc_logs_estado_update 
-    AFTER UPDATE ON t_osc_logs_estado
-FOR EACH ROW
-BEGIN
-    UPDATE t_osc
-    SET 
-    osc_nombre= OLD.osc_nombre,
-     osc_estado = NEW.osc_estado,
-     last_update = NOW()
-     WHERE OLD.osc_nombre=NEW.osc_nombre;  
-END$$
+-- CREATE TRIGGER after_t_osc_logs_estado_update 
+    -- AFTER UPDATE ON t_osc_logs_estado
+-- FOR EACH ROW
+-- BEGIN
+    -- UPDATE t_osc
+    -- SET 
+    -- osc_nombre= OLD.osc_nombre,
+     -- osc_estado = NEW.osc_estado,
+     -- last_update = NOW()
+     -- WHERE OLD.osc_nombre=NEW.osc_nombre;  
+-- END$$
 
-CREATE TRIGGER after_t_osc_logs_estado_insert 
-    AFTER INSERT ON t_osc_logs_estado
-FOR EACH ROW
-BEGIN
-    UPDATE t_osc
-    SET 
-		osc_nombre= NEW.osc_nombre,
-		osc_estado = NEW.osc_estado,
-		last_update = NOW()
-     WHERE osc_nombre=NEW.osc_nombre; 
-END$$
+-- CREATE TRIGGER after_t_osc_logs_estado_insert 
+    -- AFTER INSERT ON t_osc_logs_estado
+-- FOR EACH ROW
+-- BEGIN
+    -- UPDATE t_osc
+    -- SET 
+		-- osc_nombre= NEW.osc_nombre,
+		-- osc_estado = NEW.osc_estado,
+		-- last_update = NOW()
+     -- WHERE osc_nombre=NEW.osc_nombre; 
+-- END$$
 
-DELIMITER ;  
+-- DELIMITER ;  
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
@@ -499,7 +499,6 @@ CREATE TABLE t_p_logs_estado_proy (
 	
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla que registra los cambios de estado de un proyecto';
 --  -------------------------------------------------------------------
-DELIMITER $$
 -- El estado del proyecto se cambia en t_p_logs_estado_proy
 -- El trigger se encarga de modificarlo en la t_proyectos, poniendo el ultimo estado
 -- del proyecto. 
@@ -509,32 +508,32 @@ DELIMITER $$
 
 -- Nunca habra update sobre esta tabla.... Es un log asi que cada cambio es un insert
 -- ya que es precisamente el objetivo. Igual por las dudas lo dejamos...
+-- DELIMITER $$
+-- CREATE TRIGGER after_t_p_logs_estado_proy_update 
+    -- AFTER UPDATE ON t_p_logs_estado_proy
+-- FOR EACH ROW
+-- BEGIN
+    -- UPDATE t_proyectos
+    -- SET 
+    -- p_num_corr_proy= OLD.p_num_corr_proy,
+    -- p_ultimo_estado = NEW.p_estado_proy,
+    -- last_update = NOW()
+    -- WHERE OLD.p_num_corr_proy=NEW.p_num_corr_proy;  
+-- END$$
 
-CREATE TRIGGER after_t_p_logs_estado_proy_update 
-    AFTER UPDATE ON t_p_logs_estado_proy
-FOR EACH ROW
-BEGIN
-    UPDATE t_proyectos
-    SET 
-    p_num_corr_proy= OLD.p_num_corr_proy,
-    p_ultimo_estado = NEW.p_estado_proy,
-    last_update = NOW()
-    WHERE OLD.p_num_corr_proy=NEW.p_num_corr_proy;  
-END$$
+-- CREATE TRIGGER after_t_p_logs_estado_proy_insert 
+    -- AFTER INSERT ON t_p_logs_estado_proy
+-- FOR EACH ROW
+-- BEGIN
+    -- UPDATE t_proyectos
+    -- SET 
+		-- p_num_corr_proy= NEW.p_num_corr_proy,
+		-- p_ultimo_estado = NEW.p_estado_proy,
+		-- last_update = NOW()
+     -- WHERE p_num_corr_proy=NEW.p_num_corr_proy; 
+-- END$$
 
-CREATE TRIGGER after_t_p_logs_estado_proy_insert 
-    AFTER INSERT ON t_p_logs_estado_proy
-FOR EACH ROW
-BEGIN
-    UPDATE t_proyectos
-    SET 
-		p_num_corr_proy= NEW.p_num_corr_proy,
-		p_ultimo_estado = NEW.p_estado_proy,
-		last_update = NOW()
-     WHERE p_num_corr_proy=NEW.p_num_corr_proy; 
-END$$
-
-DELIMITER ;  
+-- DELIMITER ;  
 -- ---------------------------------------------------------------------
 CREATE TABLE t_p_logs_tipo_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
