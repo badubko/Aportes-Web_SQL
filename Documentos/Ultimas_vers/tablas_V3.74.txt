@@ -1,0 +1,166 @@
++-------------+
+| t_users1 	  |
++-------------+
+| dni         |
+| apellido    |
+| nombres     |
+| profesion   |
+| email_1     |
+| email_2     |
+| last_update |
++-------------+
+
++--------------+
+| t_users2	   |
++--------------+
+| dni          |
+| cuil         |
+| rol          |
+| estado       |
+| comentarios  |
+| tel_1        |
+| tel_2        |
+| a_socio      |
+| status_socio |
+| f_ingreso    |
+| acuerdo      |
+| last_update  |
++--------------+
+
++-----------------+
+| t_hist_user_proy|
++-----------------+
+| dni             |
+| p_num_corr_proy |
+| tipo_evento     |
+| fecha_evento    |
+| last_update     |
+| coment_desemp   |
+| dni             |
+| p_num_corr_proy |
+| tipo_evento     |
+| fecha_evento    |
+| last_update     |
++-----------------+
+
++------------------+
+|t_logs_estado_user|
++------------------+
+| dni              |
+| estado           |
+| consideraciones  |
+| last_update      |
+| dni              |
+| estado           |
+| consideraciones  |
+| last_update      |
++------------------+
+
++-------------------+
+|t_especialidad_user|
++-------------------+
+| dni               |
+| especialidad      |
+| last_update       |
++-------------------+
+
+
+
+
+
+
+
++-------------+
+|t_profesiones|
++-------------+
+| profesion   |
++-------------+
+
++-------------+
+| profesion   |
++-------------+
+| Abogada     |
+| Abogado     |
+| Antropologa |
+| Antropologo |
+| Arquitecta  |
+| Arquitecto  |
+| Contador    |
+| Contadora   |
+| Ingeniera   |
+| Ingeniero   |
+| Lic RRHH    |
+| Lic RRPP    |
+| Medica      |
+| Medico      |
+| N/D         |
+| Otra        |
+| Sicologa    |
+| Sicologo    |
+| Sociologa   |
+| Sociologo   |
++-------------+
+
++----------------+
+|t_especialidades|
++----------------+
+| especialidad   |
++----------------+
+
++--------------------+
+| especialidad       |
++--------------------+
+| Administracion     |
+| Coaching           |
+| Comercial          |
+| Comunicacion       |
+| Contable           |
+| Diagnostico        |
+| Estrategia         |
+| Indicadores        |
+| Logistica          |
+| Negocios           |
+| Procesos           |
+| RRHH               |
+| Sistemas           |
++--------------------+
+
+
++-------+
+|t_roles|
++-------+
+| rol	|
++-------+
+
++---------+
+| rol     |
++---------+
+| Asist   |
+| Col     |
+| DC      |
+| DP      |
+| DPI     |
+| Interno |
+| PMO     |
+| VC      |
+| Vol     |
++---------+
+
++---------+
+|t_estados|
++---------+
+| estado  |
++---------+
+
++--------------+
+| estado       |
++--------------+
+| Asignado     |
+| Con_Restricc |
+| Desconoc     |
+| De_Baja      |
+| Disponible   |
+| ND_Temp      |
+| Puntual      |
++--------------+
+
