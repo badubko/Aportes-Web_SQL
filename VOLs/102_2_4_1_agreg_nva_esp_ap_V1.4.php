@@ -118,7 +118,7 @@ try {
         &apellido=<?php echo escape($apellido); ?>
         &nombres=<?php echo escape($nombres); ?>
         ">Listar Esp VOL</a>
-<a href="index_ap_<?php echo escape($vers);?>.php">Back to home</a>
+<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a>
 
 <?php require "../templates/footer_vol.php"; ?>
 

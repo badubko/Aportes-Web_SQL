@@ -19,6 +19,9 @@ $dni_supl_fict=2;
 $ap_supl_fict='Suplente';
 $nom_supl_fict='No Asignado';
 
+$f_min='2000-01-01';
+$f_max='2100-01-01';
+
 $vers        = "V1.4";
 $host       = "localhost";
 $username   = "root";
