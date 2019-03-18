@@ -112,19 +112,21 @@ DELIMITER $$
 -- Nunca habra update sobre esta tabla.... Es un log asi que cada cambio es un insert
 -- ya que es precisamente el objetivo.
 
-CREATE TRIGGER after_t_osc_logs_estado_update 
-    AFTER UPDATE ON t_osc_logs_estado
-FOR EACH ROW
-BEGIN
-    UPDATE t_osc
-    SET 
-    osc_nombre= OLD.osc_nombre,
-     osc_estado = NEW.osc_estado,
-     last_update = NOW()
-     WHERE OLD.osc_nombre=NEW.osc_nombre;  
-END$$
+-- DROP TRIGGER IF EXISTS `after_t_osc_logs_estado_update`;
+-- CREATE TRIGGER 			after_t_osc_logs_estado_update 
+    -- AFTER UPDATE ON t_osc_logs_estado
+-- FOR EACH ROW
+-- BEGIN
+    -- UPDATE t_osc
+    -- SET 
+    -- osc_nombre= OLD.osc_nombre,
+     -- osc_estado = NEW.osc_estado,
+     -- last_update = NOW()
+     -- WHERE OLD.osc_nombre=NEW.osc_nombre;  
+-- END$$
 
-CREATE TRIGGER after_t_osc_logs_estado_insert 
+DROP TRIGGER IF EXISTS `after_t_osc_logs_estado_insert`;
+CREATE TRIGGER 			after_t_osc_logs_estado_insert 
     AFTER INSERT ON t_osc_logs_estado
 FOR EACH ROW
 BEGIN
@@ -151,19 +153,22 @@ DELIMITER ;
 -- ya que es precisamente el objetivo. Igual por las dudas lo dejamos...
 
 DELIMITER $$
-CREATE TRIGGER after_t_p_logs_estado_proy_update 
-    AFTER UPDATE ON t_p_logs_estado_proy
-FOR EACH ROW
-BEGIN
-    UPDATE t_proyectos
-    SET 
-    p_num_corr_proy= OLD.p_num_corr_proy,
-    p_ultimo_estado = NEW.p_estado_proy,
-    last_update = NOW()
-    WHERE OLD.p_num_corr_proy=NEW.p_num_corr_proy;  
-END$$
 
-CREATE TRIGGER after_t_p_logs_estado_proy_insert 
+-- DROP TRIGGER IF EXISTS `after_t_p_logs_estado_proy_update`;
+-- CREATE TRIGGER 			after_t_p_logs_estado_proy_update 
+    -- AFTER UPDATE ON t_p_logs_estado_proy
+-- FOR EACH ROW
+-- BEGIN
+    -- UPDATE t_proyectos
+    -- SET 
+    -- p_num_corr_proy= OLD.p_num_corr_proy,
+    -- p_ultimo_estado = NEW.p_estado_proy,
+    -- last_update = NOW()
+    -- WHERE OLD.p_num_corr_proy=NEW.p_num_corr_proy;  
+-- END$$
+
+DROP TRIGGER IF EXISTS `after_t_p_logs_estado_proy_insert`;
+CREATE TRIGGER 			after_t_p_logs_estado_proy_insert 
     AFTER INSERT ON t_p_logs_estado_proy
 FOR EACH ROW
 BEGIN
@@ -176,3 +181,29 @@ BEGIN
 END$$
 
 DELIMITER ;  
+
+
+-- ---------------------------------------------------------------------
+-- Al agregar un nuevo proyecto en t_proyectos
+-- (INSERT en t_proyectos
+-- El estado de la OSC pasa a ser "En_Actividad"
+-- Se escribe en t_osc_logs_estado
+-- el cual es replicado en la t_osc por otro trigger...
+-- Por ahora el DNI de Lalo es 1000999 ya que es el creador del proyecto
+--
+
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS `after_t_proyectos_insert`;
+CREATE TRIGGER 			after_t_proyectos_insert 
+    AFTER INSERT ON t_proyectos
+FOR EACH ROW
+BEGIN
+
+    INSERT INTO t_osc_logs_estado	(osc_nombre, osc_estado, dni, osc_coment_estado)
+	VALUES 		(NEW.osc_nombre, 'En_Actividad', '1000999',CONCAT('Se creo el proy: ',NEW.p_num_corr_proy, ' para esta OSC y paso a estar En_Actividad'));
+    
+END$$
+
+DELIMITER ;  
+
