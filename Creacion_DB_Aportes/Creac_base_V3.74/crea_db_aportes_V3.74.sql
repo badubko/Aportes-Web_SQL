@@ -474,6 +474,7 @@ t_proyectos.p_nombre_proy  ,  t_proyectos.p_ultimo_estado
 FROM
 t_proyectos INNER JOIN t_hist_user_proy ON t_proyectos.p_num_corr_proy=t_hist_user_proy.p_num_corr_proy ;
 -- ---------------------------------------------------------------------
+--  -------------------------------------------------------------------
 CREATE TABLE t_p_logs_estado_proy (
 	p_num_corr_proy    		INT UNSIGNED NOT NULL,
 	p_estado_proy			VARCHAR(20) NOT NULL,
