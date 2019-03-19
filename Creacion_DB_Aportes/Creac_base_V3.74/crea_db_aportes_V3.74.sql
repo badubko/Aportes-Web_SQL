@@ -366,6 +366,10 @@ CREATE TABLE t_osc_logs_estado (
 	dni						INT UNSIGNED NOT NULL COMMENT "dni del autor del cambio de estado de la OSC",
 	osc_coment_estado		VARCHAR (256) DEFAULT "No Comments",
 	last_update 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
+--	
+--	
+	PRIMARY KEY  (id_truch),
 --
 	KEY 	idx_fk_logs_est_dni_autor(dni),
     CONSTRAINT 	fk_logs_est_dni_autor FOREIGN KEY (dni) REFERENCES t_users1(dni) ON DELETE RESTRICT ON UPDATE CASCADE,
