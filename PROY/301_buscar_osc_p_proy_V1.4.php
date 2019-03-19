@@ -65,8 +65,9 @@ if (isset($_POST['submit'])) {
 				<?php switch ($row["osc_estado"]) {
 						case 'Identificada':
 						case 'Contactada':?>
-				<td><a href="../OSCs/204_cambiar_est_osc<?php echo escape($vers);?>.php
-				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+				<td><a href="../OSCs/204_cambiar_est_osc_<?php echo escape($vers);?>.php
+				?osc_nombre=<?php echo $row["osc_nombre"]; ?>
+				&osc_estado=<?php echo $row["osc_estado"]; ?>
 				">Cambiar estado OSC </a></td>
 				
 				<?php	break;	
@@ -74,7 +75,7 @@ if (isset($_POST['submit'])) {
 						case 'En_Actividad': 		?>
 			
 						<td><a href="301_1_buscar_proy_osc_<?php echo escape($vers);?>.php
-						?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+						?osc_nombre=<?php echo $row["osc_nombre"]; ?>
 						">Ver proy de OSC o crear uno nuevo</a></td>
 				<?php	break;
 						}       ?> 
