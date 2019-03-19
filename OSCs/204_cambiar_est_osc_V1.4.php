@@ -56,6 +56,7 @@ if (isset($_POST['submit_est']) && $stmt && !$error){ ?>
     <blockquote><?php echo $_GET['osc_nombre'] ?> Actualizada.</blockquote><br>
     <td><a href="200_OSCs_<?php echo escape($vers);?>.php">Menu Principal OSC</a></td><br>
     <td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo $_GET['osc_nombre']; ?>
+				&osc_estado=<?php echo $_GET['osc_estado']; ?>
 				">Administrar OSC</a></td><br><br>
     <a href="../index_ap_V1.4.php">Back to home</a>
     
@@ -68,7 +69,7 @@ exit;
 // Buscamos los estados posibles a partir del estado actual
 try {	
 		require "../config_ap_V1.4.php";
-		require "../common_ap_V1.4.php";
+		require "../common1_ap_V1.4.php";
          
          
         $osc_estado = $_GET['osc_estado']; 
@@ -91,6 +92,10 @@ try {
 		echo $sql . "<br>" . $error->getMessage() ."<br>" . "Error imposible" ."<br>"  ;
 													}
 
+?>
+
+<?php
+include "../templates/header_osc.php"; 
 ?>
 
 <h3>Elegir un Nuevo estado para la OSC</h3>
@@ -118,8 +123,8 @@ try {
 			
 			<tbody>
 			  <tr>
-				<td><?php echo escape($_GET['osc_nombre']); ?></td>
-				<td><?php echo escape($_GET['osc_estado']); ?></td>	
+				<td><?php echo escape1($_GET['osc_nombre']); ?></td>
+				<td><?php echo escape1($_GET['osc_estado']); ?></td>	
 				<td>
 				<p>
 <!--
@@ -143,5 +148,5 @@ try {
 		</table>
 		
 </form>		
-<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a><br><br>		
+<a href="../index_ap_<?php echo escape1($vers);?>.php">Back to home</a><br><br>		
 <?php exit; ?>		
