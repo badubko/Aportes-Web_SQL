@@ -802,14 +802,19 @@ INSERT INTO `t_osc_cambios_estado` (`osc_estado_actual`, `osc_estado_proximo`) V
 ('Contactada','En_Conversacion'),
 
 ('En_Conversacion','Descartada'),
-('En_Conversacion','En_Actividad'),
 
-('En_Actividad','Descartada'),
-('En_Actividad','Inactiva'),
+--  Automatico cuando se crea un proyecto
+-- ('En_Conversacion','En_Actividad'),
 
-('Inactiva','Descartada'),
-('Inactiva','En_Actividad');
+--  Primero deberia pasar a Inactiva cuando se termina o cancelan los
+--  proyectos
+-- ('En_Actividad','Descartada'),
 
+-- Automatico cuando se terminan todos los proyectos
+-- ('En_Actividad','Inactiva'),
+
+-- ('Inactiva','En_Actividad'),
+('Inactiva','Descartada');
 -- ---------------------------------------------------------
 -- Proyectos
 -- ---------------------------------------------------------
