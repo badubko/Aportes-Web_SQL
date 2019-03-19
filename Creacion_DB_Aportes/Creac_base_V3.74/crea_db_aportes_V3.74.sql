@@ -64,8 +64,8 @@ CREATE TABLE t_users2 (
 -- ---------------------------------------------------------------------  
 
 CREATE VIEW us1_us2 AS
-SELECT 	t_users1.dni, t_users1.apellido, t_users1.nombres, t_users1.email_1,
-		t_users2.rol, t_users2.estado , t_users2.tel_1, t_users2.tel_2
+SELECT 	t_users1.dni, t_users1.apellido, t_users1.nombres, t_users1.email_1, t_users1.email_2,
+		t_users2.cuil, t_users2.rol, t_users2.estado , t_users2.tel_1, t_users2.tel_2, t_users2.a_socio, t_users2.status_socio, t_users2.f_ingreso, t_users2.acuerdo
 FROM
 t_users1 INNER JOIN t_users2 ON t_users1.dni=t_users2.dni ;
 -- ---------------------------------------------------------------------
@@ -432,7 +432,21 @@ CREATE TABLE t_osc_lista_objetivos (
 	osc_objetivo 			VARCHAR (32) NOT NULL DEFAULT "Desconocido",
 	PRIMARY KEY (osc_objetivo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lista de los posibles objetivos de una OSC';
+-- ---------------------------------------------------------------------
+-- ---------------------------------------------------------------------  
+CREATE TABLE t_osc_cambios_estado (
+  osc_estado_actual 	VARCHAR(16) NOT NULL,
+  osc_estado_proximo 	VARCHAR(16) NOT NULL,
+  id_truch				INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY  (id_truch)
+  -- Por ahora dejamos afuera estos indices para poder incluir el estado "Imposible"
+  -- KEY idx_fk_est_act (estado_actual),
+  -- CONSTRAINT fk_est_act FOREIGN KEY (estado_actual) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE,
+  -- KEY idx_fk_est_prox (estado_proximo),
+  -- CONSTRAINT fk_est_prox FOREIGN KEY (estado_proximo) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE  
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de relacion de los estados actual y proximo posible de una osc';
 
+-- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
 -- --------------------------------------------------------------------
 -- Tablas de los proyectos
@@ -780,6 +794,21 @@ INSERT INTO `t_osc_lista_objetivos` (`osc_objetivo`) VALUES
 ("Otro"),
 ('No Especificado');
 
+INSERT INTO `t_osc_cambios_estado` (`osc_estado_actual`, `osc_estado_proximo`) VALUES
+('Identificada','Contactada'),
+('Identificada','Descartada'),
+
+('Contactada','Descartada'),
+('Contactada','En_Conversacion'),
+
+('En_Conversacion','Descartada'),
+('En_Conversacion','En_Actividad'),
+
+('En_Actividad','Descartada'),
+('En_Actividad','Inactiva'),
+
+('Inactiva','Descartada'),
+('Inactiva','En_Actividad');
 
 -- ---------------------------------------------------------
 -- Proyectos
