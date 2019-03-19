@@ -74,8 +74,6 @@ DELIMITER ;
 -- 
 -- El estado se refleja tambien por otro trigger a t_users2
 --
--- No me quedo claro porque AND NEW.f_desasign = '2100-01-01' pero
--- asi funciona...
 -- ----------------------------------------------------------------------
 DELIMITER $$
 DROP TRIGGER IF EXISTS `after_t_hist_user_proy_update`;
