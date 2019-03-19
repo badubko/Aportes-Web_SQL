@@ -88,12 +88,13 @@ BEGIN
 DECLARE TPROY INT;
 
        SELECT COUNT(*) INTO TPROY FROM t_hist_user_proy 
---			WHERE dni = OLD.dni AND ( OLD.f_asignac > '2000-01-01' AND NEW.f_desasign = '2100-01-01' ) ;  
+
 			WHERE dni = OLD.dni AND ( f_asignac > '2000-01-01' AND f_desasign = '2100-01-01' ) ;  
      IF TPROY = 0
      THEN
-		INSERT INTO t_logs_estado_user	(dni, estado,consideraciones)
+			INSERT INTO t_logs_estado_user	(dni, estado,consideraciones)
 			VALUES 						(OLD.dni, 'Disponible', 'Quedo Disponible: Se desasigno de todos los proy');
+	 
 	 END IF;	
      
 END$$
