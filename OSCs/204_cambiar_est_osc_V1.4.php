@@ -53,7 +53,7 @@ if (isset($_POST['submit_est'])) {
 }
 
 if (isset($_POST['submit_est']) && $stmt && !$error){ ?>
-    <blockquote><?php echo $_GET['osc_nombre'] ?> Actualizada.</blockquote><br>
+    <blockquote>OSC: <strong><?php echo $_GET['osc_nombre'] ?></strong> Actualizada a estado: <strong><?php echo $_GET['osc_estado'] ?></strong></blockquote><br>
     <td><a href="200_OSCs_<?php echo escape($vers);?>.php">Menu Principal OSC</a></td><br>
     <td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo $_GET['osc_nombre']; ?>
 				&osc_estado=<?php echo $_GET['osc_estado']; ?>
