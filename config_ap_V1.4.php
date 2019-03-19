@@ -25,7 +25,7 @@ $f_max='2100-01-01';
 // El dni del DP por ahora hardcoded. En el futuro...
 // Solo DIOS sabe como sera...
 
-$dni_dp='1000999'
+$dni_dp='1000999';
 
 $vers        = "V1.4";
 $host       = "localhost";
