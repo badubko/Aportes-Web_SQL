@@ -60,10 +60,20 @@ if (isset($_POST['submit'])) {
 	<?php foreach ($result as $row) { ?>
 			<tr>
 				<td><?php echo escape($row["osc_nombre"]); ?></td>
-				<td><?php echo escape($row["osc_estado"]); ?></td>		
-				<td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php
-				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-				">Administrar datos OSC</a></td>
+				<td><?php echo escape($row["osc_estado"]); ?></td>
+				
+				<?php switch ($row["osc_estado"]) {
+				default:?>		
+					<td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php
+					?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
+					&osc_estado=<?php echo escape($row["osc_estado"]); ?>
+					">Administrar datos OSC</a></td>
+				<?php break;
+				case 'Descartada' ?>
+					<td>N/A: OSC Descartada</td>
+				<?php 
+				break;
+							} ?>
 			</tr>
 		<?php } ?> 
 			</tbody>
