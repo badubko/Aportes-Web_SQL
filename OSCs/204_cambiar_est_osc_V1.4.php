@@ -18,51 +18,53 @@
 if (isset($_POST['submit_est'])) {
 	try {	
 		require "../config_ap_V1.4.php";
-		
+		require "../common_ap_V1.4.php";
 
 		$connection = new PDO($dsn, $username, $password, $options);
    
         $osc_nombre = $_GET['osc_nombre'];
-		$osc_estado = $_GET['osc_estado'];
+		$osc_estado = $_POST['estado_nuevo'];
 		$osc_coment_estado = $_POST['osc_coment_estado'];
 		// dni del DP viene del config por ahora hardcoded.
 		$dni = $dni_dp;
 		
+		 $sql_est="INSERT INTO t_osc_logs_estado
+		 (osc_nombre, osc_estado, dni, osc_coment_estado) VALUES (:osc_nombre, :osc_estado, :dni, :osc_coment_estado);";
+
+		
 		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		// prepare sql and bind parameters
-		$stmt = $connection->prepare(" INSERT INTO t_logs_estado_user (dni, estado, consideraciones) VALUES (:dni, :estado, :consideraciones)");
-    $stmt->bindParam(':dni', $dni);
-    $stmt->bindParam(':estado', $estado);
-    $stmt->bindParam(':consideraciones', $consideraciones);
-    
-    // insertar nuevo estado
+		
+		$stmt = $connection->prepare($sql_est);
+		$stmt->bindParam(':osc_nombre', $osc_nombre, PDO::PARAM_STR);
+		$stmt->bindParam(':osc_estado', $osc_estado, PDO::PARAM_STR);
+		$stmt->bindParam(':dni', $dni, PDO::PARAM_STR);
+		$stmt->bindParam(':osc_coment_estado', $osc_coment_estado, PDO::PARAM_STR);
+		// insertar nuevo estado
 
-    $stmt->execute();
-    // $result = $stmt->fetchAll();
-    $e = "";
+		$stmt->execute();
+ 
+		$error = "";
 
-			
-			$sql = "SELECT dni, apellido, nombres, rol, estado FROM us1_us2 WHERE 
-					  (apellido LIKE :apellido) AND
-					 ((estado != 'De_Baja') AND (estado != 'Asignado' )) AND 
-					 ((rol = 'Vol' ) OR (rol = 'VC') OR (rol = 'DC')) 
-						ORDER BY apellido, nombres;" ;				
-							
-							
-		$apellido = $_POST['apellido'];
-
-		$statement = $connection->prepare($sql);
-		$statement->bindParam(':apellido', $apellido, PDO::PARAM_STR);
-		$statement->execute();
-
-		$result = $statement->fetchAll();
 	} catch(PDOException $error) {
-		echo $sql . "<br>" . $error->getMessage();
+		echo $sql_est . "<br>" . $error->getMessage();
 													}
 }
 
+if (isset($_POST['submit_est']) && $stmt && !$error){ ?>
+    <blockquote><?php echo $_GET['osc_nombre'] ?> Actualizada.</blockquote><br>
+    <td><a href="200_OSCs_<?php echo escape($vers);?>.php">Menu Principal OSC</a></td><br>
+    <td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo $_GET['osc_nombre']; ?>
+				">Administrar OSC</a></td><br><br>
+    <a href="../index_ap_V1.4.php">Back to home</a>
+    
+<?php 
+require "../templates/footer_osc.php"; 
+exit;
+} ?>
 
+<?php
 // Buscamos los estados posibles a partir del estado actual
 try {	
 		require "../config_ap_V1.4.php";
@@ -123,7 +125,7 @@ try {
 <!--
 					<label for="estado">Nuevo Estado</label> 
 -->
-					<select name="estado">
+					<select name="estado_nuevo">
 					<option value="">Seleccione...</option>
 					<?php foreach ($result as $est_pos) { ?>
 						<option value="<?php echo $est_pos["osc_estado_proximo"]; ?>"><?php echo $est_pos["osc_estado_proximo"]; ?></option>
