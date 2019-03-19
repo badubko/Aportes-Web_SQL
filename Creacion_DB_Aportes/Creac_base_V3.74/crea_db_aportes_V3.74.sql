@@ -444,7 +444,7 @@ CREATE TABLE t_osc_cambios_estado (
   -- CONSTRAINT fk_est_act FOREIGN KEY (estado_actual) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE,
   -- KEY idx_fk_est_prox (estado_proximo),
   -- CONSTRAINT fk_est_prox FOREIGN KEY (estado_proximo) REFERENCES t_estados (estado) ON DELETE RESTRICT ON UPDATE CASCADE  
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de relacion de los estados actual y proximo posible de una osc';
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de relacion de los estados actual y proximo posible de una OSC';
 
 -- ---------------------------------------------------------------------
 -- ---------------------------------------------------------------------
