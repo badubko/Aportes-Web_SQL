@@ -3,7 +3,9 @@
 /**
  * 
  * Buscar OSC por Nombre aproximado
- * Con estado = En_Actividad o = En_Conversacion (?)
+ * Con estado = En_Actividad  
+ * No aplica que este En_Conversacion (?) ya que en este estado no puede
+ * tener proyectos... OR  (osc_estado = 'En_Conversacion')
  * Se seleccionara OSC y se pasara a buscar los proyectos
  * de esa OSC
  * 
@@ -20,7 +22,7 @@ if (isset($_POST['submit'])) {
 						t_osc.osc_nombre, t_osc.osc_estado
 				FROM    t_osc
 				WHERE ((osc_nombre LIKE :osc)  AND 
-						( (osc_estado = 'En_Actividad') OR  (osc_estado = 'En_Conversacion'))
+						 (osc_estado = 'En_Actividad') 
 						) ORDER BY osc_nombre;" ;
 						
 		$osc = $_POST['osc'];				
