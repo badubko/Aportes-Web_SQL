@@ -57,8 +57,11 @@ if (isset($_POST['submit'])) {
 				</tr>
 			</thead>
 			<tbody>
-	<?php foreach ($result as $row) { ?>
-			<tr>
+	<?php foreach ($result as $row) { 
+		if ( $row["osc_estado"] != 'Descartada' )
+		{
+		?>
+				<tr>
 				<td><?php echo escape($row["osc_nombre"]); ?></td>
 				<td><?php echo escape($row["osc_estado"]); ?></td>	
 				
@@ -81,7 +84,9 @@ if (isset($_POST['submit'])) {
 						}       ?> 
 				
 			</tr>
-		<?php } ?> 
+		<?php 
+				}
+				} ?> 
 			</tbody>
 	</table>
 	<?php } else { ?>
