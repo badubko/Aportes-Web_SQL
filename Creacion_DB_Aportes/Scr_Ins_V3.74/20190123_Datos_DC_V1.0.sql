@@ -38,6 +38,23 @@ Insert into t_logs_estado_user
 Values
 ('2','Desconoc','Carga Inicial DC Suplente ficticio')
 ;
+- --------------------------------------------------------------
+Insert into t_users1 
+(`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
+Values
+('1000999','Eichel','Eduardo','Ingeniero','eduardo.eichel@aportesdegetion.org.ar','N/D')
+;
+Insert into t_users2 
+(`dni`,`cuil`,`rol`,`tel_1`,`tel_2`,`a_socio`,`f_ingreso`,`acuerdo`)
+Values
+('1000999','N/D','DP','+54-911-4416-8011','N/D','0000','2011-09-18','No')
+;
+
+Insert into t_logs_estado_user 
+(`dni`,`estado`,`consideraciones`)
+Values
+('1000999','Disponible','Carga Inicial DP')
+;
 -- -----------------------------------------------------------------------------
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
