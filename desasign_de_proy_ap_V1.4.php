@@ -24,7 +24,7 @@ if (isset($_POST['submit01'])) {
 
         $connection = new PDO($dsn, $username, $password, $options);
         
-        $f_max='2100-01-01';
+//        $f_max='2100-01-01';  Paso a config
 
         $new_asign =[
 					"dni"     				=> $_GET['dni'],

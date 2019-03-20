@@ -33,13 +33,13 @@ if (isset($_POST['submit'])) {
 													}
 }
 ?>
-<?php require "../templates/header_osc.php"; ?>
+<?php require "../templates/header_proy.php"; ?>
 		
 <?php  
 if (isset($_POST['submit'])) {
 	if ($result && $statement->rowCount() > 0) { ?>
 
-		<h3>Buscar OSC por nombre aproximado</h3>
+		<h3>Elegir OSC</h3>
 
 		<a href="../index_ap_<?php echo escape($vers);?>.php">Back to home</a><br><br>
 		
@@ -57,15 +57,36 @@ if (isset($_POST['submit'])) {
 				</tr>
 			</thead>
 			<tbody>
-	<?php foreach ($result as $row) { ?>
-			<tr>
+	<?php foreach ($result as $row) { 
+		if ( $row["osc_estado"] != 'Descartada' )
+		{
+		?>
+				<tr>
 				<td><?php echo escape($row["osc_nombre"]); ?></td>
-				<td><?php echo escape($row["osc_estado"]); ?></td>		
-				<td><a href="301_1_buscar_proy_osc_<?php echo escape($vers);?>.php
-				?osc_nombre=<?php echo escape($row["osc_nombre"]); ?>
-				">Ver proy de OSC o crear uno nuevo</a></td>
+				<td><?php echo escape($row["osc_estado"]); ?></td>	
+				
+				<?php switch ($row["osc_estado"]) {
+						case 'Identificada':
+						case 'Contactada':?>
+				<td><a href="../OSCs/204_cambiar_est_osc_<?php echo escape($vers);?>.php
+				?osc_nombre=<?php echo $row["osc_nombre"]; ?>
+				&osc_estado=<?php echo $row["osc_estado"]; ?>
+				">Cambiar estado OSC </a></td>
+				
+				<?php	break;	
+						case 'En_Conversacion': 	
+						case 'En_Actividad': 		?>
+			
+						<td><a href="301_1_buscar_proy_osc_<?php echo escape($vers);?>.php
+						?osc_nombre=<?php echo $row["osc_nombre"]; ?>
+						">Ver proy de OSC o crear uno nuevo</a></td>
+				<?php	break;
+						}       ?> 
+				
 			</tr>
-		<?php } ?> 
+		<?php 
+				}
+				} ?> 
 			</tbody>
 	</table>
 	<?php } else { ?>
@@ -87,7 +108,7 @@ exit;
 		
 
 <h3>Buscar OSC por nombre aproximado</h3>
-<h3>para para agregar o actualizar datos</h3>
+<h3>para para administrar proyectos</h3>
 
 <form method="post">
 	<label for="osc_nombre">OSC (A%  %A%  %)</label>
