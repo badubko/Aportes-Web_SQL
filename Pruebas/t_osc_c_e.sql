@@ -1,3 +1,5 @@
+USE aportes_V3_74;
+DROP TABLE IF EXISTS t_osc_cambios_estado;
 
 CREATE TABLE t_osc_cambios_estado (
   osc_estado_actual 	VARCHAR(16) NOT NULL,
