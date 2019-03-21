@@ -12,6 +12,7 @@
 /**
  * Use an HTML form to create a new entry in the
  * users2 table.
+ * Agrega los datos restringidos de un usuario.
  *
  */
 require "../config_ap_V1.4.php";
