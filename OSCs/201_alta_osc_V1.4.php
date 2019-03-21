@@ -53,10 +53,42 @@ if (isset($_POST['submit'])) {
 
 
 
-<?php if (isset($_POST['submit']) && $statement && !$error){ ?>
+<?php if (isset($_POST['submit']) && $statement && !$error){ 
+	try  {
+		
+		
+        $osc_nombre = $_POST['osc_nombre'];
+		$osc_estado = 'Identificada';
+		$osc_coment_estado = 'Estado Inicial al crear nueva OSC';
+		// dni del DP viene del config por ahora hardcoded.
+		$dni = $dni_dp;
+		
+		 $sql_est="INSERT INTO t_osc_logs_estado
+		 (osc_nombre, osc_estado, dni, osc_coment_estado) VALUES (:osc_nombre, :osc_estado, :dni, :osc_coment_estado);";
+		
+		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		// prepare sql and bind parameters
+		
+		$stmt = $connection->prepare($sql_est);
+		$stmt->bindParam(':osc_nombre', $osc_nombre, PDO::PARAM_STR);
+		$stmt->bindParam(':osc_estado', $osc_estado, PDO::PARAM_STR);
+		$stmt->bindParam(':dni', $dni, PDO::PARAM_STR);
+		$stmt->bindParam(':osc_coment_estado', $osc_coment_estado, PDO::PARAM_STR);
+		// insertar nuevo estado
+
+		$stmt->execute();
+ 
+		$error_est = "";
+
+			} catch(PDOException $error_est) {
+		echo $sql_est . "<br>" . $error_est->getMessage();
+													}
+	?>
     <blockquote><?php echo $_POST['osc_nombre'] ?> Registrada en la base de Aportes.</blockquote><br>
     <td><a href="200_OSCs_<?php echo escape($vers);?>.php">Menu Principal OSC</a></td><br>
     <td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo $_POST['osc_nombre']; ?>
+				&osc_estado=<?php echo $osc_estado; ?>
 				">Administrar OSC</a></td><br><br>
     <a href="../index_ap_V1.4.php">Back to home</a>
     
