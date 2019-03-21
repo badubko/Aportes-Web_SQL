@@ -43,7 +43,7 @@ CREATE TABLE t_users2 (
   tel_2 VARCHAR (20) NULL DEFAULT "N/D",
   a_socio YEAR NOT NULL DEFAULT "0000",
   status_socio ENUM ('Si', 'No', 'Declino') DEFAULT 'No',
-  f_ingreso DATE NOT NULL DEFAULT "2004-01-01",
+  f_ingreso DATE NOT NULL DEFAULT "2006-01-01",
   acuerdo ENUM ('Si','No','N/D','N/A') DEFAULT "N/A",
   last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   
