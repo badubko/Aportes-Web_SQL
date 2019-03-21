@@ -87,7 +87,7 @@ require "../config_ap_V1.4.php";
 			$osc_estado = $estado["osc_estado"];
 		}
 //        echo $osc_estado . " " . $result_est .  "<br>";
-         echo $osc_estado .  "<br>";
+//         echo $osc_estado .  "<br>";
    
 } catch(PDOException $error) {
 		echo $sql_est_act . "<br>" . $error->getMessage() ."<br>" . "Error imposible" ."<br>"  ;
