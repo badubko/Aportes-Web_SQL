@@ -53,10 +53,10 @@ if (isset($_POST['submit_est'])) {
 }
 
 if (isset($_POST['submit_est']) && $stmt && !$error){ ?>
-    <blockquote>OSC: <strong><?php echo $_GET['osc_nombre'] ?></strong> Actualizada a estado: <strong><?php echo $_GET['osc_estado'] ?></strong></blockquote><br>
+    <blockquote>OSC: <strong><?php echo $_GET['osc_nombre'] ?></strong> Actualizada a estado: <strong><?php echo $osc_estado ?></strong></blockquote><br>
     <td><a href="200_OSCs_<?php echo escape($vers);?>.php">Menu Principal OSC</a></td><br>
     <td><a href="202_1_admin_osc_<?php echo escape($vers);?>.php?osc_nombre=<?php echo $_GET['osc_nombre']; ?>
-				&osc_estado=<?php echo $_GET['osc_estado']; ?>
+				
 				">Administrar OSC</a></td><br><br>
     <a href="../index_ap_V1.4.php">Back to home</a>
     
@@ -66,13 +66,41 @@ exit;
 } ?>
 
 <?php
+
+// Buscar el estado actual de la OSC 
+try {
+require "../config_ap_V1.4.php";
+	$osc_nombre = $_GET['osc_nombre'];	
+	$sql_est_act = "SELECT
+					osc_estado
+					FROM    t_osc
+					WHERE 	osc_nombre = :osc_nombre  ;" ;
+		$connection = new PDO($dsn, $username, $password, $options);
+		$statement = $connection->prepare($sql_est_act);
+		$statement->bindParam(':osc_nombre', $osc_nombre, PDO::PARAM_STR);
+		$statement->execute();
+
+		$result_est = $statement->fetchAll();
+		$error = "";
+		
+		foreach ($result_est as $estado) {
+			$osc_estado = $estado["osc_estado"];
+		}
+//        echo $osc_estado . " " . $result_est .  "<br>";
+         echo $osc_estado .  "<br>";
+   
+} catch(PDOException $error) {
+		echo $sql_est_act . "<br>" . $error->getMessage() ."<br>" . "Error imposible" ."<br>"  ;
+		exit;											}
+		
+
 // Buscamos los estados posibles a partir del estado actual
 try {	
 		require "../config_ap_V1.4.php";
 		require "../common1_ap_V1.4.php";
          
          
-        $osc_estado = $_GET['osc_estado']; 
+//        $osc_estado = $_GET['osc_estado']; 
         $osc_nombre = $_GET['osc_nombre'];	
         
 		$connection = new PDO($dsn, $username, $password, $options);
@@ -124,7 +152,7 @@ include "../templates/header_osc.php";
 			<tbody>
 			  <tr>
 				<td><?php echo escape1($_GET['osc_nombre']); ?></td>
-				<td><?php echo escape1($_GET['osc_estado']); ?></td>	
+				<td><?php echo $osc_estado; ?></td>	
 				<td>
 				<p>
 <!--
