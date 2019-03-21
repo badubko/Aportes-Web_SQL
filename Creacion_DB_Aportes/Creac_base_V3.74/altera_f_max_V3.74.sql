@@ -2,6 +2,7 @@
 -- sin tener que regenerar la tabla o la base
 -- El valor de la fecha deberia coincidir con la f_max en config
 
+
 USE aportes_V3_74;
 SET @FE = '2100-01-01';
 SELECT @FE;
