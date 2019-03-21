@@ -32,7 +32,7 @@ require "../common_ap_V1.4.php";
 				
 		<li><a href="204_cambiar_est_osc_<?php echo escape($vers);?>.php
 				?osc_nombre=<?php echo escape($_GET["osc_nombre"]); ?>
-				&osc_estado=<?php echo escape($_GET["osc_estado"]); ?>
+				
 				"><strong>Cambiar estado OSC</strong></a> - Cambiar el estado de la OSC (Limitado)</li><br>
 		
 		<li><a href="202_buscar_osc_<?php echo escape($vers);?>.php"><strong>Buscar otra OSC p/Actualizar</strong></a> - Buscar otra OSC p/ Agregar o Actualizar datos</li><br>
