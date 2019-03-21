@@ -75,7 +75,8 @@ END;$$
 		-- END IF;
 		
 -- En el futuro el dni del autor del cambio deberia seleccionarse previamente...
--- Este trigger no es valido... se pisa con el otro...
+
+-- -->>>> Este trigger no es valido... se pisa con el otro...
 -- DECLARE DNI_DP INT; 
 --		SELECT dni INTO DNI_DP FROM t_users2 WHERE rol = 'DP' LIMIT 1;
 		    
