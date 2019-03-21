@@ -4,7 +4,9 @@
 require "../config_ap_V1.4.php";
 require "../common_ap_V1.4.php";
 
-$f_default='2014-01-01'; 
+// Viene de config
+// $f_default='2014-01-01'; 
+
 $estado_inic='Pre-Proyecto';
 
 ?>
@@ -124,7 +126,7 @@ exit;
 		<input type="text" name="p_nombre_proy" id="p_nombre_proy" value="<?php echo escape($_POST["p_nombre_proy"]); ?>"><br><br>
 	
 	<label for="p_fecha_pre_proy">Fecha Pre-proyecto</label><br>
-		<input type="text" name="p_fecha_pre_proy" id="p_fecha_pre_proy" value="<?php echo escape($f_default); ?>"><br><br>		
+		<input type="text" name="p_fecha_pre_proy" id="p_fecha_pre_proy" value="<?php echo escape(date("Y-m-d"));?>"><br><br>		
 		
 	<label for="p_fecha_present_vol">Fecha Present VOLs</label><br>
 		<input type="text" name="p_fecha_present_vol" id="p_fecha_present_vol" value="<?php echo escape($f_default); ?>"><br><br>		

@@ -22,6 +22,8 @@ $nom_supl_fict='No Asignado';
 $f_min='2000-01-01';
 $f_max='2100-01-01';
 
+$f_default='2100-01-01';
+
 // El dni del DP por ahora hardcoded. En el futuro...
 // Solo DIOS sabe como sera...
 
