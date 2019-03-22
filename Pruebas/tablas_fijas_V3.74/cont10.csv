@@ -1,0 +1,8 @@
+osc_estado_actual,osc_estado_proximo,id_truch
+Identificada,Contactada,1
+Identificada,Descartada,2
+Contactada,Descartada,3
+Contactada,En_Conversacion,4
+En_Conversacion,Descartada,5
+Inactiva,Descartada,9
+Inactiva,En_Actividad,10

@@ -1,0 +1,20 @@
+p_estado_proy,p_signif_fecha,p_color_estado,,,
+Cancelado,"Fecha cancelacion",Negro,,,
+En_Ejecucion,"Fecha prox reun",Verde,,,
+En_Implementacion,"Fecha estim fin implement",Verde,,,
+Pre-Proyecto,"Fecha sig reun",Verde,,,
+Suspendido,"Fecha estim reanudac",Rojo,,,
+Terminado,"Fecha terminac",Azul,,,
+,,,,,
+p_tipo_proy,,,,p_result_reun,p_color_reun
+Administracion,,,,"Accion ASAP",Naranja
+Contable,,,,Normal,Verde
+Estrategia,,,,Postergada,Amarillo
+Financiero,,,,,
+Governance,,,,,
+Interno,,,,,
+"Negocio Social",,,,,
+"No Especificado",,,,,
+Procesos,,,,,
+RRHH,,,,,
+Sistemas,,,,,

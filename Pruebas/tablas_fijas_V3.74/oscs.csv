@@ -1,0 +1,20 @@
+osc_objetivo,,osc_estado,,osc_rol_dc
+Adicciones,,Contactada,,Des-Asignado
+Alimentos,,Descartada,,No_Asignado
+Beneficencia,,Desconocido,,Suplente
+Caridad,,En_Actividad,,Titular
+Comunicacion,,En_Conversacion,,
+Comunidad,,Identificada,,
+Discapacidad,,Inactiva,,
+Educacion,,,,
+Infancia,,,,
+Informatica,,,,
+Integracion,,osc_estado_actual,osc_estado_
+Proximo,
+"Medio Ambiente",,Identificada,Contactada,
+"Mejora de la Gestion",,Identificada,Descartada,
+"No Especificado",,Contactada,Descartada,
+Otro,,Contactada,En_Conversacion,
+Salud,,En_Conversacion,Descartada,
+"Tercera Edad",,Inactiva,Descartada,
+,,Inactiva,En_Actividad,

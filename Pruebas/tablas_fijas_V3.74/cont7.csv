@@ -1,0 +1,19 @@
+estado_actual,estado_proximo,id_truch
+Disponible,Con_Restricc,1
+Disponible,Puntual,2
+Disponible,ND_Temp,3
+Disponible,De_Baja,4
+Asignado,"Cambio Imposib",5
+Con_Restricc,Disponible,6
+Con_Restricc,Puntual,7
+Con_Restricc,ND_Temp,8
+Con_Restricc,De_Baja,9
+Puntual,Disponible,10
+Puntual,Con_Restricc,11
+Puntual,ND_Temp,12
+Puntual,De_Baja,13
+ND_Temp,Disponible,14
+ND_Temp,Con_Restricc,15
+ND_Temp,Puntual,16
+ND_Temp,De_Baja,17
+De_Baja,"Cambio Imposib",18
