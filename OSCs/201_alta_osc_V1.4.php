@@ -55,7 +55,8 @@ if (isset($_POST['submit'])) {
 
 <?php if (isset($_POST['submit']) && $statement && !$error){ 
 	try  {
-		
+		// Actualizalizamos el estado de la OSC como identificada que es el 
+		// Estado inicial.
 		
         $osc_nombre = $_POST['osc_nombre'];
 		$osc_estado = 'Identificada';
