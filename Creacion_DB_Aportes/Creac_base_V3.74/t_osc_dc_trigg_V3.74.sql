@@ -4,6 +4,9 @@
 
 -- Trigger que inserta los logs de los cambios de DC Titular o Suplente de OSC
 
+
+-- Incluido en triggers generales
+
 DELIMITER $$
 
 
