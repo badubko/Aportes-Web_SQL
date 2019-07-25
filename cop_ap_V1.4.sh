@@ -1,7 +1,7 @@
 # !/bin/bash
 
 HOST=$(hostname)
-if [ ${HOST} != "badubko-Ub160403GN" ]
+if [ ${HOST} != "badubko-Ub160403GN"  ||  ${HOST} != "deb9-s10" ]
 then
  echo "Estas en el host equivocado!: ${HOST}"
  exit

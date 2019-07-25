@@ -640,8 +640,9 @@ SHOW WARNINGS;
 -- Inclusion script del Trigger que inserta los logs de los cambios de 
 -- DC Titular o Suplente de OSC en t_osc_logs_dc
 -- ---------------------------------------------------------------------  
+-- Incluido en triggers generales
 
-\. ./t_osc_dc_trigg_V3.74.sql
+-- \. ./t_osc_dc_trigg_V3.74.sql
 
 --  -------------------------------------------------------------------
 -- Triggers generales
@@ -657,6 +658,7 @@ INSERT INTO `t_profesiones` (`profesion`) VALUES
 ('Abogado'),
 ('Antropologa'),
 ('Antropologo'),
+('Analista Univ Sistemas'),
 ('Arquitecta'),
 ('Arquitecto'),
 ('Contador'),
