@@ -38,7 +38,7 @@ Insert into t_logs_estado_user
 Values
 ('2','Desconoc','Carga Inicial DC Suplente ficticio')
 ;
-- --------------------------------------------------------------
+-- --------------------------------------------------------------
 Insert into t_users1 
 (`dni`,`apellido`,`nombres`,`profesion`,`email_1`,`email_2`)
 Values

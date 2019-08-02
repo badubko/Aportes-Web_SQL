@@ -214,14 +214,14 @@ Values
 ('5315515','Cabo','Celia','celia.cabo@yahoo.com.ar','N/D')
 ;
 Insert into t_users2 
-(`dni`,`cuil`)
+(`dni`,`cuil`, `rol`)
 Values
-('5315515','N/D')
+('5315515','N/D', 'Interno' )
 ;
 Insert into t_logs_estado_user 
 (`dni`,`estado`,`consideraciones`)
 Values
-('5315515','Interno',"Carga inicial")
+('5315515','Disponible',"Carga inicial")
 ;
 -- --------------------------------------------------------------
 Insert into t_users1 
@@ -364,9 +364,9 @@ Values
 ('4514672','Cortes','Eduardo','ecortes229@hotmail.com','N/D')
 ;
 Insert into t_users2 
-(`dni`,`cuil`)
+(`dni`,`cuil`, `rol`)
 Values
-('4514672','N/D')
+('4514672','N/D', 'Interno')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -376,7 +376,7 @@ Values
 Insert into t_logs_estado_user 
 (`dni`,`estado`,`consideraciones`)
 Values
-('4514672','Interno',"Carga inicial")
+('4514672','Disponible',"Carga inicial")
 ;
 -- --------------------------------------------------------------
 Insert into t_users1 
@@ -845,9 +845,9 @@ Values
 ('17812861','Gaston','Laura','gastonlaura@hotmail.com','N/D')
 ;
 Insert into t_users2 
-(`dni`,`cuil`)
+(`dni`,`cuil`, `rol` )
 Values
-('17812861','N/D')
+('17812861','N/D' , 'Interno')
 ;
 Insert into t_especialidad_user 
 (`dni`,`especialidad`)
@@ -867,7 +867,7 @@ Values
 Insert into t_logs_estado_user 
 (`dni`,`estado`,`consideraciones`)
 Values
-('17812861','Interno',"Carga inicial")
+('17812861','Asignado',"Carga inicial")
 ;
 -- --------------------------------------------------------------
 Insert into t_users1 
@@ -2283,14 +2283,14 @@ Values
 ('10260310','Spielmann','Susana Ines','susyspielmann@gmail.com','N/D')
 ;
 Insert into t_users2 
-(`dni`,`cuil`)
+(`dni`,`cuil`, `rol`)
 Values
-('10260310','27-10260310-4')
+('10260310','27-10260310-4','Interno')
 ;
 Insert into t_logs_estado_user 
 (`dni`,`estado`,`consideraciones`)
 Values
-('10260310','Interno',"Carga inicial")
+('10260310','Disponible',"Carga inicial")
 ;
 -- --------------------------------------------------------------
 Insert into t_users1 
